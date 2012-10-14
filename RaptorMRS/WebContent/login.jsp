@@ -13,7 +13,8 @@
 <h1> RaptorMRS </h1>
 	<ul><li><a>Home</a></li>
 <li><a>Find or Add Patient</a></li>
-<li><a>Admin</a></li></ul>
+<li><a>Admin</a></li>
+<li><a>Inventory</a></ul>
 		<h:form>
 <h:panelGrid columns="2">
 <h:outputLabel value="Username: "></h:outputLabel><h:inputText value="#{userInterfaceBean.username}"></h:inputText>
