@@ -19,7 +19,7 @@ public class UserInterface {
 	  public void setPassword(String password) {
 		    this.password = password;
 	  }
-	  public String getloginAttemptResult() {
+	  public String getLoginAttemptResult() {
 		    return loginAttemptResult;
 		  }
 	  public void setloginAttemptResult(String loginAttemptResult) {
