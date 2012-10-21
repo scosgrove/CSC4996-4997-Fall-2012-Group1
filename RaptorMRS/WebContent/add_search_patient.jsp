@@ -7,16 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+
 	<link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css">
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-<script>
-	$(function() {
-		$(".tabs").tabs();
-	});
-</script>
+
 <title>Search or Add a Patient</title>
 </head>
 <body>
@@ -26,71 +21,24 @@
 		
 		
 		<h:form>
-			<h2><br><br><br>Find Patient(s)</h2>
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Patient Identifier or Patient Name: "></h:outputLabel>
-				<h:inputText></h:inputText>
-
-			</h:panelGrid>
-			<div id="panel3">//if multiple results display table showing all results with patient identification information so user can select correct patient
+		<div class="container">
+			<div class="left" style="width:200px">
+			<img src="http://localhost:8080/RaptorMRS/faces/recent.png" /><br><a href="add_photo_page">New Photo...</a>
 			</div>
-		</h:form><div id="panel1">//display if patient not found
-		<h2>Create Patient</h2>
-		<div class="tabs">
-			<ul>
-				<li><a href="#tab1">Simple Entry</a></li>
-				<li><a href="#tab2">Advanced Entry</a></li>
-
-			</ul>
-			<div id="tab1">
+	
+				<div class="right">
 			
-				<h:form>
-					<h:panelGrid columns="2">
-						<h:outputLabel value="Person Name "></h:outputLabel>
-						<h:inputText></h:inputText>
-					</h:panelGrid>
-					<h:panelGrid columns="4">
-						<h:outputLabel value="Birthdate "></h:outputLabel>
-						<h:inputText></h:inputText>
-						<h:outputLabel value="or Age "></h:outputLabel>
-						<h:inputText></h:inputText>
-					</h:panelGrid>
-					<h:panelGrid columns="2">
-						<h:outputLabel value="Gender "></h:outputLabel>
-						<h:selectOneRadio>
-							<f:selectItem itemLabel="Male" />
-							<f:selectItem itemLabel="Female" />
-						</h:selectOneRadio>
-					</h:panelGrid>
-
-					<h:panelGrid columns="1">
-						<h:commandButton value="Create Person"></h:commandButton>
-					</h:panelGrid>
-				</h:form>
-			</div>
-			<div id="tab2">
-				<h:form>
-				<h3>
-							<h:outputLabel value="Person Name"></h:outputLabel>
-						</h3>
 					<h:panelGrid columns="7">
 						
-						<h:outputLabel value="Given"></h:outputLabel>
+						<h:outputLabel value="Name: "></h:outputLabel>
 						<h:inputText></h:inputText>
-						<h:outputLabel value="Middle "></h:outputLabel>
-						<h:inputText></h:inputText>
-						<h:outputLabel value="Family Name "></h:outputLabel>
-						<h:inputText></h:inputText>
-					</h:panelGrid>
-					<h:panelGrid columns="2">
-						
-							<h:outputLabel value="ID Number"></h:outputLabel>
 						
 						<h:inputText></h:inputText>
+						
+						<h:inputText size="5" title="ID#"></h:inputText>
 					</h:panelGrid>
-					<h3>
-							<h:outputLabel value="Demographics"></h:outputLabel>
-						</h3>
+					
+					
 					<h:panelGrid columns="5">
 						
 						<h:outputLabel value="Gender "></h:outputLabel>
@@ -101,56 +49,104 @@
 						<h:outputLabel value="Birthdate (Format:dd/mm/yyyy)"></h:outputLabel>
 						<h:inputText></h:inputText>
 					</h:panelGrid>
-					<h3>
-							<h:outputLabel value="Address"></h:outputLabel>
-						</h3>
-					<h:panelGrid columns="3">
+					
+					<h:panelGrid columns="2">
 						
-						<h:outputLabel value="Address"></h:outputLabel>
+						<h:outputLabel value="City/Town/Village of Residence"></h:outputLabel>
 						<h:inputText></h:inputText>
 					</h:panelGrid>
-					<h:panelGrid columns="4">
-						<h:outputLabel value="Estate/Nearest Center"></h:outputLabel>
-						<h:inputText></h:inputText>
-						<h:outputLabel value="Town/Village"></h:outputLabel>
-						<h:inputText></h:inputText>
+					
+					<h:panelGrid columns="8">
+						
+						<h:outputLabel value="Height"></h:outputLabel>
+						<h:inputText size="5"></h:inputText>
+						<h:outputLabel value="Weight"></h:outputLabel>
+						<h:inputText size="5"></h:inputText>
+						<h:outputLabel value="BMI"></h:outputLabel>
+						<h:inputText size="5"></h:inputText>
 					</h:panelGrid>
-					<h:panelGrid columns="4">
-						<h:outputLabel value="Latitude"></h:outputLabel>
-						<h:inputText></h:inputText>
-						<h:outputLabel value="Longitude"></h:outputLabel>
-						<h:inputText></h:inputText>
+					
+					</div></div>
+						<div class="container"><div class="left"><table style="width:250px"><tr ><td colspan="2">Keywords from prior visits</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table></div>
+					<div class="right"><table><tr ><td colspan="7">Vital Signs</td></tr><tr><td>BP:</td><td></td><td>/</td><td>mmHg</td><td></td><td></td><td></td></tr>
+					
+					<tr><td>HR:</td><td></td><td>BPM</td><td></td><td>RR:</td><td></td><td>Breaths/min</td></tr>
+					
+					</table>
+				</div></div>
+				<div class="container">
+					<h:panelGrid columns="2">
+						
+						<h:outputLabel value="Chief Complaint"></h:outputLabel>
+						<h:inputText style="width: 670px; "></h:inputText></h:panelGrid>
+				</div>
+				<div class="container">
+				<h:panelGrid>
+						
+						<h:outputLabel value="HPI: Include Onset, Provokes/Palliates, Quality, Radiation, Score, Timing, and anything else"></h:outputLabel>
+					
+						<textarea style="width: 790px; "></textarea>
 					</h:panelGrid>
-						<h:panelGrid columns="1">
-			<h:commandButton value="Create Person"></h:commandButton>
-		</h:panelGrid>
+				</div>
+				<div class="container">
+					<img src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><br><a href="add_photo_page">New Photo...</a>
+					<br /><a href="add_photo_page">Additional Photos...</a></div>
+					<div class="container">
+					<table>
+						<tr><td>
+						<h:outputLabel value="Chronic Illnesses:"></h:outputLabel></td>
+						<td><h:inputText style="width: 670px; "></h:inputText></td>
+						<td><a href="remove_illness">Remove...</a></td></tr>
+						<tr ><td colspan="3" align="right"><a href="add_illness">Add...</a></td></tr></table>
+					
+					</div>
+					<div class="container">
+					<table>
+						<tr><td>
+						<h:outputLabel value="Medical Procedures:"></h:outputLabel></td>
+						<td><h:inputText style="width: 670px; "></h:inputText></td>
+						<td><a href="remove procedure">Remove...</a></td></tr>
+						<tr ><td colspan="3" align="right"><a href="add_procedure">Add...</a></td></tr></table>
+					
+					</div>
+					<div class="container">
+				<h:panelGrid>
+						
+						<h:outputLabel value="Social History and Family History: Include familial illnesses, living situation, occupation"></h:outputLabel>
+					
+						<textarea style="width: 790px; "></textarea>
+					</h:panelGrid>
+				</div>
+				<div class="container">
+				<h:panelGrid>
+						
+						<h:outputLabel value="Previously Provided Meds"></h:outputLabel>
+					
+						<textarea style="width: 790px; "></textarea>
+					</h:panelGrid>
+				</div>
+<div class="container">
+					<h:panelGrid columns="2">
+						
+						<h:outputLabel value="Meds/Items Provided"></h:outputLabel>
+						<h:inputText style="width: 670px; "></h:inputText></h:panelGrid>
+						<span style="align:right"><a href="add_meds">Add...</a></span>
+				</div>
+				<div class="container">
+				<h:panelGrid>
+						
+						<h:outputLabel value="Overall Impression for this Visit:"></h:outputLabel>
+					
+						<textarea style="width: 790px; "></textarea>
+					</h:panelGrid>
+				</div>
+				<form><div style="align:center">
+				<input type="submit" value="Finish"></div>
+			</form>
 				</h:form>
-			</div>
-		</div></div>
-	<div id="panel2">//display when patient is found
-	<h3><h:panelGrid columns="2">
-						<h:outputLabel value="First Name"></h:outputLabel>
-						
-						<h:outputLabel value="Last Name"></h:outputLabel>
-						</h:panelGrid></h3>
-						<h:panelGrid columns="2">
-						<h:outputLabel value="RaptorMRS Identification Number"></h:outputLabel>
-						
-						<h:outputLabel ></h:outputLabel>
-						</h:panelGrid>
-			<div class="tabs">
-				<ul>
-					<li><a href="#tab-1">Overview</a></li>
-					<li><a href="#tab-2">Regimens</a></li>
-					<li><a href="#tab-3">Visits</a></li>
-					<li><a href="#tab-4">Demographics</a></li>
-				</ul>
-				<div id="tab-1">Allergies, problem list</div>
-				<div id="tab-2">drugs prescribed</div>
-				<div id="tab-3">table showing all previous visits</div>
-				<div id="tab-4">address information</div>
-			</div>
-		</div>
+			
+		
+	
 	</f:view>
 </body>
 </html>

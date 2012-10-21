@@ -1,17 +1,15 @@
-<div>
-<h1>RaptorMRS</h1>
-		<div>
-			<span> Currently logged in as: LoginName </span> <span> <a
-				href="/RaptorMRS/login">Log out</a>
-			</span>
-
-
-		</div>
-		<div class="menu">
-		<ul>
-			<li><a>Home</a></li>
-			<li><a>Find or Add Patient</a></li>
-			<li><a>Admin</a></li>
-		</ul>
-		</div>
+<div id="header">
+<table><tr><td style="width:600px;height:15px">
+<strong>RaptorMRS</strong></td>
+		
+			<td style="width:200px"> Date: mm/dd/yy
+			</td>
+<tr><td>
+Currently logged in as: LoginName <a href="/RaptorMRS/login">Log out</a></td>
+		
+			<td> Time: 0 hr to 24 hr
+			</td>
+</tr>
+	</table>	
+		
 </div>
