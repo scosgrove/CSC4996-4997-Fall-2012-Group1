@@ -10,6 +10,11 @@
 		<managed-bean-class>edu.wayne.cs.raptor.UserInterface</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>patientData</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.PatientData</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
  
 
 </faces-config>
