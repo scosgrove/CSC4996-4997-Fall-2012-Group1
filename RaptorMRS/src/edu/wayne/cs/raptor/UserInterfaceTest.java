@@ -21,7 +21,7 @@ public class UserInterfaceTest {
 	}
 
 	@Test
-	public void testSetandGetPassword() {
+	public void testSetAndGetPassword() {
 		String expected = "hairpiece";
 		String actual;
 		UserInterface ui = new UserInterface();

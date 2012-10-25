@@ -81,7 +81,8 @@ public class UserInterface {
 	   * This method sets the login result string
 	   * 
 	   */
-	  public void setloginAttemptResult(String loginAttemptResult) {
+	  //currently no use cases for method. marked for removal. 
+	  public void setLoginAttemptResult(String loginAttemptResult) {
 		    this.loginAttemptResult = loginAttemptResult;
 		  }
 	  
