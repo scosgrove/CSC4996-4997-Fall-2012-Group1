@@ -1,4 +1,4 @@
-package edu.wayne.cs.raptor;
+package edu.wayne.cs.raptor.test;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import edu.wayne.cs.raptor.UserInterface;
 
 public class UserInterfaceTest {
 	
