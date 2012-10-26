@@ -1,4 +1,4 @@
-package edu.wayne.cs.raptortest;
+package edu.wayne.cs.raptorTest;
 
 import static org.junit.Assert.*;
 
