@@ -8,7 +8,7 @@
 
 package edu.wayne.cs.raptor;
 
-public class UserInterface {
+public class User {
 	  
 	 /**
 	  * Name of user

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import edu.wayne.cs.raptor.UserInterface;
+import edu.wayne.cs.raptor.User;
 
 public class UserInterfaceTest {
 	
@@ -12,7 +12,7 @@ public class UserInterfaceTest {
 	public void testSetAndGetUsername() {
 		String expected = "beercan";
 		String actual;
-		UserInterface ui = new UserInterface();
+		User ui = new User();
 		ui.setUsername(expected);
 		actual = ui.getUsername();
 		assert(expected.equals(actual));
@@ -22,7 +22,7 @@ public class UserInterfaceTest {
 	public void testSetAndGetPassword() {
 		String expected = "hairpiece";
 		String actual;
-		UserInterface ui = new UserInterface();
+		User ui = new User();
 		ui.setPassword(expected);
 		actual = ui.getPassword();
 		assert(expected.equals(actual));
@@ -33,7 +33,7 @@ public class UserInterfaceTest {
 	{
 		String successAttempt = "Valid password";
 		String validPw = "raptor";
-		UserInterface ui = new UserInterface();
+		User ui = new User();
 		ui.setPassword(validPw);
 		ui.checkPassword();
 		assert(ui.getLoginAttemptResult().equals(successAttempt));
@@ -45,7 +45,7 @@ public class UserInterfaceTest {
 		
 		String failAttempt = "Invalid password.  Try again.";
 		String invalidPw = "pterodactyl";
-		UserInterface ui = new UserInterface();
+		User ui = new User();
 		ui.setPassword(invalidPw);
 		ui.checkPassword();
 		assert(ui.getLoginAttemptResult().equals(failAttempt));
@@ -62,7 +62,7 @@ public class UserInterfaceTest {
 	{
 		String success = "valid";
 		String validPw = "raptor";
-		UserInterface ui = new UserInterface();
+		User ui = new User();
 		ui.setPassword(validPw);
 		assert(ui.checkPassword().equals(success));
 	}
@@ -72,7 +72,7 @@ public class UserInterfaceTest {
 	{
 		String fail= "invalid";
 		String invalidPw = "pterodactyl";
-		UserInterface ui = new UserInterface();
+		User ui = new User();
 		ui.setPassword(invalidPw);
 		assert(ui.checkPassword().equals(fail));
 	}
