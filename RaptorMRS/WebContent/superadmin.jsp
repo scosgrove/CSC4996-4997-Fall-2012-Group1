@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Super Admin Page</title>
 </head>
 <body>
 <div id="wrap">
@@ -44,6 +44,7 @@
 <h:commandButton action="DoNothing" value="Cancel"></h:commandButton>
 </h:panelGrid>
 </h:form>
+<h:outputLabel value="#{currentTimaAndDate.getDate}"></h:outputLabel>
 <p> <%= new java.util.Date() %> </p>
 </f:view>
 </div>

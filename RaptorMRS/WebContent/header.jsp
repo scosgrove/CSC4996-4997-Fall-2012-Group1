@@ -8,7 +8,7 @@
 Currently logged in as: LoginName <a href="/RaptorMRS/faces/login.jsp">Log out</a></td>
 <tr><td><a href="http://localhost:8080/RaptorMRS/faces/add_search_patient.jsp">Add/Search Patient</a> &nbsp; &nbsp;<a href="http://localhost:8080/RaptorMRS/faces/superadmin.jsp">Admin</a> &nbsp; &nbsp;<a href="http://localhost:8080/RaptorMRS/faces/add_search_patient.jsp">Inventory</a>   
 		
-			<td> Time: 0 hr to 24 hr
+			<td> Time: 0 hr to 23 hr
 			</td>
 </tr>
 	</table>	

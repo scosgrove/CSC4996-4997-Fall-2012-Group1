@@ -20,6 +20,11 @@
 		<managed-bean-class>edu.wayne.cs.raptor.User2</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>currentTimeAndDate</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.currentTimeAndDate</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/login.jsp</from-view-id>
 		<navigation-case>
