@@ -4,27 +4,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<div id="wrap">
 <f:view>
+<jsp:directive.include file="header.jsp"/>
 
-<div id="header">
-<table><tr><td style="width:600px;height:15px">
-<strong>RaptorMRS</strong></td>
-		
-			<td style="width:200px"> Date: mm/dd/yy
-			</td>
-<tr><td>
-Currently logged in as: <h:outputLabel value="#{User2.getUsername}"></h:outputLabel>  UserName <a href="/RaptorMRS/login">Log out</a></td>
-		
-			<td> Time: 0 hr to 24 hr
-			</td>
-</tr>
-	</table>	
-		
-</div>
 
 <h:form>
 <h2> Search for users by: </h2>
@@ -58,5 +46,6 @@ Currently logged in as: <h:outputLabel value="#{User2.getUsername}"></h:outputLa
 </h:form>
 
 </f:view>
+</div>
 </body>
 </html>
