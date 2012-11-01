@@ -44,7 +44,7 @@
 <h:commandButton action="DoNothing" value="Cancel"></h:commandButton>
 </h:panelGrid>
 </h:form>
-
+<p> <%= new java.util.Date() %> </p>
 </f:view>
 </div>
 </body>
