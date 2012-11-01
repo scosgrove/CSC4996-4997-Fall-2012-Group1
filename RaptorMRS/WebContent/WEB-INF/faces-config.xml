@@ -15,6 +15,11 @@
 		<managed-bean-class>edu.wayne.cs.raptor.Patient</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>user2</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.User2</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/login.jsp</from-view-id>
 		<navigation-case>
