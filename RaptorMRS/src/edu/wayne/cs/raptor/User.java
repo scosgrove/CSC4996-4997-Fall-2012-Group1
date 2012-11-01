@@ -1,12 +1,12 @@
-/**
+package edu.wayne.cs.raptor;
+
+/**  Defines a User entity in the system. 
+ * 
  *  @author Sarah Cosgrove
  *  @version 1.0
  *  @since 2012-10-23
  */
 
-
-
-package edu.wayne.cs.raptor;
 
 public class User {
 	

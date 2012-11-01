@@ -7,23 +7,25 @@ package edu.wayne.cs.raptor;
  */
 public class Patient {
 	
+		/** A unique Patient identification number */
 		private double patientID;
 		
-		//TODO: Patient's name should be one field ?
+		/** Patient's first name */
 		private String firstName;
+		
+		/** Patient's last name */
 		private String lastName;
 		
+		/** Patient's gender */
 		private String gender;
 		
+		/** Patient's residence */
 		private String address;
 		
+		/* Fields to be moved  */
 		private double height;
-		
 		private double weight;
-		
 		private double patientBMI;
-		
-		 
 		// Patient's History of present illness (current illness)
 		private StringBuilder patientHPI;	
 		
@@ -49,41 +51,53 @@ public class Patient {
 		 * */
 		
 		
-		
+		/** Default empty constructor */
 		public Patient(){
 			
 		}
 		
+		/** Returns the Patient's ID */
 		public double getPatientID() {
 			return patientID;
 		}
+		/** Sets the Patient's ID */
 		public void setPatientID(double patientID) {
 			this.patientID = patientID;
 		}
+		/** Returns the Patient's first name */
 		public String getFirstName() {
 			return firstName;
 		}
+		/** Sets the Patient's first name */
 		public void setFirstName(String firstName) {
 			this.firstName = firstName;
 		}
+		/** Returns the Patient's last name */
 		public String getLastName() {
 			return lastName;
 		}
+		/** Sets the Patient's last name */
 		public void setLastName(String lastName) {
 			this.lastName = lastName;
 		}
+		/** Returns the Patient's gender */
 		public String getGender() {
 			return gender;
 		}
+		/** Sets the Patient's gender */
 		public void setGender(String gender) {
 			this.gender = gender;
 		}
+		/** Returns the Patient's address */
 		public String getAddress() {
 			return address;
 		}
+		/** Sets the Patient's address */
 		public void setAddress(String address) {
 			this.address = address;
 		}
+		
+		// TODO: To be moved to either Vitals/Encounter 
 		public double getHeight() {
 			return height;
 		}
