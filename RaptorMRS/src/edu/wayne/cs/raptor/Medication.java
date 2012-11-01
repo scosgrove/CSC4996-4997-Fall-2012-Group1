@@ -44,5 +44,4 @@ public class Medication {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 }

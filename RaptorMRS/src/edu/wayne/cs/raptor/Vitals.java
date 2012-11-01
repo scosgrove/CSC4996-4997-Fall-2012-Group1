@@ -8,6 +8,7 @@ package edu.wayne.cs.raptor;
 public class Vitals {
 	
 	/** Should have a constraint on values ? */
+	//TODO: figure out if we can even get doubles back from the front end.  scott mentioned everything comes through as strings because tomcat.  
 	private double systolicBP;
 	private double diastolicBP;
 	private double heartRate;
@@ -15,8 +16,8 @@ public class Vitals {
 	private double temperatureC;
 	private double oximetry;
 	
-	public Vitals(){
-		
+	public Vitals(){	
+		//assignment operator seems to work just fine (i asked jUnit, he said so)
 	}
 	
 	public double getSystolicBP() {
@@ -55,6 +56,4 @@ public class Vitals {
 	public void setOximetry(double oximetry) {
 		this.oximetry = oximetry;
 	}
-	
-
 }
