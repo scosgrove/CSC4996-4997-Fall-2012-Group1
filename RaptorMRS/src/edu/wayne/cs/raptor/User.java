@@ -9,8 +9,14 @@
 package edu.wayne.cs.raptor;
 
 public class User {
+	
+		
 	  
-	 /**
+	 public User() {
+		super();
+	}
+
+	/**
 	  * Name of user
 	  */
 	  private String username; 

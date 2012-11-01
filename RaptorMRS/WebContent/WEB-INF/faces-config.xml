@@ -15,6 +15,20 @@
 		<managed-bean-class>edu.wayne.cs.raptor.Patient</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<navigation-rule>
+	<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{userInterfaceBean.checkPassword}</from-action>
+			<from-outcome>valid</from-outcome>
+			<to-view-id>/add_search_patient.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{userInterfaceBean.checkPassword}</from-action>
+			<from-outcome>invalid</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	
+	</navigation-rule>
  
 
 </faces-config>

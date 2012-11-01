@@ -7,14 +7,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css">
+	<link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/jquery-ui-1.9.1.custom.css" />
+	<link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script>
+$(function() {
+var availableTags = [
+			"Marek",
+			"Clinton",
+			"Alex",
+			"Jackson",
+			"Sarah",
+			"Ramez"
+		];
+$( "#autocomplete" ).autocomplete({
+			source: availableTags
+		});
+		
+$( "#datepicker" ).datepicker({
+			inline: true
+		});
+		
+		$( "#button" ).button();
+			});
+		</script>
 <title>Search or Add a Patient</title>
 </head>
 <body>
+<div id="wrap">
 <%@ include file="header.jsp" %>
 		
 	<f:view>
@@ -22,7 +44,7 @@
 		
 		<h:form>
 		<div class="container">
-			<div class="left" style="width:200px">
+			<div class="left">
 			<img src="http://localhost:8080/RaptorMRS/faces/recent.png" /><br><a href="add_photo_page">New Photo...</a>
 			</div>
 	
@@ -31,7 +53,7 @@
 					<h:panelGrid columns="7">
 						
 						<h:outputLabel value="Name: "></h:outputLabel>
-						<h:inputText></h:inputText>
+						<input id="autocomplete" />
 						
 						<h:inputText></h:inputText>
 						
@@ -47,7 +69,7 @@
 							<f:selectItem itemLabel="Female" />
 						</h:selectOneRadio></h:panelGrid><h:panelGrid columns="2">
 						<h:outputLabel value="Birthdate (Format:dd/mm/yyyy)"></h:outputLabel>
-						<h:inputText></h:inputText>
+						<input type="text" id="datepicker" />
 					</h:panelGrid>
 					
 					<h:panelGrid columns="2">
@@ -95,7 +117,7 @@
 					<table>
 						<tr><td>
 						<h:outputLabel value="Chronic Illnesses:"></h:outputLabel></td>
-						<td><h:inputText style="width: 670px; "></h:inputText></td>
+						<td><h:inputText style="width: 620px; "></h:inputText></td>
 						<td><a href="remove_illness">Remove...</a></td></tr>
 						<tr ><td colspan="3" align="right"><a href="add_illness">Add...</a></td></tr></table>
 					
@@ -104,7 +126,7 @@
 					<table>
 						<tr><td>
 						<h:outputLabel value="Medical Procedures:"></h:outputLabel></td>
-						<td><h:inputText style="width: 670px; "></h:inputText></td>
+						<td><h:inputText style="width: 620px; "></h:inputText></td>
 						<td><a href="remove procedure">Remove...</a></td></tr>
 						<tr ><td colspan="3" align="right"><a href="add_procedure">Add...</a></td></tr></table>
 					
@@ -141,12 +163,13 @@
 					</h:panelGrid>
 				</div>
 				<form><div style="align:center">
-				<input type="submit" value="Finish"></div>
+				<input type="submit" value="Finish" id="button"></div>
 			</form>
 				</h:form>
 			
 		
 	
 	</f:view>
+	</div>
 </body>
 </html>

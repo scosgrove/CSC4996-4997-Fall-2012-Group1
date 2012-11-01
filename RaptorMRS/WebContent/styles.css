@@ -1,12 +1,46 @@
 @CHARSET "UTF-8";
 
-
-
-#header{
-	margin-bottom:20px;
-	width:800px;
-	height:50px;
+body{
+	margin:0;
+	padding:0;
+	width:100%;
+	font: 14px Arial,Helvetica, sans-serif;
+	line-height:18px;
+	color:#333;
+	background:#ffffff;
 }
+
+#wrap{
+	width:800px;
+	margin: 0 auto;
+	background:#EBFFFF;
+	padding:10px;
+	
+}
+img{
+	margin:0;
+	padding:0;
+
+}
+
+input{
+	background:#ffffff;
+	height:25px;
+}
+h2{
+	color:#1D8181;
+}
+
+a{
+	text-decoration:none;
+	color:#009999;
+}
+
+a:hover{
+	text-decoration:none;
+	color:#666;
+}
+
 
 .container{
 	width:800px;
