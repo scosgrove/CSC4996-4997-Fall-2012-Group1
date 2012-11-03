@@ -21,7 +21,7 @@
 <h:outputLabel value="Username: "></h:outputLabel><h:inputText value="#{userInterfaceBean.username}"></h:inputText>
 
 <h:outputLabel value="Password: "></h:outputLabel>
-<h:inputText value="#{userInterfaceBean.password}"></h:inputText>
+<h:inputSecret value="#{userInterfaceBean.password}"></h:inputSecret>
 <h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}" ></h:commandButton>
 <h:outputText value="#{userInterfaceBean.loginAttemptResult}"></h:outputText>
 </h:panelGrid>
