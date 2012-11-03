@@ -18,8 +18,8 @@
 	<h2>Log In</h2>
 		<h:form>
 <h:panelGrid columns="2">
-<h:outputLabel value="Username: "></h:outputLabel><h:inputText value="#{userInterfaceBean.username}"></h:inputText>
-
+<h:outputLabel value="Username: "></h:outputLabel>
+<h:inputText value="#{userInterfaceBean.username}"></h:inputText>
 <h:outputLabel value="Password: "></h:outputLabel>
 <h:inputSecret value="#{userInterfaceBean.password}"></h:inputSecret>
 <h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}" ></h:commandButton>

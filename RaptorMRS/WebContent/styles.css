@@ -6,16 +6,15 @@ body{
 	width:100%;
 	font: 14px Arial,Helvetica, sans-serif;
 	line-height:18px;
-	color:#333;
-	background:#ffffff;
+	color:#333333;
+	background:#333333;
 }
 
 #wrap{
-	width:800px;
+	width:85%;
 	margin: 0 auto;
-	background:#EBFFFF;
-	padding:10px;
-	
+	background:#AEAEAE;
+	padding:0px;
 }
 img{
 	margin:0;
@@ -26,6 +25,7 @@ img{
 input{
 	background:#ffffff;
 	height:25px;
+	border-radius: 5px;
 }
 h2{
 	color:#1D8181;
@@ -55,6 +55,26 @@ a:hover{
 }
 
 .right{
-	float:right;
+	text-align:right;
 	overflow:hidden;
+}
+
+/* ---------------Raptor Header Styles--------------- */
+h1
+{
+	color:#FFFFFF;
+	font-size: 400%;
+	text-align: center;
+	vertical-align: middle;
+	text-shadow: black 0.1em 0.1em 0.15em
+}
+#header
+{
+	background-image: -webkit-linear-gradient(bottom, rgb(36,27,5) 38%, rgb(40,112,112) 100%);
+	width: 100%;
+	-webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.75);
+}
+.input
+{
+	
 }
