@@ -11,10 +11,11 @@ body{
 }
 
 #wrap{
-	width:85%;
+	width:95%;
 	margin: 0 auto;
 	background:#AEAEAE;
 	padding:0px;
+	-webkit-box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
 }
 img{
 	margin:0;
@@ -26,14 +27,27 @@ input{
 	background:#ffffff;
 	height:25px;
 	border-radius: 5px;
+	padding-left: 5px;
 }
 h2{
-	color:#1D8181;
+	text-size:125%;
+	color:#555555;
+	text-shadow: 0 1px 0 #454545,
+               0 1px 0 #444,
+               0 1px 0 #353535,
+               0 1px 0 #333,
+               0 1px 0 #252525,
+               0 3px 1px rgba(100, 100, 100,.1),
+               0 0 2px rgba(100, 100, 100,.1),
+               0 1px 2px rgba(100, 100, 100,.3),
+               0 1px 2px rgba(100, 100, 100,.2),
+               0 2px 5px rgba(100, 100, 100,.25),
+               0 5px 5px rgba(100, 100, 100,.2);
 }
 
 a{
-	text-decoration:none;
-	color:#009999;
+	text-decoration:none;	
+	color:#00AAAA;	
 }
 
 a:hover{
@@ -43,7 +57,7 @@ a:hover{
 
 
 .container{
-	width:800px;
+	/*width:800px;*/
 	clear:both;
 	margin-top:5px;
 	margin-bottom:5px;
@@ -62,19 +76,52 @@ a:hover{
 /* ---------------Raptor Header Styles--------------- */
 h1
 {
-	color:#FFFFFF;
+	color:#b9b9b9;
 	font-size: 400%;
 	text-align: center;
 	vertical-align: middle;
-	text-shadow: black 0.1em 0.1em 0.15em
+	text-shadow: 0 1px 0 #aaa,
+               0 2px 0 #999,
+               0 2px 0 #888,
+               0 2px 0 #777,
+               0 2px 0 #666,
+               0 3px 1px rgba(100, 100, 100,.1),
+               0 0 2px rgba(100, 100, 100,.1),
+               0 1px 2px rgba(100, 100, 100,.3),
+               0 1px 2px rgba(100, 100, 100,.2),
+               0 2px 5px rgba(100, 100, 100,.25),
+               0 5px 5px rgba(100, 100, 100,.2);
 }
 #header
 {
-	background-image: -webkit-linear-gradient(bottom, rgb(36,27,5) 38%, rgb(40,112,112) 100%);
+	background-image: -webkit-linear-gradient(bottom, #00091A 38%, #332870 100%);
 	width: 100%;
-	-webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.75);
+	-webkit-box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
+	padding: 5px;
 }
-.input
+#HUD_date
 {
-	
+	color: #b9b9b9;
+	text-align: right;
+}
+#HUD_indentity
+{
+	color: #b9b9b9;
+	text-align: left;
+}
+#HUD_navLinks
+{
+	color:#b9b9b9;
+	font-size: 150%;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* ---------------Raptor Page Styles--------------- */
+.logInPanel
+{
+	text-align: center;
+	width: 260px;
+	margin: 0px auto;
+	padding: 10px;
 }

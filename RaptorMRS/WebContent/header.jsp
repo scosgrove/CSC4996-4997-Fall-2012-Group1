@@ -1,24 +1,15 @@
 <link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css" />
-<div>
-	<table id="header">
-		<tr>
-			<td class="right">Date: mm/dd/yy</td>
-		</tr>
-		<tr>
-			<td><h1>RaptorMRS</h1></td>
-		</tr>
-		<tr>
-			<td>Currently logged in as: LoginName <a
-				href="/RaptorMRS/faces/login.jsp">Log out</a></td>
-			<td>Time: 0 hr to 23 hr</td>
-		</tr>
-		<tr>
-			<td><a
-				href="http://localhost:8080/RaptorMRS/faces/add_search_patient.jsp">Add/Search
-					Patient</a> &nbsp; &nbsp;<a
-				href="http://localhost:8080/RaptorMRS/faces/superadmin.jsp">Admin</a>
-				&nbsp; &nbsp;<a
-				href="http://localhost:8080/RaptorMRS/faces/add_search_patient.jsp">Inventory</a></td>
-		</tr>
-	</table>
-</div>
+<table id="header">
+	<tr>
+		<td colspan="4"><h1>Raptor MRS</h1></td>
+	</tr>
+	<tr>
+		<td colspan="3"><div id="HUD_indentity">Currently logged in as: LoginName <a href="/RaptorMRS/faces/login.jsp">Log out</a></div></td>		
+		<td><div id="HUD_date">Date:dd/mm/yyyy Time:hh:mm</div></td>
+	</tr>
+	<tr>
+		<td colspan="4"><div id="HUD_navLinks"><a href="http://localhost:8080/RaptorMRS/faces/add_search_patient.jsp">Add/Search Patient</a> - 
+			<a href="http://localhost:8080/RaptorMRS/faces/superadmin.jsp">Admin</a> - 
+			<a href="http://localhost:8080/RaptorMRS/faces/add_search_patient.jsp">Inventory</a></div></td>
+	</tr>
+</table>
