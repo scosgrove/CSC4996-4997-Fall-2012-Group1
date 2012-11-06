@@ -8,7 +8,7 @@ package edu.wayne.cs.raptor;
 public class Medication {
 	
 	/** A unique Medication identification number */
-	private double medicationID;
+	private int medicationID;
 	
 	/** Name of the Medication. Could be separated from brand in future ? */
 	private String name;
@@ -26,11 +26,11 @@ public class Medication {
 	}
 
 	/** Returns the Medication ID  */
-	public double getMedicationID() {
+	public int getMedicationID() {
 		return medicationID;
 	}
 	/** Sets a Medication ID */
-	public void setMedicationID(double medicationID) {
+	public void setMedicationID(int medicationID) {
 		this.medicationID = medicationID;
 	}
 	/** Returns the name of the Medication */

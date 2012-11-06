@@ -11,7 +11,10 @@ import java.util.Set;
 public class Encounter {
 	
 	/** A unique Encounter identification number */
-	private double encounterID;
+	private int encounterID;
+	
+	/** The id of the patient for whom the encounter is in progress */
+	private int patientID;
 	
 	/** The Patient's stated chief complaint for an encounter */
 	private String chiefComplaint;
@@ -19,21 +22,37 @@ public class Encounter {
 	/** The Patient's vitals taken in the encounter */
 	private Vitals vitals;
 	
+	/** Patient's History of present illness (current illness) */
+	private String patientHPI;
+	
+	/** A chronic illness discovered in the encounter (name and brief description ToBeDone)
+	 * TODO:  The names of previously discovered chronic illnesses should be automatically displayed,
+	 *  Method to access/edit if desired. if it's resolved should not be displayed during future encounters 
+	 *  (but not removed from previously recorded encounters)
+	 */
+	private String chronicIllness;
+	
+	/** Any medical procedures the Patient has undergone in the past or the current encounter */
+	private String medProcedures;
+	
+
 	/** Medications provided in the encounter */
 	private Set<Medication> medsProvided;
 	
 	/** Overall Impression of the encounter & additional comments */
 	private StringBuilder conclusion;
-	
+
+
 	/** 
 	 * metadata
 	 */
 	//private Date createdDate;
 	//private Date modifiedDate;
 	
+	/** TODO: Should there be an attribute where we save keywords from the encounter? 
+	 *  Done in patient */
 	
-	/**
-	 * TODO: Should there be an attribute where we save keywords from the encounter? */
+	
 	
 	/** Default empty constructor */
 	public Encounter(){
@@ -41,13 +60,21 @@ public class Encounter {
 	}
 
 	/** Returns the encounter ID number */
-	public double getEncounterID() {
+	public int getEncounterID() {
 		return encounterID;
 	}
 
 	/** Sets the ecnounter ID number */
-	public void setEncounterID(double encounterID) {
+	public void setEncounterID(int encounterID) {
 		this.encounterID = encounterID;
+	}
+
+	public int getPatientID() {
+		return patientID;
+	}
+
+	public void setPatientID(int patientID) {
+		this.patientID = patientID;
 	}
 
 	/** Returns the chief complaint in the encounter*/
@@ -67,6 +94,30 @@ public class Encounter {
 	public void setVitals(Vitals vitals) {
 		this.vitals = vitals;
 	}
+	
+	public String getPatientHPI() {
+		return patientHPI;
+	}
+	public void setPatientHPI(String patientHPI) {
+		this.patientHPI = patientHPI;
+	}
+	
+	public String getChronicIllness() {
+		return chronicIllness;
+	}
+
+	public void setChronicIllness(String chronicIllness) {
+		this.chronicIllness = chronicIllness;
+	}
+
+	public String getMedProcedures() {
+		return medProcedures;
+	}
+
+	public void setMedProcedures(String medProcedures) {
+		this.medProcedures = medProcedures;
+	}
+
 	/** Returns whatever medications were provided to the patient in an encounter */
 	public Set<Medication> getMedsProvided() {
 		return medsProvided;

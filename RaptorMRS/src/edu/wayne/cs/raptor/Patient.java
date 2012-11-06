@@ -1,5 +1,8 @@
 package edu.wayne.cs.raptor;
 
+import java.util.Date;
+import java.util.Set;
+
 /** Defines a Patient entity in the system.  
  * 
  * @author Ramez
@@ -8,7 +11,7 @@ package edu.wayne.cs.raptor;
 public class Patient {
 	
 		/** A unique Patient identification number */
-		private double patientID;
+		private int patientID;
 		
 		/** Patient's first name */
 		private String firstName;
@@ -19,15 +22,25 @@ public class Patient {
 		/** Patient's gender */
 		private String gender;
 		
+		/** Patient's date of birth */
+		private Date birthDate;
+		
 		/** Patient's residence */
 		private String address;
 		
-		/* Fields to be moved  */
-		private double height;
-		private double weight;
-		private double patientBMI;
-		// Patient's History of present illness (current illness)
-		private StringBuilder patientHPI;	
+		/** A set of unique keywords collected from the Patient's relevant medical information/history */
+		private Set<String> keywords;
+		
+		/** The Patient's social/family history. this information shouldn't change much from an encounter
+		 * to another.
+		 */
+		private String socialHistory;
+		
+		
+		/* Fields possibly to be moved  */
+		private int height;
+		private int weight;
+		private int patientBMI;
 		
 		/**
 		 * metadata
@@ -37,16 +50,11 @@ public class Patient {
 		// private User modifier/changer;
 		// private Date modifiedDate;
 		
-		/** Vitals are specific to an encounter, but in case of displaying a patient seen previously
-	    Do/Could we have these fields populated from the latest encounter/visit */
-		//  public Vitals patientVitals;   
 		
-		
-		/** TODO:  photos of conditions 
-		 *  TODO: Chronic illnesses list 
-		 *  TODO: Medical procedures list
-		 *  TODO: Social and Family history 
+		/** TODO:  photos of conditions
 		 *  TODO: Previously provided meds from previous encounters 
+		 *  A listing of previously provided meds (with dates, quantities, and schedule) should be displayed and
+		 *   scrollable. This is should be a 'read-only' box.
 		 *  TODO: Method to calculate BMI (users should enter height & weight, BMI auto-generated)
 		 * */
 		
@@ -57,11 +65,11 @@ public class Patient {
 		}
 		
 		/** Returns the Patient's ID */
-		public double getPatientID() {
+		public int getPatientID() {
 			return patientID;
 		}
 		/** Sets the Patient's ID */
-		public void setPatientID(double patientID) {
+		public void setPatientID(int patientID) {
 			this.patientID = patientID;
 		}
 		/** Returns the Patient's first name */
@@ -88,6 +96,15 @@ public class Patient {
 		public void setGender(String gender) {
 			this.gender = gender;
 		}
+		/** Returns Patient's date of birth */
+		public Date getBirthDate() {
+			return birthDate;
+		}
+		/** Sets the Patient's date of birth */
+		public void setBirthDate(Date birthDate) {
+			this.birthDate = birthDate;
+		}
+
 		/** Returns the Patient's address */
 		public String getAddress() {
 			return address;
@@ -97,31 +114,44 @@ public class Patient {
 			this.address = address;
 		}
 		
+		public Set<String> getKeywords() {
+			return keywords;
+		}
+
+		public void setKeywords(Set<String> keywords) {
+			this.keywords = keywords;
+		}
+		
+		public String getSocialHistory() {
+			return socialHistory;
+		}
+
+		public void setSocialHistory(String socialHistory) {
+			this.socialHistory = socialHistory;
+		}
+
 		// TODO: To be moved to either Vitals/Encounter 
-		public double getHeight() {
+		public int getHeight() {
 			return height;
 		}
-		public void setHeight(double height) {
+		public void setHeight(int height) {
 			this.height = height;
 		}
-		public double getWeight() {
+		public int getWeight() {
 			return weight;
 		}
-		public void setWeight(double weight) {
+		public void setWeight(int weight) {
 			this.weight = weight;
 		}
-		public double getPatientBMI() {
+		public int getPatientBMI() {
 			return patientBMI;
 		}
-		public void setPatientBMI(double patientBMI) {
+		public void setPatientBMI(int patientBMI) {
 			this.patientBMI = patientBMI;
 		}
-		public StringBuilder getPatientHPI() {
-			return patientHPI;
-		}
-		public void setPatientHPI(StringBuilder patientHPI) {
-			this.patientHPI = patientHPI;
-		}
+
+		
+		
 		
 		
 		
