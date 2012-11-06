@@ -5,6 +5,15 @@
 <html>
 <head>
 <link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css" />
+<link rel="stylesheet"
+	href="http://localhost:8080/RaptorMRS/faces/jquery-ui-1.9.1.custom.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script>
+		$(function() {
+		$("#button").button();
+	});
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Super Admin Page</title>
 </head>
@@ -21,7 +30,7 @@
 <h:panelGrid columns="6">
 <h:outputLabel value="Username: "></h:outputLabel><h:inputText value="#{User2.username}"></h:inputText>
 <h:outputLabel value="First Name: "></h:outputLabel><h:inputText value="#{User2.firstName}"></h:inputText>
-<h:outputLabel value="Last Name: "></h:outputLabel><h:inputText value="#{User2.lastName}"></h:inputText> <h:commandButton action="FindUser" value="Search"></h:commandButton>
+<h:outputLabel value="Last Name: "></h:outputLabel><h:inputText value="#{User2.lastName}"></h:inputText> <h:commandButton action="FindUser" value="Search" id="button"></h:commandButton>
 
 </h:panelGrid>
 </h:form>
@@ -40,8 +49,8 @@
 <h:outputLabel value="Roles: "></h:outputLabel><h:inputText value="#{User2.setRoles}"></h:inputText>
 
 
-<h:commandButton action="Add new user" value="Add New User"></h:commandButton>
-<h:commandButton action="DoNothing" value="Cancel"></h:commandButton>
+<h:commandButton action="Add new user" value="Add New User" id="button"></h:commandButton>
+<h:commandButton action="DoNothing" value="Cancel" ></h:commandButton>
 </h:panelGrid>
 </h:form>
 <h:outputLabel value="#{currentTimaAndDate.getDate}"></h:outputLabel>

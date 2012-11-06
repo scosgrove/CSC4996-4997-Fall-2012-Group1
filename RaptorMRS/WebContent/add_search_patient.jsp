@@ -11,8 +11,7 @@
 	href="http://localhost:8080/RaptorMRS/faces/jquery-ui-1.9.1.custom.css" />
 <link rel="stylesheet"
 	href="http://localhost:8080/RaptorMRS/faces/styles.css" />
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 <script>
@@ -22,11 +21,25 @@
 		$("#autocomplete").autocomplete({
 			source : availableTags
 		});
-
+		</script>
+		<script>
+		$(function() {
+		 $( "#tabs" ).tabs();
+	    });
+		</script>
+		<script>
+		$(function() {
 		$("#datepicker").datepicker({
 			inline : true
 		});
-
+		</script>
+		<script>
+		$(function() {
+	        $( "#accordion" ).accordion();
+	    });
+		</script>
+		<script>
+		$(function() {
 		$("#button").button();
 	});
 </script>
@@ -35,6 +48,13 @@
 <body>
 	<div id="wrap">
 		<%@ include file="header.jsp"%>
+		<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Simple</a></li>
+        <li><a href="#tabs-2">Advanced</a></li>
+     
+    </ul>
+    <div id="tabs-1">
 		<f:view>
 			<h:form>
 				<div class="container">
@@ -180,13 +200,19 @@
 
 				</div>
 				<div class="container">
-					<h:panelGrid>
-
-						<h:outputLabel
+				<h:outputLabel
 							value="Social History and Family History: Include familial illnesses, living situation, occupation"></h:outputLabel>
-
-						<textarea style="width: 790px;"></textarea>
-					</h:panelGrid>
+				<div id="accordion" style="width: 790px;">						
+							<h3>Current</h3>
+						<div>
+						<textarea style="width: 690px;">Current social/family history</textarea>
+						</div>
+						<h3>Previous</h3>
+						<div>
+						<textarea style="width: 690px;">Previous social/family history</textarea>
+						</div>
+					
+					</div>
 				</div>
 				<div class="container">
 					<h:panelGrid>
@@ -214,7 +240,7 @@
 				</div>
 				<form>
 					<div style="align: center">
-						<input type="submit" value="Finish" id="button">
+						<input type="submit" value="Finish" id="button" style="width: 150px">
 					</div>
 				</form>
 			</h:form>
@@ -222,6 +248,15 @@
 
 
 		</f:view>
+		</div>
+		<div id="tabs-2">
+        <p><h3>Additional Information</h3>
+
+						
+						<textarea style="width: 790px;"></textarea>
+				</p>
+    </div>
+    </div>
 	</div>
 </body>
 </html>

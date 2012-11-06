@@ -7,8 +7,17 @@
 <head>
 <link rel="stylesheet"
 	href="http://localhost:8080/RaptorMRS/faces/styles.css" />
+	<link rel="stylesheet"
+	href="http://localhost:8080/RaptorMRS/faces/jquery-ui-1.9.1.custom.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Log In</title>
+<script>
+		$(function() {
+		$("#button").button();
+	});
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -22,7 +31,7 @@
 						<h:inputText value="#{userInterfaceBean.username}"></h:inputText>
 						<h:outputLabel value="Password: "></h:outputLabel>
 						<h:inputSecret value="#{userInterfaceBean.password}"></h:inputSecret>
-						<h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}"></h:commandButton>
+						<h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}" style="width: 100px" id="button"></h:commandButton>
 						<h:outputText value="#{userInterfaceBean.loginAttemptResult}"></h:outputText>
 					</h:panelGrid><br/>
 					
