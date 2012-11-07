@@ -6,57 +6,79 @@ body{
 	width:100%;
 	font: 14px Verdana,Helvetica, sans-serif;
 	line-height:18px;
-	color:#333333;
+	color:#000;
 	background:#336699;
+	
+}
+label{
+	font: 14px Verdana,Helvetica, sans-serif;
+	line-height:18px;
+	color:#000;
+	display:block;
+	font-weight:bold;
 	
 }
 
 #wrap{
-	width:95%;
+	width:90%;
 	margin: 0 auto;
 	background:#eaf0f5;
-	padding:0px;
+	padding:10px;
 	-moz-box-shadow: 0 0 5px #ececec;
 	-webkit-box-shadow: 0 0  5px #ececec;
 	box-shadow: 0 0 5px #ececec;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eaf0f5), to(#ffffff)); 
+	background: -webkit-linear-gradient(top, #eaf0f5, #ffffff);
+	background: -moz-linear-gradient(top, #eaf0f5, #ffffff);
 
 }
 img{
 	margin:0;
-	padding:0;
+	padding:5px;
 
 }
 
-input{
+.left-align{
+	text-align:left;
+}
+
+.set-width{
+	width:100px;
+}
+.groupHeader{
+	text-decoration:underline;
+	padding-bottom:5px;
+	font-weight:bold;
+}
+
+fieldset{
+	margin:5px;
+}
+
+
+input[type="text"],textarea,input[type="password"]{
 	background:#ffffff;
-	height:25px;
+	height:30px;
 	border-radius: 5px;
 	padding-left: 5px;
+	border: 1px solid #336699;
+	margin-top:2px;
+	margin-bottom:2px;
+	
+	
 }
 h2{
-	text-size:125%;
+	color: #336699;
 	
-	color:#555555;
-	text-shadow: 0 1px 0 #454545,
-               0 1px 0 #444,
-               0 1px 0 #353535,
-               0 1px 0 #333,
-               0 1px 0 #252525,
-               0 3px 1px rgba(100, 100, 100,.1),
-               0 0 2px rgba(100, 100, 100,.1),
-               0 1px 2px rgba(100, 100, 100,.3),
-               0 1px 2px rgba(100, 100, 100,.2),
-               0 2px 5px rgba(100, 100, 100,.25),
-               0 5px 5px rgba(100, 100, 100,.2);*/
   
 }
 
-a{
+.container a{
 	text-decoration:none;	
 	color:#336699;	
 }
 
-a:hover{
+.container a:hover{
 	text-decoration:none;
 	color:#666;
 }
@@ -77,38 +99,38 @@ a:hover{
 .right{
 	text-align:right;
 	overflow:hidden;
+	padding-left:10px;
+}
+
+.subcontainer{
+	border: 1px dotted #336699;
+	width: 300px;
+	padding:10px;
 }
 
 /* ---------------Raptor Header Styles--------------- */
 h1
 {
-	/*color:#b9b9b9;
-	font-size: 400%;
 	text-align: center;
 	vertical-align: middle;
-	text-shadow: 0 1px 0 #aaa,
-               0 2px 0 #999,
-               0 2px 0 #888,
-               0 2px 0 #777,
-               0 2px 0 #666,
-               0 3px 1px rgba(100, 100, 100,.1),
-               0 0 2px rgba(100, 100, 100,.1),
-               0 1px 2px rgba(100, 100, 100,.3),
-               0 1px 2px rgba(100, 100, 100,.2),
-               0 2px 5px rgba(100, 100, 100,.25),
-               0 5px 5px rgba(100, 100, 100,.2);*/
     font-size: 400%;
-	text-align: center;
-	vertical-align: middle;
     color:#e49621;
+    text-shadow: 0px 1px 1px #000;
+    
 }
 #header
 {
 	background-image: -webkit-linear-gradient(bottom, #00091A 38%, #332870 100%);
 	width: 100%;
+	-moz-box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
 	-webkit-box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
-	padding: 5px;
+	box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
+	padding:10px;
 	background:#666;
+	margin-bottom:20px;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#787878)); 
+	background: -webkit-linear-gradient(top, #666666, #787878);
+	background: -moz-linear-gradient(top, #666666, #787878);
 }
 #HUD_date
 {
@@ -128,11 +150,14 @@ h1
 #header a
 {
 	color:#ffffff;
+	text-decoration:none;
+	
 }
 
 #header a:hover
 {
 	color:#b9b9b9;
+	text-decoration:none;
 }
 
 #HUD_navLinks a
@@ -141,6 +166,7 @@ h1
 	color:#ffffff;
 	text-align: center;
 	font-weight: bold;
+	text-decoration:none;
 }
 #HUD_navLinks a:hover
 {
@@ -148,6 +174,8 @@ h1
 	color:#b9b9b9;
 	text-align: center;
 	font-weight: bold;
+	text-decoration:none;
+	
 }
 /* ---------------Raptor Page Styles--------------- */
 .logInPanel
@@ -157,3 +185,4 @@ h1
 	margin: 0px auto;
 	padding: 10px;
 }
+

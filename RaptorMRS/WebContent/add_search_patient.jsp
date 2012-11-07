@@ -21,6 +21,7 @@
 		$("#autocomplete").autocomplete({
 			source : availableTags
 		});
+	});
 		</script>
 		<script>
 		$(function() {
@@ -29,19 +30,27 @@
 		</script>
 		<script>
 		$(function() {
-		$("#datepicker").datepicker({
-			inline : true
+		$("#datepicker").datepicker();
+			
+           	
 		});
 		</script>
 		<script>
 		$(function() {
 	        $( "#accordion" ).accordion();
+	        $("#accordion2" ).accordion();
 	    });
 		</script>
 		<script>
 		$(function() {
 		$("#button").button();
 	});
+		 </script>
+		<script>
+	    $(function() {
+	        $( "#radio" ).buttonset();
+	    });
+	   
 </script>
 <title>Search for or Add a Patient</title>
 </head>
@@ -50,8 +59,8 @@
 		<%@ include file="header.jsp"%>
 		<div id="tabs">
     <ul>
-        <li><a href="#tabs-1">Simple</a></li>
-        <li><a href="#tabs-2">Advanced</a></li>
+        <li><a href="#tabs-1">Simple Entry</a></li>
+        <li><a href="#tabs-2">Additional Details</a></li>
      
     </ul>
     <div id="tabs-1">
@@ -64,96 +73,111 @@
 					</div>
 					
 					<div class="right">
-						<h:panelGrid columns="7">
-							<h:outputLabel value="Name: "></h:outputLabel>
-							<input id="autocomplete" />
-
-							<h:inputText></h:inputText>
-
-							<h:inputText size="5" title="ID#"></h:inputText>
-						</h:panelGrid>
-
+					<h:outputLabel value="Name: " styleClass="left-align subheader">
+							<table><tr><td>
+							
+							<h:outputLabel value="First: " styleClass="left-align" for="autocomplete"></h:outputLabel>
+							<input type="text" id="autocomplete"  size="30" /></td>
+							<td>
+							<h:outputLabel value="Last:" styleClass="left-align" ></h:outputLabel>
+							<h:inputText size="50"></h:inputText></td>
+							
+							<td>
+							<h:outputLabel value="ID#: " styleClass="left-align"></h:outputLabel>
+							<h:inputText size="10"></h:inputText>
+							</td></tr>
+							</table>
+							
+							</h:outputLabel>
 
 						<h:panelGrid columns="5">
 
 							<h:outputLabel value="Gender "></h:outputLabel>
-							<h:selectOneRadio>
+							<h:selectOneRadio id="radio">
 								<f:selectItem itemLabel="Male" />
 								<f:selectItem itemLabel="Female" />
 							</h:selectOneRadio>
 						</h:panelGrid>
 						<h:panelGrid columns="2">
-							<h:outputLabel value="Birthdate (Format:dd/mm/yyyy)"></h:outputLabel>
+							<h:outputLabel value="Birthdate (Format:mm/dd/yyyy)"></h:outputLabel>
 							<input type="text" id="datepicker" />
 						</h:panelGrid>
 
 						<h:panelGrid columns="2">
 
 							<h:outputLabel value="City/Town/Village of Residence"></h:outputLabel>
-							<h:inputText></h:inputText>
+							<h:inputText size="40"></h:inputText>
 						</h:panelGrid>
 
-						<h:panelGrid columns="8">
+						<h:panelGrid columns="12">
 
 							<h:outputLabel value="Height"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="m"></h:outputLabel>
+							<td width="40px"></td>
 							<h:outputLabel value="Weight"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="Kg"></h:outputLabel>
+							<td width="40px"></td>
 							<h:outputLabel value="BMI"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="Kg/m"></h:outputLabel>
 						</h:panelGrid>
 
 					</div>
 				</div>
 				<div class="container">
 					<div class="left">
-						<table style="width: 250px">
-							<tr>
-								<td colspan="2">Keywords from prior visits</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>
+						<fieldset>
+								<h:outputLabel value="Keywords from Previous Encounters" styleClass="groupHeader"></h:outputLabel>
+							
+								<h:inputTextarea style="height:116px;width:250px"></h:inputTextarea>
+							</fieldset>
 					</div>
 					<div class="right">
-						<table>
-							<tr>
-								<td colspan="7">Vital Signs</td>
-							</tr>
-							<tr>
-								<td>BP:</td>
-								<td></td>
-								<td>/</td>
-								<td>mmHg</td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+						<fieldset>
+						<h:outputLabel value="Vital Signs" styleClass="left-align groupHeader"></h:outputLabel>
+							<h:panelGrid columns="8">
 
-							<tr>
-								<td>HR:</td>
-								<td></td>
-								<td>BPM</td>
-								<td></td>
-								<td>RR:</td>
-								<td></td>
-								<td>Breaths/min</td>
-							</tr>
+							<h:outputLabel value="BP"></h:outputLabel>
+							<td style="width:10px"></td>
+							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="/"></h:outputLabel>
+							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="mmHg"></h:outputLabel>
+							
+						</h:panelGrid>
+						<h:panelGrid columns="8">
 
-						</table>
+							<h:outputLabel value="HR"></h:outputLabel>
+							<td style="width:10px"></td>
+							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="BPM"></h:outputLabel>
+							<td style="width:160px"></td>
+							<h:outputLabel value="RR"></h:outputLabel>
+							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="Breaths/min"></h:outputLabel>
+							
+						</h:panelGrid>
+						<h:panelGrid columns="8">
+
+							<h:outputLabel value="Temp"></h:outputLabel>
+							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="C"></h:outputLabel>
+							<td style="width:180px"></td>
+							<h:outputLabel value="Ox"></h:outputLabel>
+							<h:inputText size="5"></h:inputText>
+							<h:outputLabel value="%"></h:outputLabel>
+							
+						</h:panelGrid>
+						</fieldset>
 					</div>
 				</div>
 				<div class="container">
 					<h:panelGrid columns="2">
 
 						<h:outputLabel value="Chief Complaint"></h:outputLabel>
-						<h:inputText style="width: 670px; "></h:inputText>
+						<h:inputTextarea style="width:800px"></h:inputTextarea>
 					</h:panelGrid>
 				</div>
 				<div class="container">
@@ -162,7 +186,7 @@
 						<h:outputLabel
 							value="HPI: Include Onset, Provokes/Palliates, Quality, Radiation, Score, Timing, and anything else"></h:outputLabel>
 
-						<textarea style="width: 790px;"></textarea>
+						<h:inputTextarea style="height:116px;width:900px"></h:inputTextarea>
 					</h:panelGrid>
 				</div>
 				<div class="container">
@@ -170,18 +194,18 @@
 						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img
 						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img
 						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><br>
-					<a href="add_photo_page">New Photo...</a> <br />
+					<a href="add_photo_page" style="padding-left:20px">New Photo...</a> <br />
 					<a href="add_photo_page">Additional Photos...</a>
 				</div>
 				<div class="container">
 					<table>
 						<tr>
 							<td><h:outputLabel value="Chronic Illnesses:"></h:outputLabel></td>
-							<td><h:inputText style="width: 620px; "></h:inputText></td>
+							<td><h:inputText size="90"></h:inputText></td>
 							<td><a href="remove_illness">Remove...</a></td>
 						</tr>
 						<tr>
-							<td colspan="3" align="right"><a href="add_illness">Add...</a></td>
+							<td colspan="3" align="center"><a href="add_illness">Add...</a></td>
 						</tr>
 					</table>
 
@@ -190,11 +214,11 @@
 					<table>
 						<tr>
 							<td><h:outputLabel value="Medical Procedures:"></h:outputLabel></td>
-							<td><h:inputText style="width: 620px; "></h:inputText></td>
+							<td><h:inputText size="90"></h:inputText></td>
 							<td><a href="remove procedure">Remove...</a></td>
 						</tr>
 						<tr>
-							<td colspan="3" align="right"><a href="add_procedure">Add...</a></td>
+							<td colspan="3" align="center"><a href="add_procedure">Add...</a></td>
 						</tr>
 					</table>
 
@@ -202,40 +226,40 @@
 				<div class="container">
 				<h:outputLabel
 							value="Social History and Family History: Include familial illnesses, living situation, occupation"></h:outputLabel>
-				<div id="accordion" style="width: 790px;">						
+				<div id="accordion" >						
 							<h3>Current</h3>
 						<div>
-						<textarea style="width: 690px;">Current social/family history</textarea>
+						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
 						</div>
 						<h3>Previous</h3>
 						<div>
-						<textarea style="width: 690px;">Previous social/family history</textarea>
+						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
 						</div>
 					
 					</div>
 				</div>
 				<div class="container">
-					<h:panelGrid>
+					
 
-						<h:outputLabel value="Previously Provided Meds"></h:outputLabel>
-
-						<textarea style="width: 790px;"></textarea>
-					</h:panelGrid>
+						<h:outputLabel value="Prescribed Medicine"></h:outputLabel>
+				<div id="accordion2">
+					<h3>Current</h3>
+						<div>
+						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
+						</div>
+						<h3>Previous</h3>
+						<div>
+						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
+						</div>
+						</div>
 				</div>
-				<div class="container">
-					<h:panelGrid columns="2">
-
-						<h:outputLabel value="Meds/Items Provided"></h:outputLabel>
-						<h:inputText style="width: 670px; "></h:inputText>
-					</h:panelGrid>
-					<span style="align: right"><a href="add_meds">Add...</a></span>
-				</div>
+				
 				<div class="container">
 					<h:panelGrid>
 
 						<h:outputLabel value="Overall Impression for this Visit:"></h:outputLabel>
 
-						<textarea style="width: 790px;"></textarea>
+					<h:inputTextarea style="height:116px;width:900px"></h:inputTextarea>
 					</h:panelGrid>
 				</div>
 				<form>
@@ -250,11 +274,16 @@
 		</f:view>
 		</div>
 		<div id="tabs-2">
-        <p><h3>Additional Information</h3>
+      
 
 						
-						<textarea style="width: 790px;"></textarea>
-				</p>
+						
+
+						
+
+					<textarea style="height:116px;width:900px"></textarea>
+					
+			
     </div>
     </div>
 	</div>
