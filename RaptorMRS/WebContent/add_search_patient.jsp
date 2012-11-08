@@ -31,9 +31,7 @@
 		<script>
 		$(function() {
 		$("#datepicker").datepicker();
-			
-           	
-		});
+           			});
 		</script>
 		<script>
 		$(function() {
@@ -60,7 +58,7 @@
 		<div id="tabs">
     <ul>
         <li><a href="#tabs-1">Simple Entry</a></li>
-        <li><a href="#tabs-2">Additional Details</a></li>
+        <li><a href="#tabs-2">Advanced Entry</a></li>
      
     </ul>
     <div id="tabs-1">
@@ -73,14 +71,15 @@
 					</div>
 					
 					<div class="right">
-					<h:outputLabel value="Name: " styleClass="left-align subheader">
+					<fieldset>
+					
 							<table><tr><td>
 							
-							<h:outputLabel value="First: " styleClass="left-align" for="autocomplete"></h:outputLabel>
-							<input type="text" id="autocomplete"  size="30" /></td>
+							<h:outputLabel value="First: " styleClass="left-align" ></h:outputLabel>
+							<input type="text"   size="20" /></td>
 							<td>
 							<h:outputLabel value="Last:" styleClass="left-align" ></h:outputLabel>
-							<h:inputText size="50"></h:inputText></td>
+							<h:inputText size="30"></h:inputText></td>
 							
 							<td>
 							<h:outputLabel value="ID#: " styleClass="left-align"></h:outputLabel>
@@ -88,7 +87,7 @@
 							</td></tr>
 							</table>
 							
-							</h:outputLabel>
+							
 
 						<h:panelGrid columns="5">
 
@@ -123,20 +122,20 @@
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="Kg/m"></h:outputLabel>
 						</h:panelGrid>
-
+						</fieldset>
 					</div>
 				</div>
 				<div class="container">
 					<div class="left">
-						<fieldset>
-								<h:outputLabel value="Keywords from Previous Encounters" styleClass="groupHeader"></h:outputLabel>
+						<fieldset><legend>Keywords from Previous Encounters</legend>
+								
 							
-								<h:inputTextarea style="height:116px;width:250px"></h:inputTextarea>
+								<h:inputTextarea style="width:250px;height:150px"></h:inputTextarea>
 							</fieldset>
 					</div>
 					<div class="right">
 						<fieldset>
-						<h:outputLabel value="Vital Signs" styleClass="left-align groupHeader"></h:outputLabel>
+						<legend>Vital Signs</legend>
 							<h:panelGrid columns="8">
 
 							<h:outputLabel value="BP"></h:outputLabel>
@@ -177,7 +176,7 @@
 					<h:panelGrid columns="2">
 
 						<h:outputLabel value="Chief Complaint"></h:outputLabel>
-						<h:inputTextarea style="width:800px"></h:inputTextarea>
+						<h:inputTextarea style="width:700px"></h:inputTextarea>
 					</h:panelGrid>
 				</div>
 				<div class="container">
@@ -191,7 +190,6 @@
 				</div>
 				<div class="container">
 					<img src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img
-						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img
 						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img
 						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><br>
 					<a href="add_photo_page" style="padding-left:20px">New Photo...</a> <br />
@@ -224,16 +222,15 @@
 
 				</div>
 				<div class="container">
-				<h:outputLabel
-							value="Social History and Family History: Include familial illnesses, living situation, occupation"></h:outputLabel>
+				<h:outputLabel value="Social History and Family History: Include familial illnesses, living situation, occupation"></h:outputLabel>
 				<div id="accordion" >						
-							<h3>Current</h3>
+							<span style="font-size:11pt">Current</span>
 						<div>
-						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
+						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
 						</div>
-						<h3>Previous</h3>
+						<span style="font-size:11pt">Previous</span>
 						<div>
-						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
+						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
 						</div>
 					
 					</div>
@@ -243,13 +240,13 @@
 
 						<h:outputLabel value="Prescribed Medicine"></h:outputLabel>
 				<div id="accordion2">
-					<h3>Current</h3>
+					<span style="font-size:11pt">Current</span>
 						<div>
-						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
+						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
 						</div>
-						<h3>Previous</h3>
+						<span style="font-size:11pt">Previous</span>
 						<div>
-						<h:inputText style="padding:0;height:80px;width:700px"></h:inputText>
+						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
 						</div>
 						</div>
 				</div>

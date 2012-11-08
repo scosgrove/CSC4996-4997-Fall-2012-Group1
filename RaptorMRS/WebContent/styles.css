@@ -4,20 +4,22 @@ body{
 	margin:0;
 	padding:0;
 	width:100%;
-	font: 14px Verdana,Helvetica, sans-serif;
+	font: 16px Verdana,Helvetica, sans-serif;
 	line-height:18px;
 	color:#000;
 	background:#336699;
 	
 }
 label{
-	font: 14px Verdana,Helvetica, sans-serif;
+	font: 16px Verdana,Helvetica, sans-serif;
 	line-height:18px;
 	color:#000;
 	display:block;
-	font-weight:bold;
+	width:100%;
 	
 }
+
+
 
 #wrap{
 	width:90%;
@@ -56,12 +58,18 @@ fieldset{
 }
 
 
+
+#ui-datepicker-div{
+	background:#666;
+}
+
+
 input[type="text"],textarea,input[type="password"]{
 	background:#ffffff;
 	height:30px;
 	border-radius: 5px;
 	padding-left: 5px;
-	border: 1px solid #336699;
+	border: 1px solid #ccc;
 	margin-top:2px;
 	margin-bottom:2px;
 	
@@ -177,12 +185,44 @@ h1
 	text-decoration:none;
 	
 }
-/* ---------------Raptor Page Styles--------------- */
+/* ---------------Raptor Login Page Styles--------------- */
 .logInPanel
 {
 	text-align: center;
-	width: 260px;
+	width: 300px;
 	margin: 0px auto;
 	padding: 10px;
+}
+.login form {
+    margin: 24px 0 0 0;
+}
+
+.login form legend {
+    font-size: 1.125em;
+    font-weight: bold;
+}
+
+.login form fieldset {
+    margin: 0 0 32px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.login form label {
+    float: left;
+    width: 125px;
+}
+
+.login form label, form input {
+    margin: 5px 0;
+}
+
+.login form input {
+    width: 100%;
+}
+.login form span {
+    display: block;
+    overflow: hidden;
+    padding: 0 5px 0 0;
 }
 

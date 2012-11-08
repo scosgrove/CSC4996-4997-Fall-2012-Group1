@@ -22,17 +22,19 @@
 		<f:view>
 			<jsp:directive.include file="header.jsp" />
 			<div class="logInPanel">
-				<h2>Log In</h2>
-				<h:form>
+				
+				<h:form styleClass="login">
+				<fieldset class="login">
+				<legend class="login">Please Log In</legend>
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Username: "></h:outputLabel>
 						<h:inputText value="#{userInterfaceBean.username}"></h:inputText>
 						<h:outputLabel value="Password: "></h:outputLabel>
 						<h:inputSecret value="#{userInterfaceBean.password}"></h:inputSecret>
-						<h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}" style="width: 100px" ></h:commandButton>
+						<h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}"  ></h:commandButton>
 						<h:outputText value="#{userInterfaceBean.loginAttemptResult}"></h:outputText>
 					</h:panelGrid><br/>
-					
+					</fieldset>
 				</h:form>
 			</div>
 		</f:view>
