@@ -106,4 +106,10 @@ public class User {
 			return "invalid";
 		}
 	}
+	
+	public String clear(){
+		this.password = "";
+		this.username= "";
+		return null;
+	}
 }

@@ -33,6 +33,7 @@
 						<h:inputSecret value="#{userInterfaceBean.password}"></h:inputSecret>
 						<h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}"  ></h:commandButton>
 						<h:outputText value="#{userInterfaceBean.loginAttemptResult}"></h:outputText>
+						<h:commandButton value="Reset" action="#{userInterfaceBean.clear}"> </h:commandButton>
 					</h:panelGrid><br/>
 					</fieldset>
 				</h:form>
