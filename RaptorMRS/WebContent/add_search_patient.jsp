@@ -30,6 +30,11 @@
 		</script>
 		<script>
 		$(function() {
+		 $( "#tabs2" ).tabs();
+	    });
+		</script>
+		<script>
+		$(function() {
 		$("#datepicker").datepicker();
            			});
 		</script>
@@ -239,13 +244,17 @@
 					
 
 						<h:outputLabel value="Prescribed Medicine"></h:outputLabel>
-				<div id="accordion2">
-					<span style="font-size:11pt">Current</span>
-						<div>
+						<div id="tabs2">
+   							 <ul>
+        						<li><a href="#tabs-1a">Current</a></li>
+       							 <li><a href="#tabs-2a">Previous</a></li>
+     						    </ul>
+    					<div id="tabs-1a">
+				
+					
 						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
 						</div>
-						<span style="font-size:11pt">Previous</span>
-						<div>
+						<div id="tabs-2a">
 						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
 						</div>
 						</div>
