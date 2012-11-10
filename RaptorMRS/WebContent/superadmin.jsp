@@ -24,7 +24,7 @@
 
 
 <h:form>
-<h2> Search for users by: </h2>
+<h3> Search for users by: </h3>
 (Any or all of fields below)
 
 <h:panelGrid columns="6">
@@ -36,7 +36,7 @@
 </h:form>
 
 <h:form>
-<h2> Add new users: </h2>
+<h3> Add new users: </h3>
 (ALL FIELDS ARE REQUIRED)
 
 <h:panelGrid columns="6">

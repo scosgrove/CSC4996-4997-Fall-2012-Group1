@@ -60,13 +60,7 @@
 <body>
 	<div id="wrap">
 		<%@ include file="header.jsp"%>
-		<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">Simple Entry</a></li>
-        <li><a href="#tabs-2">Advanced Entry</a></li>
-     
-    </ul>
-    <div id="tabs-1">
+		
 		<f:view>
 			<h:form>
 				<div class="container">
@@ -110,7 +104,7 @@
 						<h:panelGrid columns="2">
 
 							<h:outputLabel value="City/Town/Village of Residence"></h:outputLabel>
-							<h:inputText size="40"></h:inputText>
+							<h:inputText ></h:inputText>
 						</h:panelGrid>
 
 						<h:panelGrid columns="12">
@@ -118,11 +112,11 @@
 							<h:outputLabel value="Height"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="m"></h:outputLabel>
-							<td width="40px"></td>
+						
 							<h:outputLabel value="Weight"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="Kg"></h:outputLabel>
-							<td width="40px"></td>
+							
 							<h:outputLabel value="BMI"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="Kg/m"></h:outputLabel>
@@ -135,7 +129,7 @@
 						<fieldset><legend>Keywords from Previous Encounters</legend>
 								
 							
-								<h:inputTextarea style="width:250px;height:150px"></h:inputTextarea>
+								<h:inputTextarea ></h:inputTextarea>
 							</fieldset>
 					</div>
 					<div class="right">
@@ -144,7 +138,7 @@
 							<h:panelGrid columns="8">
 
 							<h:outputLabel value="BP"></h:outputLabel>
-							<td style="width:10px"></td>
+							
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="/"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
@@ -154,10 +148,10 @@
 						<h:panelGrid columns="8">
 
 							<h:outputLabel value="HR"></h:outputLabel>
-							<td style="width:10px"></td>
+							
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="BPM"></h:outputLabel>
-							<td style="width:160px"></td>
+							
 							<h:outputLabel value="RR"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="Breaths/min"></h:outputLabel>
@@ -168,7 +162,7 @@
 							<h:outputLabel value="Temp"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="C"></h:outputLabel>
-							<td style="width:180px"></td>
+							
 							<h:outputLabel value="Ox"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="%"></h:outputLabel>
@@ -181,7 +175,7 @@
 					<h:panelGrid columns="2">
 
 						<h:outputLabel value="Chief Complaint"></h:outputLabel>
-						<h:inputTextarea style="width:700px"></h:inputTextarea>
+						<h:inputTextarea ></h:inputTextarea>
 					</h:panelGrid>
 				</div>
 				<div class="container">
@@ -190,21 +184,21 @@
 						<h:outputLabel
 							value="HPI: Include Onset, Provokes/Palliates, Quality, Radiation, Score, Timing, and anything else"></h:outputLabel>
 
-						<h:inputTextarea style="height:116px;width:900px"></h:inputTextarea>
+						<h:inputTextarea ></h:inputTextarea>
 					</h:panelGrid>
 				</div>
 				<div class="container">
 					<img src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img
 						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><img
 						src="http://localhost:8080/RaptorMRS/faces/deformity.png" /><br>
-					<a href="add_photo_page" style="padding-left:20px">New Photo...</a> <br />
+					<a href="add_photo_page" >New Photo...</a> <br />
 					<a href="add_photo_page">Additional Photos...</a>
 				</div>
 				<div class="container">
 					<table>
 						<tr>
 							<td><h:outputLabel value="Chronic Illnesses:"></h:outputLabel></td>
-							<td><h:inputText size="90"></h:inputText></td>
+							<td><h:inputText ></h:inputText></td>
 							<td><a href="remove_illness">Remove...</a></td>
 						</tr>
 						<tr>
@@ -217,7 +211,7 @@
 					<table>
 						<tr>
 							<td><h:outputLabel value="Medical Procedures:"></h:outputLabel></td>
-							<td><h:inputText size="90"></h:inputText></td>
+							<td><h:inputText ></h:inputText></td>
 							<td><a href="remove procedure">Remove...</a></td>
 						</tr>
 						<tr>
@@ -229,13 +223,13 @@
 				<div class="container">
 				<h:outputLabel value="Social History and Family History: Include familial illnesses, living situation, occupation"></h:outputLabel>
 				<div id="accordion" >						
-							<span style="font-size:11pt">Current</span>
+							<span >Current</span>
 						<div>
-						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
+						<h:inputText ></h:inputText>
 						</div>
-						<span style="font-size:11pt">Previous</span>
+						<span >Previous</span>
 						<div>
-						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
+						<h:inputText></h:inputText>
 						</div>
 					
 					</div>
@@ -244,18 +238,14 @@
 					
 
 						<h:outputLabel value="Prescribed Medicine"></h:outputLabel>
-						<div id="tabs2">
-   							 <ul>
-        						<li><a href="#tabs-1a">Current</a></li>
-       							 <li><a href="#tabs-2a">Previous</a></li>
-     						    </ul>
-    					<div id="tabs-1a">
-				
-					
-						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
+						<div id="accordion2">
+   							 <span >Current</span>
+						<div>
+						<h:inputText ></h:inputText>
 						</div>
-						<div id="tabs-2a">
-						<h:inputText style="padding:0;height:80px;width:800px"></h:inputText>
+						<span >Previous</span>
+						<div>
+						<h:inputText></h:inputText>
 						</div>
 						</div>
 				</div>
@@ -265,7 +255,7 @@
 
 						<h:outputLabel value="Overall Impression for this Visit:"></h:outputLabel>
 
-					<h:inputTextarea style="height:116px;width:900px"></h:inputTextarea>
+					<h:inputTextarea></h:inputTextarea>
 					</h:panelGrid>
 				</div>
 				<form>
@@ -278,20 +268,8 @@
 
 
 		</f:view>
-		</div>
-		<div id="tabs-2">
-      
-
-						
-						
-
-						
-
-					<textarea style="height:116px;width:900px"></textarea>
-					
-			
-    </div>
-    </div>
+		
+		
 	</div>
 </body>
 </html>

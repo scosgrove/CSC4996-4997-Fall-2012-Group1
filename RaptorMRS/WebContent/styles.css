@@ -1,17 +1,19 @@
 @CHARSET "UTF-8";
 
+
+
 body{
 	margin:0;
 	padding:0;
 	width:100%;
-	font: 16px Verdana,Helvetica, sans-serif;
+	font: 12px Verdana,Helvetica, sans-serif;
 	line-height:18px;
 	color:#000;
 	background:#336699;
 	
 }
 label{
-	font: 16px Verdana,Helvetica, sans-serif;
+	font: 12px Verdana,Helvetica, sans-serif;
 	line-height:18px;
 	color:#000;
 	display:block;
@@ -32,6 +34,7 @@ label{
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eaf0f5), to(#ffffff)); 
 	background: -webkit-linear-gradient(top, #eaf0f5, #ffffff);
 	background: -moz-linear-gradient(top, #eaf0f5, #ffffff);
+	border-radius: 5px;
 
 }
 img{
@@ -66,7 +69,7 @@ fieldset{
 
 input[type="text"],textarea,input[type="password"]{
 	background:#ffffff;
-	height:30px;
+	height:25px;
 	border-radius: 5px;
 	padding-left: 5px;
 	border: 1px solid #ccc;
@@ -76,9 +79,17 @@ input[type="text"],textarea,input[type="password"]{
 	
 }
 h2{
-	color: #336699;
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+   
+    text-shadow: 0px 1px 1px #000;
+    
 	
   
+}
+h3{
+	color:#336699;
 }
 
 .container a{
@@ -121,8 +132,7 @@ h1
 {
 	text-align: center;
 	vertical-align: middle;
-    font-size: 400%;
-    color:#e49621;
+      color:#e49621;
     text-shadow: 0px 1px 1px #000;
     
 }
@@ -139,6 +149,7 @@ h1
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#787878)); 
 	background: -webkit-linear-gradient(top, #666666, #787878);
 	background: -moz-linear-gradient(top, #666666, #787878);
+	border-radius: 5px;
 }
 #HUD_date
 {
@@ -153,6 +164,8 @@ h1
 #HUD_navLinks
 {
 	text-align:center;
+	margin-top:5px;
+	color:#ccc;
 }
 
 #header a
@@ -170,7 +183,7 @@ h1
 
 #HUD_navLinks a
 {
-	font-size:125%;
+	font-size:120%;
 	color:#ffffff;
 	text-align: center;
 	font-weight: bold;
@@ -178,7 +191,7 @@ h1
 }
 #HUD_navLinks a:hover
 {
-	font-size:125%;
+	font-size:120%;
 	color:#b9b9b9;
 	text-align: center;
 	font-weight: bold;
