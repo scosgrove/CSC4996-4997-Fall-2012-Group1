@@ -16,8 +16,20 @@
 		$("input[type=submit]").button();
 	});
 </script>
+<script type="text/javascript">
+function clock() {
+	   var now = new Date();
+	   var outStr = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+	   document.getElementById('clockDiv').innerHTML = outStr;
+	   var displayDate = (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
+	   document.getElementById('currentDate').innerHTML = displayDate;
+	   setTimeout('clock()',1000);
+	}
+	clock();
+
+</script>
 </head>
-<body>
+<body onload="clock();">
 	<div id="wrap">
 		<f:view>
 			<jsp:directive.include file="header.jsp" />

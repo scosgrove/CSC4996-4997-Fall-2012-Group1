@@ -14,6 +14,18 @@
 
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script type="text/javascript">
+function clock() {
+	   var now = new Date();
+	   var outStr = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+	   document.getElementById('clockDiv').innerHTML = outStr;
+	   var displayDate = (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
+	   document.getElementById('currentDate').innerHTML = displayDate;
+	   setTimeout('clock()',1000);
+	}
+	clock();
+
+</script>
 <script>
 	$(function() {
 		var availableTags = [ "Marek", "Clinton", "Alex", "Jackson", "Sarah",
@@ -57,7 +69,7 @@
 </script>
 <title>Search for or Add a Patient</title>
 </head>
-<body>
+<body onload="clock();" >
 	<div id="wrap">
 		<%@ include file="header.jsp"%>
 		
@@ -72,43 +84,36 @@
 					<div class="right">
 					<fieldset>
 					
-							<table><tr><td>
-							
+						
+							<h:panelGrid columns="12">
 							<h:outputLabel value="First: " styleClass="left-align" ></h:outputLabel>
-							<input type="text"   size="20" /></td>
-							<td>
+							<input type="text"   size="20" />
 							<h:outputLabel value="Last:" styleClass="left-align" ></h:outputLabel>
-							<h:inputText size="30"></h:inputText></td>
+							<h:inputText size="30"></h:inputText>
+							</h:panelGrid>
 							
-							<td>
+							<h:panelGrid columns="12">
+							<h:outputLabel value="Residence" styleClass="left-align"></h:outputLabel>
+							<h:inputText size="50"></h:inputText>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="10" >
 							<h:outputLabel value="ID#: " styleClass="left-align"></h:outputLabel>
 							<h:inputText size="10"></h:inputText>
-							</td></tr>
-							</table>
-							
-							
-
-						<h:panelGrid columns="5">
-
-							<h:outputLabel value="Gender "></h:outputLabel>
+							<h:outputLabel value="Age: "></h:outputLabel>
+							<h:inputText size="4"></h:inputText>
+							<h:outputLabel value="Gender" styleClass="left-align"></h:outputLabel>
 							<h:selectOneRadio id="radio">
 								<f:selectItem itemLabel="Male" />
 								<f:selectItem itemLabel="Female" />
 							</h:selectOneRadio>
-						</h:panelGrid>
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Birthdate (Format:mm/dd/yyyy)"></h:outputLabel>
-							<input type="text" id="datepicker" />
-						</h:panelGrid>
-
-						<h:panelGrid columns="2">
-
-							<h:outputLabel value="City/Town/Village of Residence"></h:outputLabel>
-							<h:inputText ></h:inputText>
-						</h:panelGrid>
-
-						<h:panelGrid columns="12">
-
+						
+							</h:panelGrid>
+							</fieldset>
+							<fieldset>
+							
+							<h:panelGrid columns="10" >
+							
 							<h:outputLabel value="Height"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="m"></h:outputLabel>
@@ -120,22 +125,8 @@
 							<h:outputLabel value="BMI"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="Kg/m"></h:outputLabel>
-						</h:panelGrid>
-						</fieldset>
-					</div>
-				</div>
-				<div class="container">
-					<div class="left">
-						<fieldset><legend>Keywords from Previous Encounters</legend>
-								
-							
-								<h:inputTextarea ></h:inputTextarea>
-							</fieldset>
-					</div>
-					<div class="right">
-						<fieldset>
-						<legend>Vital Signs</legend>
-							<h:panelGrid columns="8">
+							</h:panelGrid>
+							<h:panelGrid columns="18">
 
 							<h:outputLabel value="BP"></h:outputLabel>
 							
@@ -144,9 +135,7 @@
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="mmHg"></h:outputLabel>
 							
-						</h:panelGrid>
-						<h:panelGrid columns="8">
-
+			
 							<h:outputLabel value="HR"></h:outputLabel>
 							
 							<h:inputText size="5"></h:inputText>
@@ -155,9 +144,9 @@
 							<h:outputLabel value="RR"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
 							<h:outputLabel value="Breaths/min"></h:outputLabel>
+							</h:panelGrid>
 							
-						</h:panelGrid>
-						<h:panelGrid columns="8">
+							<h:panelGrid columns="8">
 
 							<h:outputLabel value="Temp"></h:outputLabel>
 							<h:inputText size="5"></h:inputText>
@@ -168,9 +157,18 @@
 							<h:outputLabel value="%"></h:outputLabel>
 							
 						</h:panelGrid>
+						
 						</fieldset>
 					</div>
 				</div>
+				<div class="container">
+					<div >
+						<fieldset><legend>Keywords from Previous Encounters</legend>
+								
+							
+								<h:inputTextarea ></h:inputTextarea>
+							</fieldset>
+					</div>
 				<div class="container">
 					<h:panelGrid columns="2">
 

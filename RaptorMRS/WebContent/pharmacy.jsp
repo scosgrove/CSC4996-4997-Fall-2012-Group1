@@ -16,8 +16,20 @@
 		$("input[type=submit]").button();
 	});
 </script>
+<script type="text/javascript">
+function clock() {
+	   var now = new Date();
+	   var outStr = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+	   document.getElementById('clockDiv').innerHTML = outStr;
+	   var displayDate = (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
+	   document.getElementById('currentDate').innerHTML = displayDate;
+	   setTimeout('clock()',1000);
+	}
+	clock();
+
+</script>
 </head>
-<body>
+<body onload="clock();">
 	<div id="wrap">
 		<f:view>
 			<jsp:directive.include file="header.jsp" />
@@ -54,7 +66,8 @@
                           <h:outputText value="Select Dosage : "/>
                           <h:selectManyMenu style="height:100;" >
                               <f:selectItem itemLabel="200" itemValue="200" />
-                              <f:selectItem itemLabel="400" itemValue="200"/>
+                              <f:selectItem itemLabel="400" itemValue="400"/>
+                               <f:selectItem itemLabel="600" itemValue="600"/>
                           </h:selectManyMenu>
                       </h:column>
                       <h:column>
@@ -62,6 +75,7 @@
                           <h:selectManyMenu style="height:100;" >
                               <f:selectItem itemLabel="mg" itemValue="mg" />
                               <f:selectItem itemLabel="g" itemValue="g"/>
+                              <f:selectItem itemLabel="mL" itemValue="ml"/>
                           </h:selectManyMenu>
                       </h:column>
  
