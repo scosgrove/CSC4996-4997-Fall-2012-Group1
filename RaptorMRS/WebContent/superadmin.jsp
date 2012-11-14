@@ -14,13 +14,27 @@
 	$("input[type=submit]").button();
 	});
 </script>
+<script type="text/javascript">
+function clock() {
+	   var now = new Date();
+	   var outStr = 'Time:' + now.getHours()+' hr';
+	   document.getElementById('clockDiv').innerHTML = outStr;
+	   var displayDate = 'Date: ' + (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
+	   document.getElementById('currentDate').innerHTML = displayDate;
+	   setTimeout('clock()',1000);
+	}
+	clock();
+
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Super Admin Page</title>
 </head>
-<body>
-<div id="wrap">
-<f:view>
+<body onload="clock();" >
+<div class="wrapper">
 <jsp:directive.include file="header.jsp"/>
+<div class="content">
+<f:view>
+
 
 
 <h:form>
@@ -56,6 +70,6 @@
 <h:outputLabel value="#{currentTimaAndDate.getDate}"></h:outputLabel>
 <p> <%= new java.util.Date() %> </p>
 </f:view>
-</div>
+</div></div>
 </body>
 </html>

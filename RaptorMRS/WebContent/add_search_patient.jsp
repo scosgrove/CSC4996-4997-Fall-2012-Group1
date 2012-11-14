@@ -17,9 +17,9 @@
 <script type="text/javascript">
 function clock() {
 	   var now = new Date();
-	   var outStr = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+	   var outStr = 'Time:' + now.getHours()+' hr';
 	   document.getElementById('clockDiv').innerHTML = outStr;
-	   var displayDate = (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
+	   var displayDate = 'Date: ' + (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
 	   document.getElementById('currentDate').innerHTML = displayDate;
 	   setTimeout('clock()',1000);
 	}
@@ -70,9 +70,9 @@ function clock() {
 <title>Search for or Add a Patient</title>
 </head>
 <body onload="clock();" >
-	<div id="wrap">
+	<div class="wrapper">
 		<%@ include file="header.jsp"%>
-		
+		<div class="content">
 		<f:view>
 			<h:form>
 				<div class="container">
@@ -82,24 +82,23 @@ function clock() {
 					</div>
 					
 					<div class="right">
-					<fieldset>
-					
+					<fieldset style="width:80%">
+					<legend>Search/Add Patient</legend>
 						
 							<h:panelGrid columns="12">
 							<h:outputLabel value="First: " styleClass="left-align" ></h:outputLabel>
-							<input type="text"   size="20" />
+								<h:inputText  style="first"></h:inputText>
 							<h:outputLabel value="Last:" styleClass="left-align" ></h:outputLabel>
-							<h:inputText size="30"></h:inputText>
+							<h:inputText  style="last"></h:inputText>
+							<h:outputLabel value="ID#: " styleClass="left-align"></h:outputLabel>
+								<h:inputText  style="id"></h:inputText>
 							</h:panelGrid>
 							
 							<h:panelGrid columns="12">
 							<h:outputLabel value="Residence" styleClass="left-align"></h:outputLabel>
 							<h:inputText size="50"></h:inputText>
-							</h:panelGrid>
 							
-							<h:panelGrid columns="10" >
-							<h:outputLabel value="ID#: " styleClass="left-align"></h:outputLabel>
-							<h:inputText size="10"></h:inputText>
+							
 							<h:outputLabel value="Age: "></h:outputLabel>
 							<h:inputText size="4"></h:inputText>
 							<h:outputLabel value="Gender" styleClass="left-align"></h:outputLabel>
@@ -107,11 +106,18 @@ function clock() {
 								<f:selectItem itemLabel="Male" />
 								<f:selectItem itemLabel="Female" />
 							</h:selectOneRadio>
-						
+							<input type="submit" value="Search" id="button">
 							</h:panelGrid>
-							</fieldset>
-							<fieldset>
 							
+						</fieldset>
+							<fieldset style="width:25%" class="left"><legend>Keywords from Previous Encounters</legend>
+								
+							<h:panelGrid columns="1">
+								<h:inputTextarea ></h:inputTextarea>
+						</h:panelGrid>	</fieldset>
+							<fieldset style="width:50%" class="right">
+							<legend>Vitals</legend>
+						
 							<h:panelGrid columns="10" >
 							
 							<h:outputLabel value="Height"></h:outputLabel>
@@ -159,15 +165,10 @@ function clock() {
 						</h:panelGrid>
 						
 						</fieldset>
+					
+						
+						
 					</div>
-				</div>
-				<div class="container">
-					<div >
-						<fieldset><legend>Keywords from Previous Encounters</legend>
-								
-							
-								<h:inputTextarea ></h:inputTextarea>
-							</fieldset>
 					</div>
 				<div class="container">
 					<h:panelGrid columns="2">
@@ -267,6 +268,7 @@ function clock() {
 
 		</f:view>
 		
+		</div>
 		
 	</div>
 </body>

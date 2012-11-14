@@ -19,9 +19,9 @@
 <script type="text/javascript">
 function clock() {
 	   var now = new Date();
-	   var outStr = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+	   var outStr = 'Time:' + now.getHours()+' hr';
 	   document.getElementById('clockDiv').innerHTML = outStr;
-	   var displayDate = (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
+	   var displayDate = 'Date: ' + (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
 	   document.getElementById('currentDate').innerHTML = displayDate;
 	   setTimeout('clock()',1000);
 	}
@@ -30,11 +30,11 @@ function clock() {
 </script>
 </head>
 <body onload="clock();">
-	<div id="wrap">
+	<div class="wrapper">
 		<f:view>
 			<jsp:directive.include file="header.jsp" />
 			
-				
+				<div class="content">
 				<h:form styleClass="login">
 				<fieldset class="login">
 				<legend class="login">Search for Patient</legend>
@@ -86,7 +86,7 @@ function clock() {
                   </fieldset>
 					
 				</h:form>
-					</f:view>
+					</f:view></div>
 	</div>
 </body>
 </html>
