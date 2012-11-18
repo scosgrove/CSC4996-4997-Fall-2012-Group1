@@ -1,263 +1,671 @@
 @CHARSET "UTF-8";
 
-
-
-body{
-	margin:0;
-	padding:0;
-
-	font: .8em/1.4 Verdana, Arial, Helvetica, sans-serif;
-	color:#000;
-	background:#336699;
-	
+body {
+	margin: 0;
+	padding: 0;
+	font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif;
+	color: #000;
+	background: #336699;
 }
 
-
-label{
-	font: .9em/1.4 Verdana, Arial, Helvetica, sans-serif;
-	color:#000;
-	display:block;
+label {
+	font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif;
+	color: #000;
+	float: left;
 }
-
 
 /* -- this gives all divs their percentage-based widths -- */
-.wrapper{
-	width:92%;
+.wrapper {
+	width: 95%;
 	max-width: 1260px; /* keep from getting too wide */
- 	min-width: 760px; /* keep from getting too narrow */
+	min-width: 768px; /* keep from getting too narrow */
 	margin: 0 auto;
-	background:#eaf0f5;
+	background: #eaf0f5;
 	-moz-box-shadow: 0 0 5px #ececec;
-	-webkit-box-shadow: 0 0  5px #ececec;
+	-webkit-box-shadow: 0 0 5px #ececec;
 	box-shadow: 0 0 5px #ececec;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eaf0f5), to(#ffffff)); 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eaf0f5),
+		to(#ffffff) );
 	background: -webkit-linear-gradient(top, #eaf0f5, #ffffff);
 	background: -moz-linear-gradient(top, #eaf0f5, #ffffff);
 	border-radius: 5px;
-
 }
+
 .content {
-	padding:10px 10px;
-}
-img{
-	margin:0;
-	padding:10px;
-
-}
-.first{
-	width:30%;
+	padding: 10px 10px;
 }
 
-.last{
-	width:50%;
-}
-.id{
-	width:20%;
+img {
+	margin: 0;
+	padding: 10px;
 }
 
-.left-align{
-	text-align:left;
+.first {
+	width: 20%;
+	float: left;
+	padding-right: 10px;
 }
 
-.set-width{
-	width:100px;
-}
-.groupHeader{
-	text-decoration:underline;
-
-	font-weight:bold;
+.last {
+	width: 30%;
+	float: left;
+	padding-right: 10px;
 }
 
-fieldset{
-	width:80%;
-	
+.residence {
+	width: 40%;
+	float: left;
+	padding-right: 10px;
 }
 
+.id {
+	width: 30%;
+	float: left;
+	display: block;
+	clear: none;
+}
 
-input[type="text"],textarea,input[type="password"]{
-	background:#ffffff;
+.id label {
+	float: left;
+	display: block;
+	clear: none;
+	padding-top: 5px;
+	overflow: hidden;
+}
+
+.id input[type="text"],textarea,input[type="password"] {
+	display: block;
+	clear: none;
+	float: left;
+	width: 200px;
+}
+
+.age {
+	width: 20%;
+	float: left;
+	display: block;
+	clear: none;
+}
+
+.age label {
+	display: block;
+	clear: none;
+	float: left;
+	padding-top: 5px;
+	margin-right: 5px;
+	overflow: hidden;
+}
+
+.age input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 70px;
+	clear: none;
+	padding-left: 3px;
+	float: left;
+}
+
+.gender {
+	width: 20%;
+	float: left;
+	padding-left: 10px;
+	display: block;
+	clear: none;
+	padding-right: 40px;
+}
+
+.gender label {
+	display: block;
+	clear: none;
+	width: 20%;
+	float: left;
+	margin-right: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+}
+
+.genderOptions td input[type="radio"] {
+	padding-top: 0;
+	margin-top: 0;
+	margin-right: 10px; padding-right : 10px;
+	float: left;
+	display: block;
+	clear: none;
+	padding-right: 10px;
+}
+
+.searchButton {
+	width: 10%;
+	float: left;
+	padding-top: 0;
+	padding-bottom: 3px;
+	padding-right: 40px;
+	margin-bottom: 3px;
+}
+
+.height {
+	width: 17%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.height label {
+	display: block;
+	clear: none;
+	width: 30%;
+	float: left;
+}
+
+.height input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	margin-top: 0;
+	float: left;
+}
+
+.height select {
+	display: block;
+	clear: none;
+	float: left;
+}
+
+.weight {
+	width: 17%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.weight label {
+	display: block;
+	clear: none;
+	width: 30%;
+	float: left;
+}
+
+.weight input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	margin-top: 0;
+	float: left;
+}
+
+.weight select {
+	display: block;
+	clear: none;
+	float: left;
+}
+
+.bmi {
+	width: 20%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.bmi label {
+	display: block;
+	clear: none;
+	width: 30%;
+	float: left;
+}
+
+.bmi input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	margin-top: 0;
+	float: left;
+}
+
+.bmi select {
+	display: block;
+	clear: none;
+	float: left;
+	"
+}
+
+.temp {
+	width: 17%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.temp label {
+	display: block;
+	clear: none;
+	width: 30%;
+	float: left;
+}
+
+.temp input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	margin-top: 0;
+	float: left;
+}
+
+.temp select {
+	display: block;
+	clear: none;
+	float: left;
+}
+
+.temp {
+	width: 17%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.bloodDrawn {
+	float: left;
+}
+
+.bloodDrawn label {
+	float: left;
+	padding-right: 3px;
+}
+
+.bloodDrawn input[type="checkbox"] {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.bp {
+	width: 25%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.bp label {
+	display: block;
+	clear: none;
+	padding-left: 2px;
+	float: left;
+	padding-top: 5px;
+}
+
+.bp input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	float: left;
+	margin-top: 5px;
+}
+
+.hr {
+	width: 18%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.hr label {
+	display: block;
+	clear: none;
+	padding-left: 2px;
+	float: left;
+	padding-top: 5px;
+}
+
+.hr input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	margin-top: 0;
+	float: left;
+	margin-top: 5px;
+}
+
+.rr {
+	width: 22%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.rr label {
+	display: block;
+	clear: none;
+	padding-left: 2px;
+	float: left;
+	margin-top: 5px;
+}
+
+.rr input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	margin-top: 0;
+	float: left;
+	padding-top: 5px;
+}
+
+.ox {
+	width: 20%;
+	float: left;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.ox label {
+	display: block;
+	clear: none;
+	padding-left: 2px;
+	float: left;
+	padding-top: 5px;
+}
+
+.ox input[type="text"],textarea,input[type="password"] {
+	display: block;
+	width: 50px;
+	clear: none;
+	padding-top: 0;
+	margin-top: 0;
+	float: left;
+	margin-top: 5px;
+}
+
+.chiefComplaint {
+	width: 60%;
+	float: left;
+	height: 50px;
+}
+
+.chiefComplaint textarea {
+	height: 3em;
+	line-height: 1.5em;
+}
+
+.keywords {
+	width: 30%;
+	display: block;
+	float: left;
+	padding-left: 8px;
+	margin-left: 8px;
+	height: 50px;
+}
+
+.keywords textarea {
+	display: block;
+	padding-left: 8px;
+	margin-left: 8px;
+	clear: none;
+	float: left;
+	height: 3em;
+	line-height: 1.5em;
+}
+
+.hpi {
+	width: 60%;
+	float: left;
+	padding-top: 2px;
+	margin-top: 2px;
+}
+
+.additionalImages {
+	padding-left: 10px;
+	margin-left: 10px;
+	float: left;
+	width: 35%;
+	overflow: hidden;
+}
+
+additionalImages img {
+	float: left;
+	display: block;
+	clear: none;
+}
+
+.imgLinks {
+	width: 20%;
+	float: right;
+	display: block;
+	clear: none;
+	padding-right: 70px;
+	margin-right: 70px;
+	padding-top: 5px;
+}
+
+.imgLinks a {
+	padding: 0;
+	margin: 0;
+	float: left;
+	display: block;
+	clear: none;
+	text-decoration: none;
+	color: #336699;
+}
+
+.imgLinks a:hover {
+	text-decoration: none;
+	color: #666;
+}
+
+.meds {
+	width: 60%;
+	float: left;
+}
+
+.prevMeds {
+	width: 20%;
+	float: left;
+	display: block;
+	clear: none;
+}
+
+legend {
+	text-align: left;
+}
+
+.set-width {
+	width: 100px;
+}
+
+.groupHeader {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+fieldset {
+	width: 82%;
+}
+
+textarea {
+	height: 2em;
+	line-height: 1.5em;
+}
+
+input[type="text"],textarea,input[type="password"] {
+	background: #ffffff;
 	border-radius: 5px;
-	padding-left: 5px;
+	padding-left: 2px;
+	padding-right: 2px;
 	border: 1px solid #ccc;
-	display:block;
+	width: 100%;
 	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-	
-	
+	margin-left: 3px;
+	margin-right: 3px;
 }
-h2{
+
+h2 {
 	color: #fff;
 	text-align: center;
 	vertical-align: middle;
-    margin:0;
-    padding:0;
-    text-shadow: 0px 1px 1px #000;
-    
-	
-  
+	margin: 0;
+	padding: 0;
+	text-shadow: 0px 1px 1px #000;
 }
-h3{
+
+h3 {
 	text-align: left;
 	vertical-align: middle;
-	
 }
 
-.container a{
-	text-decoration:none;	
-	color:#336699;	
+.container a {
+	text-decoration: none;
+	color: #336699;
 }
 
-.container a:hover{
-	text-decoration:none;
-	color:#666;
+.container a:hover {
+	text-decoration: none;
+	color: #666;
 }
 
-
-.container{
-	/*width:800px;*/
-	clear:both;
-	margin-top:5px;
-	margin-bottom:5px;
+.container { /*width:800px;*/
+	clear: both;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.left{
-	float:left;
-	margin-right:8px;
+.left {
+	float: left;
+	margin-right: 8px;
 }
 
-.right{
-	text-align:right;
-	
-	margin-left:8px;
-	}
-.clear{
-	clear:both;
-	height:0;
-	font-size:1px;
-	line-height:0px;
+.row {
+	float: left;
+	width: 100%;
+	padding: 4px 0px;
+	margin: 2px 0px;
 }
 
+.right {
+	text-align: right;
+	margin-left: 8px;
+}
 
+.clear {
+	clear: both;
+	height: 0;
+	font-size: 1px;
+	line-height: 0px;
+}
 
 /* ---------------Raptor Header Styles--------------- */
-h1
-{
-	
-    color:#e49621;
-    text-shadow: 0px 1px 1px #000;
-    margin:0;
-    padding:0;
-    
+h1 {
+	color: #e49621;
+	text-shadow: 0px 1px 1px #000;
+	margin: 0;
+	padding: 0;
 }
-#currentDate{
-	padding:0;
-	margin:0;
+
+#currentDate {
+	padding: 0;
+	margin: 0;
 	color: #b9b9b9;
 	text-align: right;
 }
-#clockDiv{
-	padding:0;
-	margin:0;
+
+#clockDiv {
+	padding: 0;
+	margin: 0;
 	color: #b9b9b9;
 	text-align: right;
 }
-#header
-{
+
+#header {
 	background-image: -webkit-linear-gradient(bottom, #00091A 38%, #332870 100%);
-	width:98%;
-	
+	width: 98%;
 	-moz-box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
 	-webkit-box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
 	box-shadow: 0px 2px 10px rgba(25, 25, 25, 0.75);
-	padding:0 10px;
-	background:#666;
-	margin:0 auto 0 auto;
-	text-align:left;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#787878)); 
+	padding: 0 10px;
+	background: #666;
+	margin: 0 auto 0 auto;
+	text-align: left;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666),
+		to(#787878) );
 	background: -webkit-linear-gradient(top, #666666, #787878);
 	background: -moz-linear-gradient(top, #666666, #787878);
 	border-radius: 5px;
 }
 
-#HUD_indentity
-{
+#HUD_indentity {
 	color: #b9b9b9;
 	text-align: left;
 }
-#HUD_navLinks
-{
-	text-align:right;
-	color:#ccc;
+
+#HUD_navLinks {
+	text-align: right;
+	color: #ccc;
 }
 
-#header a
-{
-	color:#ffffff;
-	text-decoration:none;
-	
+#header a {
+	color: #ffffff;
+	text-decoration: none;
 }
 
-#header a:hover
-{
-	color:#b9b9b9;
-	text-decoration:none;
+#header a:hover {
+	color: #b9b9b9;
+	text-decoration: none;
 }
 
-#HUD_navLinks a
-{
-	
-	color:#ffffff;
+#HUD_navLinks a {
+	color: #ffffff;
 	font-weight: bold;
-	text-decoration:none;
+	text-decoration: none;
 }
-#HUD_navLinks a:hover
-{
-	
-	color:#b9b9b9;
+
+#HUD_navLinks a:hover {
+	color: #b9b9b9;
 	text-align: center;
 	font-weight: bold;
-	text-decoration:none;
-	
+	text-decoration: none;
 }
 /* ---------------Raptor Login Page Styles--------------- */
-.logInPanel
-{
+.logInPanel {
 	text-align: center;
 	width: 300px;
 	margin: 0px auto;
 	padding: 10px;
 }
+
 .login form {
-    margin: 24px 0 0 0;
+	margin: 24px 0 0 0;
 }
 
 .login form legend {
-    font-size: 1.125em;
-    font-weight: bold;
+	font-size: 1.125em;
+	font-weight: bold;
 }
 
 .login form fieldset {
-    margin: 0 0 32px 0;
-    padding: 8px;
-    border: 1px solid #ccc;
+	margin: 0 0 32px 0;
+	padding: 8px;
+	border: 1px solid #ccc;
 }
 
 .login form label {
-    float: left;
-    width: 125px;
+	float: left;
+	width: 125px;
 }
 
-.login form label, form input {
-    margin: 5px 0;
+.login form label,form input {
+	margin: 5px 0;
 }
 
 .login form input {
-    width: 100%;
-}
-.login form span {
-    display: block;
-    overflow: hidden;
-    padding: 0 5px 0 0;
+	width: 100%;
 }
 
+.login form span {
+	display: block;
+	overflow: hidden;
+	padding: 0 5px 0 0;
+}
