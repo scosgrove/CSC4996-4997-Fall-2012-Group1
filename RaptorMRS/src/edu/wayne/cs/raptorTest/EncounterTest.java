@@ -12,8 +12,8 @@ public class EncounterTest {
 	
 	@Test
 	public void testSetAndGetEncounterID() {
-		double expectedID = 3848574;
-		double actualID;
+		int expectedID = 3848574;
+		int actualID;
 		encounter.setEncounterID(expectedID);
 		actualID = encounter.getEncounterID();
 		assert(expectedID == actualID);

@@ -11,8 +11,8 @@ public class VitalsTest {
 	
 	@Test
 	public void testSetAndGetDiastolicBP() {
-		double diastolicExpected = 80;
-		double diastolicActual;
+		int diastolicExpected = 80;
+		int diastolicActual;
 		vitals.setDiastolicBP(diastolicExpected);
 		diastolicActual = vitals.getDiastolicBP();
 		assert(diastolicExpected == diastolicActual);
@@ -20,8 +20,8 @@ public class VitalsTest {
 
 	@Test
 	public void testSetAndSetSystolicBP() {
-		double systolicExpected = 120;
-		double systolicActual;
+		int systolicExpected = 120;
+		int systolicActual;
 		vitals.setSystolicBP(systolicExpected);
 		systolicActual = vitals.getSystolicBP();
 		assert(systolicExpected == systolicActual);
@@ -29,8 +29,8 @@ public class VitalsTest {
 
 	@Test
 	public void testSetAndGetHeartRate() {
-		double expectedHeartRate = 65;
-		double actualHeartRate;
+		int expectedHeartRate = 65;
+		int actualHeartRate;
 		vitals.setHeartRate(expectedHeartRate);
 		actualHeartRate = vitals.getHeartRate();
 		assert(expectedHeartRate == actualHeartRate);
@@ -39,8 +39,8 @@ public class VitalsTest {
 
 	@Test
 	public void testSetAndGetRespRate() {
-		double expectedRespRate = 12;
-		double actualRespRate;
+		int expectedRespRate = 12;
+		int actualRespRate;
 		vitals.setRespRate(expectedRespRate);
 		actualRespRate = vitals.getRespRate();
 		assert(expectedRespRate == actualRespRate);
@@ -48,8 +48,8 @@ public class VitalsTest {
 
 	@Test
 	public void testSetAndGetTemperatureC() {
-		double expectedTemp = 37;
-		double actualTemp;
+		int expectedTemp = 37;
+		int actualTemp;
 		vitals.setTemperatureC(expectedTemp);
 		actualTemp = vitals.getTemperatureC();
 		assert(expectedTemp == actualTemp);
@@ -57,8 +57,8 @@ public class VitalsTest {
 
 	@Test
 	public void testSetAndGetOximetry() {
-		double expectedOximetry = 95;
-		double actualOximetry;
+		int expectedOximetry = 95;
+		int actualOximetry;
 		vitals.setOximetry(expectedOximetry);
 		actualOximetry = vitals.getOximetry();
 		assert(expectedOximetry == actualOximetry);

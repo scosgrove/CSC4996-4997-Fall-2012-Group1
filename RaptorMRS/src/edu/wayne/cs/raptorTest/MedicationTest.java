@@ -12,8 +12,8 @@ public class MedicationTest {
 
 	@Test
 	public void testSetAndGetMedicationID() {
-		double expectedID = 58203847;
-		double actualID;
+		int expectedID = 58203847;
+		int actualID;
 		medication.setMedicationID(expectedID);
 		actualID = medication.getMedicationID();
 		assert(expectedID == actualID);
