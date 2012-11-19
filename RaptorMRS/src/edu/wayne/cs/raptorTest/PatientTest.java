@@ -11,8 +11,8 @@ public class PatientTest {
 
 	@Test
 	public void testSetAndGetPatientID() {
-		double expectedID = 11233;
-		double actualID;
+		int expectedID = 11233;
+		int actualID;
 		this.patient.setPatientID(expectedID);
 		actualID = this.patient.getPatientID();
 		assert(expectedID == actualID);
@@ -56,8 +56,8 @@ public class PatientTest {
 
 	@Test
 	public void testSetAndGetHeight() {
-		double expectedHeight = 9001;
-		double actualHeight;
+		int expectedHeight = 9001;
+		int actualHeight;
 		this.patient.setHeight(expectedHeight);
 		actualHeight = this.patient.getHeight();
 		assert(expectedHeight == actualHeight);
@@ -65,8 +65,8 @@ public class PatientTest {
 
 	@Test
 	public void testSetWeight() {
-		double expectedWeight = 59439;
-		double actualWeight;
+		int expectedWeight = 59439;
+		int actualWeight;
 		this.patient.setWeight(expectedWeight);
 		actualWeight = this.patient.getWeight();
 		assert(expectedWeight == actualWeight);
@@ -74,20 +74,21 @@ public class PatientTest {
 
 	@Test
 	public void testSetAndGetPatientBMI() {
-		double expectedBMI = 99;
-		double actualBMI;
+		int expectedBMI = 99;
+		int actualBMI;
 		this.patient.setPatientBMI(expectedBMI);
 		actualBMI = this.patient.getPatientBMI();
 		assert(expectedBMI == actualBMI);
 	}
 
-	@Test
-	public void testSetAndGetPatientHPI() {
-		StringBuilder expectedHPI = new StringBuilder();
-		expectedHPI.append("it hurts");
-		StringBuilder actualHPI = new StringBuilder();
-		this.patient.setPatientHPI(expectedHPI);
-		actualHPI.append(this.patient.getPatientHPI());
-		assert(expectedHPI == actualHPI);
-	}
+	//TODO:locate functionality and move this test (likely in encounter)
+//	@Test
+//	public void testSetAndGetPatientHPI() {
+//		StringBuilder expectedHPI = new StringBuilder();
+//		expectedHPI.append("it hurts");
+//		StringBuilder actualHPI = new StringBuilder();
+//		this.patient.setPatientHPI(expectedHPI);
+//		actualHPI.append(this.patient.getPatientHPI());
+//		assert(expectedHPI == actualHPI);
+//	}
 }
