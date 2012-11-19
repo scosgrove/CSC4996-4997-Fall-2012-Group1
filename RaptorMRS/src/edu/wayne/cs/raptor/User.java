@@ -1,5 +1,7 @@
 package edu.wayne.cs.raptor;
 
+import java.util.Date;
+
 /**
  * Defines a User entity in the system.
  * 
@@ -13,18 +15,40 @@ public class User {
 	/** A unique user identification number */
 	private int userID;
 
-	/** TODO:User's first name */
-	/** User's last name */
-
-	/** Name of user */
+	/** User's (legal) first name */
+	private String firstName;
+	
+	/** User's (legal) last name */
+	private String lastName;
+	
+	/** Username for log in porpoises */
 	private String username;
 
 	/** Password phrase */
 	private String password;
+	
+	/** Roles this user performs.  I.e. pharmacist, researcher, etc.  */
+	private String roles;
+	
+	
+	/** 
+	 * metadata
+	 */
+	/** User that created this user */
+	//currently no way to map a User to a database column successfully, hence string type
+	private String creatingUser;
 
-	/** Result of login attempt */
-	private String loginAttemptResult;
-
+	/** Date this user was first created */
+	private Date createdDate;
+	
+	/** User to last modify or update this user */
+	//see above about user type storage in the DB :(
+	private String modifyingUser;
+	
+	/** Date last modification of this user took place, creation counts as a modification */
+	private Date lastModifiedDate;
+	
+	
 	/** Default empty constructor */
 	public User() {
 		super();
@@ -66,6 +90,62 @@ public class User {
 		this.password = password;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
+	public String getCreatingUser() {
+		return creatingUser;
+	}
+
+	public void setCreatingUser(String creatingUser) {
+		this.creatingUser = creatingUser;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getModifyingUser() {
+		return modifyingUser;
+	}
+
+	public void setModifyingUser(String modifyingUser) {
+		this.modifyingUser = modifyingUser;
+	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+	
 	/**
 	 * Retrieves the login result
 	 * 
@@ -73,20 +153,20 @@ public class User {
 	 * attempt.
 	 * 
 	 */
-	public String getLoginAttemptResult() {
-		return loginAttemptResult;
-	}
-
-	/**
-	 * Sets the login result string
-	 * 
-	 * This method sets the login result string
-	 * 
-	 */
-	// currently no use cases for method. marked for removal.
-	public void setLoginAttemptResult(String loginAttemptResult) {
-		this.loginAttemptResult = loginAttemptResult;
-	}
+//	public String getLoginAttemptResult() {
+//		return loginAttemptResult;
+//	}
+//
+//	/**
+//	 * Sets the login result string
+//	 * 
+//	 * This method sets the login result string
+//	 * 
+//	 */
+//	// currently no use cases for method. marked for removal.
+//	public void setLoginAttemptResult(String loginAttemptResult) {
+//		this.loginAttemptResult = loginAttemptResult;
+//	}
 
 	/**
 	 * Checks password
@@ -95,17 +175,17 @@ public class User {
 	 * and sets the login attempt result string based on the comparison.
 	 * 
 	 */
-	public String checkPassword() {
-		// search database for password
-		if (this.password.equals(new String("raptor"))) {
-			loginAttemptResult = "Valid password";
-			return "valid";
-		} else {
-			loginAttemptResult = "Invalid password.  Try again.";
-
-			return "invalid";
-		}
-	}
+//	public String checkPassword() {
+//		// search database for password
+//		if (this.password.equals(new String("raptor"))) {
+//			loginAttemptResult = "Valid password";
+//			return "valid";
+//		} else {
+//			loginAttemptResult = "Invalid password.  Try again.";
+//
+//			return "invalid";
+//		}
+//	}
 	
 	public String clear(){
 		this.password = "";

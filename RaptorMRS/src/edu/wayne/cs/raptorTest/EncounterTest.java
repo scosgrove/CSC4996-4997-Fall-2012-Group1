@@ -40,9 +40,9 @@ public class EncounterTest {
 
 	@Test
 	public void testSetAndGetOverallImpression() {
-		StringBuilder expectedImpression = new StringBuilder();
-		StringBuilder actualImpression = new StringBuilder();
-		expectedImpression.append("patient is sick");
+		String expectedImpression = new String();
+		String actualImpression = new String();
+		expectedImpression= "patient is sick";
 		this.encounter.setOverallImpression(expectedImpression);
 		actualImpression = this.encounter.getOverallImpression();
 		assert(expectedImpression == actualImpression);

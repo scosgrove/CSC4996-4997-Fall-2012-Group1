@@ -19,30 +19,38 @@ public class Patient {
 		/** Patient's last name */
 		private String lastName;
 		
-		/** Patient's gender */
-		private String gender;
-		
 		/** Patient's date of birth */
 		private Date birthDate;
 		
-		/** Patient's residence */
-		private String residence;
+		/** Patient's gender */
+		private String gender;
 		
 		/** A set of unique keywords collected from the Patient's relevant medical information/history */
-		private Set<String> keywords;
+		//TODO: figure out how to map collection of strings to SQL column through hibernate.  
+		private String keywords;
+		
+		/** Patient's residence */
+		private String residence;
 		
 		/** The Patient's social/family history. this information shouldn't change much from an encounter
 		 * to another.
 		 */
 		private String socialHistory;
 		
-		/**
+		/** 
 		 * metadata
 		 */
-		 private User creator;
-		 private Date createdDate;
-		 private User modifier;
-		 private Date modifiedDate;
+		/** User that created this user */
+		private String creatingUser;
+		
+		/** Date this user was first created */
+		private Date createdDate;
+		
+		/** User to last modify or update this user */
+		private String modifyingUser;
+		
+		/** Date last modification of this user took place, creation counts as a modification */
+		private Date lastModifiedDate;
 		
 		
 		/** TODO:  photos of conditions
@@ -108,11 +116,11 @@ public class Patient {
 			this.residence = address;
 		}
 		
-		public Set<String> getKeywords() {
+		public String getKeywords() {
 			return keywords;
 		}
 
-		public void setKeywords(Set<String> keywords) {
+		public void setKeywords(String keywords) {
 			this.keywords = keywords;
 		}
 		
@@ -124,14 +132,23 @@ public class Patient {
 			this.socialHistory = socialHistory;
 		}
 		
-		public User getCreator() {
-			return creator;
+		//github issue #11
+//		public User getCreatingUser() {
+//			return creatingUser;
+//		}
+//		
+//		public void setCreatingUser(User creator) {
+//			this.creatingUser = creator;
+//		}
+
+		public String getCreatingUser() {
+			return creatingUser;
 		}
 		
-		public void setCreator(User creatorUser) {
-			this.creator = creatorUser;
+		public void setCreatingUser(String creator) {
+			this.creatingUser = creator;
 		}
-
+		
 		public Date getCreatedDate() {
 			return createdDate;
 		}
@@ -140,26 +157,28 @@ public class Patient {
 			this.createdDate = created;
 		}
 		
-		public User getModifier() {
-			return modifier;
+		//github issue #11
+//		public User getModifyingUser() {
+//			return modifyingUser;
+//		}
+//		
+//		public void setModifier(User modifierUser) {
+//			this.modifyingUser = modifierUser;
+//		}
+//		
+		public String getModifyingUser() {
+			return modifyingUser;
 		}
 		
-		public void setModifier(User modifierUser) {
-			this.modifier = modifierUser;
+		public void setModifier(String modifierUser) {
+			this.modifyingUser = modifierUser;
 		}
 		
 		public Date getModifiedDate() {
-			return modifiedDate;
+			return lastModifiedDate;
 		}
 		
 		public void setModifiedDate(Date modified) {
-			this.modifiedDate = modified;
+			this.lastModifiedDate = modified;
 		}
-		
-		
-		
-		
-		
-	
-
 }

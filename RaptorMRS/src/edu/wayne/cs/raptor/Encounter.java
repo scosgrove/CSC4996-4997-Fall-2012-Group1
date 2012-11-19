@@ -1,5 +1,6 @@
 package edu.wayne.cs.raptor;
 
+import java.util.Date;
 import java.util.Set;
 
 /** Defines an Encounter. An encounter should track all the interactions between the patient
@@ -19,8 +20,10 @@ public class Encounter {
 	/** The stated chief complaint for an encounter */
 	private String chiefComplaint;
 	
-	/** The vitals taken in the encounter */
-	private Vitals vitals;
+//	/** The vitals taken in the encounter */
+//	private Vitals vitals;
+	//what TODO about mapping a nested object with hibernate....?
+	private String vitals;
 	
 	/** Recorded History of Present Illness (current illness) */
 	private String historyOfPresentIllness;
@@ -31,28 +34,41 @@ public class Encounter {
 	 *  (but not removed from previously recorded encounters)
 	 */
 	private String chronicIllness;
+
+	/** Keywords for this encounter */
+	private String keywords;
 	
 	/** Any medical procedures the Patient has undergone in the past or the current encounter */
-	private String medProcedures;
+	//TODO does this make sense to change to proceduresPerformed for disambiguity?
+	private String medicalProcedures;
 	
-	/** Keywords for this encounter */
-	private Set<String> keywords;
-
 	/** Medication prescribed during the physician encounter */
-	private Set<Medication> medsPrescribed;
+//	private Set<Medication> medicationsPrescribed;
+	//TODO: sets.....
+	private String medicationsPrescribed;
 	
 	/** Medications provided during the pharmacist encounter */
-	private Set<Medication> medsDispensed;
+//	private Set<Medication> medsDispensed;
+	private String medicationsDispensed;
 	
 	/** Overall Impression of the encounter & additional comments */
-	private StringBuilder overallImpression;
+	private String overallImpression;
 
 
 	/** 
 	 * metadata
 	 */
-	//private Date createdDate;
-	//private Date modifiedDate;
+	/** User that created this user */
+	private String creatingUser;
+	
+	/** Date this user was first created */
+	private Date createdDate;
+	
+	/** User to last modify or update this user */
+	private String modifyingUser;
+	
+	/** Date last modification of this user took place, creation counts as a modification */
+	private Date lastModifiedDate;
 	
 	/** TODO: Should there be an attribute where we save keywords from the encounter? 
 	 *  Done in patient */
@@ -91,12 +107,22 @@ public class Encounter {
 	public void setChiefComplaint(String chiefComplaint) {
 		this.chiefComplaint = chiefComplaint;
 	}
+	
+//	/** Returns the Vital signs of a patient in an encounter */
+//	public Vitals getVitals() {
+//		return vitals;
+//	}
+//	/** Sets the vital signs of a patient in an encounter */
+//	public void setVitals(Vitals vitals) {
+//		this.vitals = vitals;
+//	}
+//	
 	/** Returns the Vital signs of a patient in an encounter */
-	public Vitals getVitals() {
+	public String getVitals() {
 		return vitals;
 	}
 	/** Sets the vital signs of a patient in an encounter */
-	public void setVitals(Vitals vitals) {
+	public void setVitals(String vitals) {
 		this.vitals = vitals;
 	}
 	
@@ -116,54 +142,133 @@ public class Encounter {
 	}
 
 	public String getMedProcedures() {
-		return medProcedures;
+		return medicalProcedures;
 	}
 
-	public void setMedProcedures(String medProcedures) {
-		this.medProcedures = medProcedures;
+	public void setmedicalProcedures(String medProcedures) {
+		this.medicalProcedures = medProcedures;
 	}
+
+	//collections issue #10 in github list
+//	/** Returns whatever medications were provided to the patient in an encounter */
+//	public Set<Medication> getMedsDispensed() {
+//		return medsDispensed;
+//	}
+//
+//	/** Sets the medications that are provided to a patient in an encounter */
+//	public void setMedsDispensed(Set<Medication> medications) {
+//		this.medsDispensed = medications;
+//	}
 
 	/** Returns whatever medications were provided to the patient in an encounter */
-	public Set<Medication> getMedsDispensed() {
-		return medsDispensed;
+	public String getMedsDispensed() {
+		return medicationsDispensed;
 	}
 
 	/** Sets the medications that are provided to a patient in an encounter */
-	public void setMedsDispensed(Set<Medication> medications) {
-		this.medsDispensed = medications;
+	public void setMedsDispensed(String medications) {
+		this.medicationsDispensed = medications;
 	}
-
+	
+	//github issue #10
+//	/** Returns medications prescribed to the patient */
+//	public Set<Medication> getMedsPrescribed() {
+//		return medsPrescribed;
+//	}
+//
+//	/** Sets medications prescribed to a patient */
+//	public void setMedsPrescribed(Set<Medication> prescribed) {
+//		this.medsPrescribed = prescribed;
+//	}
+	
 	/** Returns medications prescribed to the patient */
-	public Set<Medication> getMedsPrescribed() {
-		return medsPrescribed;
+	public String getMedicationsPrescribed() {
+		return medicationsPrescribed;
 	}
 
 	/** Sets medications prescribed to a patient */
-	public void setMedsPrescribed(Set<Medication> prescribed) {
-		this.medsPrescribed = prescribed;
+	public void setMedicationsPrescribed(String prescribed) {
+		this.medicationsPrescribed = prescribed;
 	}
 	
 	/** Returns the overall impression of the encounter */
-	public StringBuilder getOverallImpression() {
+	public String getOverallImpression() {
 		return overallImpression;
 	}
 
 	/** Sets the overall impression of the encounter */
-	public void setOverallImpression(StringBuilder impression) {
+	public void setOverallImpression(String impression) {
 		this.overallImpression = impression;
 	}
 
+	//github issue #10
+//	/** Returns the keywords of the encounter */
+//	public Set<String> getKeywords() {
+//		return keywords;
+//	}
+//
+//	/** Sets the keywords of the encounter */
+//	public void setKeywords(Set<String> kywds) {
+//		this.keywords = kywds;
+//	}
+
 	/** Returns the keywords of the encounter */
-	public Set<String> getKeywords() {
+	public String getKeywords() {
 		return keywords;
 	}
 
 	/** Sets the keywords of the encounter */
-	public void setKeywords(Set<String> kywds) {
+	public void setKeywords(String kywds) {
 		this.keywords = kywds;
 	}
 
+	public String getMedicalProcedures() {
+		return medicalProcedures;
+	}
 
+	public void setMedicalProcedures(String medicalProcedures) {
+		this.medicalProcedures = medicalProcedures;
+	}
+
+	public String getMedicationsDispensed() {
+		return medicationsDispensed;
+	}
+
+	public void setMedicationsDispensed(String medicationsDispensed) {
+		this.medicationsDispensed = medicationsDispensed;
+	}
+
+	public String getCreatingUser() {
+		return creatingUser;
+	}
+
+	public void setCreatingUser(String creatingUser) {
+		this.creatingUser = creatingUser;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getModifyingUser() {
+		return modifyingUser;
+	}
+
+	public void setModifyingUser(String modifyingUser) {
+		this.modifyingUser = modifyingUser;
+	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
 	
 	
 
