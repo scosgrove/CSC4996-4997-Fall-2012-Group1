@@ -75,6 +75,16 @@ img {
 	overflow: hidden;
 }
 
+input[type="text"]:focus
+{ 
+	background-color:#f4f6b1;
+}
+
+textarea:focus
+{
+	background-color:#f4f6b1;
+}
+
 .id input[type="text"],textarea,input[type="password"] {
 	display: block;
 	clear: none;
