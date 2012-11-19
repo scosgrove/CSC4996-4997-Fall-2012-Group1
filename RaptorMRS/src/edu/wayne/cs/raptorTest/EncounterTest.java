@@ -39,13 +39,13 @@ public class EncounterTest {
 	}
 
 	@Test
-	public void testSetAndGetConclusion() {
-		StringBuilder expectedConclusion = new StringBuilder();
-		StringBuilder actualConclusion = new StringBuilder();
-		expectedConclusion.append("patient is sick");
-		this.encounter.setConclusion(expectedConclusion);
-		actualConclusion = this.encounter.getConclusion();
-		assert(expectedConclusion == actualConclusion);
+	public void testSetAndGetOverallImpression() {
+		StringBuilder expectedImpression = new StringBuilder();
+		StringBuilder actualImpression = new StringBuilder();
+		expectedImpression.append("patient is sick");
+		this.encounter.setOverallImpression(expectedImpression);
+		actualImpression = this.encounter.getOverallImpression();
+		assert(expectedImpression == actualImpression);
 	}
 
 }

@@ -46,12 +46,12 @@ public class PatientTest {
 	}
 
 	@Test
-	public void testSetAndGetAddress() {
-		String expectedAddress = "mars";
-		String actualAddress;
-		this.patient.setAddress(expectedAddress);
-		actualAddress = this.patient.getAddress();
-		assert(expectedAddress == actualAddress);
+	public void testSetAndGetResidence() {
+		String expectedResidence = "mars";
+		String actualResidence;
+		this.patient.setResidence(expectedResidence);
+		actualResidence = this.patient.getResidence();
+		assert(expectedResidence == actualResidence);
 	}
 
 	@Test

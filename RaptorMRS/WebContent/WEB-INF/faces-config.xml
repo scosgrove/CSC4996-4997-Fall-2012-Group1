@@ -25,6 +25,24 @@
 		<managed-bean-class>edu.wayne.cs.raptor.currentTimeAndDate</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<description>patient vitals</description>
+		<managed-bean-name>vitals</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.Vitals</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>encounter data</description>
+		<managed-bean-name>encounter</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.Encounter</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>for coverting between metric and US customary units, and calculating BMI</description>
+		<managed-bean-name>unitConverter</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.UnitConverter</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/login.jsp</from-view-id>
 		<navigation-case>

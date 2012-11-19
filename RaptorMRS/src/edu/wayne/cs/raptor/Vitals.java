@@ -35,6 +35,13 @@ public class Vitals {
 	/** Patient's pulse oximetry in percentage */
 	private int oximetry;
 	
+	/** Patient had blood drawn */
+	private boolean fingerPoke;
+	
+	/** Patient's blood sample number */
+	private int bloodSampleID;
+	
+	
 	/** Default empty constructor */
 	public Vitals(){	
 		//assignment operator seems to work just fine (i asked jUnit, he said so)
@@ -106,7 +113,7 @@ public class Vitals {
 		this.temperatureC = temperatureC;
 	}
 	
-	/** Returns the patient's pukse oximetry */
+	/** Returns the patient's pulse oximetry */
 	public int getOximetry() {
 		return oximetry;
 	}
@@ -114,5 +121,25 @@ public class Vitals {
 	/** Sets the patient's pulse oximetry */
 	public void setOximetry(int oximetry) {
 		this.oximetry = oximetry;
+	}
+	
+	/** Returns the patient's blood draw status */
+	public boolean getFingerPoke() {
+		return fingerPoke;
+	}
+	
+	/** Sets the patient's  blood draw status */
+	public void setFingerPoke(boolean drawn) {
+		this.fingerPoke = drawn;
+	}
+	
+	/** Returns the patient's blood draw sample id number */
+	public int getBloodSampleID() {
+		return bloodSampleID;
+	}
+	
+	/** Sets the patient's blood draw sample id number */
+	public void setBloodSampleID(int bloodDrawID) {
+		this.bloodSampleID = bloodDrawID;
 	}
 }

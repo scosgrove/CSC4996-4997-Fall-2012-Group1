@@ -16,14 +16,14 @@ public class Encounter {
 	/** The id of the patient for whom the encounter is in progress */
 	private int patientID;
 	
-	/** The Patient's stated chief complaint for an encounter */
+	/** The stated chief complaint for an encounter */
 	private String chiefComplaint;
 	
-	/** The Patient's vitals taken in the encounter */
+	/** The vitals taken in the encounter */
 	private Vitals vitals;
 	
-	/** Patient's History of present illness (current illness) */
-	private String patientHPI;
+	/** Recorded History of Present Illness (current illness) */
+	private String historyOfPresentIllness;
 	
 	/** A chronic illness discovered in the encounter (name and brief description ToBeDone)
 	 * TODO:  The names of previously discovered chronic illnesses should be automatically displayed,
@@ -35,12 +35,17 @@ public class Encounter {
 	/** Any medical procedures the Patient has undergone in the past or the current encounter */
 	private String medProcedures;
 	
+	/** Keywords for this encounter */
+	private Set<String> keywords;
 
-	/** Medications provided in the encounter */
+	/** Medication prescribed during the physician encounter */
+	private Set<Medication> medsPrescribed;
+	
+	/** Medications provided during the pharmacist encounter */
 	private Set<Medication> medsProvided;
 	
 	/** Overall Impression of the encounter & additional comments */
-	private StringBuilder conclusion;
+	private StringBuilder overallImpression;
 
 
 	/** 
@@ -64,7 +69,7 @@ public class Encounter {
 		return encounterID;
 	}
 
-	/** Sets the ecnounter ID number */
+	/** Sets the encounter ID number */
 	public void setEncounterID(int encounterID) {
 		this.encounterID = encounterID;
 	}
@@ -95,11 +100,11 @@ public class Encounter {
 		this.vitals = vitals;
 	}
 	
-	public String getPatientHPI() {
-		return patientHPI;
+	public String getHistoryOfPresentIllness() {
+		return historyOfPresentIllness;
 	}
-	public void setPatientHPI(String patientHPI) {
-		this.patientHPI = patientHPI;
+	public void setHistoryOfPresentIllness(String hpi) {
+		this.historyOfPresentIllness = hpi;
 	}
 	
 	public String getChronicIllness() {
@@ -128,17 +133,35 @@ public class Encounter {
 		this.medsProvided = medsProvided;
 	}
 
+	/** Returns medications prescribed to the patient */
+	public Set<Medication> getMedsPrescribed() {
+		return medsPrescribed;
+	}
+
+	/** Sets medications prescribed to a patient */
+	public void setMedsPrescribed(Set<Medication> prescribed) {
+		this.medsPrescribed = prescribed;
+	}
+	
 	/** Returns the overall impression of the encounter */
-	public StringBuilder getConclusion() {
-		return conclusion;
+	public StringBuilder getOverallImpression() {
+		return overallImpression;
 	}
 
 	/** Sets the overall impression of the encounter */
-	public void setConclusion(StringBuilder conclusion) {
-		this.conclusion = conclusion;
+	public void setOverallImpression(StringBuilder impression) {
+		this.overallImpression = impression;
 	}
 
+	/** Returns the keywords of the encounter */
+	public Set<String> getKeywords() {
+		return keywords;
+	}
 
+	/** Sets the keywords of the encounter */
+	public void setKeywords(Set<String> kywds) {
+		this.keywords = kywds;
+	}
 
 
 	

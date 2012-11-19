@@ -110,27 +110,27 @@
 								<h:panelGroup layout="block" styleClass="row">
 									<h:panelGroup layout="block" styleClass="first">
 										<h:outputLabel value="First:"></h:outputLabel>
-										<h:inputText size="15" id="focus"></h:inputText>
+										<h:inputText size="15" id="focus" value="#{patientData.firstName}"></h:inputText>
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="last">
 										<h:outputLabel value="Last:"></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{patientData.lastName}"></h:inputText>
 									</h:panelGroup>
 
 									<h:panelGroup layout="block" styleClass="residence">
 										<h:outputLabel value="Residence:"></h:outputLabel>
-										<h:inputText styleClass="residence"></h:inputText>
+										<h:inputText styleClass="residence" value="#{patientData.residence}"></h:inputText>
 									</h:panelGroup>
 								</h:panelGroup>
 								<div style="height:30px"><br /></div>
 								<h:panelGroup layout="block" styleClass="row">
 									<h:panelGroup layout="block" styleClass="age">
 										<h:outputLabel value="Age/Birthdate: "></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{patientData.birthDate}"></h:inputText>
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="gender">
 										<h:outputLabel value="Gender: "></h:outputLabel>
-										<h:selectOneRadio id="radio" styleClass="genderOptions">
+										<h:selectOneRadio id="radio" styleClass="genderOptions" value="#{patientData.gender}">
 
 											<f:selectItem itemLabel="Male" />
 											<f:selectItem itemLabel="Female" />
@@ -140,7 +140,7 @@
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="id">
 										<h:outputLabel value="ID#: "></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{patientData.patientID}"></h:inputText>
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="searchButton">
 										<input type="submit" value="Search" id="button">
@@ -155,7 +155,7 @@
 								<h:panelGroup layout="block" styleClass="row">
 									<h:panelGroup layout="block" styleClass="height">
 										<h:outputLabel value="Height:"></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{patientData.height}"></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="height_m" itemLabel="m" />
 											<f:selectItem itemValue="height_ft" itemLabel="ft" />
@@ -165,7 +165,7 @@
 
 									<h:panelGroup layout="block" styleClass="weight">
 										<h:outputLabel value="Weight:"></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{patientData.weight}"></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="weight_kg" itemLabel="kg" />
 											<f:selectItem itemValue="weight_lbs" itemLabel="lbs" />
@@ -174,7 +174,7 @@
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="bmi">
 										<h:outputLabel value="BMI:"></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{patientData.patientBMI}"></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="bmi_kg" itemLabel="kg/m" />
 											<f:selectItem itemValue="bmi_ft" itemLabel="lbs/f" />
@@ -184,7 +184,7 @@
 
 									<h:panelGroup layout="block" styleClass="temp">
 										<h:outputLabel value="Temp: "></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{vitals.temperatureC}"></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="temp_c" itemLabel="C" />
 											<f:selectItem itemValue="temp_f" itemLabel="F" />
@@ -193,37 +193,38 @@
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="bloodDrawn">
 										<h:outputLabel value="Blood Drawn: "></h:outputLabel>
-										<h:selectBooleanCheckbox></h:selectBooleanCheckbox>
+										<h:selectBooleanCheckbox value="#{vitals.fingerPoke}"></h:selectBooleanCheckbox>
+										<h:inputText size="3" value="#{vitals.bloodSampleID}"></h:inputText>
 									</h:panelGroup>
 
 
 								</h:panelGroup>
 <div style="height:30px"><br /></div>
 								<h:panelGroup layout="block" styleClass="rowPadded">
+								
 									<h:panelGroup layout="block" styleClass="bp">
 										<h:outputLabel value="BP: "></h:outputLabel>
-
-										<h:inputText></h:inputText>
+										<h:inputText value="#{vitals.systolicBP}"></h:inputText>
 										<h:outputLabel value="/"></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{vitals.diastolicBP}"></h:inputText>
 										<h:outputLabel value="mmHg"></h:outputLabel>
 									</h:panelGroup>
+									
 									<h:panelGroup layout="block" styleClass="hr">
 										<h:outputLabel value="HR: "></h:outputLabel>
-
-										<h:inputText></h:inputText>
+										<h:inputText value="#{vitals.heartRate}"></h:inputText>
 										<h:outputLabel value="BPM"></h:outputLabel>
 									</h:panelGroup>
+									
 									<h:panelGroup layout="block" styleClass="rr">
 										<h:outputLabel value="RR: "></h:outputLabel>
-										<h:inputText></h:inputText>
+										<h:inputText value="#{vitals.respRate}"></h:inputText>
 										<h:outputLabel value="Breaths/min"></h:outputLabel>
-
 									</h:panelGroup>
+									
 									<h:panelGroup layout="block" styleClass="ox">
 										<h:outputLabel value="Ox: "></h:outputLabel>
-										<h:inputText></h:inputText>
-
+										<h:inputText value="#{vitals.oximetry}"></h:inputText>
 										<h:outputLabel value="%"></h:outputLabel>
 									</h:panelGroup>
 
@@ -237,14 +238,13 @@
 					</div>
 					<h:panelGroup layout="block" styleClass="row">
 						<h:panelGroup layout="block" styleClass="chiefComplaint">
-
 							<h:outputLabel value="Chief Complaint"></h:outputLabel>
-							<h:inputTextarea></h:inputTextarea>
+							<h:inputTextarea value="#{encounter.chiefComplaint}"></h:inputTextarea>
 						</h:panelGroup>
 
 						<h:panelGroup layout="block" styleClass="keywords">
 							<h:outputLabel value="Keywords from Previous Encounters"></h:outputLabel>
-							<h:inputTextarea tabindex="-1"></h:inputTextarea>
+							<h:inputTextarea tabindex="-1" value="#{encounter.keywords}"></h:inputTextarea>
 						</h:panelGroup>
 
 					</h:panelGroup>
@@ -255,7 +255,7 @@
 							<h:outputLabel
 								value="HPI: Include Onset, Provokes/Palliates, Quality, Radiation, Score, and Timing"></h:outputLabel>
 
-							<h:inputTextarea></h:inputTextarea>
+							<h:inputTextarea value="#{encounter.historyOfPresentIllness}"></h:inputTextarea>
 						</h:panelGroup> 
 						<h:panelGroup layout="block" styleClass="additionalImages" >
 						
@@ -274,7 +274,7 @@
 						<h:panelGroup layout="block" styleClass="overall">
 							<h:outputLabel value="Prescribed Medicine: "></h:outputLabel>
 
-							<h:inputTextarea></h:inputTextarea>
+							<h:inputTextarea value="#{encounter.medsPrescribed}"></h:inputTextarea>
 
 						</h:panelGroup>
 
@@ -284,7 +284,7 @@
 						<h:panelGroup layout="block" styleClass="overall">
 							<h:outputLabel value="Overall Impression for this Visit: "></h:outputLabel>
 
-							<h:inputTextarea></h:inputTextarea>
+							<h:inputTextarea value="#{encounter.overallImpression}"></h:inputTextarea>
 						</h:panelGroup>
 					</h:panelGroup>
 					<form>
@@ -309,7 +309,7 @@
 						<h:panelGroup layout="block" styleClass="overall">
 							<h:outputLabel value="Social History: "></h:outputLabel>
 
-							<h:inputTextarea></h:inputTextarea>
+							<h:inputTextarea value="#{patientData.socialHistory}"></h:inputTextarea>
 
 						</h:panelGroup>
 						</h:panelGroup>
@@ -317,7 +317,7 @@
 						<h:panelGroup layout="block" styleClass="overall2">
 							<h:outputLabel value="Chronic Illnesses: "></h:outputLabel>
 
-							<h:inputTextarea></h:inputTextarea>
+							<h:inputTextarea value="#{encounter.chronicIllness}"></h:inputTextarea>
 
 						</h:panelGroup>
 						</h:panelGroup>

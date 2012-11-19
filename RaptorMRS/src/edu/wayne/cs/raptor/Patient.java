@@ -26,7 +26,7 @@ public class Patient {
 		private Date birthDate;
 		
 		/** Patient's residence */
-		private String address;
+		private String residence;
 		
 		/** A set of unique keywords collected from the Patient's relevant medical information/history */
 		private Set<String> keywords;
@@ -105,13 +105,13 @@ public class Patient {
 			this.birthDate = birthDate;
 		}
 
-		/** Returns the Patient's address */
-		public String getAddress() {
-			return address;
+		/** Returns the Patient's residence */
+		public String getResidence() {
+			return residence;
 		}
-		/** Sets the Patient's address */
-		public void setAddress(String address) {
-			this.address = address;
+		/** Sets the Patient's residence */
+		public void setResidence(String address) {
+			this.residence = address;
 		}
 		
 		public Set<String> getKeywords() {

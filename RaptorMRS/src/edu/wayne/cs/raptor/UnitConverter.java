@@ -149,6 +149,11 @@ public class UnitConverter {
 	}
 
 	
+	public int calculateBMI()
+	{
+		return calculateBMI((int)this.heightM, (int)this.weightM, "metric");
+	}
+	
 	/**
 	 * 
 	 * @param measuredHeight - int height for BMI calculation (inches or meters)
