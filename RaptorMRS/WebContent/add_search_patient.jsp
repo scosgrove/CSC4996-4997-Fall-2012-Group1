@@ -17,7 +17,7 @@
 <script type="text/javascript">
 	function clock() {
 		var now = new Date();
-		var outStr = 'Time:' + now.getHours() + ' hr';
+		var outStr = 'Time: ' + now.getHours() + ' hr';
 		document.getElementById('clockDiv').innerHTML = outStr;
 		var displayDate = 'Date: ' + (now.getMonth() + 1) + '/'
 				+ (now.getDate()) + '/' + now.getFullYear();
@@ -83,6 +83,38 @@
         });
     });
     </script>
+    <script>
+    // increase the default animation speed to exaggerate the effect
+    
+    $(function() {
+        $( "#dialog2" ).dialog({
+            autoOpen: false,
+            show: "blind",
+           
+        });
+ 
+        $( "#opener2" ).click(function() {
+            $( "#dialog2" ).dialog( "open" );
+            return false;
+        });
+    });
+    </script>
+    <script>
+    // increase the default animation speed to exaggerate the effect
+    
+    $(function() {
+        $( "#dialog3" ).dialog({
+            autoOpen: false,
+            show: "blind",
+           
+        });
+ 
+        $( "#opener3" ).click(function() {
+            $( "#dialog3" ).dialog( "open" );
+            return false;
+        });
+    });
+    </script>
 <title>Search for or Add a Patient</title>
 </head>
 <body onload="clock();">
@@ -121,7 +153,7 @@
 										<h:inputText styleClass="residence"></h:inputText>
 									</h:panelGroup>
 								</h:panelGroup>
-
+								<div style="height:30px"><br /></div>
 								<h:panelGroup layout="block" styleClass="row">
 									<h:panelGroup layout="block" styleClass="age">
 										<h:outputLabel value="Age/Birthdate: "></h:outputLabel>
@@ -197,7 +229,7 @@
 
 
 								</h:panelGroup>
-
+<div style="height:30px"><br /></div>
 								<h:panelGroup layout="block" styleClass="rowPadded">
 									<h:panelGroup layout="block" styleClass="bp">
 										<h:outputLabel value="BP: "></h:outputLabel>
@@ -208,13 +240,13 @@
 										<h:outputLabel value="mmHg"></h:outputLabel>
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="hr">
-										<h:outputLabel value="HR"></h:outputLabel>
+										<h:outputLabel value="HR: "></h:outputLabel>
 
 										<h:inputText></h:inputText>
 										<h:outputLabel value="BPM"></h:outputLabel>
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="rr">
-										<h:outputLabel value="RR"></h:outputLabel>
+										<h:outputLabel value="RR: "></h:outputLabel>
 										<h:inputText></h:inputText>
 										<h:outputLabel value="Breaths/min"></h:outputLabel>
 
@@ -248,7 +280,7 @@
 
 					</h:panelGroup>
 
-					<h:panelGroup layout="block" styleClass="row">
+					<h:panelGroup layout="block" styleClass="row2">
 						<h:panelGroup layout="block" styleClass="hpi">
 
 							<h:outputLabel
@@ -256,35 +288,42 @@
 
 							<h:inputTextarea></h:inputTextarea>
 						</h:panelGroup>
-						<h:panelGroup layout="block" styleClass="additionalImages">
+						<h:panelGroup layout="block" >
 							<h:panelGroup layout="block">
-								<img src="http://localhost:8080/RaptorMRS/faces/deformity.png"
-									class="left" />
-								</panelGroup>
-								<h:panelGroup layout="block" styleClass="imgLinks">
-									<a href="add_photo_page">New Photo...</a>
-									<a href="add_photo_page">Additional Photos...</a>
-								</h:panelGroup>
+								<img src="http://localhost:8080/RaptorMRS/faces/deformity.png" class="left" style="margin-top:15px;margin-left:23px;margin-bottom:10px;" />
+								<img src="http://localhost:8080/RaptorMRS/faces/deformity.png" class="left" style="margin-top:15px;margin-left:5px;margin-bottom:10px"/>
+							</h:panelGroup>
+							<h:panelGroup layout="block" styleClass="imgLinks">
+									<a href="add_photo_page">Add </a>
+									<a href="add_photo_page">Edit</a>
+									<a href="add_photo_page">View</a>
 							</h:panelGroup>
 						</h:panelGroup>
-					</h:panelGroup>
+						</h:panelGroup>
+					<div style="padding-bottom:5px;margin-bottom:0">
+					
+					<div id="dialog2" style="background: #ececec" title="Social History">Married, no children</div>
 
+							<button id="opener2">Social History</button>
+								<div id="dialog3" style="background: #ececec" title="Chronic Illnesses">Diabetes</div>
+
+							<button id="opener3">Chronic Illnesses</button>
+							<div id="dialog" style="background: #ececec"
+								title="Previously Prescribed Medicine">Aspirin 50mg QID</div>
+
+							<button id="opener"
+							>
+								Previously Prescribed</button>
+</div>
 					<h:panelGroup layout="block" styleClass="row">
-						<h:panelGroup layout="block" styleClass="meds">
+						<h:panelGroup layout="block" styleClass="overall">
 							<h:outputLabel value="Prescribed Medicine: "></h:outputLabel>
 
 							<h:inputTextarea></h:inputTextarea>
 
 						</h:panelGroup>
 
-						<h:panelGroup layout="block" styleClass="prevMeds">
-							<div id="dialog" style="background: #ececec"
-								title="Previously Prescribed Medicine">Aspirin 50mg QID</div>
-
-							<button id="opener"
-								style="margin-top: 20px; margin-left: 25px; width: 300px">View
-								Previously Prescribed Medicine</button>
-						</h:panelGroup>
+						
 					</h:panelGroup>
 					<h:panelGroup layout="block" styleClass="row">
 						<h:panelGroup layout="block" styleClass="overall">
@@ -299,10 +338,11 @@
 
 
 					<form>
-						<div style="align: center">
+				
+					
 							<input type="submit" value="Finish" id="button"
 								style="width: 150px">
-						</div>
+						
 					</form>
 
 

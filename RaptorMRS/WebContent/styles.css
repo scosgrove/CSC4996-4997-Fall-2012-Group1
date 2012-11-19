@@ -36,8 +36,7 @@ label {
 }
 
 img {
-	margin: 0;
-	padding: 10px;
+	padding-top:10px;
 }
 
 .first {
@@ -59,10 +58,12 @@ img {
 }
 
 .id {
-	width: 30%;
+	width: 25%;
 	float: left;
 	display: block;
 	clear: none;
+	padding-left:0;
+	margin-left:0;
 }
 
 .id label {
@@ -77,11 +78,14 @@ img {
 	display: block;
 	clear: none;
 	float: left;
-	width: 200px;
+	width: 150px;
+}
+input[type="submit"]{
+	margin-top:15px;
 }
 
 .age {
-	width: 20%;
+	width: 23%;
 	float: left;
 	display: block;
 	clear: none;
@@ -92,22 +96,23 @@ img {
 	clear: none;
 	float: left;
 	padding-top: 5px;
-	margin-right: 5px;
+	margin-right: 0;
 	overflow: hidden;
 }
 
 .age input[type="text"],textarea,input[type="password"] {
 	display: block;
-	width: 70px;
+	width: 95px;
 	clear: none;
 	padding-left: 3px;
 	float: left;
 }
 
 .gender {
-	width: 20%;
+	width: 25%;
 	float: left;
-	padding-left: 10px;
+	padding-left: 0;
+	margin-left:0;
 	display: block;
 	clear: none;
 	padding-right: 40px;
@@ -118,34 +123,36 @@ img {
 	clear: none;
 	width: 20%;
 	float: left;
-	margin-right: 10px;
-	padding-right: 10px;
+	padding-right:15px;
 	padding-top: 5px;
 }
 
 .genderOptions td input[type="radio"] {
 	padding-top: 0;
 	margin-top: 0;
-	margin-right: 10px; padding-right : 10px;
+	margin-right: 2px; 
 	float: left;
 	display: block;
 	clear: none;
-	padding-right: 10px;
+	padding-right: 2px;
 }
 
-.searchButton {
+.searchButton input[type="submit"]{
 	width: 10%;
 	float: left;
-	padding-top: 0;
-	padding-bottom: 3px;
-	padding-right: 40px;
-	margin-bottom: 3px;
+	margin-top:0;
+	margin-bottom:0;
+	margin-left:50px;
+	
+	
+	
 }
+
 
 .height {
 	width: 17%;
 	float: left;
-	padding-right: 5px;
+	padding-right: 55px;
 	overflow: hidden;
 }
 
@@ -169,6 +176,9 @@ img {
 	display: block;
 	clear: none;
 	float: left;
+	margin-top:0;
+	padding-top:0;
+	
 }
 
 .weight {
@@ -198,12 +208,14 @@ img {
 	display: block;
 	clear: none;
 	float: left;
+	margin-top:0;
+	padding-top:0;
 }
 
 .bmi {
 	width: 20%;
 	float: left;
-	padding-right: 5px;
+	padding-right: 35px;
 	overflow: hidden;
 }
 
@@ -224,16 +236,18 @@ img {
 }
 
 .bmi select {
+	
 	display: block;
 	clear: none;
 	float: left;
-	"
+	margin-top:0;
+	padding-top:0;
 }
 
 .temp {
 	width: 17%;
 	float: left;
-	padding-right: 5px;
+	padding-right: 25px;
 	overflow: hidden;
 }
 
@@ -257,6 +271,10 @@ img {
 	display: block;
 	clear: none;
 	float: left;
+	margin-top:0;
+	padding-top:0;
+
+	margin-right:10px;
 }
 
 .temp {
@@ -351,7 +369,7 @@ img {
 	padding-top: 0;
 	margin-top: 0;
 	float: left;
-	padding-top: 5px;
+	margin-top: 5px;
 }
 
 .ox {
@@ -412,15 +430,23 @@ img {
 .hpi {
 	width: 60%;
 	float: left;
-	padding-top: 2px;
-	margin-top: 2px;
+	padding-top:10px;
+	margin-top:10px;
+	
+}
+
+.hpi textarea{
+	height:5.5em;
+	line-height:1.5em;
 }
 
 .additionalImages {
 	padding-left: 10px;
+	margin-top:25px;
+	padding-top:25px;
 	margin-left: 10px;
 	float: left;
-	width: 35%;
+	width: 30%;
 	overflow: hidden;
 }
 
@@ -428,16 +454,20 @@ additionalImages img {
 	float: left;
 	display: block;
 	clear: none;
+	padding-left:2px;
+	margin-left:2px;
+	margin-top:20px;
+	padding-top:1\20px;
 }
 
 .imgLinks {
-	width: 20%;
+	width:5px;
 	float: right;
 	display: block;
 	clear: none;
-	padding-right: 70px;
-	margin-right: 70px;
-	padding-top: 5px;
+	padding-right: 100px;
+
+	padding-top: 25px;
 }
 
 .imgLinks a {
@@ -448,12 +478,14 @@ additionalImages img {
 	clear: none;
 	text-decoration: none;
 	color: #336699;
+	font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif;
 }
 
 .imgLinks a:hover {
 	text-decoration: none;
 	color: #666;
 }
+
 
 .meds {
 	width: 60%;
@@ -466,9 +498,17 @@ additionalImages img {
 	display: block;
 	clear: none;
 }
+.overall{
+	width:95%;
+	
+}
+.overall textarea {
+	padding-bottom:2px;
+}
 
 legend {
 	text-align: left;
+	font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif;
 }
 
 .set-width {
@@ -482,6 +522,11 @@ legend {
 
 fieldset {
 	width: 82%;
+	padding-left:7px;
+	padding-top:10px;
+	padding-right:0;
+	padding-bottom:10px;
+	
 }
 
 textarea {
@@ -494,7 +539,7 @@ input[type="text"],textarea,input[type="password"] {
 	border-radius: 5px;
 	padding-left: 2px;
 	padding-right: 2px;
-	border: 1px solid #ccc;
+	border: 1px solid #ababab;
 	width: 100%;
 	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
@@ -520,11 +565,13 @@ h3 {
 .container a {
 	text-decoration: none;
 	color: #336699;
+	font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif;
 }
 
 .container a:hover {
 	text-decoration: none;
 	color: #666;
+	font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif;
 }
 
 .container { /*width:800px;*/
@@ -536,13 +583,15 @@ h3 {
 .left {
 	float: left;
 	margin-right: 8px;
+	padding-left:5px;
+	margin-left:5px;
+	
 }
 
 .row {
 	float: left;
 	width: 100%;
-	padding: 4px 0px;
-	margin: 2px 0px;
+	
 }
 
 .right {
@@ -565,18 +614,28 @@ h1 {
 	padding: 0;
 }
 
-#currentDate {
-	padding: 0;
-	margin: 0;
-	color: #b9b9b9;
-	text-align: right;
-}
+
 
 #clockDiv {
+	
 	padding: 0;
-	margin: 0;
+	
+	margin: 0 0 0 0;
 	color: #b9b9b9;
-	text-align: right;
+	float:right;
+	width:100px;
+	display:inline;
+	
+}
+#currentDate {
+	padding: 0;
+	margin-left:550px;
+	color: #b9b9b9;
+	
+	display:inline;
+	float:left;
+
+	
 }
 
 #header {

@@ -17,7 +17,7 @@
 <script type="text/javascript">
 function clock() {
 	   var now = new Date();
-	   var outStr = 'Time:' + now.getHours()+' hr';
+	   var outStr = 'Time: ' + now.getHours()+' hr';
 	   document.getElementById('clockDiv').innerHTML = outStr;
 	   var displayDate = 'Date: ' + (now.getMonth()+1) + '/' + (now.getDate()) + '/' + now.getFullYear();
 	   document.getElementById('currentDate').innerHTML = displayDate;
