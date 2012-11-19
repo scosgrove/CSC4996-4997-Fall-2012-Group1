@@ -42,7 +42,7 @@ public class Encounter {
 	private Set<Medication> medsPrescribed;
 	
 	/** Medications provided during the pharmacist encounter */
-	private Set<Medication> medsProvided;
+	private Set<Medication> medsDispensed;
 	
 	/** Overall Impression of the encounter & additional comments */
 	private StringBuilder overallImpression;
@@ -124,13 +124,13 @@ public class Encounter {
 	}
 
 	/** Returns whatever medications were provided to the patient in an encounter */
-	public Set<Medication> getMedsProvided() {
-		return medsProvided;
+	public Set<Medication> getMedsDispensed() {
+		return medsDispensed;
 	}
 
 	/** Sets the medications that are provided to a patient in an encounter */
-	public void setMedsProvided(Set<Medication> medsProvided) {
-		this.medsProvided = medsProvided;
+	public void setMedsDispensed(Set<Medication> medications) {
+		this.medsDispensed = medications;
 	}
 
 	/** Returns medications prescribed to the patient */
