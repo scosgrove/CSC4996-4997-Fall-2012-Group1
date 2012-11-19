@@ -300,7 +300,7 @@
 							</h:panelGroup>
 						</h:panelGroup>
 						</h:panelGroup>
-					<div style="padding-bottom:5px;margin-bottom:0">
+					<div style="padding-bottom:5px;margin-bottom:0"> 
 					
 					<div id="dialog2" style="background: #ececec" title="Social History">Married, no children</div>
 

@@ -11,7 +11,7 @@
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 <script>
 	$(function() {
-	$("input[type=submit]").button();
+	$("input[type=submit]").button(); 
 	});
 </script>
 <script type="text/javascript">

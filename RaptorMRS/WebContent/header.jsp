@@ -13,5 +13,5 @@
 			<a href="http://localhost:8080/RaptorMRS/faces/superadmin.jsp">Admin</a> &bull;
 			<a href="http://localhost:8080/RaptorMRS/faces/pharmacy.jsp">Pharmacy</a> 
 		</div></td>
-	</tr>
+	</tr> 
 </table>

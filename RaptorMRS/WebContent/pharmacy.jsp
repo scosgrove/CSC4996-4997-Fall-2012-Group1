@@ -40,7 +40,7 @@ function clock() {
 				<legend class="login">Search for Patient</legend>
 					<h:panelGrid columns="6">
 						<h:outputLabel value="First: "></h:outputLabel>
-						<h:inputText></h:inputText>
+						<h:inputText></h:inputText> 
 						<h:outputLabel value="Last: "></h:outputLabel>
 							<h:inputText></h:inputText>
 							<h:outputLabel value="Patient ID: "></h:outputLabel>
