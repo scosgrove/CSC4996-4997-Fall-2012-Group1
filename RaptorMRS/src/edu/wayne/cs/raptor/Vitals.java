@@ -41,6 +41,15 @@ public class Vitals {
 	/** Patient's blood sample number */
 	private int bloodSampleID;
 	
+	/** Patient's measured height */
+	private int height;
+	
+	/** Patient's measured weight */
+	private int weight;
+	
+	/** Patient's measured patientBMI */
+	private int calculatedBMI;
+	
 	
 	/** Default empty constructor */
 	public Vitals(){	
@@ -142,4 +151,35 @@ public class Vitals {
 	public void setBloodSampleID(int bloodDrawID) {
 		this.bloodSampleID = bloodDrawID;
 	}
+	
+	/** Returns the patient's measured height */
+	public int getHeight() {
+		return height;
+	}
+	
+	/** Sets the patient's measured height */
+	public void setHeight(int measuredHeight) {
+		this.height = measuredHeight;
+	}
+	
+	/** Returns the patient's measured weight */
+	public int getWeight() {
+		return weight;
+	}
+	
+	/** Sets the patient's measured weight */
+	public void setWeight(int measuredWeight) {
+		this.weight = measuredWeight;
+	}
+	
+	/** Returns the patient's calculatedBMI */
+	public int getBMI() {
+		return calculatedBMI;
+	}
+	
+	/** Sets the patient's measured weight */
+	public void setBMI(int bmi) {
+		this.calculatedBMI = bmi;
+	}
+	
 }

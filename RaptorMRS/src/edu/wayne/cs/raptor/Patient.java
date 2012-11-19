@@ -36,19 +36,13 @@ public class Patient {
 		 */
 		private String socialHistory;
 		
-		
-		/* Fields possibly to be moved  */
-		private int height;
-		private int weight;
-		private int patientBMI;
-		
 		/**
 		 * metadata
 		 */
-		// private User creator;
-		// private Date createdDate;
-		// private User modifier/changer;
-		// private Date modifiedDate;
+		 private User creator;
+		 private Date createdDate;
+		 private User modifier;
+		 private Date modifiedDate;
 		
 		
 		/** TODO:  photos of conditions
@@ -129,27 +123,38 @@ public class Patient {
 		public void setSocialHistory(String socialHistory) {
 			this.socialHistory = socialHistory;
 		}
-
-		// TODO: To be moved to either Vitals/Encounter 
-		public int getHeight() {
-			return height;
+		
+		public User getCreator() {
+			return creator;
 		}
-		public void setHeight(int height) {
-			this.height = height;
-		}
-		public int getWeight() {
-			return weight;
-		}
-		public void setWeight(int weight) {
-			this.weight = weight;
-		}
-		public int getPatientBMI() {
-			return patientBMI;
-		}
-		public void setPatientBMI(int patientBMI) {
-			this.patientBMI = patientBMI;
+		
+		public void setCreator(User creatorUser) {
+			this.creator = creatorUser;
 		}
 
+		public Date getCreatedDate() {
+			return createdDate;
+		}
+
+		public void setCreatedDate(Date created) {
+			this.createdDate = created;
+		}
+		
+		public User getModifier() {
+			return modifier;
+		}
+		
+		public void setModifier(User modifierUser) {
+			this.modifier = modifierUser;
+		}
+		
+		public Date getModifiedDate() {
+			return modifiedDate;
+		}
+		
+		public void setModifiedDate(Date modified) {
+			this.modifiedDate = modified;
+		}
 		
 		
 		

@@ -54,41 +54,4 @@ public class PatientTest {
 		assert(expectedResidence == actualResidence);
 	}
 
-	@Test
-	public void testSetAndGetHeight() {
-		int expectedHeight = 9001;
-		int actualHeight;
-		this.patient.setHeight(expectedHeight);
-		actualHeight = this.patient.getHeight();
-		assert(expectedHeight == actualHeight);
-	}
-
-	@Test
-	public void testSetWeight() {
-		int expectedWeight = 59439;
-		int actualWeight;
-		this.patient.setWeight(expectedWeight);
-		actualWeight = this.patient.getWeight();
-		assert(expectedWeight == actualWeight);
-	}
-
-	@Test
-	public void testSetAndGetPatientBMI() {
-		int expectedBMI = 99;
-		int actualBMI;
-		this.patient.setPatientBMI(expectedBMI);
-		actualBMI = this.patient.getPatientBMI();
-		assert(expectedBMI == actualBMI);
-	}
-
-	//TODO:locate functionality and move this test (likely in encounter)
-//	@Test
-//	public void testSetAndGetPatientHPI() {
-//		StringBuilder expectedHPI = new StringBuilder();
-//		expectedHPI.append("it hurts");
-//		StringBuilder actualHPI = new StringBuilder();
-//		this.patient.setPatientHPI(expectedHPI);
-//		actualHPI.append(this.patient.getPatientHPI());
-//		assert(expectedHPI == actualHPI);
-//	}
 }
