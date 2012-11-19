@@ -4,7 +4,7 @@
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+<head> 
 <link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css" />
 <link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/jquery-ui-1.9.1.custom.css" />
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>

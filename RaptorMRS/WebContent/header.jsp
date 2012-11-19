@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="http://localhost:8080/RaptorMRS/faces/styles.css" />
 <table id="header">
 	
-	<tr>
+	<tr> 
 		<td colspan="3"><span id="HUD_indentity">Currently logged in as: LoginName <a href="/RaptorMRS/faces/login.jsp">Log out</a></span></td>		
 		<td><div id="currentDate"></div><div id="clockDiv"></div></td>
 	</tr>

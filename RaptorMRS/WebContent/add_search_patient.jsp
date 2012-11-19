@@ -287,7 +287,7 @@
 								value="HPI: Include Onset, Provokes/Palliates, Quality, Radiation, Score, Timing, and anything else"></h:outputLabel>
 
 							<h:inputTextarea></h:inputTextarea>
-						</h:panelGroup>
+						</h:panelGroup> 
 						<h:panelGroup layout="block" >
 							<h:panelGroup layout="block">
 								<img src="http://localhost:8080/RaptorMRS/faces/deformity.png" class="left" style="margin-top:15px;margin-left:23px;margin-bottom:10px;" />
