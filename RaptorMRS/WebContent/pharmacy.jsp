@@ -35,57 +35,96 @@ function clock() {
 			<jsp:directive.include file="header.jsp" />
 			
 				<div class="content">
-				<h:form styleClass="login">
-				<fieldset class="login">
-				<legend class="login">Search for Patient</legend>
-					<h:panelGrid columns="6">
-						<h:outputLabel value="First: "></h:outputLabel>
-						<h:inputText></h:inputText> 
-						<h:outputLabel value="Last: "></h:outputLabel>
-							<h:inputText></h:inputText>
-							<h:outputLabel value="Patient ID: "></h:outputLabel>
-							<h:inputText></h:inputText>
-						<h:commandButton value="Search"></h:commandButton>
-					
-						<h:commandButton value="Reset" > </h:commandButton>
-						
-						
-					</h:panelGrid>
-					</fieldset>
-					<fieldset>
-					<h:panelGrid columns="6">
-                       <h:column>
-                          <h:outputText value="Select Medication: "/>
-                          <h:selectManyMenu style="height:100;" >
-                              <f:selectItem itemLabel="Aspirin" itemValue="aspirin" />
+				<div class="pharmPanel">
+				<h:form >
+				<fieldset>
+								<legend>Search/Add Patient</legend>
+
+
+								<h:panelGroup layout="block" styleClass="row">
+									<h:panelGroup layout="block" styleClass="first">
+										<h:outputLabel value="First:"></h:outputLabel>
+										<h:inputText size="15"></h:inputText>
+									</h:panelGroup>
+									<h:panelGroup layout="block" styleClass="last">
+										<h:outputLabel value="Last:"></h:outputLabel>
+										<h:inputText></h:inputText>
+									</h:panelGroup>
+
+									<h:panelGroup layout="block" styleClass="residence">
+										<h:outputLabel value="Residence:"></h:outputLabel>
+										<h:inputText styleClass="residence"></h:inputText>
+									</h:panelGroup>
+								</h:panelGroup>
+								<div style="height:30px"><br /></div>
+								<h:panelGroup layout="block" styleClass="row">
+									<h:panelGroup layout="block" styleClass="age">
+										<h:outputLabel value="Age/Birthdate: "></h:outputLabel>
+										<h:inputText></h:inputText>
+									</h:panelGroup>
+									<h:panelGroup layout="block" styleClass="gender">
+										<h:outputLabel value="Gender: "></h:outputLabel>
+										<h:selectOneRadio id="radio" styleClass="genderOptions">
+
+											<f:selectItem itemLabel="Male" />
+											<f:selectItem itemLabel="Female" />
+
+										</h:selectOneRadio>
+
+									</h:panelGroup>
+									<h:panelGroup layout="block" styleClass="id">
+										<h:outputLabel value="ID#: "></h:outputLabel>
+										<h:inputText></h:inputText>
+									</h:panelGroup>
+									<h:panelGroup layout="block" styleClass="searchButton">
+										<input type="submit" value="Search" id="button">
+									</h:panelGroup>
+								</h:panelGroup>
+
+
+							</fieldset>
+					<fieldset class="admin">
+				<legend>Prescribed Medication</legend>
+					<h:panelGroup layout="block" styleClass="row">
+				<h:panelGroup layout="block" styleClass="pharm">
+										<h:outputLabel value="Medication:"></h:outputLabel>
+										
+										<h:selectOneMenu>
+											<f:selectItem itemLabel="Aspirin" itemValue="aspirin" />
                               <f:selectItem itemLabel="Tylenol" itemValue="tylenol"/>
                               <f:selectItem itemLabel="Morphine" itemValue="morphine"/>
-                          </h:selectManyMenu>
-                      </h:column>
-                       <h:column>
-                          <h:outputText value="Select Dosage : "/>
-                          <h:selectManyMenu style="height:100;" >
-                              <f:selectItem itemLabel="200" itemValue="200" />
+
+										</h:selectOneMenu>
+									</h:panelGroup>
+										<h:panelGroup layout="block" styleClass="pharm">
+										<h:outputLabel value="Dosage:"></h:outputLabel>
+									
+										<h:selectOneMenu>
+											 <f:selectItem itemLabel="200" itemValue="200" />
                               <f:selectItem itemLabel="400" itemValue="400"/>
                                <f:selectItem itemLabel="600" itemValue="600"/>
-                          </h:selectManyMenu>
-                      </h:column>
-                      <h:column>
-                          <h:outputText value="Select Measure: "/>
-                          <h:selectManyMenu style="height:100;" >
-                              <f:selectItem itemLabel="mg" itemValue="mg" />
+
+										</h:selectOneMenu>
+									</h:panelGroup>
+										<h:panelGroup layout="block" styleClass="pharm">
+										<h:outputLabel value="Measure: "></h:outputLabel>
+									
+										<h:selectOneMenu>
+										<f:selectItem itemLabel="mg" itemValue="mg" />
                               <f:selectItem itemLabel="g" itemValue="g"/>
                               <f:selectItem itemLabel="mL" itemValue="ml"/>
-                          </h:selectManyMenu>
-                      </h:column>
- 
-                      <h:column>
+
+										</h:selectOneMenu>
+									</h:panelGroup>
+									</h:panelGroup>
+					
+                          
                           <h:commandButton value="Submit" action="#{selectManyMenuBean.submit}"/>
-                      </h:column>
-                  </h:panelGrid>
+                     
                   </fieldset>
 					
 				</h:form>
+				</div>
 					</f:view></div>
 	</div>
 </body>

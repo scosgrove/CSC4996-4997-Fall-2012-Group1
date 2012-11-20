@@ -32,7 +32,8 @@ label {
 }
 
 .content {
-	padding: 10px 10px;
+	padding: 0;
+	margin:0;
 }
 
 img {
@@ -82,6 +83,31 @@ img {
 }
 input[type="submit"]{
 	margin-top:15px;
+}
+
+.admin fieldset{
+	margin:5px;
+}
+.admin{
+	padding:5px;
+	margin:5px;
+
+}
+.admin label{
+	float:left;
+	padding-left:5px;
+	margin-left:5px;
+	
+	
+}
+.admin input[type="text"]{
+	margin-right:3px;
+	padding-right:3px;
+	float:left;
+}
+.adminPanel{
+ 	
+ 	padding:10px;
 }
 
 .age {
@@ -182,7 +208,7 @@ input[type="submit"]{
 }
 
 .weight {
-	width: 17%;
+	width: 20%;
 	float: left;
 	padding-right: 5px;
 	overflow: hidden;
@@ -245,7 +271,7 @@ input[type="submit"]{
 }
 
 .temp {
-	width: 17%;
+	width: 20%;
 	float: left;
 	padding-right: 25px;
 	overflow: hidden;
@@ -260,7 +286,7 @@ input[type="submit"]{
 
 .temp input[type="text"],textarea,input[type="password"] {
 	display: block;
-	width: 50px;
+	width: 30px;
 	clear: none;
 	padding-top: 0;
 	margin-top: 0;
@@ -274,7 +300,7 @@ input[type="submit"]{
 	margin-top:0;
 	padding-top:0;
 
-	margin-right:10px;
+	
 }
 
 .temp {
@@ -301,7 +327,7 @@ input[type="submit"]{
 .bp {
 	width: 25%;
 	float: left;
-	padding-right: 5px;
+	padding-right: 8px;
 	overflow: hidden;
 }
 
@@ -428,10 +454,10 @@ input[type="submit"]{
 }
 
 .hpi {
-	width: 60%;
+	width: 50%;
 	float: left;
-	padding-top:10px;
-	margin-top:10px;
+	padding-top:15px;
+	margin-top:15px;
 	
 }
 
@@ -442,11 +468,11 @@ input[type="submit"]{
 
 .additionalImages {
 	padding-left: 10px;
-	margin-top:25px;
-	padding-top:25px;
+	margin-top:5px;
+	padding-top:5px;
 	margin-left: 10px;
 	float: left;
-	width: 30%;
+	
 	overflow: hidden;
 }
 
@@ -457,23 +483,23 @@ additionalImages img {
 	padding-left:2px;
 	margin-left:2px;
 	margin-top:20px;
-	padding-top:1\20px;
+	padding-top:20px;
 }
 
 .imgLinks {
-	width:5px;
+	width:100px;
 	float: right;
 	display: block;
 	clear: none;
-	padding-right: 100px;
+	padding-left:20px;
 
-	padding-top: 25px;
+	
 }
 
 .imgLinks a {
-	padding: 0;
+	padding-left:20px;
 	margin: 0;
-	float: left;
+	float: right;
 	display: block;
 	clear: none;
 	text-decoration: none;
@@ -502,8 +528,12 @@ additionalImages img {
 	width:95%;
 	
 }
-.overall textarea {
+.overall textarea{
 	padding-bottom:2px;
+}
+.overall2 textarea {
+	padding-bottom:20px;
+	margin-bottom:20px;
 }
 
 legend {
@@ -523,9 +553,9 @@ legend {
 fieldset {
 	width: 82%;
 	padding-left:7px;
-	padding-top:10px;
+	padding-top:7px;
 	padding-right:0;
-	padding-bottom:10px;
+	padding-bottom:7px;
 	
 }
 
@@ -574,23 +604,22 @@ h3 {
 	font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif;
 }
 
-.container { /*width:800px;*/
+.container { 
 	clear: both;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	
 }
 
 .left {
 	float: left;
 	margin-right: 8px;
-	padding-left:5px;
-	margin-left:5px;
+	
 	
 }
 
 .row {
 	float: left;
 	width: 100%;
+	clear:right;
 	
 }
 
@@ -690,7 +719,7 @@ h1 {
 /* ---------------Raptor Login Page Styles--------------- */
 .logInPanel {
 	text-align: center;
-	width: 300px;
+	width: 400px;
 	margin: 0px auto;
 	padding: 10px;
 }
@@ -719,12 +748,30 @@ h1 {
 	margin: 5px 0;
 }
 
-.login form input {
+.login form input[type="submit"] {
 	width: 100%;
+	float:left;
+	padding:0;
+	
 }
 
 .login form span {
 	display: block;
 	overflow: hidden;
 	padding: 0 5px 0 0;
+}
+
+.pharm{
+	width:20%;
+	float:left;
+}
+.pharm input[type="text"]{
+	width:20%;
+}
+.pharm{
+	margin:5px;
+	
+}
+.pharmPanel{
+	padding:10px;
 }

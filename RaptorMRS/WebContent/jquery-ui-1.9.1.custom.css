@@ -230,8 +230,8 @@ body .ui-tooltip { border-width: 2px; }
 .ui-widget { font-family: arial; font-size: 1.1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: arial; font-size: 1em; }
-.ui-widget-content { border: 1px solid #cccccc; background: #fffff url(images/ui-bg_flat_0_fffff_40x100.png) 50% 50% repeat-x; color: #222222; }
-.ui-widget-content a { color: #222222; }
+.ui-widget-content { background: #fffff url(images/ui-bg_flat_0_fffff_40x100.png) 50% 50% repeat-x; color: #222222; }
+.ui-widget-content a { color: #336699;text-decoration:none;font: .85em/1.4 Verdana, Arial, Helvetica, sans-serif; }
 .ui-widget-header { border: 1px solid #a3a3a3; background: #006699 url(images/ui-bg_flat_8_006699_40x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; }
 .ui-widget-header a { color: #222222; }
 

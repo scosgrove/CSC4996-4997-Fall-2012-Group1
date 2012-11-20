@@ -35,12 +35,12 @@ function clock() {
 <div class="content">
 <f:view>
 
+<div class="adminPanel">
 
 
-<h:form>
-<h3> Search for users by: </h3>
-(Any or all of fields below)
-
+<fieldset class="admin">
+				<legend class="admin">Find User</legend>
+<h:form >
 <h:panelGrid columns="6">
 <h:outputLabel value="Username: "></h:outputLabel><h:inputText value="#{User2.username}"></h:inputText>
 <h:outputLabel value="First Name: "></h:outputLabel><h:inputText value="#{User2.firstName}"></h:inputText>
@@ -48,10 +48,13 @@ function clock() {
 
 </h:panelGrid>
 </h:form>
+</fieldset>
 
+<fieldset class="admin">
+				<legend class="admin">Add User </legend>
 <h:form>
-<h3> Add new users: </h3>
-(ALL FIELDS ARE REQUIRED)
+
+
 
 <h:panelGrid columns="6">
 
@@ -67,8 +70,8 @@ function clock() {
 <h:commandButton action="DoNothing" value="Cancel" ></h:commandButton>
 </h:panelGrid>
 </h:form>
-<h:outputLabel value="#{currentTimaAndDate.getDate}"></h:outputLabel>
-<p> <%= new java.util.Date() %> </p>
+</fieldset>
+</div>
 </f:view>
 </div></div>
 </body>
