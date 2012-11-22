@@ -1,7 +1,6 @@
 package edu.wayne.cs.raptor;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -59,12 +58,7 @@ public class Patient {
 		private Date lastModifiedDate;
 		
 		
-		/** TODO:  photos of conditions
-		 *  TODO: Previously provided meds from previous encounters 
-		 *  A listing of previously provided meds (with dates, quantities, and schedule) should be displayed and
-		 *   scrollable. This is should be a 'read-only' box.
-		 *  TODO: Method to calculate BMI (users should enter height & weight, BMI auto-generated)
-		 * */
+		/** TODO:  photos of conditions **/
 		
 		
 		/** Default empty constructor */
@@ -150,24 +144,24 @@ public class Patient {
 //			return creatingUser;
 //		}
 //		
-//		public void setCreatingUser(User creator) {
-//			this.creatingUser = creator;
+//		public void setCreatingUser(User creatingUser) {
+//			this.creatingUser = creatingUser;
 //		}
 
 		public String getCreatingUser() {
 			return creatingUser;
 		}
 		
-		public void setCreatingUser(String creator) {
-			this.creatingUser = creator;
+		public void setCreatingUser(String creatingUser) {
+			this.creatingUser = creatingUser;
 		}
 		
 		public Date getCreatedDate() {
 			return createdDate;
 		}
 
-		public void setCreatedDate(Date created) {
-			this.createdDate = created;
+		public void setCreatedDate(Date createdDate) {
+			this.createdDate = createdDate;
 		}
 		
 		//github issue #11
@@ -175,8 +169,8 @@ public class Patient {
 //			return modifyingUser;
 //		}
 //		
-//		public void setModifier(User modifierUser) {
-//			this.modifyingUser = modifierUser;
+//		public void setModifyingUser(User modifyingUser) {
+//			this.modifyingUser = modifyingUser;
 //		}
 //		
 		public String getModifyingUser() {
@@ -191,7 +185,7 @@ public class Patient {
 			return lastModifiedDate;
 		}
 		
-		public void setModifiedDate(Date modified) {
-			this.lastModifiedDate = modified;
+		public void setModifiedDate(Date lastModifiedDate) {
+			this.lastModifiedDate = lastModifiedDate;
 		}
 }
