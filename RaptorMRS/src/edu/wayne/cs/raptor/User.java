@@ -2,6 +2,10 @@ package edu.wayne.cs.raptor;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * Defines a User entity in the system.
  * 
@@ -9,7 +13,8 @@ import java.util.Date;
  * @version 1.0
  * @since 2012-10-23
  */
-
+@Entity
+@Table( name = "USERS")
 public class User {
 
 	/** A unique user identification number */
@@ -53,7 +58,17 @@ public class User {
 	public User() {
 		super();
 	}
+	
+	public User(String fName, String lName, String username, String password){
+		this.firstName = fName;
+		this.lastName = lName;
+		this.password = password;
+		this.username = username;
+	}
 
+	@Id
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	public int getUserID() {
 		return userID;
 	}

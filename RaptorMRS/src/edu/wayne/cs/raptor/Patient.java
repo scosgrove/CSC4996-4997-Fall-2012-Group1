@@ -3,11 +3,17 @@ package edu.wayne.cs.raptor;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /** Defines a Patient entity in the system.  
  * 
  * @author Ramez
  *
  */
+@Entity
+@Table( name = "PATIENTS")
 public class Patient {
 	
 		/** A unique Patient identification number */
@@ -63,10 +69,17 @@ public class Patient {
 		
 		/** Default empty constructor */
 		public Patient(){
+			this.firstName="bob";
+			this.lastName="bobson";
+			this.residence="haiti";
 			
 		}
 		
+		
 		/** Returns the Patient's ID */
+		@Id
+		@GeneratedValue(generator="increment")
+		@GenericGenerator(name="increment", strategy = "increment")
 		public int getPatientID() {
 			return patientID;
 		}
@@ -170,8 +183,8 @@ public class Patient {
 			return modifyingUser;
 		}
 		
-		public void setModifier(String modifierUser) {
-			this.modifyingUser = modifierUser;
+		public void setModifyingUser(String modifyingUser) {
+			this.modifyingUser = modifyingUser;
 		}
 		
 		public Date getModifiedDate() {

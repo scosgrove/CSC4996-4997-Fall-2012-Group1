@@ -7,6 +7,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/** Should be a class that serves an entity in the system ?  
+ *  saves, searches for a Patient
+ *  should implement other similar classes for User / Encounter / Med ?
+ * 
+ * @author Ramez
+ *
+ */
 public class HibernateUtil {
 	
 	public static void main(String[] args){
@@ -29,6 +36,10 @@ public class HibernateUtil {
 			List result2 = session.createQuery("from Patient" ).list();
 			for( Patient p : (List<Patient>)result2){
 				System.out.println("Patient " +p.getLastName()+", "+p.getFirstName() +", " +p.getPatientID());
+			}
+			List result3 = session.createQuery("from Encounter" ).list();
+			for( Encounter e : (List<Encounter>)result3){
+				System.out.println("Encounter " +e.getEncounterID()+", "+e.getPatientID() );
 			}
 	        session.getTransaction().commit();
 	        session.close();
