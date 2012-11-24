@@ -15,7 +15,7 @@ public interface IPatientService {
 
 	public void savePatient(Patient patient);
 
-	public Patient getPatient(Integer patientID);
+	public Patient getPatient(int patientID);
 
 	public Patient getPatientByLast(String lastName);
 
@@ -25,6 +25,9 @@ public interface IPatientService {
 	public List<Patient> getPatientsByName(String name);
 
 	public List<Patient> getPatientsByResidence(String residence);
+	
+	
+	
 
 	/**
 	 * TODO: Need Other Methods to search for patients based on identifiers or a

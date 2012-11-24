@@ -15,7 +15,8 @@ import java.util.List;
 
 public interface IUserService {
 
-	public void saveUser(User user);
+	
+	public User saveUser(User user);
 
 	public User getUser(int userID);
 
@@ -23,6 +24,6 @@ public interface IUserService {
 
 	public List<User> getAllUsers();
 
-	/** TODO: where do the login/logout methods go */
+	
 
 }

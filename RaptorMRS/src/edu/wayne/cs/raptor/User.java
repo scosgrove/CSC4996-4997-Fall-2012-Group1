@@ -95,12 +95,7 @@ public class User {
 		return password;
 	}
 
-	/**
-	 * Sets the password
-	 * 
-	 * This function sets the user password
-	 * 
-	 */
+	/** Sets the password. This function sets the user password  */
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -160,51 +155,7 @@ public class User {
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
-	
-	/**
-	 * Retrieves the login result
-	 * 
-	 * This function returns a String message describing the result of the login
-	 * attempt.
-	 * 
-	 */
-//	public String getLoginAttemptResult() {
-//		return loginAttemptResult;
-//	}
-//
-//	/**
-//	 * Sets the login result string
-//	 * 
-//	 * This method sets the login result string
-//	 * 
-//	 */
-//	// currently no use cases for method. marked for removal.
-//	public void setLoginAttemptResult(String loginAttemptResult) {
-//		this.loginAttemptResult = loginAttemptResult;
-//	}
 
-	/**
-	 * Checks password
-	 * 
-	 * This method checks the password to see if it matches the string "raptor"
-	 * and sets the login attempt result string based on the comparison.
-	 * 
-	 */
-//	public String checkPassword() {
-//		// search database for password
-//		if (this.password.equals(new String("raptor"))) {
-//			loginAttemptResult = "Valid password";
-//			return "valid";
-//		} else {
-//			loginAttemptResult = "Invalid password.  Try again.";
-//
-//			return "invalid";
-//		}
-//	}
-	
-	public String clear(){
-		this.password = "";
-		this.username= "";
-		return null;
-	}
+
+
 }

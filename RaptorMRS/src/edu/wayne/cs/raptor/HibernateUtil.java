@@ -7,7 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/** Should be a class that serves an entity in the system ?  
+/** Should there be a class that serves an entity in the system which gets current session from
+ *  HibernateUtil and operate ...
+ *
  *  saves, searches for a Patient
  *  should implement other similar classes for User / Encounter / Med ?
  * 
@@ -16,16 +18,16 @@ import org.hibernate.cfg.Configuration;
  */
 public class HibernateUtil {
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 	
 			Session session = sess.openSession();
-			/*session.beginTransaction();
+			session.beginTransaction();
 			session.save(new User("AdminFName","AdminLName","admin","raptor"));
 			session.save( new User("ramez", "habib","ramHab","raptormrs") );
 			session.save( new Patient());
 			session.getTransaction().commit();
 			session.close();
-			*/
+			
 			
 			//session = sess.openSession();
 	        session.beginTransaction();
@@ -41,9 +43,9 @@ public class HibernateUtil {
 			for( Encounter e : (List<Encounter>)result3){
 				System.out.println("Encounter " +e.getEncounterID()+", "+e.getPatientID() );
 			}
-	        session.getTransaction().commit();
+	        session.getTransaction().commit(); 
 	        session.close();
-	}
+	}*/
 	
 	private static final SessionFactory sess = buildSessionFactory();
 	
