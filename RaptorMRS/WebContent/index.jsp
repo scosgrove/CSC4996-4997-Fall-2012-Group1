@@ -21,6 +21,7 @@
 			<h1>Welcome!</h1>
 			<h4>Please log in.</h4>
 						
+			<h:form>
 				<!-- original
 				<input type="text" name="uid" placeholder="username">
 				<input type="password" name="uid" placeholder="password">
@@ -31,6 +32,7 @@
 				<h:inputText id = "username" value="#{loginBean.systemUser.username}" />
 				<h:inputSecret id = "password" redisplay="false" value="#{loginBean.systemUser.password}" /><br>
 				<h:commandButton id = "submit" value = "Login" action="#{loginBean.authenticate}"></h:commandButton>
+			</h:form>
 			
 		</div>
 	
