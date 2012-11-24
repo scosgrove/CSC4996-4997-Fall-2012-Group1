@@ -40,12 +40,12 @@ function clock() {
 				<legend class="login">Please Log In</legend>
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Username: "></h:outputLabel>
-						<h:inputText value="#{userInterfaceBean.username}"></h:inputText>
+						<h:inputText value="#{loginBean.systemUser.username}"></h:inputText>
 						<h:outputLabel value="Password: "></h:outputLabel>
-						<h:inputSecret value="#{userInterfaceBean.password}"></h:inputSecret>
-						<h:commandButton value="Log In" action="#{userInterfaceBean.checkPassword}"  ></h:commandButton>
-						<h:outputText value="#{userInterfaceBean.loginAttemptResult}"></h:outputText>
-						<h:commandButton value="Reset" action="#{userInterfaceBean.clear}"> </h:commandButton>
+						<h:inputSecret value="#{loginBean.systemUser.password}"></h:inputSecret>
+						<h:commandButton value="Log In" action="#{loginBean.authenticate}"  ></h:commandButton>
+						<h:outputText value="#{loginBean.authenticated}"></h:outputText>
+						<h:commandButton value="Reset" action="#{loginBean.clear}"> </h:commandButton>
 					</h:panelGrid><br/>
 					</fieldset>
 				</h:form>

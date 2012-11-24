@@ -155,7 +155,7 @@
 								<h:panelGroup layout="block" styleClass="row">
 									<h:panelGroup layout="block" styleClass="height">
 										<h:outputLabel value="Height:"></h:outputLabel>
-										<h:inputText value="#{patientData.height}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="height_m" itemLabel="m" />
 											<f:selectItem itemValue="height_ft" itemLabel="ft" />
@@ -165,7 +165,7 @@
 
 									<h:panelGroup layout="block" styleClass="weight">
 										<h:outputLabel value="Weight:"></h:outputLabel>
-										<h:inputText value="#{patientData.weight}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="weight_kg" itemLabel="kg" />
 											<f:selectItem itemValue="weight_lbs" itemLabel="lbs" />
@@ -174,7 +174,7 @@
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="bmi">
 										<h:outputLabel value="BMI:"></h:outputLabel>
-										<h:inputText value="#{patientData.patientBMI}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="bmi_kg" itemLabel="kg/m" />
 											<f:selectItem itemValue="bmi_ft" itemLabel="lbs/f" />
@@ -184,7 +184,7 @@
 
 									<h:panelGroup layout="block" styleClass="temp">
 										<h:outputLabel value="Temp: "></h:outputLabel>
-										<h:inputText value="#{vitals.temperatureC}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:selectOneMenu tabindex="-1">
 											<f:selectItem itemValue="temp_c" itemLabel="C" />
 											<f:selectItem itemValue="temp_f" itemLabel="F" />
@@ -193,8 +193,8 @@
 									</h:panelGroup>
 									<h:panelGroup layout="block" styleClass="bloodDrawn">
 										<h:outputLabel value="Blood Drawn: "></h:outputLabel>
-										<h:selectBooleanCheckbox value="#{vitals.fingerPoke}"></h:selectBooleanCheckbox>
-										<h:inputText size="3" value="#{vitals.bloodSampleID}"></h:inputText>
+										<h:selectBooleanCheckbox ></h:selectBooleanCheckbox>
+										<h:inputText size="3" ></h:inputText>
 									</h:panelGroup>
 
 
@@ -204,27 +204,27 @@
 								
 									<h:panelGroup layout="block" styleClass="bp">
 										<h:outputLabel value="BP: "></h:outputLabel>
-										<h:inputText value="#{vitals.systolicBP}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:outputLabel value="/"></h:outputLabel>
-										<h:inputText value="#{vitals.diastolicBP}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:outputLabel value="mmHg"></h:outputLabel>
 									</h:panelGroup>
 									
 									<h:panelGroup layout="block" styleClass="hr">
 										<h:outputLabel value="HR: "></h:outputLabel>
-										<h:inputText value="#{vitals.heartRate}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:outputLabel value="BPM"></h:outputLabel>
 									</h:panelGroup>
 									
 									<h:panelGroup layout="block" styleClass="rr">
 										<h:outputLabel value="RR: "></h:outputLabel>
-										<h:inputText value="#{vitals.respRate}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:outputLabel value="Breaths/min"></h:outputLabel>
 									</h:panelGroup>
 									
 									<h:panelGroup layout="block" styleClass="ox">
 										<h:outputLabel value="Ox: "></h:outputLabel>
-										<h:inputText value="#{vitals.oximetry}"></h:inputText>
+										<h:inputText ></h:inputText>
 										<h:outputLabel value="%"></h:outputLabel>
 									</h:panelGroup>
 
@@ -239,12 +239,12 @@
 					<h:panelGroup layout="block" styleClass="row">
 						<h:panelGroup layout="block" styleClass="chiefComplaint">
 							<h:outputLabel value="Chief Complaint"></h:outputLabel>
-							<h:inputTextarea value="#{encounter.chiefComplaint}"></h:inputTextarea>
+							<h:inputTextarea ></h:inputTextarea>
 						</h:panelGroup>
 
 						<h:panelGroup layout="block" styleClass="keywords">
 							<h:outputLabel value="Keywords from Previous Encounters"></h:outputLabel>
-							<h:inputTextarea tabindex="-1" value="#{encounter.keywords}"></h:inputTextarea>
+							<h:inputTextarea tabindex="-1" ></h:inputTextarea>
 						</h:panelGroup>
 
 					</h:panelGroup>
@@ -255,7 +255,7 @@
 							<h:outputLabel
 								value="HPI: Include Onset, Provokes/Palliates, Quality, Radiation, Score, and Timing"></h:outputLabel>
 
-							<h:inputTextarea value="#{encounter.historyOfPresentIllness}"></h:inputTextarea>
+							<h:inputTextarea ></h:inputTextarea>
 						</h:panelGroup> 
 						<h:panelGroup layout="block" styleClass="additionalImages" >
 						
@@ -274,7 +274,7 @@
 						<h:panelGroup layout="block" styleClass="overall">
 							<h:outputLabel value="Prescribed Medicine: "></h:outputLabel>
 
-							<h:inputTextarea value="#{encounter.medsPrescribed}"></h:inputTextarea>
+							<h:inputTextarea></h:inputTextarea>
 
 						</h:panelGroup>
 

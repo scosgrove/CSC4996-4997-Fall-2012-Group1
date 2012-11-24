@@ -42,9 +42,9 @@ function clock() {
 				<legend class="admin">Find User</legend>
 <h:form >
 <h:panelGrid columns="6">
-<h:outputLabel value="Username: "></h:outputLabel><h:inputText value="#{User2.username}"></h:inputText>
-<h:outputLabel value="First Name: "></h:outputLabel><h:inputText value="#{User2.firstName}"></h:inputText>
-<h:outputLabel value="Last Name: "></h:outputLabel><h:inputText value="#{User2.lastName}"></h:inputText> <h:commandButton action="FindUser" value="Search" id="button"></h:commandButton>
+<h:outputLabel value="Username: "></h:outputLabel><h:inputText ></h:inputText>
+<h:outputLabel value="First Name: "></h:outputLabel><h:inputText></h:inputText>
+<h:outputLabel value="Last Name: "></h:outputLabel><h:inputText></h:inputText> <h:commandButton action="FindUser" value="Search" id="button"></h:commandButton>
 
 </h:panelGrid>
 </h:form>
@@ -58,12 +58,12 @@ function clock() {
 
 <h:panelGrid columns="6">
 
-<h:outputLabel value="First Name: "></h:outputLabel><h:inputText value="#{User2.setFirstName}"></h:inputText>
-<h:outputLabel value="Last Name: "></h:outputLabel><h:inputText value="#{User2.setLastName}"></h:inputText>
-<h:outputLabel value="Username: "></h:outputLabel><h:inputText value="#{User2.setUsername}"></h:inputText>
-<h:outputLabel value="Start Date: "></h:outputLabel><h:inputText value="#{User2.setStartDate}"></h:inputText>
-<h:outputLabel value="End Date: "></h:outputLabel><h:inputText value="#{User2.setEndDate}"></h:inputText>
-<h:outputLabel value="Roles: "></h:outputLabel><h:inputText value="#{User2.setRoles}"></h:inputText>
+<h:outputLabel value="First Name: "></h:outputLabel><h:inputText ></h:inputText>
+<h:outputLabel value="Last Name: "></h:outputLabel><h:inputText ></h:inputText>
+<h:outputLabel value="Username: "></h:outputLabel><h:inputText ></h:inputText>
+<h:outputLabel value="Start Date: "></h:outputLabel><h:inputText ></h:inputText>
+<h:outputLabel value="End Date: "></h:outputLabel><h:inputText ></h:inputText>
+<h:outputLabel value="Roles: "></h:outputLabel><h:inputText ></h:inputText>
 
 
 <h:commandButton action="Add new user" value="Add New User" id="button"></h:commandButton>

@@ -1,7 +1,10 @@
 package edu.wayne.cs.raptor;
 
 import java.util.Date;
-import java.util.Set;
+
+import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;;
 
 /** Defines an Encounter. An encounter should track all the interactions between the patient
  *  and any clinic personnel for a given chief-complaint/visit.
@@ -9,6 +12,8 @@ import java.util.Set;
  * @author Ramez
  *
  */
+@Entity
+@Table(name = "ENCOUNTERS")
 public class Encounter {
 	
 	/** A unique Encounter identification number */
@@ -70,9 +75,6 @@ public class Encounter {
 	/** Date last modification of this user took place, creation counts as a modification */
 	private Date lastModifiedDate;
 	
-	/** TODO: Should there be an attribute where we save keywords from the encounter? 
-	 *  Done in patient */
-	
 	
 	
 	/** Default empty constructor */
@@ -81,6 +83,9 @@ public class Encounter {
 	}
 
 	/** Returns the encounter ID number */
+	@Id
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	public int getEncounterID() {
 		return encounterID;
 	}
@@ -140,13 +145,34 @@ public class Encounter {
 	public void setChronicIllness(String chronicIllness) {
 		this.chronicIllness = chronicIllness;
 	}
+	
+	//github issue #10
+//	/** Returns the keywords of the encounter */
+//	public Set<String> getKeywords() {
+//		return keywords;
+//	}
+//
+//	/** Sets the keywords of the encounter */
+//	public void setKeywords(Set<String> kywds) {
+//		this.keywords = kywds;
+//	}
 
-	public String getMedProcedures() {
+	/** Returns the keywords of the encounter */
+	public String getKeywords() {
+		return keywords;
+	}
+
+	/** Sets the keywords of the encounter */
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
+
+	public String getMedicalProcedures() {
 		return medicalProcedures;
 	}
 
-	public void setmedicalProcedures(String medProcedures) {
-		this.medicalProcedures = medProcedures;
+	public void setMedicalProcedures(String medicalProcedures) {
+		this.medicalProcedures = medicalProcedures;
 	}
 
 	//collections issue #10 in github list
@@ -161,13 +187,13 @@ public class Encounter {
 //	}
 
 	/** Returns whatever medications were provided to the patient in an encounter */
-	public String getMedsDispensed() {
+	public String getMedicationsDispensed() {
 		return medicationsDispensed;
 	}
 
 	/** Sets the medications that are provided to a patient in an encounter */
-	public void setMedsDispensed(String medications) {
-		this.medicationsDispensed = medications;
+	public void setMedicationsDispensed(String medicationsDispensed) {
+		this.medicationsDispensed = medicationsDispensed;
 	}
 	
 	//github issue #10
@@ -187,8 +213,8 @@ public class Encounter {
 	}
 
 	/** Sets medications prescribed to a patient */
-	public void setMedicationsPrescribed(String prescribed) {
-		this.medicationsPrescribed = prescribed;
+	public void setMedicationsPrescribed(String medicationsPrescribed) {
+		this.medicationsPrescribed = medicationsPrescribed;
 	}
 	
 	/** Returns the overall impression of the encounter */
@@ -201,42 +227,6 @@ public class Encounter {
 		this.overallImpression = impression;
 	}
 
-	//github issue #10
-//	/** Returns the keywords of the encounter */
-//	public Set<String> getKeywords() {
-//		return keywords;
-//	}
-//
-//	/** Sets the keywords of the encounter */
-//	public void setKeywords(Set<String> kywds) {
-//		this.keywords = kywds;
-//	}
-
-	/** Returns the keywords of the encounter */
-	public String getKeywords() {
-		return keywords;
-	}
-
-	/** Sets the keywords of the encounter */
-	public void setKeywords(String kywds) {
-		this.keywords = kywds;
-	}
-
-	public String getMedicalProcedures() {
-		return medicalProcedures;
-	}
-
-	public void setMedicalProcedures(String medicalProcedures) {
-		this.medicalProcedures = medicalProcedures;
-	}
-
-	public String getMedicationsDispensed() {
-		return medicationsDispensed;
-	}
-
-	public void setMedicationsDispensed(String medicationsDispensed) {
-		this.medicationsDispensed = medicationsDispensed;
-	}
 
 	public String getCreatingUser() {
 		return creatingUser;
