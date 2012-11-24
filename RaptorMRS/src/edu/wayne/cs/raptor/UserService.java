@@ -6,7 +6,10 @@ import org.hibernate.Session;
 
 public class UserService implements IUserService {
 	
-
+	
+	//how to deal with nested class attributes... maybe try the dirty way of jsut including all a user's fields and then use them to build a user to save?
+    //private User user;
+	
 	@Override
 	public User saveUser(User user) {
 		Session userSession = HibernateUtil.getSessionFactory().openSession();
@@ -33,7 +36,6 @@ public class UserService implements IUserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 
 	
