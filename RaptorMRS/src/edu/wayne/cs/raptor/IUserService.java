@@ -15,8 +15,11 @@ import java.util.List;
 
 public interface IUserService {
 
+	public void createUser();
 	
-	public User saveUser(User user);
+	public void updateUser();
+	
+	public User saveUser(User newUser);
 
 	public User getUser(int userID);
 
