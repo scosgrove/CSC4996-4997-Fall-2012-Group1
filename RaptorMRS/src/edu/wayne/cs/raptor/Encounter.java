@@ -26,34 +26,7 @@ public class Encounter {
 	/** The vitals taken in the encounter */
 	//private Vitals vitals;
 	//what to do about mapping a nested object with hibernate....?
-	//fix: flatten.  no nesting, vitals merged with encounter.  
-	
-	/** Patient's measured height */
-	private int height = 0;
-	
-	/** Patient's measured weight */
-	private int weight = 0;
-	
-	/** Patient's measured patientBMI */
-	private int calculatedBMI;
-	
-	/** Patient's systolic blood pressure */
-	private int systolicBP;
-	
-	/** Patient's diastolic blood pressure */
-	private int diastolicBP;
-	
-	/** Patient's heart rate as BeatsPerMinute*/
-	private int heartRate;
-	
-	/** Patient's temperature in celsius */
-	private int temperatureC;
-	
-	/** Patient's respiratory rate */
-	private int respRate;
-	
-	/** Patient's pulse oximetry in percentage */
-	private int oximetry;
+	//fix: move vitals to a separate class.  still connected by encoutner ID, cleaner implementation separated. 
 	
 	/** The stated chief complaint for an encounter */
 	private String chiefComplaint;
@@ -70,12 +43,6 @@ public class Encounter {
 	private String medicationPrescribed4;
 	
 	private String medicationPrescribed5;
-	
-	/** Patient had blood drawn */
-	private boolean bloodDrawnStatus;
-	
-	/** Patient's blood sample number */
-	private int bloodSampleID;
 	
 	private int onsetNumber;
 	
@@ -149,110 +116,6 @@ public class Encounter {
 	public void setPatientID(int patientID) {
 		this.patientID = patientID;
 	}
-
-	/** Returns the patient's measured height */
-	public int getHeight() {
-		return height;
-	}
-	
-	/** Sets the patient's measured height */
-	public void setHeight(int measuredHeight) {
-		this.height = measuredHeight;
-	}
-	
-	/** Returns the patient's measured weight */
-	public int getWeight() {
-		return weight;
-	}
-	
-	/** Sets the patient's measured weight */
-	public void setWeight(int measuredWeight) {
-		this.weight = measuredWeight;
-	}
-	
-	/** Calculates patient's BMI if all necessary fields are not null */
-	public void calculateBMI()
-	{  
-		if(height != 0 && weight != 0)
-			calculatedBMI = (int) ((int)( weight / (int)(Math.pow(height, 2)) ) * 703.06957964f);
-
-		//excluded for reasons of time.  
-//		if(unitSystem == "metric")
-//		{
-//			bmi = (float)( measuredWeight / Math.pow(measuredHeight, 2));
-//		}
-	}
-	
-	/** Returns the patient's calculatedBMI */
-	public int getCalculatedBMI() {
-		calculateBMI();
-		return calculatedBMI;
-	}
-	
-	/** Sets the patient's measured weight */
-	public void setCalculatedBMI(int bmi) {
-		this.calculatedBMI = bmi;
-	}
-	
-	/** Returns patient's systolic blood pressure */
-	public int getSystolicBP() {
-		return systolicBP;
-	}
-	
-	/** Sets patient's systolic blood pressure */
-	public void setSystolicBP(int systolicBP) {
-		this.systolicBP = systolicBP;
-	}
-	
-	/** Returns patient's diastolic blood pressure */
-	public int getDiastolicBP() {
-		return diastolicBP;
-	}
-	
-	/** Sets patient's diastolic blood pressure */
-	public void setDiastolicBP(int diastolicBP) {
-		this.diastolicBP = diastolicBP;
-	}
-	
-	/** Returns patient's heart rate */
-	public int getHeartRate() {
-		return heartRate;
-	}
-	
-	/** Sets the patient's heart rate */
-	public void setHeartRate(int heartRate) {
-		this.heartRate = heartRate;
-	}
-	
-	/** Returns the patient's temperature */
-	public int getTemperatureC() {
-		return temperatureC;
-	}
-	
-	/** Sets the patient's temperature */
-	public void setTemperatureC(int temperatureC) {
-		this.temperatureC = temperatureC;
-	}
-	
-	/** Returns patient's respiratory rate */
-	public int getRespRate() {
-		return respRate;
-	}
-	
-	/** Sets the patient's repiratory rate */
-	public void setRespRate(int respRate) {
-		this.respRate = respRate;
-	}
-	
-	/** Returns the patient's pulse oximetry */
-	public int getOximetry() {
-		return oximetry;
-	}
-	
-	/** Sets the patient's pulse oximetry */
-	public void setOximetry(int oximetry) {
-		this.oximetry = oximetry;
-	}
 	
 	/** Returns the chief complaint in the encounter*/
 	public String getChiefComplaint() {
@@ -304,26 +167,6 @@ public class Encounter {
 		this.medicationPrescribed5 = medicationPrescribed5;
 	}
 
-	/** Returns the patient's blood draw status */
-	public boolean getBloodDrawnStatus() {
-		return bloodDrawnStatus;
-	}
-	
-	/** Sets the patient's  blood draw status */
-	public void setBloodDrawnStatus(boolean drawn) {
-		this.bloodDrawnStatus = drawn;
-	}
-	
-	/** Returns the patient's blood draw sample id number */
-	public int getBloodSampleID() {
-		return bloodSampleID;
-	}
-	
-	/** Sets the patient's blood draw sample id number */
-	public void setBloodSampleID(int bloodDrawID) {
-		this.bloodSampleID = bloodDrawID;
-	}
-	
 	public int getOnsetNumber() {
 		return onsetNumber;
 	}

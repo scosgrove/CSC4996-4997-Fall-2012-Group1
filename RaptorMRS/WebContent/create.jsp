@@ -57,12 +57,12 @@
 				
 				
 				<h3>Height</h3>
-				<h:inputText id="hin" value="#{encounter.height }"></h:inputText> in
+				<h:inputText id="hin" value="#{vitals.height }"></h:inputText> in
 				<h3>Weight</h3>
-				<h:inputText id="wlbs" value="#{encounter.weight }"></h:inputText> lbs
+				<h:inputText id="wlbs" value="#{vitals.weight }"></h:inputText> lbs
 				<br>
 				<h3>BMI</h3>
-				<h:outputLabel value = "#{encounter.calculatedBMI }"></h:outputLabel>
+				<h:outputLabel value = "#{vitals.calculatedBMI }"></h:outputLabel>
 				
 
 			</div>
@@ -70,19 +70,19 @@
 			<div id = "module" style="float:right">
 				<h1>Vitals</h1>
 				<h3>Blood Pressure (mmHg)</h3>
-				<h:inputText style = "width:60px" id="bpTop"  value="#{encounter.systolicBP }" /> / <h:inputText style = "width:60px" id="bpBottom"  value="#{encounter.diastolicBP }" /> <BR>
+				<h:inputText style = "width:60px" id="bpTop"  value="#{vitals.systolicBP }" /> / <h:inputText style = "width:60px" id="bpBottom"  value="#{vitals.diastolicBP }" /> <BR>
 				
 				<h3>Heart Rate (bpm)</h3>
-				<h:inputText id="heartrate"  value="#{encounter.heartRate }" /><br>
+				<h:inputText id="heartrate"  value="#{vitals.heartRate }" /><br>
 				
 				<h3>Temperature (C)</h3>
-				<h:inputText id="temperature"  value="#{encounter.temperatureC }" /><br>
+				<h:inputText id="temperature"  value="#{vitals.temperatureC }" /><br>
 				
 				<h3>Respirations (Breaths per Minute)</h3>
-				<h:inputText id="respirations"  value="#{encounter.respRate }" /><br>
+				<h:inputText id="respirations"  value="#{vitals.respRate }" /><br>
 
 				<h3>Oxygen (%)</h3>
-				<h:inputText id="oxygen"  value="#{encounter.oximetry }" /><br>
+				<h:inputText id="oxygen"  value="#{vitals.oximetry }" /><br>
 			</div>
 		</div>
 		
@@ -105,7 +105,7 @@
 				
 				<h3>Blood Drawn</h3>
 				<p>
-				<h:selectOneMenu id ="bloodDrawn" value="#{encounter.bloodDrawnStatus }"><f:selectItem itemValue="NULL" itemLabel="- Select -" /><f:selectItem itemValue="Yes" itemLabel="Yes" /><f:selectItem itemValue="No" itemLabel="No" /></h:selectOneMenu><h4>Sample #</h4>&nbsp;<h:inputText value = "#{encounter.bloodSampleID }"></h:inputText>
+				<h:selectOneMenu id ="bloodDrawn" value="#{vitals.fingerPoke }"><f:selectItem itemValue="NULL" itemLabel="- Select -" /><f:selectItem itemValue="Yes" itemLabel="Yes" /><f:selectItem itemValue="No" itemLabel="No" /></h:selectOneMenu><h4>Sample #</h4>&nbsp;<h:inputText value = "#{vitals.bloodSampleID }"></h:inputText>
 				</p>
 				
 				<h3>Other Condition</h3>
