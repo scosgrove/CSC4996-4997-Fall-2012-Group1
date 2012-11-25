@@ -42,6 +42,9 @@ public class Patient {
 		 */
 		private String socialHistory;
 		
+		/** Identifying image of the patient*/
+		//private Bitmap personPhoto;
+		
 		/** 
 		 * metadata
 		 */
@@ -63,10 +66,6 @@ public class Patient {
 		
 		/** Default empty constructor */
 		public Patient(){
-			this.firstName="bob";
-			this.lastName="bobson";
-			this.residence="haiti";
-			
 		}
 		
 		
@@ -188,4 +187,13 @@ public class Patient {
 		public void setModifiedDate(Date lastModifiedDate) {
 			this.lastModifiedDate = lastModifiedDate;
 		}
+		
+//		public Bitmap getPersonPhoto()
+//		{
+//			return personPhoto;
+//		}
+//		public void setPersonPhoto(Bitmap photo)
+//		{
+//			this.personPhoto = photo;
+//		}
 }
