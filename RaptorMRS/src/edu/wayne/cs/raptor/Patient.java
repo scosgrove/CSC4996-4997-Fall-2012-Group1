@@ -37,6 +37,9 @@ public class Patient {
 		/** Patient's residence */
 		private String residence;
 		
+		/** Patient's history of the presenting illness*/
+		private String historyOfPresentIllness;
+		
 		/** The Patient's social/family history. this information shouldn't change much from an encounter
 		 * to another.
 		 */
@@ -122,6 +125,16 @@ public class Patient {
 			this.residence = address;
 		}
 		
+		public String getHistoryOfPresentIllness() {
+			return historyOfPresentIllness;
+		}
+
+
+		public void setHistoryOfPresentIllness(String historyOfPresentIllness) {
+			this.historyOfPresentIllness = historyOfPresentIllness;
+		}
+
+
 		public String getKeywords() {
 			return keywords;
 		}

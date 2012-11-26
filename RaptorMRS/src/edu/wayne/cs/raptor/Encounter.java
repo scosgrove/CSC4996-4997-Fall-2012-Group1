@@ -45,9 +45,6 @@ public class Encounter {
 	 
 	private String condition5;
 	
-	/** Recorded History of Present Illness (current illness) */
-	private String historyOfPresentIllness;
-	
 	/** Overall Impression of the encounter & additional comments */
 	private String overallImpression;
 	
@@ -163,13 +160,6 @@ public class Encounter {
 
 	public void setCondition5(String condition5) {
 		this.condition5 = condition5;
-	}
-
-	public String getHistoryOfPresentIllness() {
-		return historyOfPresentIllness;
-	}
-	public void setHistoryOfPresentIllness(String hpi) {
-		this.historyOfPresentIllness = hpi;
 	}
 	
 	/** Returns the overall impression of the encounter */
