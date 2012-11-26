@@ -31,13 +31,17 @@ use raptor;
        `encounterID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
        `patientID` int(10) unsigned zerofill NOT NULL,
        `chiefComplaint` varchar(55),
-       `vitals` varchar(55),
+       `onsetNumber` int(10),
+       `onsetUnit` int(10),
+       `condition1` varchar(55),
+       `condition2` varchar(55),
+       `condition3` varchar(55),
+       `condition4` varchar(55),
+       `condition5` varchar(55),
        `historyOfPresentIllness` varchar(55),
-       `chronicIllness` varchar(55),
+       `overallImpression` varchar(55),
        `keywords` varchar(55),
        `medicalProcedures` varchar(55),
-       `medicationsPrescribed` varchar(55),
-       `overallImpression` varchar(55),
        `creatingUser` varchar(55),
        `createdDate` datetime,
        `modifyingUser` varchar(55),
@@ -68,10 +72,10 @@ use raptor;
        `keywords` varchar(55),
        `residence` varchar(55),
        `socialHistory` varchar(55),
-       `creatingUser` varchar(55),  
-       `createdDate` datetime,
-       `modifyingUser` varchar(55),
-       `lastModifiedDate` datetime,
+       `creatingUser` varchar(55) DEFAULT NULL,  
+       `createdDate` datetime DEFAULT NULL,
+       `modifyingUser` varchar(55) DEFAULT NULL,
+       `lastModifiedDate` datetime DEFAULT NULL,
        PRIMARY KEY (`patientID`),
        UNIQUE KEY `patientID_UNIQUE` (`patientID`)
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -91,7 +95,6 @@ CREATE TABLE `USERS` (
 	  PRIMARY KEY (`userID`),
 	  UNIQUE KEY `userID_UNIQUE` (`userID`),
 	  UNIQUE KEY `username_UNIQUE` (`userName`),
-	  UNIQUE KEY `password_UNIQUE` (`password`)
 	) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8;
 
  
