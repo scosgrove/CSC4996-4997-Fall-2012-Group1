@@ -74,11 +74,11 @@ use raptor;
  
  CREATE TABLE `USERS` (
        `userID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-       `firstName` varchar(55),
-       `lastName` varchar(55),
+       `firstName` varchar(55) NOT NULL,
+       `lastName` varchar(55) NOT NULL,
        `userName` varchar(55) NOT NULL,
        `password` varchar(55) NOT NULL,
-       `roles` varchar(55),
+       `roles` varchar(55) NOT NULL,
        `creatingUser` varchar(55),
        `createdDate` datetime,
        `modifyingUser` varchar(55),
