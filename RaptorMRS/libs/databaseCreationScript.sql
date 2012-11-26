@@ -50,19 +50,6 @@ use raptor;
        UNIQUE KEY `encounterID_UNIQUE` (`encounterID`)
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
- CREATE TABLE `MEDICATIONS` (  
-       `medicationID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-       `description` varchar(55),
-       `name` varchar(55)  NOT NULL,
-       `dosage` int(11) DEFAULT NULL,
-       `creatingUser` varchar(55),
-       `createdDate` datetime,
-       `modifyingUser` varchar(55),
-       `lastModifiedDate` datetime,
-       PRIMARY KEY (`medicationID`),
-       UNIQUE KEY `medicationID_UNIQUE` (`medicationID`)
-     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
- 
  CREATE TABLE `PATIENTS` (
        `patientID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
        `firstName` varchar(55) NOT NULL,
