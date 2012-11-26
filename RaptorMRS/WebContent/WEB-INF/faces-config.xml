@@ -22,11 +22,6 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>currentTimeAndDate</managed-bean-name>
-		<managed-bean-class>edu.wayne.cs.raptor.currentTimeAndDate</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
 		<description>patient vitals</description>
 		<managed-bean-name>vitals</managed-bean-name>
 		<managed-bean-class>edu.wayne.cs.raptor.Vitals</managed-bean-class>
@@ -75,6 +70,16 @@
 		</managed-property>
 		
 
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>patientService</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.PatientService</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>login</property-name>
+			<property-class>edu.wayne.cs.raptor.LoginBean</property-class>
+			<value>#{loginBean}</value>
+		</managed-property>
 	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/index.jsp</from-view-id>
