@@ -122,5 +122,6 @@ CREATE TABLE `USERS` (
      insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (123, 'bob', 'bobson', 'admin', 'raptor','System Administrator');
      insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (234, 'jim', 'jimerson', 'student', 'student','Medical Student');
 	 insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (345, 'frank', 'frankfurter', 'pharm', 'pharm','Pharmacist');
+	 insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (345, 'sample', 'mcTest', 'research', 'research','Researcher');
 
      
