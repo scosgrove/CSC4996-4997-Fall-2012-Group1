@@ -77,7 +77,22 @@ use raptor;
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
  
- data
+CREATE TABLE `USERS` (
+	  `userID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+	  `firstName` varchar(55) NOT NULL,
+	  `lastName` varchar(55) NOT NULL,
+	  `userName` varchar(55) NOT NULL,
+	  `password` varchar(55) NOT NULL,
+	  `roles` varchar(55) NOT NULL,
+	  `creatingUser` varchar(55) DEFAULT NULL,
+	  `createdDate` datetime DEFAULT NULL,
+	  `modifyingUser` varchar(55) DEFAULT NULL,
+	  `lastModifiedDate` datetime DEFAULT NULL,
+	  PRIMARY KEY (`userID`),
+	  UNIQUE KEY `userID_UNIQUE` (`userID`),
+	  UNIQUE KEY `username_UNIQUE` (`userName`),
+	  UNIQUE KEY `password_UNIQUE` (`password`)
+	) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8;
 
  
  CREATE TABLE `VITALS` (
@@ -107,7 +122,5 @@ use raptor;
      insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (123, 'bob', 'bobson', 'admin', 'raptor','System Administrator');
      insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (234, 'jim', 'jimerson', 'student', 'student','Medical Student');
 	 insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (345, 'frank', 'frankfurter', 'pharm', 'pharm','Pharmacist');
-	 insert into raptor.USERS (userID, firstName, lastName, userName, password, roles) values (456, 'sample', 'testyman', 'research', 'research','Researcher');
-
 
      
