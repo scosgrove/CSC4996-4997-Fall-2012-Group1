@@ -2,6 +2,8 @@ package edu.wayne.cs.raptor;
 
 import java.util.Calendar;
 
+import javax.swing.JOptionPane;
+
 import org.hibernate.Session;
 
 /**
@@ -102,6 +104,8 @@ public class EncounterService implements IEncounterService {
 		vitals = new Vitals();
 		encounter = new Encounter();
 		pharmEncounter = new PharmacyEncounter();
+		
+		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		
 		//return "create" to go back to create.jsp after the create patient form is submitted
 		return "create";
