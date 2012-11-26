@@ -91,6 +91,7 @@ public class UserService implements IUserService {
 		userSession.getTransaction().commit();
 		userSession.close();
 		
+		newUser = new User();
 	}
 
 	/**
