@@ -13,9 +13,9 @@ import java.util.List;
 
 public interface IPatientService {
 
-	public void savePatient(Patient patient);
+	public String savePatient();
 
-	public Patient getPatient(int patientID);
+	public Patient getPatient();
 
 	public Patient getPatientByLast(String lastName);
 

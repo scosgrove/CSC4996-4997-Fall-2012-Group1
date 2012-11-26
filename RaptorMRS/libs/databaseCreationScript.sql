@@ -31,7 +31,6 @@ use raptor;
        `encounterID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
        `patientID` int(10) unsigned zerofill NOT NULL,
        `chiefComplaint` varchar(55),
-     
        `condition1` varchar(55),
        `condition2` varchar(55),
        `condition3` varchar(55),
@@ -40,7 +39,7 @@ use raptor;
        `overallImpression` varchar(55),
        `keywords` varchar(55),
        `medicalProcedures` varchar(55),
-       `onsetNumber` int(10),
+   	   `onsetNumber` int(10),
        `onsetUnit` varchar(55),
        `severity` int(10),
        `radiation` varchar(55),

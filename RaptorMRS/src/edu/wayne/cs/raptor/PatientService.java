@@ -1,18 +1,52 @@
 package edu.wayne.cs.raptor;
 
+import java.util.Calendar;
 import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class PatientService implements IPatientService {
 
-	@Override
-	public void savePatient(Patient patient) {
-		// TODO Auto-generated method stub
-
+	private LoginBean login;
+	private Patient patient;
+	Session userSession;
+	private Calendar calendar = Calendar.getInstance();
+	
+	public PatientService()
+	{
+		patient = new Patient();
 	}
+	
+	public void setLogin(LoginBean login){
+		this.login=login;
+	}
+	
 	@Override
-	public Patient getPatient(int patientID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String savePatient() {
+		patient.setCreatingUser(this.login.getSystemUser().getUsername());
+		patient.setCreatedDate(calendar.getTime());
+		patient.setModifyingUser(this.login.getSystemUser().getUsername());
+		patient.setLastModifiedDate(calendar.getTime()); 
+		
+		userSession = HibernateUtil.getSessionFactory().openSession();
+		userSession.beginTransaction();
+	
+		userSession.save(patient);
+		
+		userSession.getTransaction().commit(); 
+		userSession.close();
+		patient = new Patient();
+		return "create";
+	}
+	
+	@Override
+	public Patient getPatient() {
+		return this.patient;
+	}
+	
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
 	@Override

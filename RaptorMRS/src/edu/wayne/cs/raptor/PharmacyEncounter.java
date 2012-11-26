@@ -12,6 +12,11 @@ import javax.persistence.Table;
 public class PharmacyEncounter {
 
 	protected int encounterID;
+	protected String medPrescribed1;
+	protected String medPrescribed2;
+	protected String medPrescribed3;
+	protected String medPrescribed4;
+	protected String medPrescribed5;
 	protected String medDispensed1;
 	protected String medDispensed2;
 	protected String medDispensed3;
@@ -24,7 +29,6 @@ public class PharmacyEncounter {
 	protected boolean equalPrescribed5;
 	
 	protected String creatingUser;
-	
 	private Date createdDate;
 	
 	public PharmacyEncounter() {
@@ -117,6 +121,46 @@ public class PharmacyEncounter {
 
 	public void setEqualPrescribed5(boolean equalPrescribed5) {
 		this.equalPrescribed5 = equalPrescribed5;
+	}
+
+	public String getMedPrescribed1() {
+		return medPrescribed1;
+	}
+
+	public void setMedPrescribed1(String medPrescribed1) {
+		this.medPrescribed1 = medPrescribed1;
+	}
+
+	public String getMedPrescribed2() {
+		return medPrescribed2;
+	}
+
+	public void setMedPrescribed2(String medPrescribed2) {
+		this.medPrescribed2 = medPrescribed2;
+	}
+
+	public String getMedPrescribed3() {
+		return medPrescribed3;
+	}
+
+	public void setMedPrescribed3(String medPrescribed3) {
+		this.medPrescribed3 = medPrescribed3;
+	}
+
+	public String getMedPrescribed4() {
+		return medPrescribed4;
+	}
+
+	public void setMedPrescribed4(String medPrescribed4) {
+		this.medPrescribed4 = medPrescribed4;
+	}
+
+	public String getMedPrescribed5() {
+		return medPrescribed5;
+	}
+
+	public void setMedPrescribed5(String medPrescribed5) {
+		this.medPrescribed5 = medPrescribed5;
 	}
 
 	public Date getCreatedDate() {

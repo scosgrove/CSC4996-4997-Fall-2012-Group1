@@ -2,11 +2,18 @@ package edu.wayne.cs.raptor;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
+
 /** The vitals of a patient during a specific encounter.
  * 
  * @author Ramez
  *
  */
+@Entity
+@Table (name = "VITALS")
 public class Vitals {
 	
 	/* Should have a constraint on values ? */
@@ -69,6 +76,9 @@ public class Vitals {
 		//assignment operator seems to work just fine (i asked jUnit, he said so)
 	}
 	
+	@Id
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	public int getVitalsID() {
 		return vitalsID;
 	}
