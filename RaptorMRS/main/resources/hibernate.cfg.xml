@@ -29,7 +29,6 @@
   <mapping class="edu.wayne.cs.raptor.Patient"/>
   <mapping class="edu.wayne.cs.raptor.Encounter"/>
   <mapping class="edu.wayne.cs.raptor.Vitals"/>
-  <mapping class="edu.wayne.cs.raptor.Medication"/>
   <mapping class="edu.wayne.cs.raptor.PharmacyEncounter"/>
  </session-factory>
 </hibernate-configuration>
