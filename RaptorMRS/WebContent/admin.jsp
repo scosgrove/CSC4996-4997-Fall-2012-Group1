@@ -40,7 +40,7 @@
 		<h:form>
 			<h:panelGrid columns="3">
 				<center>
-				<h:outputLabel value="First Name: "></h:outputLabel><h:inputText value="#{userService.}"></h:inputText><br>
+				<h:outputLabel value="First Name: "></h:outputLabel><h:inputText ></h:inputText><br>
 				<h:outputLabel value="Last Name: "></h:outputLabel><h:inputText ></h:inputText><br>
 				<h:outputLabel value="Username: "></h:outputLabel><h:inputText ></h:inputText><br>
 				<h:outputLabel value="Start Date: "></h:outputLabel><h:inputText ></h:inputText><br>
