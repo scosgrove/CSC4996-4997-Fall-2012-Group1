@@ -1,5 +1,7 @@
 package edu.wayne.cs.raptor;
 
+import java.util.Date;
+
 /** The vitals of a patient during a specific encounter.
  * 
  * @author Ramez
@@ -50,6 +52,17 @@ public class Vitals {
 	/** Patient's measured patientBMI */
 	private int calculatedBMI;
 	
+	/** User that created this Vitals document */
+	private String creatingUser;
+	
+	/** Date this vitals document was created */
+	private Date createdDate;
+	
+	/** The user that last modified this vitals doc */
+	private String modifyingUser;
+	
+	/** The date of the last modification to this vitals document */
+	private Date lastModifiedDate;
 	
 	/** Default empty constructor */
 	public Vitals(){	
@@ -180,6 +193,50 @@ public class Vitals {
 	/** Sets the patient's measured weight */
 	public void setBMI(int bmi) {
 		this.calculatedBMI = bmi;
+	}
+	
+	/** User that created this Vitals document */
+	private void setCreatingUser(String creator)
+	{
+		this.creatingUser = creator;
+	}
+	
+	private String getCreatingUser()
+	{
+		return this.creatingUser;
+	}
+	
+	/** Date this vitals document was created */
+	private void setCreatedDate(Date created)
+	{
+		this.createdDate = created;
+	}
+	
+	private Date getCreatedDate()
+	{
+		return this.createdDate;
+	}
+	
+	/** The user that last modified this vitals doc */
+	private void setModifyingUser(String modifier)
+	{
+		this.modifyingUser = modifier;
+	}
+	
+	private String getModifyingUser()
+	{
+		return this.modifyingUser;
+	}
+	
+	/** The date of the last modification to this vitals document */
+	private void setLastModifiedDate(Date modified)
+	{
+		this.lastModifiedDate = modified;
+	}
+	
+	private Date getLastModifiedDate()
+	{
+		return this.lastModifiedDate;
 	}
 	
 }
