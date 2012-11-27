@@ -97,7 +97,7 @@ public String authenticate() {
 					// validating password and username
 				}
 		*/
-		return "invlaid";
+		return "invalid";
 		
 	}
 	
