@@ -106,11 +106,6 @@
 			<property-class>edu.wayne.cs.raptor.Encounter</property-class>
 			<value>#{encounter}</value>
 		</managed-property>
-		<managed-property>
-			<property-name>pharmEncounter</property-name>
-			<property-class>edu.wayne.cs.raptor.PharmacyEncounter</property-class>
-			<value>#{pharmacyEncounter}</value>
-		</managed-property>
 	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/index.jsp</from-view-id>

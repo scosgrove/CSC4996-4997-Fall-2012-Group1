@@ -10,10 +10,12 @@ import org.hibernate.Session;
 /**
  * This unadulterated, no-holds-barred titan of a class takes care of saving and retrieval for 
  * patient, vitals, encounter, and pharmacy encounters.  like a boss. 
- * @author Jackson Turner
+ * @author Jackson Turner, Ramez Habib
  *
  */
 
+
+//TODO: catch errors on insert (at least for duplicate primary keys) and report to msg box
 public class EncounterService implements IEncounterService {
 
 	private Session userSession;
@@ -21,10 +23,11 @@ public class EncounterService implements IEncounterService {
 	private Calendar calendar;
 	
 	private Patient patient;
+	private int patientID;
 	private Encounter encounter;
+	private int encounterID;
 	private Vitals vitals;
-
-	private PharmacyEncounter pharmEncounter;
+	//nobody cares about VitalsID but vitals.  *tiny violin*
 	
 	private String searchPatientId;
 	
@@ -48,8 +51,7 @@ public class EncounterService implements IEncounterService {
 		
 		encounter.setModifyingUser(login.getSystemUser().getUsername());
 		encounter.setLastModifiedDate(calendar.getTime());
-		
-		//pharmEncounter intentionally left blank under the design-decision assumption that there will not be a time where someone goes back to edit medication prescribed or dispensed.  
+		  
 		//get it right the first time.  no cheating. 
 		//end housekeeping
 		
@@ -88,18 +90,20 @@ public class EncounterService implements IEncounterService {
 		encounter.setCreatedDate(calendar.getTime());
 		encounter.setModifyingUser(login.getSystemUser().getUsername());
 		encounter.setLastModifiedDate(calendar.getTime());
-		
-		pharmEncounter.setCreatingUser(login.getSystemUser().getUsername());
-		pharmEncounter.setCreatedDate(calendar.getTime());
 		//end housekeeping
 		
 		userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
 		
-		userSession.save(patient);
+		//get the patientID once its saved and use it for encounter
+		patientID = (Integer) userSession.save(patient);
+		encounter.setPatientID(patientID);
+		
+		//get the encounterID once it is saved and use it in vitals
+		encounterID = (Integer) userSession.save(encounter);
+		vitals.setEncounterID(encounterID);
+		
 		userSession.save(vitals);
-		userSession.save(encounter);
-		userSession.save(pharmEncounter);
 		
 		userSession.getTransaction().commit();
 		userSession.close();
@@ -107,7 +111,6 @@ public class EncounterService implements IEncounterService {
 		patient = new Patient();
 		vitals = new Vitals();
 		encounter = new Encounter();
-		pharmEncounter = new PharmacyEncounter();
 		
 		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		
@@ -136,13 +139,6 @@ public class EncounterService implements IEncounterService {
 	}
 	public void setVitals(Vitals vitals) {
 		this.vitals = vitals;
-	}
-	
-	public PharmacyEncounter getPharmEncounter() {
-		return pharmEncounter;
-	}
-	public void setPharmEncounter(PharmacyEncounter pharmEncounter) {
-		this.pharmEncounter = pharmEncounter;
 	}
 	
 	public void setLogin(LoginBean login) {
