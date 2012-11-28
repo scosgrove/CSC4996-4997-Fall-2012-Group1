@@ -59,9 +59,6 @@ public class LoginBean {
 
 	/**
 	 * Authenticate user (only user with username "admin" for now )
-	 * 
-	
-	 * 
 	 */
 public String authenticate() {
 	

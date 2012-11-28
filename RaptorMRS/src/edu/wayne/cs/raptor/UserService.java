@@ -5,13 +5,17 @@ import java.util.List;
 import org.hibernate.Session;
 
 public class UserService implements IUserService {
-	
 
+	/**
+	 * 
+	 * @see edu.wayne.cs.raptor.IUserService#saveUser(edu.wayne.cs.raptor.User)
+	 */
 	@Override
 	public User saveUser(User user) {
 		Session userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
-		userSession.save(user);
+		userSession.saveOrUpdate(user);
+		userSession.close();
 		return null;
 		
 	}

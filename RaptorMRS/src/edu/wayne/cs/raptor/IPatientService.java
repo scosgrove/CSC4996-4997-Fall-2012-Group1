@@ -27,7 +27,6 @@ public interface IPatientService {
 	public List<Patient> getPatientsByResidence(String residence);
 	
 	
-	
 
 	/**
 	 * TODO: Need Other Methods to search for patients based on identifiers or a
