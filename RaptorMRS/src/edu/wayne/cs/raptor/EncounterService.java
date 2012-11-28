@@ -29,6 +29,8 @@ public class EncounterService implements IEncounterService {
 	private Vitals vitals;
 	//nobody cares about VitalsID but vitals.  *tiny violin*
 	
+	private boolean errorPreventedInsert = false;
+	
 	private String searchPatientId;
 	
 	public EncounterService() {
@@ -92,30 +94,61 @@ public class EncounterService implements IEncounterService {
 		encounter.setLastModifiedDate(calendar.getTime());
 		//end housekeeping
 		
-		userSession = HibernateUtil.getSessionFactory().openSession();
-		userSession.beginTransaction();
+		try
+		{
+			userSession = HibernateUtil.getSessionFactory().openSession();
+			userSession.beginTransaction();
+		}
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "Error in opening session or transaction. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			errorPreventedInsert = true;
+		}
 		
-		//get the patientID once its saved and use it for encounter
-		patientID = (Integer) userSession.save(patient);
-		encounter.setPatientID(patientID);
+		try
+		{
+			//get the patientID once its saved and use it for encounter
+			patientID = (Integer) userSession.save(patient);
+			encounter.setPatientID(patientID);
+			
+
+			//get the encounterID once it is saved and use it in vitals
+			encounterID = (Integer) userSession.save(encounter);
+			vitals.setEncounterID(encounterID);
+			
+			userSession.save(vitals);
+		}
 		
-		//get the encounterID once it is saved and use it in vitals
-		encounterID = (Integer) userSession.save(encounter);
-		vitals.setEncounterID(encounterID);
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "Error in saving record. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			errorPreventedInsert = true;
+		}	
 		
-		userSession.save(vitals);
+		try
+		{
+			userSession.getTransaction().commit();
+			userSession.close();
+		}
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "Error in committing transaction or closing session. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			errorPreventedInsert = true;
+		}
 		
-		userSession.getTransaction().commit();
-		userSession.close();
+		if(errorPreventedInsert == false)
+		{
+			JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+
+			patient = new Patient();
+			vitals = new Vitals();
+			encounter = new Encounter();
+			
+			//return "create" to go back to create.jsp after the create patient form is submitted
+			return "create";
+		}
 		
-		patient = new Patient();
-		vitals = new Vitals();
-		encounter = new Encounter();
-		
-		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
-		
-		//return "create" to go back to create.jsp after the create patient form is submitted
-		return "create";
+		return null;
 	}
 
 	public Patient getPatient() {
