@@ -12,7 +12,6 @@ public class ResearchReportsBean {
 	
 		public static void generateBloodSampleReport()
 	   {
-		   System.out.println(suggestFileName());
 		   
 		   String filename = null;
 		   JFileChooser jFileChooser = new JFileChooser();

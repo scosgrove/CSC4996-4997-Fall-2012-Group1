@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Research Reports</title>
 </head>
 <body>
 <!-- Created by Lev, uploaded by Marek -->
@@ -17,13 +17,14 @@
 		<div id= "content">
 		
 			<div id = "form">
-				<h1>What would you like to do?</h1>
+				<h1> Please select a report to run. </h1>
+				<p> You will be asked to save the file locally on your computer! </p>
 	
 			<h:form>
 	
 				<h:commandButton action="#{researchReportsBean.generateBloodSampleReport}" value="Generate Blood Sample Report"></h:commandButton>
 				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Generate Condition/Procedure Report"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate RX Report"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate Rx Report"></h:commandButton>
 			</h:form>
 	
 			</div>
