@@ -34,24 +34,33 @@ public class ResearchReportsBean {
 			   
 			   
 			   writer.append("Blood Sample Report");
-			    writer.append(',');
-			    writer.append("Age");
-			    writer.append('\n');
+			   writer.append('\n');
+			   writer.append("SAMPLE NO.");
+			   writer.append(',');
+			   writer.append("CONDITIONS");
+			   writer.append(',');
+			   writer.append("TREATMENT GIVEN");
+			   writer.append(',');
+			   writer.append("RX WRITTEN");
+			   writer.append(',');
+			   writer.append("RX GIVEN");
+			   writer.append('\n');
+			   
+			   writer.append("123");
+			   writer.append(',');
+			   writer.append("Sickle Cell Anemia");
+			   writer.append(',');
+			   writer.append("<none>");
+			   writer.append(',');
+			   writer.append("Iron Suppliment");
+			   writer.append(',');
+			   writer.append("Iron Suppliment");
+			   writer.append('\n');
 		 
-			    writer.append("Marek");
-			    writer.append(',');
-			    writer.append("Raptor");
-		            writer.append('\n');
+			   //generate whatever data you want
 		 
-			    writer.append("YOUR NAME");
-			    writer.append(',');
-			    writer.append("29");
-			    writer.append('\n');
-		 
-			    //generate whatever data you want
-		 
-			    writer.flush();
-			    writer.close();
+			   writer.flush();
+			   writer.close();
 			}
 			catch(IOException e)
 			{
@@ -82,6 +91,9 @@ public class ResearchReportsBean {
 			   
 			   
 			   writer.append("Conditon Report");
+			   writer.append('\n');
+			   
+			   writer.append("Test");
 			    writer.append(',');
 			    writer.append("Age");
 			    writer.append('\n');
@@ -129,25 +141,28 @@ public class ResearchReportsBean {
 			   //Get Data from raptor
 			   
 			   
-			   writer.append("Conditon Report");
-			    writer.append(',');
-			    writer.append("Age");
-			    writer.append('\n');
+			   writer.append("Rx Report");
+			   writer.append('\n');
+			   
+			   writer.append("Test");
+			   writer.append(',');
+			   writer.append("Age");
+			   writer.append('\n');
 		 
-			    writer.append("Marek");
-			    writer.append(',');
-			    writer.append("Raptor");
-		            writer.append('\n');
+			   writer.append("Marek");
+			   writer.append(',');
+			   writer.append("Raptor");
+		           writer.append('\n');
 		 
-			    writer.append("YOUR NAME");
-			    writer.append(',');
-			    writer.append("29");
-			    writer.append('\n');
+			   writer.append("YOUR NAME");
+			   writer.append(',');
+			   writer.append("29");
+			   writer.append('\n');
 		 
-			    //generate whatever data you want
+			   //generate whatever data you want
 		 
-			    writer.flush();
-			    writer.close();
+			   writer.flush();
+			   writer.close();
 			}
 			catch(IOException e)
 			{
