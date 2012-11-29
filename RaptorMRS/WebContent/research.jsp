@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="main.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Research Reports</title>
 </head>
@@ -17,14 +18,15 @@
 		<div id= "content">
 		
 			<div id = "form">
-				<h1> Please select a report to run. </h1>
+				<h1> Select a report to run. </h1>
 				<p> You will be asked to save the file locally on your computer! </p>
 	
 			<h:form>
 	
-				<h:commandButton action="#{researchReportsBean.generateBloodSampleReport}" value="Generate Blood Sample Report"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Generate Condition/Procedure Report"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate Rx Report"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateBloodSampleReport}" value="Generate Blood Sample Report" style="width:300px;height:60px"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Generate Condition/Procedure Report" style="width:300px;height:70px"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate Rx Report" style="width:300px;height:80px"></h:commandButton>
+				<p> Width and Height of BUTTONS above is adjustable! </br> Please let us know what to change! </p>
 			</h:form>
 	
 			</div>
