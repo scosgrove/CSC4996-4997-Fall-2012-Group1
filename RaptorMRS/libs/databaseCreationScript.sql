@@ -97,4 +97,4 @@ use raptor;
        UNIQUE KEY `bloodSampleID_UNIQUE` (`bloodSampleID`)
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
      
-     insert into raptor.USERS (userID, userName, password) values (123, 'admin', 'raptor');
+     insert into raptor.USERS (userID, userName, password, roles) values (123, 'admin', 'raptor','System Administrator');

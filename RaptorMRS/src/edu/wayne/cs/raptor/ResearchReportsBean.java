@@ -179,8 +179,13 @@ public class ResearchReportsBean {
 		   int temp_int = rightNow.get(Calendar.YEAR);
 		   sfilename = sfilename + temp_int;
 		   temp_int = rightNow.get(Calendar.MONTH);
+		   temp_int++;
+		   if ( temp_int < 10 )
+			   sfilename = sfilename + "0";
 		   sfilename = sfilename + temp_int;
 		   temp_int = rightNow.get(Calendar.DAY_OF_MONTH);
+		   if ( temp_int < 10 )
+			   sfilename = sfilename + "0";
 		   sfilename = sfilename + temp_int + "-";
 		   //Get the time
 		   temp_int = rightNow.get(Calendar.HOUR);

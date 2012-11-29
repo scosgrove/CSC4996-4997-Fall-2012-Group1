@@ -24,8 +24,8 @@
 			<h:form>
 	
 				<h:commandButton action="#{researchReportsBean.generateBloodSampleReport}" value="Generate Blood Sample Report" style="width:300px;height:60px"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Generate Condition/Procedure Report" style="width:300px;height:70px"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate Rx Report" style="width:300px;height:80px"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Generate Condition/Procedure Report" style="width:300px;height:60px"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate Rx Report" style="width:300px;height:60px"></h:commandButton>
 				<p> Width and Height of BUTTONS above is adjustable! </br> Please let us know what to change! </p>
 			</h:form>
 	
