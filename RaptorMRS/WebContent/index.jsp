@@ -32,7 +32,7 @@
 				
 				<h:inputText id = "username" value="#{loginBean.systemUser.username}" />
 				<h:inputSecret id = "password" redisplay="false" value="#{loginBean.systemUser.password}" /><br>
-				<h:commandButton id = "submit" value = "Login" action="#{loginBean.authenticate }" style="width:200px;height:50px"></h:commandButton>
+				<h:commandButton id = "submit" value = "Login" action="#{loginBean.authenticate }" style="width:200px;height:50px"></h:commandButton> </br>
 				<h:outputText value="#{loginBean.loginResult}"></h:outputText>
 			</h:form>
 			
