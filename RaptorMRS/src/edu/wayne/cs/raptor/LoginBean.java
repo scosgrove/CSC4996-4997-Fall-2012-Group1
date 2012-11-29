@@ -4,6 +4,11 @@ import java.util.List;
 
 import org.hibernate.Session;
 
+/**  This bean handles the User login and authentication against the database
+ * 
+ * @author Ramez
+ *
+ */
 public class LoginBean {
 	
 	private User systemUser;
@@ -57,7 +62,7 @@ public class LoginBean {
 	}
 
 
-	/** Authenticate user (only user with username "admin" for now ) */
+	/** Authenticate user */
 public String authenticate() {
 	
 		
