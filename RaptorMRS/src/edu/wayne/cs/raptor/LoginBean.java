@@ -57,54 +57,74 @@ public class LoginBean {
 	}
 
 
-	/**
-	 * Authenticate user (only user with username "admin" for now )
-	 */
+	/** Authenticate user (only user with username "admin" for now ) */
 public String authenticate() {
 	
 		
 		Session userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
 		
-		// querying for user with username=admin , only admin can login now if already in database
+		String u = this.systemUser.getUsername();
+		
 		@SuppressWarnings("unchecked")
-		List<User> result = userSession.createQuery( "from User user where user.username='admin'" ).list();
-		//result.get(0).setRoles(Role.ADMIN);
-		//userSession.saveOrUpdate(result.get(0));
+		List<User> dbUsername = userSession.createQuery( "from User where username='"+u+"'").list();
 		userSession.getTransaction().commit(); 
 		userSession.close();
-				
-				
-		setTempUserName(result.get(0).getUsername());
-		setTempPassword(result.get(0).getPassword());
-				
-		if( this.systemUser.getUsername().equals(this.getTempUserName())
-						&& this.systemUser.getPassword().equals(this.getTempPassword())) 
+		
+		// Verify the retrieved list of data is not empty before using it 
+		if(dbUsername != null && dbUsername.size() >0)
 		{
-			this.authenticated = true;
-			return "admin";
+			setTempUserName(dbUsername.get(0).getUsername());
+			setTempPassword(dbUsername.get(0).getPassword());
 		}
-						
-		/*	
-				// Need to handle role to page navigation 
-				// handle first time login 
-				// add admin role to admin user 
-				if(result != null && result.size() > 0 )	
-				{	
-					// validating password and username
-				}
-		*/
-		return "invalid";
+	
+		
+		// Check if username exists 
+		if (this.systemUser.getUsername().equals(this.getTempUserName()))
+		{
+			//If the username exists , check if the password is correct
+			if( this.systemUser.getPassword().equals(this.getTempPassword()) )
+			{
+				setAuthenticated(true);
+				return handleRoleToPage(dbUsername.get(0));
+			
+			}
+			//  If password incorrect
+			else
+			{
+				setLoginResult("Incorrect Password. Try again");
+				return "invalid";
+			}
+		
+		}	
+		//Username is not in the database
+		setLoginResult("Username doesn't exist. Please sign up first");
+		return "noexist";
 		
 	}
 	
-	public String createAdminFirstTime(){
-		/*Session userSession = HibernateUtil.getSessionFactory().openSession();
-		userSession.beginTransaction();
-		userSession.save(new User("AdminFName","AdminLName","admin","raptor"));
-		userSession.getTransaction().commit();
-		userSession.close();*/
-		return "createdAdmin";
+	/** Handles the default page the user is taken to upon login */
+	public String handleRoleToPage(User user){
+		
+		if (user.getRoles().equals(Role.ADMIN) )
+			return "admin";
+		if (user.getRoles().equals(Role.DOCTOR) )
+			return "physician";
+		if (user.getRoles().equals(Role.PHARMACIST))
+			return "pharm";
+		return "anonymous";
+	}
+	
+	/** Sign out the current user
+	 *  TODO: Not tested yet with JSP pages  */
+	
+	public String logout(){
+		this.systemUser = null;
+		this.loginResult = null;
+		this.authenticated =false;
+		this.tempUserName = null;
+		this.tempPassword = null;
+		return "loggedOut";
 	}
 	
 	public String clear(){
@@ -112,6 +132,12 @@ public String authenticate() {
 		this.systemUser.setPassword("");
 		return "clearedLoginFields";
 	}
+	
+	/* Run an insert of admin user into the DB or use a method to create admin beforehand
+	 * 
+	 * public String createAdminFirstTime(){
+	return "createdAdmin";
+}*/
 	
 
 }

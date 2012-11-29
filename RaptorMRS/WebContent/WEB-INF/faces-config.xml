@@ -53,14 +53,37 @@
 	<from-view-id>/index.jsp</from-view-id>
 		<navigation-case>
 			<from-action>#{loginBean.authenticate}</from-action>
+			<from-outcome>invalid</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{loginBean.authenticate}</from-action>
+			<from-outcome>noexist</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-action>#{loginBean.authenticate}</from-action>
 			<from-outcome>admin</from-outcome>
+			<to-view-id>/admin.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{loginBean.authenticate}</from-action>
+			<from-outcome>physician</from-outcome>
 			<to-view-id>/create.jsp</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-action>#{loginBean.authenticate}</from-action>
-			<from-outcome>invalid</from-outcome>
-			<to-view-id>/index.jsp</to-view-id>
+			<from-outcome>pharm</from-outcome>
+			<to-view-id>/pharm.jsp</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-action>#{loginBean.authenticate}</from-action>
+			<from-outcome>anonymous</from-outcome>
+			<to-view-id>/research.jsp</to-view-id>
+		</navigation-case>
+
+
 	
 	</navigation-rule>
  

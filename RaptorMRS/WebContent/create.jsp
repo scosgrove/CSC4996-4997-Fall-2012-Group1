@@ -105,7 +105,7 @@
 				
 				<h3>Blood Drawn</h3>
 				<p>
-				<h:selectOneMenu id ="bloodDrawn" value="#{encounter.bloodDrawnStatus }"><f:selectItem itemValue="NULL" itemLabel="- Select -" /><f:selectItem itemValue="Yes" itemLabel="Yes" /><f:selectItem itemValue="No" itemLabel="No" /></h:selectOneMenu><h4>Sample #</h4>&nbsp;<h:inputText value = "#{encounter.sampleNumber }"></h:inputText>
+				<h:selectOneMenu id ="bloodDrawn" value="#{encounter.bloodDrawnStatus }"><f:selectItem itemValue="NULL" itemLabel="- Select -" /><f:selectItem itemValue="Yes" itemLabel="Yes" /><f:selectItem itemValue="No" itemLabel="No" /></h:selectOneMenu><h4>Sample #</h4>&nbsp;<h:inputText value = "#{encounter.bloodSampleID }"></h:inputText>
 				</p>
 				
 				<h3>Other Condition</h3>

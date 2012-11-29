@@ -17,6 +17,6 @@ public class Role {
 	
 	public static final String PHARMACIST = "Pharmacist";
 	
-	public static final String RESEARCHER = "Research Personel";
+	public static final String RESEARCHER = "Researcher";
 	
 }
