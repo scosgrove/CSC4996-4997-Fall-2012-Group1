@@ -92,7 +92,6 @@ public String authenticate() {
 			{
 				setAuthenticated(true);
 				return handleRoleToPage(dbUsername.get(0));
-			
 			}
 			//  If password incorrect
 			else
@@ -105,7 +104,6 @@ public String authenticate() {
 		//Username is not in the database
 		setLoginResult("Username doesn't exist. Please sign up first");
 		return "noexist";
-		
 	}
 	
 	/** Handles the default page the user is taken to upon login */
@@ -114,10 +112,10 @@ public String authenticate() {
 		if (user.getRoles().equals(Role.ADMIN) )
 			return "admin";
 		if (user.getRoles().equals(Role.DOCTOR) )
-			return "physician";
+			return "create";
 		if (user.getRoles().equals(Role.PHARMACIST))
 			return "pharm";
-		return "anonymous";
+		return "research";
 	}
 	
 	/** Sign out the current user
