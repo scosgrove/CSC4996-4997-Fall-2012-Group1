@@ -49,6 +49,16 @@
 		<managed-bean-class>edu.wayne.cs.raptor.ResearchReportsBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>pharmacyEncounter</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.PharmacyEncounter</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>pharmacyEncounterService</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.PharmacyEncounterService</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/index.jsp</from-view-id>
 		<navigation-case>
