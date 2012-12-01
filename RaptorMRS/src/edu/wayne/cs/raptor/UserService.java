@@ -1,74 +1,84 @@
 package edu.wayne.cs.raptor;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-
 import org.hibernate.Session;
+
+////////////////////
+// Authors: Muhammed and Ramez
+////////////////////
 
 
 public class UserService implements IUserService {
 
 	/** User fields*/
-	private int userID = 0;
-	private String firstName;
-	private String lastName;
-	private String userName;
-	private String password;
-	private String roles;
-	private String creatingUser;
-	private Date createdDate;
-	private String modifyingUser;
-	private Date lastModifiedDate;
 	private User newUser;
-	/** */
-	
-	private User loggedInUser;
-	
+	private LoginBean login;
 	private Session userSession;
-	
 	private Calendar calendar = Calendar.getInstance();
+	
+	public UserService(){
+		newUser = new User();
+	}
+	
+	public void setLogin(LoginBean login){
+		this.login=login;
+	}
+	
+	public User getNewUser() {
+		return newUser;
+	}
+
+	public void setNewUser(User newUser) {
+		this.newUser = newUser;
+	}
+	
+	
+	
 	
 	/**
 	 * 
 	 * @see edu.wayne.cs.raptor.IUserService#saveUser(edu.wayne.cs.raptor.User)
 	 */
 	@Override
-	public void createUser()
+	public String createUser()
 	{
-		if(userID != 0)
-			newUser.setUserID(userID);
-			
+		//if(userID == 0)
+		//	newUser.setUserID(userID);
+		/*	
 		if(!UnitConverter.isNullOrBlank(firstName))
 			newUser.setFirstName(firstName);
 		
 		if(!UnitConverter.isNullOrBlank(lastName))
 			newUser.setLastName(lastName);
 		
-		if(!UnitConverter.isNullOrBlank(userName))
+	if(!UnitConverter.isNullOrBlank(userName))
 			newUser.setUsername(userName);
 		
 		if(!UnitConverter.isNullOrBlank(password))
 			newUser.setPassword(password);
 		
 		if(!UnitConverter.isNullOrBlank(roles))
-			newUser.setRoles(roles);
+			newUser.setRoles(roles);*/
 		
-		newUser.setCreatingUser(this.loggedInUser.getUsername());
+		newUser.setCreatingUser(this.login.getSystemUser().getUsername());
 		
 		newUser.setCreatedDate(calendar.getTime());
 		
-		newUser.setModifyingUser(this.loggedInUser.getUsername());
+		newUser.setModifyingUser(this.login.getSystemUser().getUsername());
 		
-		newUser.setLastModifiedDate(calendar.getTime());
+		newUser.setLastModifiedDate(calendar.getTime()); 
 		
 		saveUser(newUser);
+		
+		return "admin";
+		
 	}
 	
 	@Override
 	public void updateUser()
 	{
-		if(userID != 0)
+		/*if(userID != 0)
 			newUser.setUserID(userID);
 			
 		if(!UnitConverter.isNullOrBlank(firstName))
@@ -84,9 +94,9 @@ public class UserService implements IUserService {
 			newUser.setPassword(password);
 		
 		if(!UnitConverter.isNullOrBlank(roles))
-			newUser.setRoles(roles);
+			newUser.setRoles(roles);*/
 		
-		newUser.setModifyingUser(this.loggedInUser.getUsername());
+		newUser.setModifyingUser(this.login.getSystemUser().getUsername());
 		
 		newUser.setLastModifiedDate(calendar.getTime());
 		
@@ -94,12 +104,12 @@ public class UserService implements IUserService {
 	}
 	
 	@Override
-	public User saveUser(User newUser) {
+	public void saveUser(User newUser) {
 	    userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
-		userSession.saveOrUpdate(newUser);
+		userSession.save(newUser);
+		userSession.getTransaction().commit();
 		userSession.close();
-		return null;
 		
 	}
 
@@ -161,6 +171,8 @@ public class UserService implements IUserService {
 		userSession.close();
 		return null;
 	}
+
+
 
 
 

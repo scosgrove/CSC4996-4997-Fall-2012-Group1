@@ -33,7 +33,7 @@
 								<h:inputText></h:inputText><br>
 								<h:outputLabel value="Last Name: "></h:outputLabel>
 								<h:inputText></h:inputText><br>
-								<h:commandButton action="FindUser" value="Search" id="button"></h:commandButton>
+								<h:commandButton action="Find User" value="Search" id="button"></h:commandButton>
 							</h:panelGrid>
 						</center>	
 					</h:form>
@@ -44,25 +44,24 @@
 					<h:form>
 						<h:panelGrid columns="3">
 							<center>
+							
+								
 								<h:outputLabel value="First Name: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
+								<h:inputText id = "firstName" value="#{userService.newUser.firstName}"></h:inputText><br>
 								<h:outputLabel value="Last Name: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
+								<h:inputText id = "lastName" value="#{userService.newUser.lastName}"></h:inputText><br>
 								<h:outputLabel value="Username: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
-								<h:outputLabel value="Start Date: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
-								<h:outputLabel value="End Date: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
-								<h:outputLabel value="Role: "></h:outputLabel>
-								<select name="sel">
-									<option value="Select">- Select -</option>
-									<option value="Student">Student</option>
-									<option value="Pharmacist">Pharmacist</option>
-									<option value="Researcher">Researcher</option>
-								</select> <br>
-								<h:commandButton action="Add new user" value="Add New User" id="button"></h:commandButton>
-								<h:commandButton action="DoNothing" value="Cancel"></h:commandButton>
+								<h:inputText id = "username" value="#{userService.newUser.username}"></h:inputText><br>
+								<h:outputLabel value="Password: "></h:outputLabel>
+								<h:inputSecret id = "password" value="#{userService.newUser.password}"></h:inputSecret><br>
+								<h:outputLabel value="Role: "></h:outputLabel>		
+								<h:selectOneMenu id="chooseCarColor" value="#{userService.newUser.roles}">
+								  <f:selectItem itemValue="Medical Student" itemLabel="Medical Student"/>
+								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
+								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
+								</h:selectOneMenu> <br>											
+								<h:commandButton value="Add a new user" action="#{userService.createUser}"></h:commandButton>
+								<h:commandButton value="Cancel" ></h:commandButton>
 							</center>
 						</h:panelGrid>
 
