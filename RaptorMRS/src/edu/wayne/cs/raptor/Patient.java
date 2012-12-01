@@ -180,11 +180,11 @@ public class Patient {
 			this.modifyingUser = modifyingUser;
 		}
 		
-		public Date getModifiedDate() {
+		public Date getLastModifiedDate() {
 			return lastModifiedDate;
 		}
 		
-		public void setModifiedDate(Date lastModifiedDate) {
+		public void setLastModifiedDate(Date lastModifiedDate) {
 			this.lastModifiedDate = lastModifiedDate;
 		}
 		
