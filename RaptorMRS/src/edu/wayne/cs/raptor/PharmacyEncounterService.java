@@ -4,19 +4,17 @@ import org.hibernate.Session;
 
 public class PharmacyEncounterService {
 
-	protected int encounterID = 123;
+	protected int encounterID;
 	protected String medDispensed1;
 	protected String medDispensed2;
 	protected String medDispensed3;
 	protected String medDispensed4;
 	protected String medDispensed5;
-	protected boolean equalPrescribed1;
-	protected boolean equalPrescribed2;
-	protected boolean equalPrescribed3;
-	protected boolean equalPrescribed4;
-	protected boolean equalPrescribed5;
-	
-	protected String sameAsPrescribed4;
+	protected boolean equalPrescribed1 = true;
+	protected boolean equalPrescribed2 = true;
+	protected boolean equalPrescribed3 = true;
+	protected boolean equalPrescribed4 = true;
+	protected boolean equalPrescribed5 = true;
 	
 	private Session pharmSession;
 	
@@ -131,6 +129,23 @@ public class PharmacyEncounterService {
 	}
 	
 	public String dataToDatabase() {
+		passToPharmEncounter();
+		
+		pharmSession = HibernateUtil.getSessionFactory().openSession();
+		pharmSession.beginTransaction();
+		pharmSession.saveOrUpdate(pharmEncounter);
+		pharmSession.getTransaction().commit();
+		pharmSession.close();
+		/* must have encounterID
+		 * add encounterID to database
+		 * add existing medDispensed variables and corresponding equalPrescribed variables*/
+		
+		resetFields();
+		
+		return "Valid";
+	}
+	
+	public void passToPharmEncounter(){
 		pharmEncounter.setEncounterID(encounterID);
 		pharmEncounter.setMedDispensed1(medDispensed1);
 		pharmEncounter.setMedDispensed2(medDispensed2);
@@ -142,26 +157,32 @@ public class PharmacyEncounterService {
 		pharmEncounter.setEqualPrescribed3(equalPrescribed3);
 		pharmEncounter.setEqualPrescribed4(equalPrescribed4);
 		pharmEncounter.setEqualPrescribed5(equalPrescribed5);
+	}
+	
+	public void resetFields(){
+		setEncounterID(0);
+		setMedDispensed1(null);
+		setMedDispensed2(null);
+		setMedDispensed3(null);
+		setMedDispensed4(null);
+		setMedDispensed5(null);
+		setEqualPrescribed1(true);
+		setEqualPrescribed2(true);
+		setEqualPrescribed3(true);
+		setEqualPrescribed4(true);
+		setEqualPrescribed5(true);
 		
-		pharmSession = HibernateUtil.getSessionFactory().openSession();
-		pharmSession.beginTransaction();
-		pharmSession.saveOrUpdate(pharmEncounter);
-		pharmSession.getTransaction().commit();
-		pharmSession.close();
-		/* must have encounterID
-		 * add encounterID to database
-		 * add existing medDispensed variables and corresponding equalPrescribed variables*/
-		
-		return "Valid";
+		pharmEncounter.setEncounterID(encounterID);
+		pharmEncounter.setMedDispensed1(medDispensed1);
+		pharmEncounter.setMedDispensed2(medDispensed2);
+		pharmEncounter.setMedDispensed3(medDispensed3);
+		pharmEncounter.setMedDispensed4(medDispensed4);
+		pharmEncounter.setMedDispensed5(medDispensed5);
+		pharmEncounter.setEqualPrescribed1(equalPrescribed1);
+		pharmEncounter.setEqualPrescribed2(equalPrescribed2);
+		pharmEncounter.setEqualPrescribed3(equalPrescribed3);
+		pharmEncounter.setEqualPrescribed4(equalPrescribed4);
+		pharmEncounter.setEqualPrescribed5(equalPrescribed5);
 	}
-
-	public String getSameAsPrescribed4() {
-		return sameAsPrescribed4;
-	}
-
-	public void setSameAsPrescribed4(String sameAsPrescribed4) {
-		this.sameAsPrescribed4 = sameAsPrescribed4;
-	}
-
 
 }

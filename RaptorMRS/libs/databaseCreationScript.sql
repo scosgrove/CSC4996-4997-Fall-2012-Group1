@@ -4,6 +4,24 @@ create database raptor;
 
 use raptor;
 
+ CREATE TABLE `PHARMACY`(
+       `encounterID` int(10) unsigned zerofill NOT NULL,
+       `medDispensed1` varchar(55),
+       `equalPrescribed1` bit,
+       `medDispensed2` varchar(55),
+       `equalPrescribed2` bit,
+       `medDispensed3` varchar(55),
+       `equalPrescribed3` bit,
+       `medDispensed4` varchar(55),
+       `equalPrescribed4` bit,
+       `medDispensed5` varchar(55),
+       `equalPrescribed5` bit,
+       `creatingUser` varchar(55),
+       `createdDate` datetime,
+       PRIMARY KEY(`encounterID`),
+       UNIQUE KEY `encounterID_UNIQUE` (`encounterID`)
+     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
  CREATE TABLE `ENCOUNTERS` (
        `encounterID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
        `patientID` int(10) unsigned zerofill NOT NULL,
@@ -14,7 +32,6 @@ use raptor;
        `keywords` varchar(55),
        `medicalProcedures` varchar(55),
        `medicationsPrescribed` varchar(55),
-       `medicationsDispensed` varchar(55),
        `overallImpression` varchar(55),
        `creatingUser` varchar(55),
        `createdDate` datetime,
