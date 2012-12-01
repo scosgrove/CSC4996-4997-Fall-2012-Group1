@@ -22,6 +22,9 @@ public class PharmacyEncounter {
 	protected boolean equalPrescribed3;
 	protected boolean equalPrescribed4;
 	protected boolean equalPrescribed5;
+	
+	protected String creatingUser;
+	
 	private Date createdDate;
 	
 	public PharmacyEncounter() {
@@ -122,6 +125,14 @@ public class PharmacyEncounter {
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
+	}
+
+	public String getCreatingUser() {
+		return creatingUser;
+	}
+
+	public void setCreatingUser(String creatingUser) {
+		this.creatingUser = creatingUser;
 	}
 
 }

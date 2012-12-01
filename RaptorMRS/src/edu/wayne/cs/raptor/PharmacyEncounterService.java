@@ -1,5 +1,7 @@
 package edu.wayne.cs.raptor;
 
+import java.util.Calendar;
+
 import org.hibernate.Session;
 
 public class PharmacyEncounterService {
@@ -15,6 +17,9 @@ public class PharmacyEncounterService {
 	protected boolean equalPrescribed3 = true;
 	protected boolean equalPrescribed4 = true;
 	protected boolean equalPrescribed5 = true;
+	
+	private LoginBean login;
+	private Calendar calendar = Calendar.getInstance();
 	
 	private Session pharmSession;
 	
@@ -127,8 +132,16 @@ public class PharmacyEncounterService {
 	public void setEqualPrescribed5(boolean equalPrescribed5) {
 		this.equalPrescribed5 = equalPrescribed5;
 	}
+
+	public LoginBean getLogin() {
+		return login;
+	}
+
+	public void setLogin(LoginBean login) {
+		this.login = login;
+	}
 	
-	public String dataToDatabase() {
+	public String dataToDatabase() {	
 		passToPharmEncounter();
 		
 		pharmSession = HibernateUtil.getSessionFactory().openSession();
@@ -157,6 +170,9 @@ public class PharmacyEncounterService {
 		pharmEncounter.setEqualPrescribed3(equalPrescribed3);
 		pharmEncounter.setEqualPrescribed4(equalPrescribed4);
 		pharmEncounter.setEqualPrescribed5(equalPrescribed5);
+		
+		pharmEncounter.setCreatingUser(this.login.getSystemUser().getUsername());
+		pharmEncounter.setCreatedDate(calendar.getTime());
 	}
 	
 	public void resetFields(){
@@ -183,6 +199,9 @@ public class PharmacyEncounterService {
 		pharmEncounter.setEqualPrescribed3(equalPrescribed3);
 		pharmEncounter.setEqualPrescribed4(equalPrescribed4);
 		pharmEncounter.setEqualPrescribed5(equalPrescribed5);
+		
+		pharmEncounter.setCreatingUser(null);
+		pharmEncounter.setCreatedDate(null);
 	}
 
 }

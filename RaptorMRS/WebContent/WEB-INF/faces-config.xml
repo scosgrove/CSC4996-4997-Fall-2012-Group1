@@ -58,6 +58,11 @@
 		<managed-bean-name>pharmacyEncounterService</managed-bean-name>
 		<managed-bean-class>edu.wayne.cs.raptor.PharmacyEncounterService</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>login</property-name>
+			<property-class>edu.wayne.cs.raptor.LoginBean</property-class>
+			<value>#{loginBean}</value>
+		</managed-property>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>userService</managed-bean-name>
