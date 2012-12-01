@@ -91,6 +91,7 @@ public String authenticate() {
 			if( this.systemUser.getPassword().equals(this.getTempPassword()) )
 			{
 				setAuthenticated(true);
+				setSystemUser(dbUsername.get(0));
 				return handleRoleToPage(dbUsername.get(0));
 			}
 			//  If password incorrect
@@ -122,17 +123,15 @@ public String authenticate() {
 	 *  TODO: Not tested yet with JSP pages  */
 	
 	public String logout(){
-		this.systemUser = null;
-		this.loginResult = null;
-		this.authenticated =false;
-		this.tempUserName = null;
-		this.tempPassword = null;
-		return "loggedOut";
+		setSystemUser(new User());
+		setLoginResult("");
+		setAuthenticated(false);
+		setTempUserName("");
+		setTempPassword("");
+		return "index";
 	}
 	
 	public String clear(){
-		this.systemUser.setUsername("");
-		this.systemUser.setPassword("");
 		return "clearedLoginFields";
 	}
 	
