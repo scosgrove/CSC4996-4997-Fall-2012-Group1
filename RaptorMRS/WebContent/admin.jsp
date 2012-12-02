@@ -28,23 +28,43 @@
 						<center>
 							<h:panelGrid columns="3">
 								<h:outputLabel value="Username: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
+								<h:inputText value="#{userData.username }"> </h:inputText><br>
 								<h:outputLabel value="First Name: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
+								<h:inputText value="#{userData.firstName}"></h:inputText><br>
 								<h:outputLabel value="Last Name: "></h:outputLabel>
-								<h:inputText></h:inputText><br>
-								<h:commandButton action="Find User" value="Search" id="button"></h:commandButton>
+								<h:inputText value="#{userData.lastName}"></h:inputText><br>
+								<h:commandButton value="Search" action="#{userService.searchUser}" ></h:commandButton>
 							</h:panelGrid>
 						</center>	
 					</h:form>
+					<h2>Update Found User</h2>
+					<h:form>
+						<center>
+								<h:outputLabel value="First Name: "></h:outputLabel>
+								<h:inputText id = "firstName" value="#{userService.newUser.firstName}"></h:inputText><br>
+								<h:outputLabel value="Last Name: "></h:outputLabel>
+								<h:inputText id = "lastName" value="#{userService.newUser.lastName}"></h:inputText><br>
+								<h:outputLabel value="Username: "></h:outputLabel>
+								<h:inputText id = "username" value="#{userService.newUser.username}"></h:inputText><br>
+								<h:outputLabel value="Role: "></h:outputLabel>		
+								<h:selectOneMenu id="updateRoles" value="#{userService.newUser.roles}">
+								  <f:selectItem itemValue="Medical Student" itemLabel="Medical Student"/>
+								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
+								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
+								</h:selectOneMenu> <br>											
+								<h:commandButton value="Update user" action="#{userService.updateUser}"></h:commandButton>
+								<h:commandButton value="Cancel" ></h:commandButton>
+							</center>
+					</h:form>
+					
+					
 				</fieldset>
 
 				<fieldset class="admin">
 					<h2>Add User</h2>
 					<h:form>
-						<h:panelGrid columns="3">
-							<center>
-							
+					<center>
+						<h:panelGrid columns="3">					
 								
 								<h:outputLabel value="First Name: "></h:outputLabel>
 								<h:inputText id = "firstName" value="#{userService.newUser.firstName}"></h:inputText><br>
@@ -55,16 +75,15 @@
 								<h:outputLabel value="Password: "></h:outputLabel>
 								<h:inputSecret id = "password" value="#{userService.newUser.password}"></h:inputSecret><br>
 								<h:outputLabel value="Role: "></h:outputLabel>		
-								<h:selectOneMenu id="chooseCarColor" value="#{userService.newUser.roles}">
+								<h:selectOneMenu id="addrole" value="#{userService.newUser.roles}">
 								  <f:selectItem itemValue="Medical Student" itemLabel="Medical Student"/>
 								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
 								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
 								</h:selectOneMenu> <br>											
 								<h:commandButton value="Add a new user" action="#{userService.createUser}"></h:commandButton>
 								<h:commandButton value="Cancel" ></h:commandButton>
-							</center>
 						</h:panelGrid>
-
+					</center>
 					</h:form>
 				</fieldset>
 			</div>

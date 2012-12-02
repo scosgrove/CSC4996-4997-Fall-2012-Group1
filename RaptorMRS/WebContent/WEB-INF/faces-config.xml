@@ -68,6 +68,11 @@
 			<property-class>edu.wayne.cs.raptor.LoginBean</property-class>
 			<value>#{loginBean}</value>
 		</managed-property>
+		<managed-property>
+			<property-name>newUser</property-name>
+			<property-class>edu.wayne.cs.raptor.User</property-class>
+			<value>#{userData}</value>
+		</managed-property>
 		
 
 	</managed-bean>

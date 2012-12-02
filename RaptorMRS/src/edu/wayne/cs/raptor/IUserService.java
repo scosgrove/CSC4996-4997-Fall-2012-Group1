@@ -17,15 +17,24 @@ public interface IUserService {
 
 	public String createUser();
 	
-	public void updateUser();
+	public String updateUser();
 	
 	public void saveUser(User newUser);
 
 	public User getUser(int userID);
 
 	public User getUserByUsername(String username);
+	
+	public User getUserByFirstName(String _firstName);
+	
+	public User getUserByLastName(String _lastName);
 
 	public List<User> getAllUsers();
+
+	public void searchUser();
+
+
+
 
 	
 
