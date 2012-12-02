@@ -185,6 +185,25 @@ public class Vitals {
 		this.weight = measuredWeight;
 	}
 	
+	public String getCreatingUser() {
+		return creatingUser;
+	}
+
+	public void setCreatingUser(String creatingUser) {
+		this.creatingUser = creatingUser;
+	}
+
+	/** Returns the patient's calculatedBMI */
+	public int getCalculatedBMI() {
+		calculateBMI();
+		return calculatedBMI;
+	}
+	
+	/** Sets the patient's measured weight */
+	public void setCalculatedBMI(int bmi) {
+		this.calculatedBMI = bmi;
+	}
+	
 	/** Calculates patient's BMI if all necessary fields are not null */
 	public void calculateBMI()
 	{  
@@ -197,60 +216,29 @@ public class Vitals {
 //			bmi = (float)( measuredWeight / Math.pow(measuredHeight, 2));
 //		}
 	}
-	
-	/** Returns the patient's calculatedBMI */
-	public int getCalculatedBMI() {
-		calculateBMI();
-		return calculatedBMI;
+
+	public Date getCreatedDate() {
+		return createdDate;
 	}
-	
-	/** Sets the patient's measured weight */
-	public void setCalculatedBMI(int bmi) {
-		this.calculatedBMI = bmi;
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
-	
-	/** User that created this Vitals document */
-	private void setCreatingUser(String creator)
-	{
-		this.creatingUser = creator;
+
+	public String getModifyingUser() {
+		return modifyingUser;
 	}
-	
-	private String getCreatingUser()
-	{
-		return this.creatingUser;
+
+	public void setModifyingUser(String modifyingUser) {
+		this.modifyingUser = modifyingUser;
 	}
-	
-	/** Date this vitals document was created */
-	private void setCreatedDate(Date created)
-	{
-		this.createdDate = created;
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
 	}
-	
-	private Date getCreatedDate()
-	{
-		return this.createdDate;
-	}
-	
-	/** The user that last modified this vitals doc */
-	private void setModifyingUser(String modifier)
-	{
-		this.modifyingUser = modifier;
-	}
-	
-	private String getModifyingUser()
-	{
-		return this.modifyingUser;
-	}
-	
-	/** The date of the last modification to this vitals document */
-	private void setLastModifiedDate(Date modified)
-	{
-		this.lastModifiedDate = modified;
-	}
-	
-	private Date getLastModifiedDate()
-	{
-		return this.lastModifiedDate;
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
 	}
 	
 }
