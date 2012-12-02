@@ -185,13 +185,7 @@ public class Vitals {
 		this.weight = measuredWeight;
 	}
 	
-	public String getCreatingUser() {
-		return creatingUser;
-	}
 
-	public void setCreatingUser(String creatingUser) {
-		this.creatingUser = creatingUser;
-	}
 
 	/** Returns the patient's calculatedBMI */
 	public int getCalculatedBMI() {
@@ -204,19 +198,14 @@ public class Vitals {
 		this.calculatedBMI = bmi;
 	}
 	
-	/** Calculates patient's BMI if all necessary fields are not null */
-	public void calculateBMI()
-	{  
-		if(height != 0 && weight != 0)
-			calculatedBMI = (int) ((int)( weight / (int)(Math.pow(height, 2)) ) * 703.06957964f);
-
-		//excluded for reasons of time.  
-//		if(unitSystem == "metric")
-//		{
-//			bmi = (float)( measuredWeight / Math.pow(measuredHeight, 2));
-//		}
+	public String getCreatingUser() {
+		return creatingUser;
 	}
 
+	public void setCreatingUser(String creatingUser) {
+		this.creatingUser = creatingUser;
+	}
+	
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -240,5 +229,19 @@ public class Vitals {
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
+	/** Calculates patient's BMI if all necessary fields are not null */
+	public void calculateBMI()
+	{  
+		if(height != 0 && weight != 0)
+			calculatedBMI = (int) ((int)( weight / (int)(Math.pow(height, 2)) ) * 703.06957964f);
+
+		//excluded for reasons of time.  
+//		if(unitSystem == "metric")
+//		{
+//			bmi = (float)( measuredWeight / Math.pow(measuredHeight, 2));
+//		}
+	}
+
+
 	
 }
