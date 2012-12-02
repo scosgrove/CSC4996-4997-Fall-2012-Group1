@@ -23,26 +23,8 @@ public class Encounter {
 	//figure out how to deal with images using jsp
 	//private Bitmap personPhoto
 	
-	/** The vitals taken in the encounter */
-	//private Vitals vitals;
-	//what to do about mapping a nested object with hibernate....?
-	//fix: move vitals to a separate class.  still connected by encoutner ID, cleaner implementation separated. 
-	
 	/** The stated chief complaint for an encounter */
 	private String chiefComplaint;
-	
-	/** Medication prescribed during the physician encounter */
-	//	private Set<Medication> medicationsPrescribed; - decided to make each field correspond to one medication
-	
-	private String medicationPrescribed1;
-
-	private String medicationPrescribed2;
-	
-	private String medicationPrescribed3;
-
-	private String medicationPrescribed4;
-	
-	private String medicationPrescribed5;
 	
 	private int onsetNumber;
 	
@@ -126,46 +108,6 @@ public class Encounter {
 	public void setChiefComplaint(String chiefComplaint) {
 		this.chiefComplaint = chiefComplaint;
 	}
-	
-	public String getMedicationPrescribed1() {
-		return medicationPrescribed1;
-	}
-
-	public void setMedicationPrescribed1(String medicationPrescribed1) {
-		this.medicationPrescribed1 = medicationPrescribed1;
-	}
-
-	public String getMedicationPrescribed2() {
-		return medicationPrescribed2;
-	}
-
-	public void setMedicationPrescribed2(String medicationPrescribed2) {
-		this.medicationPrescribed2 = medicationPrescribed2;
-	}
-
-	public String getMedicationPrescribed3() {
-		return medicationPrescribed3;
-	}
-
-	public void setMedicationPrescribed3(String medicationPrescribed3) {
-		this.medicationPrescribed3 = medicationPrescribed3;
-	}
-
-	public String getMedicationPrescribed4() {
-		return medicationPrescribed4;
-	}
-
-	public void setMedicationPrescribed4(String medicationPrescribed4) {
-		this.medicationPrescribed4 = medicationPrescribed4;
-	}
-
-	public String getMedicationPrescribed5() {
-		return medicationPrescribed5;
-	}
-
-	public void setMedicationPrescribed5(String medicationPrescribed5) {
-		this.medicationPrescribed5 = medicationPrescribed5;
-	}
 
 	public int getOnsetNumber() {
 		return onsetNumber;
@@ -239,17 +181,6 @@ public class Encounter {
 	public void setOverallImpression(String impression) {
 		this.overallImpression = impression;
 	}
-	
-	//github issue #10
-//	/** Returns the keywords of the encounter */
-//	public Set<String> getKeywords() {
-//		return keywords;
-//	}
-//
-//	/** Sets the keywords of the encounter */
-//	public void setKeywords(Set<String> kywds) {
-//		this.keywords = kywds;
-//	}
 
 	/** Returns the keywords of the encounter */
 	public String getKeywords() {
