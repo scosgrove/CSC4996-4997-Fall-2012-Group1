@@ -3,19 +3,36 @@ package edu.wayne.cs.raptor;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.swing.JFileChooser;
 
+import org.hibernate.Session;
+
+import com.mysql.jdbc.DatabaseMetaData;
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSetMetaData;
+import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
+
+
 public class ResearchReportsBean {
 	
+	PharmacyEncounter ec = new PharmacyEncounter();
 	
-		public static void generateBloodSampleReport()
-	   {
-		   
+	public static void generateBloodSampleReport(){
+		
+		
+	   
 		   String filename = null;
 		   JFileChooser jFileChooser = new JFileChooser();
-		   jFileChooser.setSelectedFile(new File(suggestFileName() + "-BloodSampleReport.csv"));
+		   jFileChooser.setSelectedFile(new File(suggestFileName() + "-BloodSample.csv"));
 		   int returnValue = jFileChooser.showSaveDialog(null);
 		   if ( returnValue == jFileChooser.APPROVE_OPTION )
 		   {
@@ -23,7 +40,7 @@ public class ResearchReportsBean {
 			   generateBloodSampleCsvFile(selectedFile);
 		   }
 	   }
-	 
+	   
 	   private static void generateBloodSampleCsvFile(File filehandle)
 	   {
 		   try
@@ -32,36 +49,41 @@ public class ResearchReportsBean {
 
 			   //Get Data from raptor
 			   
+			   Session userSession = HibernateUtil.getSessionFactory().openSession();
+				userSession.beginTransaction();
+			
+				
+				List<PharmacyEncounter> dbUsername = userSession.createQuery( "from PharmacyEncounter").list();
+				userSession.getTransaction().commit(); 
+				userSession.close();
+				
+				
+				writer.append("Blood Sample Report");
+				writer.append('\n');
+				writer.append("SAMPLE NO.");
+				writer.append(',');
+				writer.append("CONDITIONS");
+				writer.append(',');
+				writer.append("TREATMENT GIVEN");
+				writer.append(',');
+				writer.append("RX WRITTEN");
+				writer.append(',');
+				writer.append("RX GIVEN");
+				writer.append('\n');
+				
+				for (int i = 0; i < dbUsername.size(); i++)
+				{
+					
+					writer.append(dbUsername.get(i).getMedDispensed1());
+					writer.append('\n');
 			   
-			   writer.append("Blood Sample Report");
-			   writer.append('\n');
-			   writer.append("SAMPLE NO.");
-			   writer.append(',');
-			   writer.append("CONDITIONS");
-			   writer.append(',');
-			   writer.append("TREATMENT GIVEN");
-			   writer.append(',');
-			   writer.append("RX WRITTEN");
-			   writer.append(',');
-			   writer.append("RX GIVEN");
-			   writer.append('\n');
 			   
-			   writer.append("123");
-			   writer.append(',');
-			   writer.append("Sickle Cell Anemia");
-			   writer.append(',');
-			   writer.append("<none>");
-			   writer.append(',');
-			   writer.append("Iron Suppliment");
-			   writer.append(',');
-			   writer.append("Iron Suppliment");
-			   writer.append('\n');
-		 
 			   //generate whatever data you want
 		 
-			   writer.flush();
-			   writer.close();
 			}
+				writer.flush();
+				writer.close();
+		   }
 			catch(IOException e)
 			{
 				e.printStackTrace();
@@ -89,27 +111,82 @@ public class ResearchReportsBean {
 
 			   //Get Data from raptor
 			   
+			   Session userSession = HibernateUtil.getSessionFactory().openSession();
+				userSession.beginTransaction();
+			
+				
+				List<Encounter> dbencounter = userSession.createQuery( "from Encounter").list();
+				List<PharmacyEncounter> dbpharm = userSession.createQuery( "from PharmacyEncounter").list();
+				userSession.getTransaction().commit(); 
+				userSession.close();
 			   
+				
 			   writer.append("Conditon Report");
 			   writer.append('\n');
 			   
-			   writer.append("Test");
-			    writer.append(',');
-			    writer.append("Age");
-			    writer.append('\n');
-		 
-			    writer.append("Marek");
-			    writer.append(',');
-			    writer.append("Raptor");
-		            writer.append('\n');
-		 
-			    writer.append("YOUR NAME");
-			    writer.append(',');
-			    writer.append("29");
-			    writer.append('\n');
-		 
-			    //generate whatever data you want
-		 
+			   writer.append("Sample#");
+			   writer.append(',');
+			   writer.append("Condition1");
+			   writer.append(',');
+			   writer.append("Condition2");
+			   writer.append(',');
+			   writer.append("Condition3");
+			   writer.append(',');
+			   writer.append("Condition4");
+			   writer.append(',');
+			   writer.append("Condition5");
+			   writer.append(',');
+			   writer.append("Rx Prescribed1");
+			   writer.append(',');
+			   writer.append("Rx Prescribed2");
+			   writer.append(',');
+			   writer.append("Rx Prescribed3");
+			   writer.append(',');
+			   writer.append("Rx Prescribed4");
+			   writer.append(',');
+			   writer.append("Rx Prescribed5");
+			   writer.append(',');
+			 /*
+			   writer.append("Rx Given1");
+			   writer.append('\n');
+			   writer.append("Rx Given2");
+			   writer.append(',');
+			   writer.append("Rx Given3");
+			   writer.append(',');
+			   writer.append("Rx Given4");
+			   writer.append(',');
+			   writer.append("Rx Given5");
+			   */
+			   writer.append('\n');
+			   
+			   
+			   for (int i = 0; i < dbencounter.size(); i++)
+			   {
+				    writer.append(String.valueOf(dbencounter.get(i).getEncounterID()));
+				    writer.append(',');
+				    writer.append(dbencounter.get(i).getCondition1());
+				    writer.append(',');
+				    writer.append(dbencounter.get(i).getCondition2());
+				    writer.append(',');
+				    writer.append(dbencounter.get(i).getCondition3());
+				    writer.append(',');
+				    writer.append(dbencounter.get(i).getCondition4());
+				    writer.append(',');
+				    writer.append(dbencounter.get(i).getCondition5());
+				    writer.append(',');
+				    writer.append(dbpharm.get(i).getMedDispensed1());
+					writer.append(',');
+					writer.append(dbpharm.get(i).getMedDispensed2());
+					writer.append(',');
+					writer.append(dbpharm.get(i).getMedDispensed3());
+					writer.append(',');
+					writer.append(dbpharm.get(i).getMedDispensed4());
+					writer.append(',');
+					writer.append(dbpharm.get(i).getMedDispensed5());
+					writer.append('\n');
+			   }
+			   
+			
 			    writer.flush();
 			    writer.close();
 			}
@@ -139,26 +216,64 @@ public class ResearchReportsBean {
 			   FileWriter writer = new FileWriter(filehandle);
 
 			   //Get Data from raptor
-			   
+			   	Session userSession = HibernateUtil.getSessionFactory().openSession();
+				userSession.beginTransaction();
+			
+				
+				List<PharmacyEncounter> dbpharm = userSession.createQuery( "from PharmacyEncounter").list();
+				List<Patient> dbpatient = userSession.createQuery( "from Patient").list();
+				userSession.getTransaction().commit(); 
+				userSession.close();
 			   
 			   writer.append("Rx Report");
 			   writer.append('\n');
 			   
-			   writer.append("Test");
+			  
+			   
+			   writer.append("Med Dispensed1");
 			   writer.append(',');
-			   writer.append("Age");
-			   writer.append('\n');
-		 
-			   writer.append("Marek");
+			   writer.append("Equal Dispensed1");
 			   writer.append(',');
-			   writer.append("Raptor");
-		           writer.append('\n');
-		 
-			   writer.append("YOUR NAME");
+			   writer.append("Med Dispensed2");
 			   writer.append(',');
-			   writer.append("29");
-			   writer.append('\n');
+			   writer.append("Equal Dispensed2");
+			   writer.append(',');
+			   writer.append("Med Dispensed3");
+			   writer.append(',');
+			   writer.append("Equal Dispensed3");
+			   writer.append(',');
+			   writer.append("Med Dispensed4");
+			   writer.append(',');
+			   writer.append("Equal Dispensed4");
+			   writer.append(',');
+			   writer.append("Med Dispensed5");
+			   writer.append(',');
+			   writer.append("Equal Dispensed5");
+		       writer.append('\n');
 		 
+		       
+					for (int i = 0; i < dbpharm.size(); i++){
+						writer.append(dbpharm.get(i).getMedDispensed1());
+						writer.append(',');
+						writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed1()));
+						writer.append(',');
+						writer.append(dbpharm.get(i).getMedDispensed2());
+						writer.append(',');
+						writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed2()));
+						writer.append(',');
+						writer.append(dbpharm.get(i).getMedDispensed3());
+						writer.append(',');
+						writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed3()));
+						writer.append(',');
+						writer.append(dbpharm.get(i).getMedDispensed4());
+						writer.append(',');
+						writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed4()));
+						writer.append(',');
+						writer.append(dbpharm.get(i).getMedDispensed5());
+						writer.append(',');
+						writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed5()));
+						writer.append('\n');
+					}
 			   //generate whatever data you want
 		 
 			   writer.flush();
