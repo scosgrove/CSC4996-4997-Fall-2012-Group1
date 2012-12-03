@@ -31,8 +31,7 @@ use raptor;
        `encounterID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
        `patientID` int(10) unsigned zerofill NOT NULL,
        `chiefComplaint` varchar(55),
-       `onsetNumber` int(10),
-       `onsetUnit` int(10),
+     
        `condition1` varchar(55),
        `condition2` varchar(55),
        `condition3` varchar(55),
@@ -41,6 +40,14 @@ use raptor;
        `overallImpression` varchar(55),
        `keywords` varchar(55),
        `medicalProcedures` varchar(55),
+       `onsetNumber` int(10),
+       `onsetUnit` varchar(55),
+       `severity` int(10),
+       `radiation` varchar(55),
+       `quality` varchar(55),
+       `provokes` varchar(55),
+       `timeofday` varchar(55),
+       `other` varchar(55),
        `creatingUser` varchar(55),
        `createdDate` datetime,
        `modifyingUser` varchar(55),
@@ -81,7 +88,7 @@ CREATE TABLE `USERS` (
 	  `lastModifiedDate` datetime DEFAULT NULL,
 	  PRIMARY KEY (`userID`),
 	  UNIQUE KEY `userID_UNIQUE` (`userID`),
-	  UNIQUE KEY `username_UNIQUE` (`userName`),
+	  UNIQUE KEY `username_UNIQUE` (`userName`)
 	) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8;
 
  

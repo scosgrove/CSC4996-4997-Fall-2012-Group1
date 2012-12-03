@@ -74,13 +74,13 @@ public class UserService implements IUserService {
 	}
 	
 	@Override
-	public void searchUser()
+	public String searchUser()
 	{
 		
 		getUserByUsername(newUser.getUsername());
 	//	getUserByFirstName(newUser.getFirstName()); --Need to be able to search for first name and last name
 	//	getUserByLastName(newUser.getLastName());
-		
+		return "search";
 	}
 	
 	@Override

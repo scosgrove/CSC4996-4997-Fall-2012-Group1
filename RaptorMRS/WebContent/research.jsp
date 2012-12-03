@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Research Reports</title>
+<title>Easy EMR - Create Reports</title>
 </head>
 <body>
 <!-- Created by Lev, uploaded by Marek -->
@@ -18,23 +18,23 @@
 		<div id= "content">
 		
 			<div id = "form">
-				<h1> Select a report to run. </h1>
-				<p> You will be asked to save the file locally on your computer! </p>
+				<h1>Create Reports</h1>
 	
 			<h:form>
 	
-				<h:commandButton action="#{researchReportsBean.generateBloodSampleReport}" value="Generate Blood Sample Report" style="width:300px;height:60px"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Generate Condition/Procedure Report" style="width:300px;height:60px"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate Rx Report" style="width:300px;height:60px"></h:commandButton>
-				<p> Width and Height of BUTTONS above is adjustable! </br> Please let us know what to change! </p>
+				<h:commandButton action="#{researchReportsBean.generateBloodSampleReport}" value="Create Blood Sample Report" style="width:300px;height:60px"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Create Condition/Procedure Report" style="width:300px;height:60px"></h:commandButton>
+				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Create RX Report" style="width:300px;height:60px"></h:commandButton>
 			</h:form>
 	
 			</div>
-			
-			<div id = "footer">
-				<p><a href="index.jsp">Log out</p>
-			</div>
-			
+
+		<center>
+		<h:form>
+			<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+		</h:form>
+		</center>
+
 		</div>
 </f:view>
 </body>

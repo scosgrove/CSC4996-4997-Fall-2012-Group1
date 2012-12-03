@@ -25,13 +25,14 @@
 				<h:inputText id="visitID" value="#{pharmacyEncounterService.encounterID }" />
 			<center>
 			
-			<table border="1">
+			<table>
 	
 			<tr>
 				<td><h3>Prescription Given</h3></td>
 				<td><h3>Same as Prescribed?</h3></td>
 			</tr>
 			
+			<tr>
 			<td><h:inputText style="width:180px" id="prescriptionGiven1" value="#{pharmacyEncounterService.medDispensed1 }" /></td>
 			<td><h:selectOneMenu style="width:100px" id="equal1" value="#{pharmacyEncounterService.equalPrescribed1 }" title="select any one in this menu">
 				<f:selectItem id="Yes1" itemLabel="Yes" itemValue="true" />
@@ -81,10 +82,12 @@
 	</h:form>
 		</div>		
 	</div>
+
 	<center>
-	 <p><a href="index.jsp">Log out</a></p>
+	<h:form>
+		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+	</h:form>
 	</center>
-	
 	
 	
 </f:view>

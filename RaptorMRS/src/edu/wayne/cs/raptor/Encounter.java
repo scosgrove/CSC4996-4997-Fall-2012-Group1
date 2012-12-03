@@ -26,9 +26,24 @@ public class Encounter {
 	/** The stated chief complaint for an encounter */
 	private String chiefComplaint;
 	
+	/** Attributes related to the HPI Section, created by Tom Hickman **/
 	private int onsetNumber;
+	private String onsetUnit;
+	private int severity;
+	private String radiation;
+	private String quality;
+	private String provokes;
+	private String timeOfDay;
+	private String other;	
+	/** End HPI **/
 	
-	private int onsetUnit;
+	/** Medications Prescribed **/
+	private String medicationPrescribed1;
+	private String medicationPrescribed2;
+	private String medicationPrescribed3;
+	private String medicationPrescribed4;
+	private String medicationPrescribed5;
+	
 	
 	/** A chronic/other illnesses discovered in the encounter 
 	 * TODO:  The names of previously discovered chronic illnesses should be automatically displayed,
@@ -36,13 +51,9 @@ public class Encounter {
 	 *  (but not removed from previously recorded encounters)
 	 */
 	private String condition1;
-	
 	private String condition2;
-	
 	private String condition3;
-	
 	private String condition4;
-	 
 	private String condition5;
 	
 	/** Overall Impression of the encounter & additional comments */
@@ -114,11 +125,11 @@ public class Encounter {
 		this.onsetNumber = onsetNumber;
 	}
 
-	public int getOnsetUnit() {
+	public String getOnsetUnit() {
 		return onsetUnit;
 	}
 
-	public void setOnsetUnit(int onsetUnit) {
+	public void setOnsetUnit(String onsetUnit) {
 		this.onsetUnit = onsetUnit;
 	}
 
@@ -220,5 +231,95 @@ public class Encounter {
 
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	
+	/** Methods below are relevant to fields in the HPI section, created by Tom Hickman **/
+	public int getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(int severity) {
+		this.severity = severity;
+	}
+
+	public String getRadiation() {
+		return radiation;
+	}
+
+	public void setRadiation(String radiation) {
+		this.radiation = radiation;
+	}
+
+	public String getQuality() {
+		return quality;
+	}
+
+	public void setQuality(String quality) {
+		this.quality = quality;
+	}
+
+	public String getProvokes() {
+		return provokes;
+	}
+
+	public void setProvokes(String provokes) {
+		this.provokes = provokes;
+	}
+
+	public String getTimeOfDay() {
+		return timeOfDay;
+	}
+
+	public void setTimeOfDay(String timeOfDay) {
+		this.timeOfDay = timeOfDay;
+	}
+
+	public String getOther() {
+		return other;
+	}
+
+	public void setOther(String other) {
+		this.other = other;
+	}
+
+	public String getMedicationPrescribed1() {
+		return medicationPrescribed1;
+	}
+
+	public void setMedicationPrescribed1(String medicationPrescribed1) {
+		this.medicationPrescribed1 = medicationPrescribed1;
+	}
+
+	public String getMedicationPrescribed2() {
+		return medicationPrescribed2;
+	}
+
+	public void setMedicationPrescribed2(String medicationPrescribed2) {
+		this.medicationPrescribed2 = medicationPrescribed2;
+	}
+
+	public String getMedicationPrescribed3() {
+		return medicationPrescribed3;
+	}
+
+	public void setMedicationPrescribed3(String medicationPrescribed3) {
+		this.medicationPrescribed3 = medicationPrescribed3;
+	}
+
+	public String getMedicationPrescribed4() {
+		return medicationPrescribed4;
+	}
+
+	public void setMedicationPrescribed4(String medicationPrescribed4) {
+		this.medicationPrescribed4 = medicationPrescribed4;
+	}
+
+	public String getMedicationPrescribed5() {
+		return medicationPrescribed5;
+	}
+
+	public void setMedicationPrescribed5(String medicationPrescribed5) {
+		this.medicationPrescribed5 = medicationPrescribed5;
 	}
 }

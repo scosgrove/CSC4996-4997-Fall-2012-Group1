@@ -31,7 +31,7 @@ public interface IUserService {
 
 	public List<User> getAllUsers();
 
-	public void searchUser();
+	public String searchUser();
 
 
 

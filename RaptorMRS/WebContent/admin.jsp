@@ -26,35 +26,62 @@
 					<h2>Find User</h2>
 					<h:form>
 						<center>
-							<h:panelGrid columns="3">
-								<h:outputLabel value="Username: "></h:outputLabel>
-								<h:inputText value="#{userData.username }"> </h:inputText><br>
-								<h:outputLabel value="First Name: "></h:outputLabel>
-								<h:inputText value="#{userData.firstName}"></h:inputText><br>
-								<h:outputLabel value="Last Name: "></h:outputLabel>
-								<h:inputText value="#{userData.lastName}"></h:inputText><br>
-								<h:commandButton value="Search" action="#{userService.searchUser}" ></h:commandButton>
-							</h:panelGrid>
+							<table>
+							<tr>
+								<td><h:outputLabel value="Username: "></h:outputLabel></td>
+								<td><h:inputText value="#{userData.username }"> </h:inputText></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel value="First Name: "></h:outputLabel></td>
+								<td><h:inputText value="#{userData.firstName}"></h:inputText></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel value="Last Name: "></h:outputLabel></td>
+								<td><h:inputText value="#{userData.lastName}"></h:inputText></td>
+							</tr>
+							<tr>	 
+							<td></td>		
+							<td><h:commandButton value="Search" action="#{userService.searchUser}" ></h:commandButton></td>
+							</tr>
+							</table>	
+									
 						</center>	
 					</h:form>
 					<h2>Update Found User</h2>
 					<h:form>
 						<center>
-								<h:outputLabel value="First Name: "></h:outputLabel>
-								<h:inputText id = "firstName" value="#{userService.newUser.firstName}"></h:inputText><br>
-								<h:outputLabel value="Last Name: "></h:outputLabel>
-								<h:inputText id = "lastName" value="#{userService.newUser.lastName}"></h:inputText><br>
-								<h:outputLabel value="Username: "></h:outputLabel>
-								<h:inputText id = "username" value="#{userService.newUser.username}"></h:inputText><br>
-								<h:outputLabel value="Role: "></h:outputLabel>		
-								<h:selectOneMenu id="updateRoles" value="#{userService.newUser.roles}">
+						
+						<table>
+							<tr>
+								<td><h:outputLabel value="First Name: "></h:outputLabel></td>
+								<td><h:inputText id = "firstName" value="#{userService.newUser.firstName}"></h:inputText></td>
+							</tr>
+								
+							<tr>
+								<td><h:outputLabel value="Last Name: "></h:outputLabel></td>
+								<td><h:inputText id = "lastName" value="#{userService.newUser.lastName}"></h:inputText></td>
+							</tr>
+								
+							<tr>
+								<td><h:outputLabel value="Username: "></h:outputLabel></td>
+								<td><h:inputText id = "username" value="#{userService.newUser.username}"></h:inputText></td>
+							</tr>
+								
+							<tr>
+								<td><h:outputLabel value="Role: "></h:outputLabel></td>
+								<td><h:selectOneMenu id="updateRoles" value="#{userService.newUser.roles}">
 								  <f:selectItem itemValue="Medical Student" itemLabel="Medical Student"/>
 								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
 								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
-								</h:selectOneMenu> <br>											
-								<h:commandButton value="Update user" action="#{userService.updateUser}"></h:commandButton>
-								<h:commandButton value="Cancel" ></h:commandButton>
-							</center>
+								</h:selectOneMenu></td>
+							</tr>
+									
+							<tr>									
+								<td><h:commandButton value="Update user" action="#{userService.updateUser}"></h:commandButton></td>
+								<td><h:commandButton value="Cancel" ></h:commandButton></td>
+							</tr>
+						</table>
+						</center>
 					</h:form>
 					
 					

@@ -120,12 +120,60 @@
 			<div id = "module" style="float:right">
 				<h1>Notes</h1>
 				<h3>HPI</h3>
-				<h4>Onset</h4>&nbsp;<h:inputText style = "width:50px" value="#{encounter.onsetNumber }"></h:inputText>
+				
+				<table>
+				<tr>
+				<td><h4>Onset</h4></td>
+				<td><h:inputText style = "width:50px" value="#{encounter.onsetNumber }"></h:inputText>
 				<h:selectOneMenu>
 					<f:selectItem itemValue="days" itemLabel="days"/>
 					<f:selectItem itemValue="weeks" itemLabel="weeks"/>
 					<f:selectItem itemValue="months" itemLabel="months"/>
-				</h:selectOneMenu> ago<BR>
+					</h:selectOneMenu> ago</td>
+				</tr>
+				
+				<tr>
+				<td><h4>Severity</h4></td>
+				<td><h:selectOneMenu>
+					<f:selectItem itemValue="0" itemLabel=" - "/>
+					<f:selectItem itemValue="1" itemLabel="1"/>
+					<f:selectItem itemValue="2" itemLabel="2"/>
+					<f:selectItem itemValue="3" itemLabel="3"/>
+					<f:selectItem itemValue="4" itemLabel="4"/>
+					<f:selectItem itemValue="5" itemLabel="5"/>
+					<f:selectItem itemValue="6" itemLabel="6"/>
+					<f:selectItem itemValue="7" itemLabel="7"/>
+					<f:selectItem itemValue="8" itemLabel="8"/>
+					<f:selectItem itemValue="9" itemLabel="9"/>
+					<f:selectItem itemValue="10" itemLabel="10"/>
+				</h:selectOneMenu></td>
+				</tr>
+				
+				<tr>
+				<td><h4>Radiation</h4></td>
+				<td><h:inputText value="#{encounter.radiation }"/></td>
+				</tr>
+				
+				<tr>
+				<td><h4>Quality</h4></td>
+				<td><h:inputText value="#{encounter.quality }"/></td>
+				</tr>
+				
+				<tr>
+				<td><h4>Provokes/Palliates</h4></td>
+				<td><h:inputText value="#{encounter.provokes }"/></td>
+				</tr>
+				
+				<tr>
+				<td><h4>Time of Day</h4></td>
+				<td><h:inputText value="#{encounter.timeOfDay }"/></td>
+				</tr>
+				
+				<tr>
+				<td><h4>Other</h4></td>
+				<td><h:inputText value="#{encounter.other }"/></td>
+				</tr>
+				</table>
 				
 				<h3>Overall Impression</h3>
 				<h:inputTextarea id="impression" value="#{encounter.overallImpression }" />
@@ -145,10 +193,11 @@
 
 		
 	</div>
-	<BR><BR><BR><BR><BR>
-	<div id = "footer">
-	<h:commandButton id="submit" value="Submit" action="nextPage"></h:commandButton>
-    <p><a href="index.jsp">Log out</a></p>
-	</div>
+
+	<center>
+	<h:form>
+		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+	</h:form>
+	</center>
 </f:view>
 </body>
