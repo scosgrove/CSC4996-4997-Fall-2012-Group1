@@ -14,21 +14,21 @@ import org.hibernate.Session;
  *  TODO: Are we going to delete any users or void/retire users.
  *  TODO: Change user/patient/encounter/vitals scope to none instead of session
  *  
- * @author Muhammed, Ramez
+ * @author Muhammed, Ramez, Jackson
  *
  */
 
 
 public class UserService implements IUserService {
 
-	/** User fields*/
+	
 	private User newUser;
 	private LoginBean login;
 	private Session userSession;
 	private Calendar calendar = Calendar.getInstance();
 	
-	private String searchUsername;   // the fields to search for user by , getters and setters 
-	private String searchFirst;		// need to be reset after search 
+	private String searchUsername;   // the fields to search for user by 
+	private String searchFirst;		// need to be reset after search ?
 	private String searchLast;
 	private boolean isCreating;
 	
