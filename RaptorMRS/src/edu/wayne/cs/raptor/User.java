@@ -40,14 +40,12 @@ public class User {
 	 * metadata
 	 */
 	/** User that created this user */
-	//currently no way to map a User to a database column successfully, hence string type
 	private String creatingUser;
 
 	/** Date this user was first created */
 	private Date createdDate;
 	
 	/** User to last modify or update this user */
-	//see above about user type storage in the DB :(
 	private String modifyingUser;
 	
 	/** Date last modification of this user took place, creation counts as a modification */
@@ -56,7 +54,6 @@ public class User {
 	
 	/** Default empty constructor */
 	public User() {
-		super();
 	}
 	
 	public User(String fName, String lName, String username, String password){
