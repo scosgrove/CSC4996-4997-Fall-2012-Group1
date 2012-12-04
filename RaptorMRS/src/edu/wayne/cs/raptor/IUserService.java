@@ -15,9 +15,6 @@ import java.util.List;
 
 public interface IUserService {
 
-	public String createUser();
-	
-	public String updateUser();
 	
 	public void saveUser(User newUser);
 
@@ -31,7 +28,7 @@ public interface IUserService {
 
 	public List<User> getAllUsers();
 
-	public String searchUser();
+	
 
 
 

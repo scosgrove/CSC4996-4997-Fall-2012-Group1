@@ -29,15 +29,15 @@
 							<table>
 							<tr>
 								<td><h:outputLabel value="Username: "></h:outputLabel></td>
-								<td><h:inputText value="#{userData.username }"> </h:inputText></td>
+								<td><h:inputText value="#{userService.searchUsername}"> </h:inputText></td>
 							</tr>
 							<tr>
 								<td><h:outputLabel value="First Name: "></h:outputLabel></td>
-								<td><h:inputText value="#{userData.firstName}"></h:inputText></td>
+								<td><h:inputText value="#{userService.searchFirst}"></h:inputText></td>
 							</tr>
 							<tr>
 								<td><h:outputLabel value="Last Name: "></h:outputLabel></td>
-								<td><h:inputText value="#{userData.lastName}"></h:inputText></td>
+								<td><h:inputText value="#{userService.searchLast}"></h:inputText></td>
 							</tr>
 							<tr>	 
 							<td></td>		
@@ -47,48 +47,10 @@
 									
 						</center>	
 					</h:form>
-					<h2>Update Found User</h2>
-					<h:form>
-						<center>
-						
-						<table>
-							<tr>
-								<td><h:outputLabel value="First Name: "></h:outputLabel></td>
-								<td><h:inputText id = "firstName" value="#{userService.newUser.firstName}"></h:inputText></td>
-							</tr>
-								
-							<tr>
-								<td><h:outputLabel value="Last Name: "></h:outputLabel></td>
-								<td><h:inputText id = "lastName" value="#{userService.newUser.lastName}"></h:inputText></td>
-							</tr>
-								
-							<tr>
-								<td><h:outputLabel value="Username: "></h:outputLabel></td>
-								<td><h:inputText id = "username" value="#{userService.newUser.username}"></h:inputText></td>
-							</tr>
-								
-							<tr>
-								<td><h:outputLabel value="Role: "></h:outputLabel></td>
-								<td><h:selectOneMenu id="updateRoles" value="#{userService.newUser.roles}">
-								  <f:selectItem itemValue="Medical Student" itemLabel="Medical Student"/>
-								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
-								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
-								</h:selectOneMenu></td>
-							</tr>
-									
-							<tr>									
-								<td><h:commandButton value="Update user" action="#{userService.updateUser}"></h:commandButton></td>
-								<td><h:commandButton value="Cancel" ></h:commandButton></td>
-							</tr>
-						</table>
-						</center>
-					</h:form>
-					
-					
 				</fieldset>
 
 				<fieldset class="admin">
-					<h2>Add User</h2>
+					<h2>Add / Update User</h2>
 					<h:form>
 					<center>
 						<h:panelGrid columns="3">					
@@ -107,8 +69,9 @@
 								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
 								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
 								</h:selectOneMenu> <br>											
-								<h:commandButton value="Add a new user" action="#{userService.createUser}"></h:commandButton>
-								<h:commandButton value="Cancel" ></h:commandButton>
+								<h:commandButton value="Add a new user" action="#{userService.createUser}" rendered="#{userService.creating}"></h:commandButton>
+								<h:commandButton value="Update User" action="#{userService.updateUser }"></h:commandButton>
+								<h:commandButton value="Cancel" action="#{userService.resetFields }"></h:commandButton>
 						</h:panelGrid>
 					</center>
 					</h:form>
