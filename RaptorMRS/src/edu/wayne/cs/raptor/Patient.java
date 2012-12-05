@@ -25,7 +25,7 @@ public class Patient {
 		private String lastName;
 		
 		/** Patient's date of birth */
-		private Date birthDate;
+		private String birthDate;
 		
 		/** Patient's gender */
 		private String gender;
@@ -37,8 +37,6 @@ public class Patient {
 		/** Patient's residence */
 		private String residence;
 		
-		/** Patient's history of the presenting illness*/
-		private String historyOfPresentIllness;
 		
 		/** The Patient's social/family history. this information shouldn't change much from an encounter
 		 * to another.
@@ -108,11 +106,11 @@ public class Patient {
 			this.gender = gender;
 		}
 		/** Returns Patient's date of birth */
-		public Date getBirthDate() {
+		public String getBirthDate() {
 			return birthDate;
 		}
 		/** Sets the Patient's date of birth */
-		public void setBirthDate(Date birthDate) {
+		public void setBirthDate(String birthDate) {
 			this.birthDate = birthDate;
 		}
 
@@ -125,16 +123,6 @@ public class Patient {
 			this.residence = address;
 		}
 		
-		public String getHistoryOfPresentIllness() {
-			return historyOfPresentIllness;
-		}
-
-
-		public void setHistoryOfPresentIllness(String historyOfPresentIllness) {
-			this.historyOfPresentIllness = historyOfPresentIllness;
-		}
-
-
 		public String getKeywords() {
 			return keywords;
 		}
@@ -151,15 +139,6 @@ public class Patient {
 			this.socialHistory = socialHistory;
 		}
 		
-		//github issue #11
-//		public User getCreatingUser() {
-//			return creatingUser;
-//		}
-//		
-//		public void setCreatingUser(User creatingUser) {
-//			this.creatingUser = creatingUser;
-//		}
-
 		public String getCreatingUser() {
 			return creatingUser;
 		}
@@ -176,15 +155,6 @@ public class Patient {
 			this.createdDate = createdDate;
 		}
 		
-		//github issue #11
-//		public User getModifyingUser() {
-//			return modifyingUser;
-//		}
-//		
-//		public void setModifyingUser(User modifyingUser) {
-//			this.modifyingUser = modifyingUser;
-//		}
-//		
 		public String getModifyingUser() {
 			return modifyingUser;
 		}
