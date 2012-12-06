@@ -160,6 +160,7 @@ public class ResearchReportsBean {
 			List<Encounter> dbencounter = userSession.createQuery("from Encounter").list();
 			List<PharmacyEncounter> dbpharm = userSession.createQuery("from PharmacyEncounter").list();
 			List<Patient>dbPatient = userSession.createQuery("from Patient").list();
+			List<Vitals>dbVitals = userSession.createQuery("from Vitals").list();
 			userSession.getTransaction().commit();
 			userSession.close();
 
@@ -244,21 +245,21 @@ public class ResearchReportsBean {
 				writer.append(',');
 				writer.append(dbPatient.get(i).getGender());
 				writer.append(',');
-				writer.append("get Height isn't there");
+				writer.append(String.valueOf(dbVitals.get(i).getHeight()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getWeight()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getCalculatedBMI()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getSystolicBP()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getHeartRate()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getTemperatureC()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getRespRate()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getOximetry()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getChiefComplaint());
 				writer.append(',');
@@ -274,9 +275,9 @@ public class ResearchReportsBean {
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed5());
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getFingerPoke()));
 				writer.append(',');
-				writer.append("not there");
+				writer.append(String.valueOf(dbVitals.get(i).getBloodSampleID()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getCondition1());
 				writer.append(',');
@@ -299,6 +300,8 @@ public class ResearchReportsBean {
 				writer.append(dbencounter.get(i).getOther());
 				writer.append(',');
 				writer.append(dbencounter.get(i).getOverallImpression());
+				writer.append(',');
+				writer.append("not there");
 				
 				writer.append('\n');
 			}
