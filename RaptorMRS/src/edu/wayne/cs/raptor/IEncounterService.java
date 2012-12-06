@@ -24,6 +24,8 @@ public interface IEncounterService {
 	/** Returns all patients in the system */ 
 	public List<Patient> getAllPatients();
 	
+	public List<Patient> getAllPatientsByName(String lastName);
+	
 	
 	/* Encounter Operations */
 	public void saveEncounter(Encounter encounter);
@@ -37,7 +39,7 @@ public interface IEncounterService {
 	/** Returns all encounters for a patient with the specified patientId */
 	public List<Encounter> getAllEncounters(int patientId);
 	/** Returns all encounters for a patient with the specified last name ? */
-	public List<Encounter> getAllEncounters(String patientName);
+	public List<Encounter> getAllEncountersByName(String patientName);
 	
 	
 	

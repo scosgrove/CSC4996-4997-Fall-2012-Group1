@@ -21,9 +21,12 @@ public class EncounterService implements IEncounterService {
 	private Calendar calendar;
 	
 	private Patient patient;
-	private Vitals vitals;
 	private Encounter encounter;
+	private Vitals vitals;
+
 	private PharmacyEncounter pharmEncounter;
+	
+	private String searchPatientId;
 	
 	public EncounterService() {
 		calendar = Calendar.getInstance();
@@ -119,6 +122,15 @@ public class EncounterService implements IEncounterService {
 		this.patient = patient;
 	}
 	
+	public void setEncounter(Encounter encounter)
+	{
+		this.encounter = encounter;
+	}
+	public Encounter getEncounter()
+	{
+		return encounter;
+	}
+	
 	public Vitals getVitals() {
 		return vitals;
 	}
@@ -140,14 +152,24 @@ public class EncounterService implements IEncounterService {
 	{
 		return login;
 	}
-	
-	public void setEncounter(Encounter encounter)
-	{
-		this.encounter = encounter;
+		
+	public String getSearchPatientId() {
+		return searchPatientId;
 	}
-	public Encounter getEncounter()
-	{
-		return encounter;
+
+	public void setSearchPatientId(String searchPatientId) {
+		this.searchPatientId = searchPatientId;
+	}
+
+	public String searchPatient(){
+		if(!this.searchPatientId.isEmpty())
+		{
+			int tempPId = Integer.parseInt(this.searchPatientId);
+			this.patient = getPatient(tempPId);
+		}
+		return "searchPage";
+		
+		
 	}
 
 	@Override
@@ -211,6 +233,12 @@ public class EncounterService implements IEncounterService {
 			return result;
 		return null;
 	}
+	
+	@Override
+	public List<Patient> getAllPatientsByName(String lastName){
+		return null;
+		
+	}
 
 	@Override
 	public void saveEncounter(Encounter encounter) {
@@ -260,7 +288,7 @@ public class EncounterService implements IEncounterService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Encounter> getAllEncounters(String patientName) {
+	public List<Encounter> getAllEncountersByName(String patientName) {
 		userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
 		
