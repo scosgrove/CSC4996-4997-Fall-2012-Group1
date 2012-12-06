@@ -26,7 +26,7 @@
 	
 	<center>
 	<div width = "400" height = "60" style="border:2px groove">
-	<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="" />&nbsp;&nbsp;Last Name<h:inputText id="lastname" value="" />&nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="search"></h:commandButton></p>
+	<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="" />&nbsp;&nbsp;Last Name<h:inputText id="lastname" value="" />&nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="#{encounterService.searchPatientId }" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="#{encounterService.searchPatient }"></h:commandButton></p>
 	</div>
 	</center>
 	
@@ -106,7 +106,7 @@
 				
 				<h3>Blood Drawn</h3>
 				<p>
-				<h:selectOneMenu id ="bloodDrawn" value="#{encounterService.vitals.fingerPoke }"><f:selectItem itemValue="NULL" itemLabel="- Select -" /><f:selectItem itemValue="Yes" itemLabel="Yes" /><f:selectItem itemValue="No" itemLabel="No" /></h:selectOneMenu><h4>Sample #</h4>&nbsp;<h:inputText value = "#{encounterService.vitals.bloodSampleID }"></h:inputText>
+				<h:selectOneMenu id ="bloodDrawn" value="#{encounterService.vitals.fingerPoke }"><f:selectItem itemValue="No" itemLabel="No" /><f:selectItem itemValue="Yes" itemLabel="Yes" /></h:selectOneMenu><h4>Sample #</h4>&nbsp;<h:inputText value = "#{encounterService.vitals.bloodSampleID }"></h:inputText>
 				</p>
 				
 				<h3>Other Condition</h3>
@@ -198,7 +198,8 @@
 	<center>
 	
 	<h:commandButton id="submit" value="Submit" action="#{encounterService.saveNewEncounter }"></h:commandButton>
-		<p><h:commandLink action="#{encounterService.login.logout}">Log out</h:commandLink></p>
+	<h:commandButton id="startNew" value="Start New Encounter" action="#{encounterService.startEncounter}"></h:commandButton>
+		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
 	
 	</center>
 	</h:form>

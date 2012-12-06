@@ -1,5 +1,6 @@
 package edu.wayne.cs.raptor;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -32,9 +33,13 @@ public class EncounterService implements IEncounterService {
 	private boolean errorPreventedInsert = false;
 	
 	private String searchPatientId;
+	private List<Encounter> searchList ;
+	private boolean newEncounter;
 	
 	public EncounterService() {
 		calendar = Calendar.getInstance();
+		searchList = new ArrayList<Encounter>();
+		newEncounter = false;
 	}
 	
 	public void saveOrUpdateEncounter()
@@ -151,6 +156,7 @@ public class EncounterService implements IEncounterService {
 		return null;
 	}
 
+	
 	public Patient getPatient() {
 		return patient;
 	}
@@ -185,24 +191,59 @@ public class EncounterService implements IEncounterService {
 	public String getSearchPatientId() {
 		return searchPatientId;
 	}
-
 	public void setSearchPatientId(String searchPatientId) {
 		this.searchPatientId = searchPatientId;
 	}
 
+	public List<Encounter> getSearchList() {
+		return searchList;
+	}
+	public void setSearchList(List<Encounter> searchList) {
+		this.searchList = searchList;
+	}
+
+	public boolean isNewEncounter() {
+		return newEncounter;
+	}
+	public void setNewEncounter(boolean newEncounter) {
+		this.newEncounter = newEncounter;
+	}
+
 	public String searchPatient(){
+		
+		int tempPId =0;
 		if(!this.searchPatientId.isEmpty())
 		{
-			int tempPId = Integer.parseInt(this.searchPatientId);
+			tempPId = Integer.parseInt(this.searchPatientId);
 			this.patient = getPatient(tempPId);
 		}
-		// Need to display all encounters for the patient being searched for (by id)
-		// option to start a new encounter : this.encounter = new Encounter();  this.vitals  = new Vitals();
+		if(tempPId >0 )
+			this.searchList = getAllEncounters(tempPId);
 		
 		return "searchPage";
 		
 		
 	}
+	
+	/** Select an encounter from the list of Ecnounters retrieved by searching for the patient  */
+	public String selectEncounter(){
+		
+		// Should display a button where a new encounter can be started 
+		setNewEncounter(true);
+		return "create";
+	}
+	
+	public String startEncounter(){
+		vitals = new Vitals();
+		encounter = new Encounter();
+		setNewEncounter(false);
+		return "create";
+		
+	}
+	
+	/***********************************/
+	/****** Patient Operations ********/
+    /*********************************/
 
 	@Override
 	public void savePatient(Patient patient) {
@@ -282,7 +323,12 @@ public class EncounterService implements IEncounterService {
 		return null;
 		
 	}
-
+	
+	/***********************************/
+	/****** Encounter Operations ******/
+    /*********************************/
+	
+	
 	@Override
 	public void saveEncounter(Encounter encounter) {
 		// TODO Auto-generated method stub
