@@ -24,6 +24,7 @@ public interface IEncounterService {
 	/** Returns all patients in the system */ 
 	public List<Patient> getAllPatients();
 	
+	/** Returns all patients in the system with the specified lastName*/
 	public List<Patient> getAllPatientsByName(String lastName);
 	
 	

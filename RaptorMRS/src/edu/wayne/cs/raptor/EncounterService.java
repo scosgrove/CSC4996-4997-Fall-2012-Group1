@@ -196,6 +196,9 @@ public class EncounterService implements IEncounterService {
 			int tempPId = Integer.parseInt(this.searchPatientId);
 			this.patient = getPatient(tempPId);
 		}
+		// Need to display all encounters for the patient being searched for (by id)
+		// option to start a new encounter : this.encounter = new Encounter();  this.vitals  = new Vitals();
+		
 		return "searchPage";
 		
 		
@@ -229,13 +232,17 @@ public class EncounterService implements IEncounterService {
 	}
 
 	@Override
+	/** this method might not be needed since it only returns the first patient out of a set 
+	 *  of patients that exist in the system with the same last name
+	 *  @see getAllPatientsByName(String)
+	 * */
 	public Patient getPatientByLastName(String lastName) {
 		
 		userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
 		
 		@SuppressWarnings("unchecked")
-		List<Patient> result = userSession.createQuery("from Patient where patientID='" + lastName + "'").list();
+		List<Patient> result = userSession.createQuery("from Patient where lastName='" + lastName + "'").list();
 		userSession.getTransaction().commit();
 		userSession.close();
 		if (!result.isEmpty() )
@@ -252,7 +259,6 @@ public class EncounterService implements IEncounterService {
 	public List<Patient> getAllPatients() {
 		userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
-		
 		@SuppressWarnings("unchecked")
 		List<Patient> result = userSession.createQuery("from Patient ").list();
 		userSession.getTransaction().commit();
@@ -265,6 +271,14 @@ public class EncounterService implements IEncounterService {
 	
 	@Override
 	public List<Patient> getAllPatientsByName(String lastName){
+		userSession = HibernateUtil.getSessionFactory().openSession();
+		userSession.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<Patient> result = userSession.createQuery("from Patient where lastName='" + lastName + "'").list();
+		userSession.getTransaction().commit();
+		userSession.close();
+		if (!result.isEmpty() )
+			return result;
 		return null;
 		
 	}
@@ -273,13 +287,12 @@ public class EncounterService implements IEncounterService {
 	public void saveEncounter(Encounter encounter) {
 		// TODO Auto-generated method stub
 		
-	}
+	} 
 
 	@Override
 	public Encounter getEncounter(int encounterId) {
 		userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
-		
 		@SuppressWarnings("unchecked")
 		List<Encounter> result = userSession.createQuery("from Encounter where encounterID='" + encounterId + "'").list();
 		userSession.getTransaction().commit();
@@ -305,7 +318,6 @@ public class EncounterService implements IEncounterService {
 	public List<Encounter> getAllEncounters(int patientId) {
 		userSession = HibernateUtil.getSessionFactory().openSession();
 		userSession.beginTransaction();
-		
 		@SuppressWarnings("unchecked")
 		List<Encounter> result = userSession.createQuery("from Encounter where patientID='" + patientId + "'").list();
 		userSession.getTransaction().commit();
