@@ -29,6 +29,23 @@ public class PharmacyEncounter {
 
 	public PharmacyEncounter() {
 	}
+	
+	public PharmacyEncounter(int encounterID, String medDispensed1, String medDispensed2,
+			String medDispensed3, String medDispensed4, String medDispensed5, boolean equalPrescribed1,
+			boolean equalPrescribed2, boolean equalPrescribed3, boolean equalPrescribed4,
+			boolean equalPrescribed5){
+		setEncounterID(encounterID);
+		setMedDispensed1(medDispensed1);
+		setMedDispensed2(medDispensed2);
+		setMedDispensed3(medDispensed3);
+		setMedDispensed4(medDispensed4);
+		setMedDispensed5(medDispensed5);
+		setEqualPrescribed1(equalPrescribed1);
+		setEqualPrescribed2(equalPrescribed2);
+		setEqualPrescribed3(equalPrescribed3);
+		setEqualPrescribed4(equalPrescribed4);
+		setEqualPrescribed5(equalPrescribed5);
+	}
 
 	@Id
 	public int getEncounterID() {

@@ -142,34 +142,28 @@ public class PharmacyEncounterService {
 	}
 
 	public String dataToDatabase() {	
-		passToPharmEncounter();
+		if(encounterID > 0)
+		{
+			passToPharmEncounter();
 
-		pharmSession = HibernateUtil.getSessionFactory().openSession();
-		pharmSession.beginTransaction();
-		pharmSession.saveOrUpdate(pharmEncounter);
-		pharmSession.getTransaction().commit();
-		pharmSession.close();
-		/* must have encounterID
-		 * add encounterID to database
-		 * add existing medDispensed variables and corresponding equalPrescribed variables*/
+			pharmSession = HibernateUtil.getSessionFactory().openSession();
+			pharmSession.beginTransaction();
+			pharmSession.saveOrUpdate(pharmEncounter);
+			pharmSession.getTransaction().commit();
+			pharmSession.close();
 
-		resetFields();
+			resetFields();
 
-		return "Valid";
+			return "Valid";
+		}
+		else
+			return "Invalid";
 	}
 
 	public void passToPharmEncounter(){
-		pharmEncounter.setEncounterID(encounterID);
-		pharmEncounter.setMedDispensed1(medDispensed1);
-		pharmEncounter.setMedDispensed2(medDispensed2);
-		pharmEncounter.setMedDispensed3(medDispensed3);
-		pharmEncounter.setMedDispensed4(medDispensed4);
-		pharmEncounter.setMedDispensed5(medDispensed5);
-		pharmEncounter.setEqualPrescribed1(equalPrescribed1);
-		pharmEncounter.setEqualPrescribed2(equalPrescribed2);
-		pharmEncounter.setEqualPrescribed3(equalPrescribed3);
-		pharmEncounter.setEqualPrescribed4(equalPrescribed4);
-		pharmEncounter.setEqualPrescribed5(equalPrescribed5);
+		pharmEncounter = new PharmacyEncounter(encounterID, medDispensed1, medDispensed2, medDispensed3,
+				medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
+				equalPrescribed4, equalPrescribed5);
 
 		pharmEncounter.setCreatingUser(this.login.getSystemUser().getUsername());
 		pharmEncounter.setCreatedDate(calendar.getTime());
@@ -187,21 +181,6 @@ public class PharmacyEncounterService {
 		setEqualPrescribed3(true);
 		setEqualPrescribed4(true);
 		setEqualPrescribed5(true);
-
-		pharmEncounter.setEncounterID(encounterID);
-		pharmEncounter.setMedDispensed1(medDispensed1);
-		pharmEncounter.setMedDispensed2(medDispensed2);
-		pharmEncounter.setMedDispensed3(medDispensed3);
-		pharmEncounter.setMedDispensed4(medDispensed4);
-		pharmEncounter.setMedDispensed5(medDispensed5);
-		pharmEncounter.setEqualPrescribed1(equalPrescribed1);
-		pharmEncounter.setEqualPrescribed2(equalPrescribed2);
-		pharmEncounter.setEqualPrescribed3(equalPrescribed3);
-		pharmEncounter.setEqualPrescribed4(equalPrescribed4);
-		pharmEncounter.setEqualPrescribed5(equalPrescribed5);
-
-		pharmEncounter.setCreatingUser(null);
-		pharmEncounter.setCreatedDate(null);
 	}
 
 }
