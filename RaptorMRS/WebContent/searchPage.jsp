@@ -90,7 +90,6 @@
 				<h:inputText value = "#{encounterService.patient.residence }"></h:inputText>
 				<h3>Birth Date</h3>
 				<h:inputText value = "#{encounterService.patient.birthDate }"></h:inputText>
-				
 				<h3>Gender</h3>
 				<h:selectOneMenu id ="gender" value="#{encounterService.patient.gender }">
 				   	<f:selectItem itemValue="Male" itemLabel="Male" />

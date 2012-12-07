@@ -200,6 +200,7 @@
 	<h:commandButton id="submit" value="Submit" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton>
 	<h:commandButton id="startNew" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton>
 		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+		<p><a href="HelpInformation.pdf">Need Help?</a></p>
 	
 	</center>
 	</h:form>

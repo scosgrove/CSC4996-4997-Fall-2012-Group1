@@ -46,6 +46,7 @@ function clock() {
 						<h:commandButton value="Log In" action="#{loginBean.authenticate}"  ></h:commandButton>
 						<h:outputText value="#{loginBean.authenticated}"></h:outputText>
 						<h:commandButton value="Reset" action="#{loginBean.clear}"> </h:commandButton>
+						
 					</h:panelGrid><br/>
 					</fieldset>
 				</h:form>
