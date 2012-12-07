@@ -37,13 +37,19 @@ public class EncounterService implements IEncounterService {
 	private boolean newEncounter;
 	
 	public EncounterService() {
+		patient = new Patient();
+		encounter = new Encounter();
+		vitals = new Vitals();
 		calendar = Calendar.getInstance();
 		searchList = new ArrayList<Encounter>();
 		newEncounter = false;
 	}
 	
-	public void saveOrUpdateEncounter()
+	public String saveOrUpdateEncounter()
 	{
+		if(patient.getPatientID()!=0)
+			return updateEncounter();
+		return saveNewEncounter();
 		
 	}
 	
@@ -53,9 +59,13 @@ public class EncounterService implements IEncounterService {
 		patient.setModifyingUser(login.getSystemUser().getUsername());
 		patient.setLastModifiedDate(calendar.getTime());
 		
+		vitals.setCreatingUser(login.getSystemUser().getUsername());
+		vitals.setCreatedDate(calendar.getTime());
 		vitals.setModifyingUser(login.getSystemUser().getUsername());
-		patient.setLastModifiedDate(calendar.getTime());
+		vitals.setLastModifiedDate(calendar.getTime());
 		
+		encounter.setCreatingUser(login.getSystemUser().getUsername());
+		encounter.setCreatedDate(calendar.getTime());
 		encounter.setModifyingUser(login.getSystemUser().getUsername());
 		encounter.setLastModifiedDate(calendar.getTime());
 		  
@@ -66,8 +76,10 @@ public class EncounterService implements IEncounterService {
 		userSession.beginTransaction();
 		
 		userSession.update(patient);
-		userSession.update(vitals);
-		userSession.update(encounter);
+		encounter.setPatientID(this.patient.getPatientID());
+		encounterID = (Integer) userSession.save(encounter);
+		vitals.setEncounterID(encounterID);
+		userSession.save(vitals);
 		
 		userSession.getTransaction().commit();
 		userSession.close();
@@ -152,8 +164,8 @@ public class EncounterService implements IEncounterService {
 			//return "create" to go back to create.jsp after the create patient form is submitted
 			return "create";
 		}
-		
 		return null;
+		
 	}
 
 	
@@ -209,6 +221,12 @@ public class EncounterService implements IEncounterService {
 		this.newEncounter = newEncounter;
 	}
 
+	/**Method called when search button is clicked, takes you to 
+	 *  table with the list of prev. encounters for the patient, 
+	 *  select an Encounter, view its info. 
+	 *  Then start a new encounter 
+	 *
+	 */
 	public String searchPatient(){
 		
 		int tempPId =0;
@@ -228,11 +246,26 @@ public class EncounterService implements IEncounterService {
 	/** Select an encounter from the list of Ecnounters retrieved by searching for the patient  */
 	public String selectEncounter(){
 		
-		// Should display a button where a new encounter can be started 
+		// Populate the fields of vitals that belong to that encounter 
+		vitals = getVitalsByEncounter(encounter.getEncounterID());
 		setNewEncounter(true);
 		return "create";
 	}
 	
+	private Vitals getVitalsByEncounter(int encounterID2) {
+		userSession = HibernateUtil.getSessionFactory().openSession();
+		userSession.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<Vitals> result = userSession.createQuery("from Vitals where encounterID = '" +encounterID2+ "' ").list();
+		
+		userSession.getTransaction().commit();
+		userSession.close();
+		if(!result.isEmpty())
+			return result.get(0);
+		return null;
+	}
+
+	/** Start a new Encounter after searching for a patient and viewing an encounter for them */
 	public String startEncounter(){
 		vitals = new Vitals();
 		encounter = new Encounter();

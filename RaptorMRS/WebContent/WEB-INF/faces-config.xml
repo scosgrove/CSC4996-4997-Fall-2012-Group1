@@ -91,21 +91,6 @@
 			<property-class>edu.wayne.cs.raptor.LoginBean</property-class>
 			<value>#{loginBean}</value>
 		</managed-property>
-		<managed-property>
-			<property-name>patient</property-name>
-			<property-class>edu.wayne.cs.raptor.Patient</property-class>
-			<value>#{patientData}</value>
-		</managed-property>
-		<managed-property>
-			<property-name>vitals</property-name>
-			<property-class>edu.wayne.cs.raptor.Vitals</property-class>
-			<value>#{vitals}</value>
-		</managed-property>
-		<managed-property>
-			<property-name>encounter</property-name>
-			<property-class>edu.wayne.cs.raptor.Encounter</property-class>
-			<value>#{encounter}</value>
-		</managed-property>
 	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/index.jsp</from-view-id>
