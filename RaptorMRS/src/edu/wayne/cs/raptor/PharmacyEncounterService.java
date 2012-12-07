@@ -6,6 +6,9 @@ import org.hibernate.Session;
 
 public class PharmacyEncounterService {
 
+	private String firstName;
+	private String lastName;
+	
 	protected int encounterID;
 	protected String medDispensed1;
 	protected String medDispensed2;
@@ -24,9 +27,27 @@ public class PharmacyEncounterService {
 	private Session pharmSession;
 
 	private PharmacyEncounter pharmEncounter;
+	
+	private String creationResult;
 
 	public PharmacyEncounterService() {
 		pharmEncounter = new PharmacyEncounter();
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public int getEncounterID() {
@@ -141,6 +162,22 @@ public class PharmacyEncounterService {
 		this.login = login;
 	}
 
+	public Calendar getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(Calendar calendar) {
+		this.calendar = calendar;
+	}
+
+	public String getCreationResult() {
+		return creationResult;
+	}
+
+	public void setCreationResult(String creationResult) {
+		this.creationResult = creationResult;
+	}
+
 	public String dataToDatabase() {	
 		if(encounterID > 0)
 		{
@@ -153,11 +190,16 @@ public class PharmacyEncounterService {
 			pharmSession.close();
 
 			resetFields();
+			
+			setCreationResult("Record Created");
 
 			return "Valid";
 		}
-		else
+		else{
+			setCreationResult("Invalid Visit ID");
+			
 			return "Invalid";
+		}
 	}
 
 	public void passToPharmEncounter(){
@@ -170,6 +212,9 @@ public class PharmacyEncounterService {
 	}
 
 	public void resetFields(){
+		setFirstName(null);
+		setLastName(null);
+		
 		setEncounterID(0);
 		setMedDispensed1(null);
 		setMedDispensed2(null);
