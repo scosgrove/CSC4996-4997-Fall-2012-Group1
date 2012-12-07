@@ -13,31 +13,30 @@
 <body>
 <f:view>
 <h:form>
-	<div id= "navigation">
-		<img src="img\logo_xl.png" height="60" width="180">
-	</div>
+	<table id= "navigation" columns="3">
+		<tbody>
+		<tr> <td><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></td><td><img src="img\logo_xl.png" height="60" width="180"></td> <td><h:commandButton id="submit" value="Submit Patient Record" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton><h:commandButton id="startNew" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton></td></tr>
+		</tbody>
+	</table>
 	
 
 	<div id="container">
 	<BR>
 	
-	
-	<font color="red"><h3>You are logged in as a: <i>Student</i></h3></font>
-	
 	<center>
 	<div width = "400" height = "60" style="border:2px groove">
-	<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="" />&nbsp;&nbsp;Last Name<h:inputText id="lastname" value="" />&nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="#{encounterService.searchPatientId }" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="#{encounterService.searchPatient }"></h:commandButton></p>
+	<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="#{encounterService.searchPatientFirstName }" />&nbsp;&nbsp;<h:commandButton id="searchFirst" value="Search" action="#{encounterService.searchPatientsF }"></h:commandButton>&nbsp;&nbsp;Last Name<h:inputText id="lastname" value="#{encounterService.searchPatientLastName }" />&nbsp;&nbsp;<h:commandButton id="searchLast" value="Search" action="#{encounterService.searchPatients }"></h:commandButton>&nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="#{encounterService.searchPatientId }" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="#{encounterService.searchPatient }"></h:commandButton></p>
 	</div>
 	</center>
 	
-	<center><font color="red"><h1>Visit ID: <h:outputLabel value = "#{encounterService.encounter.encounterID }"></h:outputLabel></h1></font></center>
 		<div id= "create" style="float:left">
 			
 			<div id = "module" style="float:left">
+				<font color="red"><h1>Visit ID: <h:outputLabel value = "#{encounterService.encounter.encounterID }"></h:outputLabel></h1></font>
 				<h1>General Information</h1>
 				
 				<a href=""><img src="img/nopic.png"></a>
-				
+
 				<h3>Patient ID</h3>
 				<h:outputLabel value = "#{encounterService.patient.patientID }"></h:outputLabel>
 				<h3>First Name</h3>
@@ -84,6 +83,11 @@
 
 				<h3>Oxygen (%)</h3>
 				<h:inputText id="oxygen"  value="#{encounterService.vitals.oximetry }" /><br>
+				
+				<h1>Images of condition/illness</h1>	
+				<a href=""><img src="img/nopic.png"></a>
+				<a href=""><img src="img/nopic.png"></a>
+				<a href=""><img src="img/nopic.png"></a>
 			</div>
 		</div>
 		
@@ -182,11 +186,7 @@
 				<h:inputTextarea id="keywords" value="#{encounterService.encounter.keywords }" />
 				
 							
-				<h1>Images of condition/illness</h1>
-								
-				<a href=""><img src="img/nopic.png"></a>
-				<a href=""><img src="img/nopic.png"></a>
-				<a href=""><img src="img/nopic.png"></a>
+				
 				
 			</div>
 		</div>
@@ -197,9 +197,9 @@
 
 	<center>
 	
-	<h:commandButton id="submit" value="Submit" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton>
-	<h:commandButton id="startNew" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton>
-		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+	
+	
+		
 	
 	</center>
 	</h:form>
