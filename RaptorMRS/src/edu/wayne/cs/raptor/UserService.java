@@ -2,6 +2,8 @@ package edu.wayne.cs.raptor;
 
 import java.util.Calendar;
 import java.util.List;
+
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 
 /** This class serves User entities in the system: Creating, retrieving Users
@@ -31,6 +33,7 @@ public class UserService implements IUserService {
 	private String searchFirst;		// need to be reset after search ?
 	private String searchLast;
 	private boolean isCreating;
+	private String encryptedPassword;
 	
 	public UserService(){
 		newUser = new User();
@@ -88,6 +91,25 @@ public class UserService implements IUserService {
 		newUser.setCreatedDate(calendar.getTime());
 		newUser.setModifyingUser(this.login.getSystemUser().getUsername());
 		newUser.setLastModifiedDate(calendar.getTime()); 
+		
+		//get the password right before the save...
+		encryptedPassword = newUser.getPassword();
+		//mmmm salty. 
+		encryptedPassword += "Raptor!";
+		
+		//close your eyes and click your heels once...
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//twice
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//thrice!
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		
+		
+		//there's no place like home!  (in the database, Toto!)
+		newUser.setPassword(encryptedPassword);
+		
+		//do the same encryption when a user attempts to log in and check the hashes against each other. 
+		
 		saveUser(newUser);
 		newUser = new User();
 		return "admin";

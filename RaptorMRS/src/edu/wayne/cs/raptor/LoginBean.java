@@ -2,6 +2,7 @@ package edu.wayne.cs.raptor;
 
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 
 /**  This bean handles the User login and authentication against the database
@@ -16,6 +17,7 @@ public class LoginBean {
 	private String tempPassword;
 	private String loginResult;
 	private boolean authenticated;
+	private String encryptedPassword;
 	
 	public LoginBean(){
 		systemUser = new User();
@@ -88,7 +90,20 @@ public String authenticate() {
 		if (this.systemUser.getUsername().equals(this.getTempUserName()))
 		{
 			//If the username exists , check if the password is correct
-			if( this.systemUser.getPassword().equals(this.getTempPassword()) )
+			//first recreate the expected hash value
+			encryptedPassword = systemUser.getPassword();
+			//mmmm salty. 
+			encryptedPassword += "Raptor!";
+			
+			//close your eyes and click your heels once...
+			encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+			//twice
+			encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+			//thrice!
+			encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+
+			//now check it!
+			if( encryptedPassword.equals(this.getTempPassword()) )
 			{
 				setAuthenticated(true);
 				setSystemUser(dbUsername.get(0));
