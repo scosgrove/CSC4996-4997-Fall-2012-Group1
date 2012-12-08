@@ -2,14 +2,17 @@ package edu.wayne.cs.raptor;
 
 import java.util.Calendar;
 
+import javax.swing.JOptionPane;
+
 import org.hibernate.Session;
 
 public class PharmacyEncounterService {
 
-	private String firstName;
-	private String lastName;
+	
 	
 	protected int encounterID;
+	private String firstName;
+	private String lastName;
 	protected String medDispensed1;
 	protected String medDispensed2;
 	protected String medDispensed3;
@@ -181,29 +184,37 @@ public class PharmacyEncounterService {
 	public String dataToDatabase() {	
 		if(encounterID > 0)
 		{
-			passToPharmEncounter();
-
-			pharmSession = HibernateUtil.getSessionFactory().openSession();
-			pharmSession.beginTransaction();
-			pharmSession.saveOrUpdate(pharmEncounter);
-			pharmSession.getTransaction().commit();
-			pharmSession.close();
-
-			resetFields();
-			
-			setCreationResult("Record Created");
-
-			return "Valid";
+			//try
+			//{
+				passToPharmEncounter();
+	
+				pharmSession = HibernateUtil.getSessionFactory().openSession();
+				pharmSession.beginTransaction();
+				pharmSession.saveOrUpdate(pharmEncounter);
+				pharmSession.getTransaction().commit();
+				pharmSession.close();
+	
+				resetFields();
+				
+				setCreationResult("Record Created");
+				JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+				return "Valid";
+			//}
+			//catch(Exception ex)
+			//{
+				//JOptionPane.showMessageDialog(null, "Error in saving record. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				//return "Invalid";
+			//}	
 		}
 		else{
 			setCreationResult("Invalid Visit ID");
-			
+			JOptionPane.showMessageDialog(null, "Error in saving record. ", "Error", JOptionPane.ERROR_MESSAGE);
 			return "Invalid";
 		}
 	}
 
 	public void passToPharmEncounter(){
-		pharmEncounter = new PharmacyEncounter(encounterID, medDispensed1, medDispensed2, medDispensed3,
+		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, medDispensed3,
 				medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
 				equalPrescribed4, equalPrescribed5);
 
@@ -216,6 +227,8 @@ public class PharmacyEncounterService {
 		setLastName(null);
 		
 		setEncounterID(0);
+		setFirstName(null);
+		setLastName(null);
 		setMedDispensed1(null);
 		setMedDispensed2(null);
 		setMedDispensed3(null);

@@ -32,6 +32,7 @@
 		<center>
 		<h:form>
 			<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+			<p><a href="HelpInformation.pdf">Need Help?</a></p>
 		</h:form>
 		</center>
 

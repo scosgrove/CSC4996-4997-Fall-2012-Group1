@@ -3,6 +3,8 @@ package edu.wayne.cs.raptor;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 
@@ -108,8 +110,6 @@ public class UserService implements IUserService {
 		//there's no place like home!  (in the database, Toto!)
 		newUser.setPassword(encryptedPassword);
 		
-		//do the same encryption when a user attempts to log in and check the hashes against each other. 
-		
 		saveUser(newUser);
 		newUser = new User();
 		return "admin";
@@ -122,6 +122,23 @@ public class UserService implements IUserService {
 		setCreating(true);
 		newUser.setModifyingUser(this.login.getSystemUser().getUsername());
 		newUser.setLastModifiedDate(calendar.getTime()); 
+		
+		//get the password right before the save...
+		encryptedPassword = newUser.getPassword();
+		//mmmm salty. 
+		encryptedPassword += "Raptor!";
+		
+		//close your eyes and click your heels once...
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//twice
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//thrice!
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		
+		
+		//there's no place like home!  (in the database, Toto!)
+		newUser.setPassword(encryptedPassword);
+		
 		saveUser(newUser);
 		newUser = new User();
 		return "admin";
@@ -154,11 +171,19 @@ public class UserService implements IUserService {
 	
 	@Override
 	public void saveUser(User newUser) {
-	    userSession = HibernateUtil.getSessionFactory().openSession();
-		userSession.beginTransaction();
-		userSession.saveOrUpdate(newUser);
-		userSession.getTransaction().commit();
-		userSession.close();
+	    try
+	    {
+			userSession = HibernateUtil.getSessionFactory().openSession();
+			userSession.beginTransaction();
+			userSession.saveOrUpdate(newUser);
+			userSession.getTransaction().commit();
+			userSession.close();
+			JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+	    }
+	    catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "Error in committing transaction or closing session. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	/** This method will return the user with the specified userID. 

@@ -6,6 +6,8 @@ use raptor;
 
  CREATE TABLE `PHARMACY`(
        `encounterID` int(10) unsigned zerofill NOT NULL,
+       `firstName` varchar(55),
+       `lastName` varchar(55),
        `medDispensed1` varchar(55),
        `medDispensed2` varchar(55),
        `medDispensed3` varchar(55),
@@ -87,7 +89,7 @@ CREATE TABLE `USERS` (
 	  PRIMARY KEY (`userID`),
 	  UNIQUE KEY `userID_UNIQUE` (`userID`),
 	  UNIQUE KEY `username_UNIQUE` (`userName`)
-	) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8;
+	) ENGINE=InnoDB AUTO_INCREMENT=469 DEFAULT CHARSET=utf8;
 
  
  CREATE TABLE `VITALS` (
@@ -114,9 +116,9 @@ CREATE TABLE `USERS` (
        UNIQUE KEY `bloodSampleID_UNIQUE` (`bloodSampleID`)
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
      
-     insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('bob', 'bobson', 'admin', 'raptor','System Administrator');
-     insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('jim', 'jimerson', 'student', 'student','Medical Student');
-	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('frank', 'frankfurter', 'pharm', 'pharm','Pharmacist');
-	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('sample', 'mcTest', 'research', 'research','Researcher');
+     insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('bob', 'bobson', 'admin', 'cef5729281f29438d09d2aedcacfd607d1cddcc9','System Administrator');
+     insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('jim', 'jimerson', 'student', '2eb4ed42db03e48321ae25bab6b68370051921a0','Medical Student');
+	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('frank', 'frankfurter', 'pharm', '6ccab84e7539afccc64d90e19d9d4abd72968c13','Pharmacist');
+	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('sample', 'mcTest', 'research', '43532e0c9726857cc44f5852c1f561335db3dd69','Researcher');
 
      

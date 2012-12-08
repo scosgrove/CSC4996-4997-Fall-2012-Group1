@@ -196,11 +196,9 @@
 	</div>
 
 	<center>
-	
-	
-	
-		
-	
+
+		<p><a href="HelpInformation.pdf">Need Help?</a></p>
+
 	</center>
 	</h:form>
 </f:view>

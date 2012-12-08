@@ -99,6 +99,7 @@
 	<h:form>
 		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
 	</h:form>
+	<a href="HelpInformation.pdf">Need Help?</a>
 	</center>
 	
 	
