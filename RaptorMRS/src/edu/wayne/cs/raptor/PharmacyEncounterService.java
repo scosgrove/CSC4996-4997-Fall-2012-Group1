@@ -6,10 +6,9 @@ import org.hibernate.Session;
 
 public class PharmacyEncounterService {
 
+	protected int encounterID;
 	private String firstName;
 	private String lastName;
-	
-	protected int encounterID;
 	protected String medDispensed1;
 	protected String medDispensed2;
 	protected String medDispensed3;
@@ -189,9 +188,9 @@ public class PharmacyEncounterService {
 			pharmSession.getTransaction().commit();
 			pharmSession.close();
 
+			creationResult = Integer.toString(encounterID)+" created.";
+
 			resetFields();
-			
-			setCreationResult("Record Created");
 
 			return "Valid";
 		}
@@ -203,8 +202,8 @@ public class PharmacyEncounterService {
 	}
 
 	public void passToPharmEncounter(){
-		pharmEncounter = new PharmacyEncounter(encounterID, medDispensed1, medDispensed2, medDispensed3,
-				medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
+		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, 
+				medDispensed3, medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
 				equalPrescribed4, equalPrescribed5);
 
 		pharmEncounter.setCreatingUser(this.login.getSystemUser().getUsername());
