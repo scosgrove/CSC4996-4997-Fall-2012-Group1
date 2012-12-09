@@ -105,15 +105,6 @@
 			<to-view-id>/index.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
-	<from-view-id>/create.jsp</from-view-id>
-		<navigation-case>
-			<from-action>#{userService.switchToPasswordChange}</from-action>
-			<from-outcome>changePass</from-outcome>
-			<to-view-id>/user_change_password.jsp</to-view-id>
-		</navigation-case>
-	
-	</navigation-rule>
  
 
 </faces-config>
