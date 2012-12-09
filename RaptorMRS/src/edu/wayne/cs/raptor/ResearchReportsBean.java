@@ -78,6 +78,7 @@ public class ResearchReportsBean {
 		}
 	}
 
+	// original report
 	public void generateBloodSampleReport() {
 
 		String filename = null;
@@ -90,7 +91,8 @@ public class ResearchReportsBean {
 			generateBloodSampleCsvFile(selectedFile);
 		}
 	}
-
+	
+	// original report
 	private void generateBloodSampleCsvFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);
@@ -205,6 +207,8 @@ public class ResearchReportsBean {
 		}
 	}
 
+	
+	
 	private void generateConditionFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);
@@ -390,7 +394,7 @@ public class ResearchReportsBean {
 				writer.append('\n');
 			}
 
-			/*
+			/* // original report
 			 * 
 			 * for (int i = 0; i < dbencounter.size(); i++) {
 			 * writer.append(String.valueOf(dbencounter.get(i).getPatientID()));
@@ -496,7 +500,8 @@ public class ResearchReportsBean {
 			generateRxFile(selectedFile);
 		}
 	}
-
+	
+	// original report
 	private static void generateRxFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);
