@@ -276,6 +276,42 @@ public class ResearchReportsBean {
 								dbencounter.get(j).getMedicationPrescribed5());
 					}
 				}
+				
+				if (selectedColumns.get(k).equals("medicationDispensed1")) {
+					for (int j = 0; j < dbpharm.size(); j++) {
+						csvData.get(k).add(
+								String.valueOf(dbpharm.get(j).getMedDispensed1()));
+						
+					}
+				}
+				if (selectedColumns.get(k).equals("medicationDispensed2")) {
+					for (int j = 0; j < dbpharm.size(); j++) {
+
+						csvData.get(k).add(
+								String.valueOf(dbpharm.get(j).getMedDispensed2()));
+					}
+				}
+				if (selectedColumns.get(k).equals("medicationDispensed3")) {
+					for (int j = 0; j < dbpharm.size(); j++) {
+
+						csvData.get(k).add(
+								String.valueOf(dbpharm.get(j).getMedDispensed3()));
+					}
+				}
+				if (selectedColumns.get(k).equals("medicationDispensed4")) {
+					for (int j = 0; j < dbpharm.size(); j++) {
+
+						csvData.get(k).add(
+								String.valueOf(dbpharm.get(j).getMedDispensed4()));
+					}
+				}
+				if (selectedColumns.get(k).equals("medicationDispensed5")) {
+					for (int j = 0; j < dbpharm.size(); j++) {
+
+						csvData.get(k).add(
+								String.valueOf(dbpharm.get(j).getMedDispensed5()));
+					}
+				}
 				if (selectedColumns.get(k).equals("FingerPoke")) {
 					for (int j = 0; j < dbencounter.size(); j++) {
 

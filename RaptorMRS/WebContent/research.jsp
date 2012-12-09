@@ -66,10 +66,20 @@
 						<td><f:selectItem itemValue="medicationPrescribed5" itemLabel="Prescribed 5" /></td>
 					</tr>
 					<tr>
+					<td><f:selectItem itemValue="medicationDispensed1" itemLabel="Dispensed 1" /></td>
+						<td><f:selectItem itemValue="medicationDispensed2" itemLabel="Dispensed 2" /></td>
+					</tr>
+					<tr>
+					<td><f:selectItem itemValue="medicationDispensed3" itemLabel="Dispensed 3" /></td>
+						<td><f:selectItem itemValue="medicationDispensed4" itemLabel="Dispensed 4" /></td>
+						<td><f:selectItem itemValue="medicationDispensed5" itemLabel="Dispensed 5" /></td>
+					</tr>
+					<tr>
 						<td><f:selectItem itemValue="FingerPoke" itemLabel="BloodDrawn" /></td>
 						<td><f:selectItem itemValue="sampleID" itemLabel="Sample Number" /></td>
 					</tr>
 					<tr>
+					
 						<td><f:selectItem itemValue="otherConditions 1" itemLabel="Condition 1 " /></td>
 						<td><f:selectItem itemValue="otherConditions 2" itemLabel="Condition 2 " /></td>
 					</tr>
