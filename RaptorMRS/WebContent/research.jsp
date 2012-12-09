@@ -28,40 +28,67 @@
 					<h:outputText value="Select Report Columns: " />
 
 
-					<h:selectManyCheckbox id="selectedColumns"
-						value="#{researchReportsBean.selectedColumns}" layout="pageDirection">
-		
-						<f:selectItem itemValue="residence"
-							itemLabel="Village/Town/City" />
-						<f:selectItem itemValue="birthDate" itemLabel="Birthdate" />
-						<f:selectItem itemValue="gender" itemLabel="Gender" />
-						<f:selectItem itemValue="height" itemLabel="Height" />
-						<f:selectItem itemValue="weight" itemLabel="Weight" />
-
-						<f:selectItem itemValue="calculatedBMI" itemLabel="BMI" />
-
-						<f:selectItem itemValue="systolicBP"
-							itemLabel="Blood Pressure" />
-						<f:selectItem itemValue="heartRate" itemLabel="Heart Rate" />
-						<f:selectItem itemValue="temperatureC" itemLabel="Temperature" />
-						<f:selectItem itemValue="respRate" itemLabel="Respirations" />
-						<f:selectItem itemValue="oximetry" itemLabel="Oxygen" />
-						<f:selectItem itemValue="chiefComplaint"
-							itemLabel="Chief Complaint" />
-						<f:selectItem itemValue="medicalProcedures"
-							itemLabel="Treatment Given" />
-						<f:selectItem itemValue="medicationPrescribed1"
-							itemLabel="Prescribed 1" />
-						<f:selectItem itemValue="medicationPrescribed2"
-							itemLabel="Prescribed 2" />
-						<f:selectItem itemValue="medicationPrescribed3"
-							itemLabel="Prescribed 3" />
-						<f:selectItem itemValue="medicationPrescribed4"
-							itemLabel="Prescribed 4" />
-						<f:selectItem itemValue="medicationPrescribed5"
-							itemLabel="Prescribed 5" />
-
+					<h:selectManyCheckbox id="selectedColumns" value="#{researchReportsBean.selectedColumns}" layout="pageDirection">
+					<tr>
+						<td><f:selectItem itemValue="residence" itemLabel="Village/Town/City" /></td>
+						<td><f:selectItem itemValue="birthDate" itemLabel="Birthdate" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="gender" itemLabel="Gender" /></td>
+						<td><f:selectItem itemValue="height" itemLabel="Height" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="weight" itemLabel="Weight" /></td>
+						<td><f:selectItem itemValue="calculatedBMI" itemLabel="BMI" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="systolicBP" itemLabel="Blood Pressure" /></td>
+						<td><f:selectItem itemValue="heartRate" itemLabel="Heart Rate" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="temperatureC" itemLabel="Temperature" /></td>
+						<td><f:selectItem itemValue="respRate" itemLabel="Respirations" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="oximetry" itemLabel="Oxygen" /></td>
+						<td><f:selectItem itemValue="chiefComplaint" itemLabel="Chief Complaint" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="medicalProcedures" itemLabel="Treatment Given" /></td>
+						<td><f:selectItem itemValue="medicationPrescribed1" itemLabel="Prescribed 1" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="medicationPrescribed2" itemLabel="Prescribed 2" /></td>
+						<td><f:selectItem itemValue="medicationPrescribed3" itemLabel="Prescribed 3" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="medicationPrescribed4" itemLabel="Prescribed 4" /></td>
+						<td><f:selectItem itemValue="medicationPrescribed5" itemLabel="Prescribed 5" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="FingerPoke" itemLabel="BloodDrawn" /></td>
+						<td><f:selectItem itemValue="sampleID" itemLabel="Sample Number" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="otherConditions 1" itemLabel="Condition 1 " /></td>
+						<td><f:selectItem itemValue="otherConditions 2" itemLabel="Condition 2 " /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="otherConditions 3" itemLabel="Condition 3" /></td>
+						<td><f:selectItem itemValue="otherConditions 4" itemLabel="Condition 4" /></td>
+					</tr>
+					<tr>
+						<td><f:selectItem itemValue="otherConditions 5" itemLabel="Condition 5" /></td>
+						<td><f:selectItem itemValue="Radiation" itemLabel="Radiation" /></td>
+					</tr>
+					<tr>
+					<td><f:selectItem itemValue="Quality" itemLabel="Quality" /></td>
+					<td><f:selectItem itemValue="ProvokesandPalliates" itemLabel="Provokes/Palliates" /></td>
+					</tr>
+					<tr>
 					</h:selectManyCheckbox>
+					
+					
 					<br />
 					<h3>Sort By</h3>
 				<h:selectOneMenu id ="sortBy" value="#{researchReportsBean.sortByColumn }">
