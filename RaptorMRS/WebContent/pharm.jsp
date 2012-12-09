@@ -20,11 +20,11 @@
 	
 		<div id = "form">
 		<h:form>
-			
-			<h:outputText value="#{pharmacyEncounterService.creationResult }"></h:outputText>
+			<h3><font color="red">
+			<h:outputText value="#{pharmacyEncounterService.creationResult }"></h:outputText><BR>
+			<h:outputText value="#{pharmacyEncounterService.recordIDInstruction }"></h:outputText>
+			</font></h3>
 			<h1>Create RX Record</h1><br>
-			<h3>Enter Visit ID</h3>
-				<h:inputText id="visitID" value="#{pharmacyEncounterService.encounterID }" />
 			<center>
 			
 			<table>
@@ -40,7 +40,7 @@
 			</tr>
 	
 			<tr>
-				<td><h3>Prescription Given</h3></td>
+				<td><h3>Medication Given</h3></td>
 				<td><h3>Same as Prescribed?</h3></td>
 			</tr>
 			

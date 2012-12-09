@@ -28,6 +28,7 @@ public class PharmacyEncounterService {
 	private PharmacyEncounter pharmEncounter;
 	
 	private String creationResult;
+	private String recordIDInstruction;
 
 	public PharmacyEncounterService() {
 		pharmEncounter = new PharmacyEncounter();
@@ -177,32 +178,33 @@ public class PharmacyEncounterService {
 		this.creationResult = creationResult;
 	}
 
+	public String getRecordIDInstruction() {
+		return recordIDInstruction;
+	}
+
+	public void setRecordIDInstruction(String recordIDInstruction) {
+		this.recordIDInstruction = recordIDInstruction;
+	}
+
 	public String dataToDatabase() {	
-		if(encounterID > 0)
-		{
-			passToPharmEncounter();
+		passToPharmEncounter();
 
-			pharmSession = HibernateUtil.getSessionFactory().openSession();
-			pharmSession.beginTransaction();
-			pharmSession.saveOrUpdate(pharmEncounter);
-			pharmSession.getTransaction().commit();
-			pharmSession.close();
+		pharmSession = HibernateUtil.getSessionFactory().openSession();
+		pharmSession.beginTransaction();
+		encounterID = (Integer) pharmSession.save(pharmEncounter);
+		pharmSession.getTransaction().commit();
+		pharmSession.close();
 
-			creationResult = Integer.toString(encounterID)+" created.";
+		creationResult = "Visit ID "+Integer.toString(encounterID)+" created.";
+		recordIDInstruction = "Write visit ID on patient sheet.";
 
-			resetFields();
+		resetFields();
 
-			return "Valid";
-		}
-		else{
-			setCreationResult("Invalid Visit ID");
-			
-			return "Invalid";
-		}
+		return "Valid";
 	}
 
 	public void passToPharmEncounter(){
-		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, 
+		pharmEncounter = new PharmacyEncounter(firstName, lastName, medDispensed1, medDispensed2, 
 				medDispensed3, medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
 				equalPrescribed4, equalPrescribed5);
 
