@@ -2,7 +2,7 @@ package edu.wayne.cs.raptor;
 
 import java.util.Date;
 import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;;
+
 
 /** Defines an Encounter. An encounter should track all the interactions between the patient
  *  and any clinic personnel for a given chief-complaint/visit.
@@ -88,8 +88,6 @@ public class Encounter {
 
 	/** Returns the encounter ID number */
 	@Id
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
 	public int getEncounterID() {
 		return encounterID;
 	}
