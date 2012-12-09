@@ -276,7 +276,75 @@ public class ResearchReportsBean {
 								dbencounter.get(j).getMedicationPrescribed5());
 					}
 				}
+				if (selectedColumns.get(k).equals("FingerPoke")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(String.valueOf(dbVitals.get(j).getFingerPoke()));		
+					}
+				}
+				if (selectedColumns.get(k).equals("samepleID")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(String.valueOf(dbVitals.get(j).getBloodSampleID()));		
+					}
+				}
+				if (selectedColumns.get(k).equals("samepleID")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(String.valueOf(dbVitals.get(j).getBloodSampleID()));		
+					}
+				}
+				if (selectedColumns.get(k).equals("otherConditions1")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getCondition1());		
+					}
+				}
+				if (selectedColumns.get(k).equals("otherConditions2")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getCondition2());		
+					}
+				}
+				if (selectedColumns.get(k).equals("otherConditions3")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getCondition3());		
+					}
+				}
+				if (selectedColumns.get(k).equals("otherConditions4")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getCondition4());		
+					}
+				}
+				if (selectedColumns.get(k).equals("otherConditions5")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getCondition5());		
+					}
+				}
+				if (selectedColumns.get(k).equals("Radiation")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getRadiation());		
+					}
+				}
+				if (selectedColumns.get(k).equals("Quality")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getQuality());	
+					}
+				}
+				if (selectedColumns.get(k).equals("ProvokesandPalliates")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(dbencounter.get(j).getProvokes());	
+					}
+				}
+				
 			}
+			
 			int rows = csvData.isEmpty() ? 0 : csvData.get(0).size();
 			for (int j = 0; j < rows; j++) {
 				for (int b = 0; b < csvData.size(); b++) {
