@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
 
@@ -68,7 +69,8 @@ public class ResearchReportsBean {
 
 	public String submit() {
 		if (this.selectedColumns.isEmpty()) {
-			setResult("Please select at least one column!");
+			//setResult("Please select at least one column!");
+			JOptionPane.showMessageDialog(null, "Please select at least one column!");
 			return result;
 		} else {
 			// result=selectedColumns.get(0);
