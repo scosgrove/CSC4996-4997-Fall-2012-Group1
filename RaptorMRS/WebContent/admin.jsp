@@ -68,6 +68,7 @@
 								  <f:selectItem itemValue="Medical Student" itemLabel="Medical Student"/>
 								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
 								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
+								  <f:selectItem itemValue="System Administrator" itemLabel="Admin"/>
 								</h:selectOneMenu> <br>											
 								<h:commandButton value="Add a new user" action="#{userService.createUser}" rendered="#{userService.creating}"></h:commandButton>
 								<h:commandButton value="Update User" action="#{userService.updateUser }"></h:commandButton>

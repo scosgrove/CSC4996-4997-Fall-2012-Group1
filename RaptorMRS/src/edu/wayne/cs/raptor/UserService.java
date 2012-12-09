@@ -35,6 +35,10 @@ public class UserService implements IUserService {
 	private boolean isCreating;
 	private String encryptedPassword;
 	
+	private String myPassword;
+	
+	
+	
 	public UserService(){
 		newUser = new User();
 		setCreating(true);
@@ -84,6 +88,60 @@ public class UserService implements IUserService {
 		this.isCreating = isCreating;
 	}
 	
+	public String userChangeOwnPassword(){
+	//	setCreating(true);
+		this.login.getSystemUser().setModifyingUser(this.login.getSystemUser().getUsername());
+		this.login.getSystemUser().setLastModifiedDate(calendar.getTime());
+		
+
+		this.login.getSystemUser().setPassword(myPassword);
+		//get the password right before the save...
+		encryptedPassword = this.login.getSystemUser().getPassword();
+		//mmmm salty. 
+		encryptedPassword += "Raptor!";
+		
+		//close your eyes and click your heels once...
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//twice
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//thrice!
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		
+		
+		//there's no place like home!  (in the database, Toto!)
+		this.login.getSystemUser().setPassword(encryptedPassword);
+
+		
+		saveUser(this.login.getSystemUser());
+		return "user_change_password";
+		
+	} 
+
+	
+	public String switchToUpdateInfo(){
+		
+		return "user_change_password";
+	}
+	
+	public String cancel(){
+		if(this.login.getSystemUser().getRoles().equals(Role.DOCTOR)){
+
+			return "create";
+		}
+		
+		if(this.login.getSystemUser().getRoles().equals(Role.ADMIN)){
+			return "admin";
+		}
+		
+		if(this.login.getSystemUser().getRoles().equals(Role.PHARMACIST)){
+			return "pharm";
+		}
+		
+		return "research";
+
+		
+	}
+	
 	/** Called on an Add User action */
 	public String createUser()
 	{
@@ -122,6 +180,25 @@ public class UserService implements IUserService {
 		setCreating(true);
 		newUser.setModifyingUser(this.login.getSystemUser().getUsername());
 		newUser.setLastModifiedDate(calendar.getTime()); 
+		
+
+		//get the password right before the save...
+		encryptedPassword = newUser.getPassword();
+		//mmmm salty. 
+		encryptedPassword += "Raptor!";
+		
+		//close your eyes and click your heels once...
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//twice
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//thrice!
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		
+		
+		//there's no place like home!  (in the database, Toto!)
+		newUser.setPassword(encryptedPassword);
+		
+		
 		saveUser(newUser);
 		newUser = new User();
 		return "admin";
@@ -243,6 +320,14 @@ public class UserService implements IUserService {
 			return result;
 		else
 			return null;
+	}
+
+	public String getMyPassword() {
+		return myPassword;
+	}
+
+	public void setMyPassword(String myPassword) {
+		this.myPassword = myPassword;
 	}
 
 
