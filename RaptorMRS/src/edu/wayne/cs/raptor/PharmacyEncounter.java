@@ -3,11 +3,8 @@ package edu.wayne.cs.raptor;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "PHARMACY")
@@ -34,10 +31,11 @@ public class PharmacyEncounter {
 	public PharmacyEncounter() {
 	}
 	
-	public PharmacyEncounter(String firstName, String lastName, String medDispensed1, 
+	public PharmacyEncounter(int encounterID, String firstName, String lastName, String medDispensed1, 
 			String medDispensed2, String medDispensed3, String medDispensed4, String medDispensed5, 
 			boolean equalPrescribed1, boolean equalPrescribed2, boolean equalPrescribed3, 
 			boolean equalPrescribed4, boolean equalPrescribed5){
+		setEncounterID(encounterID);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setMedDispensed1(medDispensed1);
@@ -53,8 +51,6 @@ public class PharmacyEncounter {
 	}
 
 	@Id
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
 	public int getEncounterID() {
 		return encounterID;
 	}

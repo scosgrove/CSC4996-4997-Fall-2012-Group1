@@ -1,6 +1,11 @@
 package edu.wayne.cs.raptor;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
 
@@ -28,10 +33,28 @@ public class PharmacyEncounterService {
 	private PharmacyEncounter pharmEncounter;
 	
 	private String creationResult;
-	private String recordIDInstruction;
+	private String recordIDInstruction = "Write visit ID on patient sheet.";
 
 	public PharmacyEncounterService() {
 		pharmEncounter = new PharmacyEncounter();
+		
+		pharmSession = HibernateUtil.getSessionFactory().openSession();
+		pharmSession.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<PharmacyEncounter> pharmacyEncounterList = pharmSession.createQuery("from PharmacyEncounter ").list();
+		pharmSession.getTransaction().commit();
+		pharmSession.close();
+		
+		ArrayList<Integer> encounterIDList = new ArrayList<Integer>();
+		if(pharmacyEncounterList.size() == 0){
+			for(int i = 0; i < pharmacyEncounterList.size(); i++) {
+				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
+			}
+		
+			encounterID = Collections.max(encounterIDList) + 1;
+		}
+		else
+			encounterID = 1;
 	}
 
 	public String getFirstName() {
@@ -196,7 +219,8 @@ public class PharmacyEncounterService {
 		pharmSession.close();
 
 		creationResult = "Visit ID "+Integer.toString(encounterID)+" created.";
-		recordIDInstruction = "Write visit ID on patient sheet.";
+		
+		JOptionPane.showMessageDialog(null, Integer.toString(encounterID)+" created.");
 
 		resetFields();
 
@@ -204,7 +228,7 @@ public class PharmacyEncounterService {
 	}
 
 	public void passToPharmEncounter(){
-		pharmEncounter = new PharmacyEncounter(firstName, lastName, medDispensed1, medDispensed2, 
+		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, 
 				medDispensed3, medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
 				equalPrescribed4, equalPrescribed5);
 
@@ -213,10 +237,11 @@ public class PharmacyEncounterService {
 	}
 
 	public void resetFields(){
+		setEncounterID(encounterID + 1);
+		
 		setFirstName(null);
 		setLastName(null);
 		
-		setEncounterID(0);
 		setMedDispensed1(null);
 		setMedDispensed2(null);
 		setMedDispensed3(null);
