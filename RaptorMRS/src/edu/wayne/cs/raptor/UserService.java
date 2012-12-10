@@ -16,7 +16,7 @@ import org.hibernate.Session;
  *  TODO: Are we going to delete any users or void/retire users.
  *  TODO: Change user/patient/encounter/vitals scope to none instead of session
  *  
- * @author Muhammed, Ramez, Jackson
+ * @author Muhammed, Ramez, Jackson, Tom
  *
  */
 
@@ -24,6 +24,7 @@ public class UserService implements IUserService {
 
 	
 	private User newUser;
+	private Computer thisComputer;
 	private LoginBean login;
 	private Session userSession;
 	private Calendar calendar = Calendar.getInstance();
@@ -40,7 +41,9 @@ public class UserService implements IUserService {
 	
 	public UserService(){
 		newUser = new User();
+		thisComputer = new Computer();
 		setCreating(true);
+		thisComputer.setComputerID(1000);
 	}
 	
 	public void setLogin(LoginBean login){

@@ -4,6 +4,12 @@ create database raptor;
 
 use raptor;
 
+ CREATE TABLE `COMPUTER`(
+       `computerID`int(10) unsigned zerofill NOT NULL
+       PRIMARY KEY(`computerID`),
+       UNIQUE KEY `computerID` (`computerID`)
+     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ 
  CREATE TABLE `PHARMACY`(
        `encounterID` int(10) unsigned zerofill NOT NULL,
        `medDispensed1` varchar(55),

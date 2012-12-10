@@ -13,14 +13,29 @@
 
 <body>
 	<f:view>
-		<div id="navigation">
-			<img src="img\logo_xl.png" height="60" width="180">
-		</div>
+	<div id= "navigation">
+	<div style="float:left">
+		<img src="img\logo_xl.png" height="60" width="180">
+	</div>
+	
+	<div style="float:right">
+	<h:form>
+		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>		
+		<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+	</h:form>
+	</div>
+	</div>
 
 		<div id="content">
 
 			<div class="adminPanel">
-
+			<table>
+			<tr>
+			<td><h3>Set Unique Computer ID:</h3></td>
+			<td><h:inputText value="#{computer.computerID }"/></td>
+			</tr>
+			<i>*Default value set to 1000*</i><br>
+			</table>
 
 				<fieldset class="admin">
 					<h2>Find User</h2>
