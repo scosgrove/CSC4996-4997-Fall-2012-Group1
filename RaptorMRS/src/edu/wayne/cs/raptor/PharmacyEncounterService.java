@@ -46,7 +46,7 @@ public class PharmacyEncounterService {
 		pharmSession.close();
 		
 		ArrayList<Integer> encounterIDList = new ArrayList<Integer>();
-		if(pharmacyEncounterList.size() == 0){
+		if(pharmacyEncounterList.size() != 0){
 			for(int i = 0; i < pharmacyEncounterList.size(); i++) {
 				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
 			}
