@@ -54,8 +54,6 @@
 			</div>
 
 			<center>
-				<p><a href="">Forgot your password?</a></p>
-				<p><a href="">Request an ID </a></p>
 				<p><a href="HelpInformation.pdf">Need Help?</a></p>
 			</center>
 
