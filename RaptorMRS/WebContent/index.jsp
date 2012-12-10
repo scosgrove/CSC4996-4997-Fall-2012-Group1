@@ -12,10 +12,17 @@
 </head>
 
 <body>
+
 	<f:view>
-		<div id="navigation">
-			<img src="img\logo_xl.png" height="60" width="180">
-		</div>
+	<div id= "navigation">
+	<div style="float:left">
+		<img src="img\logo_xl.png" height="60" width="180">
+	</div>
+	
+	<div style="float:right">
+
+	</div>
+	</div>
 
 		<div id="content">
 			<div id="form" >
@@ -24,12 +31,7 @@
 
 				<h:form>
 
-				<!-- original
-				<input type="text" name="uid" placeholder="username">
-				<input type="password" name="uid" placeholder="password">
-				<br>
-				<input type="submit" value="Login">
-				-->
+
 
 				<center>
 				<table>
@@ -38,14 +40,14 @@
 					<td><center>Password</center></td>
 				</tr>
 				<tr>
-					<td><h:inputText id="username" value="#{loginBean.systemUser.username}" /></td>
-					<td><h:inputSecret id="password" redisplay="false" value="#{loginBean.systemUser.password}" /></td>
+					<td><h:inputText style="width:150px" id="username" value="#{loginBean.systemUser.username}" /></td>
+					<td><h:inputSecret style="width:150px" id="password" redisplay="false" value="#{loginBean.systemUser.password}" /></td>
 				</tr>
 				</table>
 				</center>
 				
 				
-					<h:commandButton id="submit" value="Login" action="#{loginBean.authenticate }" style="width:130px;height:40px"></h:commandButton>
+					<h:commandButton id="submit" value="Login" action="#{loginBean.authenticate }" style="width:130px;height:40px"></h:commandButton><BR><BR>
 					<h:outputText value="#{loginBean.loginResult}"></h:outputText>
 				</h:form>
 

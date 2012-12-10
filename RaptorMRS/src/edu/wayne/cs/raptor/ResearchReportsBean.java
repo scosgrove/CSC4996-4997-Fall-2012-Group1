@@ -318,10 +318,16 @@ public class ResearchReportsBean {
 								String.valueOf(dbpharm.get(j).getMedDispensed5()));
 					}
 				}
-				if (selectedColumns.get(k).equals("FingerPoke")) {
+				if (selectedColumns.get(k).equals("Malaria")) {
 					for (int j = 0; j < dbencounter.size(); j++) {
 
-						csvData.get(k).add(String.valueOf(dbVitals.get(j).getFingerPoke()));		
+						csvData.get(k).add(String.valueOf(dbVitals.get(j).getMalaria()));		
+					}
+				}
+				if (selectedColumns.get(k).equals("Dengue")) {
+					for (int j = 0; j < dbencounter.size(); j++) {
+
+						csvData.get(k).add(String.valueOf(dbVitals.get(j).getDengue()));		
 					}
 				}
 				if (selectedColumns.get(k).equals("samepleID")) {

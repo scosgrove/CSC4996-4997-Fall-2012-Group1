@@ -45,7 +45,8 @@ public class Vitals {
 	private int oximetry;
 	
 	/** Patient had blood drawn */
-	private boolean fingerPoke;
+	private boolean malaria;
+	private boolean dengue;
 	
 	/** Patient's blood sample number */
 	private int bloodSampleID;
@@ -155,16 +156,22 @@ public class Vitals {
 		this.oximetry = oximetry;
 	}
 	
-	/** Returns the patient's blood draw status */
-	public boolean getFingerPoke() {
-		return fingerPoke;
+	public boolean getMalaria() {
+		return malaria;
 	}
-	
-	/** Sets the patient's  blood draw status */
-	public void setFingerPoke(boolean drawn) {
-		this.fingerPoke = drawn;
+
+	public void setMalaria(boolean malaria) {
+		this.malaria = malaria;
 	}
-	
+
+	public boolean getDengue() {
+		return dengue;
+	}
+
+	public void setDengue(boolean dengue) {
+		this.dengue = dengue;
+	}
+
 	/** Returns the patient's blood draw sample id number */
 	public int getBloodSampleID() {
 		return bloodSampleID;
