@@ -2,6 +2,8 @@ package edu.wayne.cs.raptor;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 
@@ -107,6 +109,7 @@ public String authenticate() {
 			{
 				setAuthenticated(true);
 				setSystemUser(dbUsername.get(0));
+				JOptionPane.showMessageDialog(null, "To keep maximum HIPAA compliance, please enter PII only in fields in left column", "HIPAA and PII", JOptionPane.INFORMATION_MESSAGE);
 				return handleRoleToPage(dbUsername.get(0));
 			}
 			//  If password incorrect

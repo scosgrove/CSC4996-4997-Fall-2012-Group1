@@ -3,6 +3,8 @@ package edu.wayne.cs.raptor;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 
@@ -113,8 +115,9 @@ public class UserService implements IUserService {
 		//there's no place like home!  (in the database, Toto!)
 		this.login.getSystemUser().setPassword(encryptedPassword);
 
-		
 		saveUser(this.login.getSystemUser());
+		
+		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		return "user_change_password";
 		
 	} 
@@ -172,6 +175,8 @@ public class UserService implements IUserService {
 		
 		saveUser(newUser);
 		newUser = new User();
+		
+		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		return "admin";
 		
 	}
@@ -203,6 +208,8 @@ public class UserService implements IUserService {
 		
 		saveUser(newUser);
 		newUser = new User();
+		
+		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		return "admin";
 	}
 	
