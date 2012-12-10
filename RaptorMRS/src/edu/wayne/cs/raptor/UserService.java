@@ -20,7 +20,6 @@ import org.hibernate.Session;
  *
  */
 
-
 public class UserService implements IUserService {
 
 	

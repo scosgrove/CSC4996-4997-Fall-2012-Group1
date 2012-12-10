@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
+
 <head>
 	<link rel="stylesheet" href="main.css" type="text/css" />
 	<title>Easy EMR</title>
