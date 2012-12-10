@@ -239,33 +239,11 @@ public class PharmacyEncounterService {
 			JOptionPane.showMessageDialog(null, "Error in saving record. ", "Error", JOptionPane.ERROR_MESSAGE);
 			return "Invalid";
 		}
-=======
-		passToPharmEncounter();
-
-		pharmSession = HibernateUtil.getSessionFactory().openSession();
-		pharmSession.beginTransaction();
-		encounterID = (Integer) pharmSession.save(pharmEncounter);
-		pharmSession.getTransaction().commit();
-		pharmSession.close();
-
-		creationResult = "Visit ID "+Integer.toString(encounterID)+" created.";
-		
-		JOptionPane.showMessageDialog(null, Integer.toString(encounterID)+" created.");
-
-		resetFields();
-
-		return "Valid";
->>>>>>> refs/remotes/origin/ui
 	}
 
 	public void passToPharmEncounter(){
-<<<<<<< HEAD
-		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, medDispensed3,
-				medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
-=======
 		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, 
 				medDispensed3, medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
->>>>>>> refs/remotes/origin/ui
 				equalPrescribed4, equalPrescribed5);
 
 		pharmEncounter.setCreatingUser(this.login.getSystemUser().getUsername());
@@ -274,16 +252,11 @@ public class PharmacyEncounterService {
 
 	public void resetFields(){
 		setEncounterID(encounterID + 1);
-		
 		setFirstName(null);
 		setLastName(null);
-		
-<<<<<<< HEAD
 		setEncounterID(0);
 		setFirstName(null);
 		setLastName(null);
-=======
->>>>>>> refs/remotes/origin/ui
 		setMedDispensed1(null);
 		setMedDispensed2(null);
 		setMedDispensed3(null);
