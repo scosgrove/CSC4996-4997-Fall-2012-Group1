@@ -13,14 +13,22 @@
 
 <body>
 	<f:view>
-		<div id="navigation">
-			<img src="img\logo_xl.png" height="60" width="180">
-		</div>
+	<div id= "navigation">
+	<div style="float:left">
+		<img src="img\logo_xl.png" height="60" width="180">
+	</div>
+	
+	<div style="float:right">
+	<h:form>
+		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>		
+		<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+	</h:form>
+	</div>
+	</div>
 
 		<div id="content">
 
 			<div class="adminPanel">
-
 
 				<fieldset class="admin">
 					<h2>Find User</h2>
@@ -68,6 +76,7 @@
 								  <f:selectItem itemValue="Medical Student" itemLabel="Medical Student"/>
 								  <f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist"/>
 								  <f:selectItem itemValue="Researcher" itemLabel="Researcher"/>
+								  <f:selectItem itemValue="System Administrator" itemLabel="Admin"/>
 								</h:selectOneMenu> <br>											
 								<h:commandButton value="Add a new user" action="#{userService.createUser}" rendered="#{userService.creating}"></h:commandButton>
 								<h:commandButton value="Update User" action="#{userService.updateUser }"></h:commandButton>
@@ -77,12 +86,10 @@
 					</h:form>
 				</fieldset>
 			</div>
-			<h:form>
-			<div id="footer">
-				<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
-				<p><a href="HelpInformation.pdf">Need Help?</a></p>
-			</div>
-			</h:form>
+			<BR>
+			<center>
+			<p><a href="HelpInformation.pdf">Need Help?</a></p>
+			</center>
 
 		</div>
 

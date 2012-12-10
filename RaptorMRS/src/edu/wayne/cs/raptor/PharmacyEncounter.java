@@ -10,7 +10,6 @@ import javax.persistence.Table;
 @Table(name = "PHARMACY")
 
 public class PharmacyEncounter {
-
 	protected int encounterID;
 	protected String firstName;
 	protected String lastName;
@@ -32,10 +31,10 @@ public class PharmacyEncounter {
 	public PharmacyEncounter() {
 	}
 	
-	public PharmacyEncounter(int encounterID, String firstName, String lastName, String medDispensed1, String medDispensed2,
-			String medDispensed3, String medDispensed4, String medDispensed5, boolean equalPrescribed1,
-			boolean equalPrescribed2, boolean equalPrescribed3, boolean equalPrescribed4,
-			boolean equalPrescribed5){
+	public PharmacyEncounter(int encounterID, String firstName, String lastName, String medDispensed1, 
+			String medDispensed2, String medDispensed3, String medDispensed4, String medDispensed5, 
+			boolean equalPrescribed1, boolean equalPrescribed2, boolean equalPrescribed3, 
+			boolean equalPrescribed4, boolean equalPrescribed5){
 		setEncounterID(encounterID);
 		setFirstName(firstName);
 		setLastName(lastName);
@@ -58,22 +57,6 @@ public class PharmacyEncounter {
 
 	public void setEncounterID(int encounterID) {
 		this.encounterID = encounterID;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public String getMedDispensed1() {
@@ -170,6 +153,22 @@ public class PharmacyEncounter {
 
 	public void setCreatingUser(String creatingUser) {
 		this.creatingUser = creatingUser;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 }

@@ -18,15 +18,15 @@ import org.hibernate.Session;
  *  TODO: Are we going to delete any users or void/retire users.
  *  TODO: Change user/patient/encounter/vitals scope to none instead of session
  *  
- * @author Muhammed, Ramez, Jackson
+ * @author Muhammed, Ramez, Jackson, Tom
  *
  */
-
 
 public class UserService implements IUserService {
 
 	
 	private User newUser;
+	private Computer thisComputer;
 	private LoginBean login;
 	private Session userSession;
 	private Calendar calendar = Calendar.getInstance();
@@ -37,9 +37,15 @@ public class UserService implements IUserService {
 	private boolean isCreating;
 	private String encryptedPassword;
 	
+	private String myPassword;
+	
+	
+	
 	public UserService(){
 		newUser = new User();
+		thisComputer = new Computer();
 		setCreating(true);
+		thisComputer.setComputerID(1000);
 	}
 	
 	public void setLogin(LoginBean login){
@@ -86,6 +92,60 @@ public class UserService implements IUserService {
 		this.isCreating = isCreating;
 	}
 	
+	public String userChangeOwnPassword(){
+	//	setCreating(true);
+		this.login.getSystemUser().setModifyingUser(this.login.getSystemUser().getUsername());
+		this.login.getSystemUser().setLastModifiedDate(calendar.getTime());
+		
+
+		this.login.getSystemUser().setPassword(myPassword);
+		//get the password right before the save...
+		encryptedPassword = this.login.getSystemUser().getPassword();
+		//mmmm salty. 
+		encryptedPassword += "Raptor!";
+		
+		//close your eyes and click your heels once...
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//twice
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		//thrice!
+		encryptedPassword = DigestUtils.shaHex(encryptedPassword);
+		
+		
+		//there's no place like home!  (in the database, Toto!)
+		this.login.getSystemUser().setPassword(encryptedPassword);
+
+		
+		saveUser(this.login.getSystemUser());
+		return "user_change_password";
+		
+	} 
+
+	
+	public String switchToUpdateInfo(){
+		
+		return "user_change_password";
+	}
+	
+	public String cancel(){
+		if(this.login.getSystemUser().getRoles().equals(Role.DOCTOR)){
+
+			return "create";
+		}
+		
+		if(this.login.getSystemUser().getRoles().equals(Role.ADMIN)){
+			return "admin";
+		}
+		
+		if(this.login.getSystemUser().getRoles().equals(Role.PHARMACIST)){
+			return "pharm";
+		}
+		
+		return "research";
+
+		
+	}
+	
 	/** Called on an Add User action */
 	public String createUser()
 	{
@@ -123,6 +183,7 @@ public class UserService implements IUserService {
 		newUser.setModifyingUser(this.login.getSystemUser().getUsername());
 		newUser.setLastModifiedDate(calendar.getTime()); 
 		
+
 		//get the password right before the save...
 		encryptedPassword = newUser.getPassword();
 		//mmmm salty. 
@@ -138,6 +199,7 @@ public class UserService implements IUserService {
 		
 		//there's no place like home!  (in the database, Toto!)
 		newUser.setPassword(encryptedPassword);
+		
 		
 		saveUser(newUser);
 		newUser = new User();
@@ -268,6 +330,14 @@ public class UserService implements IUserService {
 			return result;
 		else
 			return null;
+	}
+
+	public String getMyPassword() {
+		return myPassword;
+	}
+
+	public void setMyPassword(String myPassword) {
+		this.myPassword = myPassword;
 	}
 
 

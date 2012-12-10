@@ -1,6 +1,9 @@
 package edu.wayne.cs.raptor;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -8,8 +11,6 @@ import org.hibernate.Session;
 
 public class PharmacyEncounterService {
 
-	
-	
 	protected int encounterID;
 	private String firstName;
 	private String lastName;
@@ -32,9 +33,28 @@ public class PharmacyEncounterService {
 	private PharmacyEncounter pharmEncounter;
 	
 	private String creationResult;
+	private String recordIDInstruction = "Write visit ID on patient sheet.";
 
 	public PharmacyEncounterService() {
 		pharmEncounter = new PharmacyEncounter();
+		
+		pharmSession = HibernateUtil.getSessionFactory().openSession();
+		pharmSession.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<PharmacyEncounter> pharmacyEncounterList = pharmSession.createQuery("from PharmacyEncounter ").list();
+		pharmSession.getTransaction().commit();
+		pharmSession.close();
+		
+		ArrayList<Integer> encounterIDList = new ArrayList<Integer>();
+		if(pharmacyEncounterList.size() != 0){
+			for(int i = 0; i < pharmacyEncounterList.size(); i++) {
+				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
+			}
+		
+			encounterID = Collections.max(encounterIDList) + 1;
+		}
+		else
+			encounterID = 1;
 	}
 
 	public String getFirstName() {
@@ -181,6 +201,14 @@ public class PharmacyEncounterService {
 		this.creationResult = creationResult;
 	}
 
+	public String getRecordIDInstruction() {
+		return recordIDInstruction;
+	}
+
+	public void setRecordIDInstruction(String recordIDInstruction) {
+		this.recordIDInstruction = recordIDInstruction;
+	}
+
 	public String dataToDatabase() {	
 		if(encounterID > 0)
 		{
@@ -211,11 +239,33 @@ public class PharmacyEncounterService {
 			JOptionPane.showMessageDialog(null, "Error in saving record. ", "Error", JOptionPane.ERROR_MESSAGE);
 			return "Invalid";
 		}
+=======
+		passToPharmEncounter();
+
+		pharmSession = HibernateUtil.getSessionFactory().openSession();
+		pharmSession.beginTransaction();
+		encounterID = (Integer) pharmSession.save(pharmEncounter);
+		pharmSession.getTransaction().commit();
+		pharmSession.close();
+
+		creationResult = "Visit ID "+Integer.toString(encounterID)+" created.";
+		
+		JOptionPane.showMessageDialog(null, Integer.toString(encounterID)+" created.");
+
+		resetFields();
+
+		return "Valid";
+>>>>>>> refs/remotes/origin/ui
 	}
 
 	public void passToPharmEncounter(){
+<<<<<<< HEAD
 		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, medDispensed3,
 				medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
+=======
+		pharmEncounter = new PharmacyEncounter(encounterID, firstName, lastName, medDispensed1, medDispensed2, 
+				medDispensed3, medDispensed4, medDispensed5, equalPrescribed1, equalPrescribed2, equalPrescribed3, 
+>>>>>>> refs/remotes/origin/ui
 				equalPrescribed4, equalPrescribed5);
 
 		pharmEncounter.setCreatingUser(this.login.getSystemUser().getUsername());
@@ -223,12 +273,17 @@ public class PharmacyEncounterService {
 	}
 
 	public void resetFields(){
+		setEncounterID(encounterID + 1);
+		
 		setFirstName(null);
 		setLastName(null);
 		
+<<<<<<< HEAD
 		setEncounterID(0);
 		setFirstName(null);
 		setLastName(null);
+=======
+>>>>>>> refs/remotes/origin/ui
 		setMedDispensed1(null);
 		setMedDispensed2(null);
 		setMedDispensed3(null);

@@ -14,24 +14,24 @@
 	<managed-bean>
 		<managed-bean-name>userData</managed-bean-name>
 		<managed-bean-class>edu.wayne.cs.raptor.User</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>none</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>patientData</managed-bean-name>
 		<managed-bean-class>edu.wayne.cs.raptor.Patient</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>none</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<description>patient vitals</description>
 		<managed-bean-name>vitals</managed-bean-name>
 		<managed-bean-class>edu.wayne.cs.raptor.Vitals</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>none</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<description>encounter data</description>
 		<managed-bean-name>encounter</managed-bean-name>
 		<managed-bean-class>edu.wayne.cs.raptor.Encounter</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>none</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<description>for coverting between metric and US customary units, and calculating BMI</description>
@@ -47,7 +47,7 @@
 	<managed-bean>
 		<managed-bean-name>pharmacyEncounter</managed-bean-name>
 		<managed-bean-class>edu.wayne.cs.raptor.PharmacyEncounter</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>none</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>pharmacyEncounterService</managed-bean-name>
@@ -91,6 +91,11 @@
 			<property-class>edu.wayne.cs.raptor.LoginBean</property-class>
 			<value>#{loginBean}</value>
 		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>computer</managed-bean-name>
+		<managed-bean-class>edu.wayne.cs.raptor.Computer</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<navigation-rule>
 	<from-view-id>/index.jsp</from-view-id>

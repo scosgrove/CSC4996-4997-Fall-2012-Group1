@@ -38,14 +38,15 @@ public class Vitals {
 	/** Patient's respiratory rate */
 	private int respRate;
 	
-	/** Patient's temperature in celsius */
-	private int temperatureC;
+	/** Patient's temperature in fahrenheit */
+	private double temperatureF;
 	
 	/** Patient's pulse oximetry in percentage */
 	private int oximetry;
 	
 	/** Patient had blood drawn */
-	private boolean fingerPoke;
+	private boolean malaria;
+	private boolean dengue;
 	
 	/** Patient's blood sample number */
 	private int bloodSampleID;
@@ -136,13 +137,13 @@ public class Vitals {
 	}
 	
 	/** Returns the patient's temperature */
-	public int getTemperatureC() {
-		return temperatureC;
+	public double getTemperatureF() {
+		return temperatureF;
 	}
 	
 	/** Sets the patient's temperature */
-	public void setTemperatureC(int temperatureC) {
-		this.temperatureC = temperatureC;
+	public void setTemperatureF(double temperatureF) {
+		this.temperatureF = temperatureF;
 	}
 	
 	/** Returns the patient's pulse oximetry */
@@ -155,16 +156,22 @@ public class Vitals {
 		this.oximetry = oximetry;
 	}
 	
-	/** Returns the patient's blood draw status */
-	public boolean getFingerPoke() {
-		return fingerPoke;
+	public boolean getMalaria() {
+		return malaria;
 	}
-	
-	/** Sets the patient's  blood draw status */
-	public void setFingerPoke(boolean drawn) {
-		this.fingerPoke = drawn;
+
+	public void setMalaria(boolean malaria) {
+		this.malaria = malaria;
 	}
-	
+
+	public boolean getDengue() {
+		return dengue;
+	}
+
+	public void setDengue(boolean dengue) {
+		this.dengue = dengue;
+	}
+
 	/** Returns the patient's blood draw sample id number */
 	public int getBloodSampleID() {
 		return bloodSampleID;

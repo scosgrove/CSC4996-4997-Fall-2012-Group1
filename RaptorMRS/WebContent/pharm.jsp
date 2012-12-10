@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
+
 <head>
 	<link rel="stylesheet" href="main.css" type="text/css" />
 	<title>Easy EMR</title>
@@ -13,20 +14,28 @@
 <body>
 <f:view>
 	<div id= "navigation">
+	<div style="float:right">
+	<h:form>
+		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>		
+		<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+	</h:form>
+	</div>
+	
+	<div style="float:left">
 		<img src="img\logo_xl.png" height="60" width="180">
+	</div>
 	</div>
 	
 	<div id= "content">
 	
 		<div id = "form">
 		<h:form>
-			
-			<h:outputText value="#{pharmacyEncounterService.creationResult }"></h:outputText>
+			<h1><font color="red">Visit ID: 
+			<h:outputText value="#{pharmacyEncounterService.encounterID }"></h:outputText></font></h1>
+			<h3><font color="red"><h:outputText value="#{pharmacyEncounterService.recordIDInstruction }"></h:outputText>
+			</font></h3>
 			<h1>Create RX Record</h1><br>
-			<h3>Enter Visit ID</h3>
-				<h:inputText id="visitID" value="#{pharmacyEncounterService.encounterID }" />
 			<center>
-			
 			<table>
 			
 			<tr>
@@ -40,7 +49,7 @@
 			</tr>
 	
 			<tr>
-				<td><h3>Prescription Given</h3></td>
+				<td><h3>Medication Given</h3></td>
 				<td><h3>Same as Prescribed?</h3></td>
 			</tr>
 			
@@ -96,9 +105,7 @@
 	</div>
 
 	<center>
-	<h:form>
-		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
-	</h:form>
+
 	<a href="HelpInformation.pdf">Need Help?</a>
 	</center>
 	

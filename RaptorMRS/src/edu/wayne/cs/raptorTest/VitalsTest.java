@@ -48,10 +48,10 @@ public class VitalsTest {
 
 	@Test
 	public void testSetAndGetTemperatureC() {
-		int expectedTemp = 37;
-		int actualTemp;
-		vitals.setTemperatureC(expectedTemp);
-		actualTemp = vitals.getTemperatureC();
+		double expectedTemp = 98.6;
+		double actualTemp;
+		vitals.setTemperatureF(expectedTemp);
+		actualTemp = vitals.getTemperatureF();
 		assert(expectedTemp == actualTemp);
 	}
 

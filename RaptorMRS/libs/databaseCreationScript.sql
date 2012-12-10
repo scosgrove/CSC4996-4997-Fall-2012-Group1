@@ -6,8 +6,6 @@ use raptor;
 
  CREATE TABLE `PHARMACY`(
        `encounterID` int(10) unsigned zerofill NOT NULL,
-       `firstName` varchar(55),
-       `lastName` varchar(55),
        `medDispensed1` varchar(55),
        `medDispensed2` varchar(55),
        `medDispensed3` varchar(55),
@@ -64,7 +62,7 @@ use raptor;
        `birthDate` varchar(55),
        `gender` varchar(15),
        `keywords` varchar(55),
-       `residence` varchar(55),
+       `residence` varchar(55),	
        `socialHistory` varchar(55),
        `creatingUser` varchar(55) DEFAULT NULL,  
        `createdDate` datetime DEFAULT NULL,
@@ -89,7 +87,7 @@ CREATE TABLE `USERS` (
 	  PRIMARY KEY (`userID`),
 	  UNIQUE KEY `userID_UNIQUE` (`userID`),
 	  UNIQUE KEY `username_UNIQUE` (`userName`)
-	) ENGINE=InnoDB AUTO_INCREMENT=469 DEFAULT CHARSET=utf8;
+	) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8;
 
  
  CREATE TABLE `VITALS` (
@@ -99,9 +97,10 @@ CREATE TABLE `USERS` (
        `diastolicBP` int(10) unsigned DEFAULT NULL,
        `heartRate` int(10) unsigned DEFAULT NULL,
        `respRate` int(10) unsigned DEFAULT NULL,
-       `temperatureC` int(10) unsigned DEFAULT NULL,
+       `temperatureF` float(6,3) unsigned DEFAULT NULL,
        `oximetry` int(10) unsigned DEFAULT NULL,
-       `fingerPoke` bit(1) DEFAULT NULL,
+       `malaria` bit(1) DEFAULT NULL,
+       `dengue` bit(1) DEFAULT NULL,
        `bloodSampleID` int(10) unsigned zerofill DEFAULT NULL,
        `height` int(10) unsigned DEFAULT NULL,
        `weight` int(10) unsigned DEFAULT NULL,
@@ -120,5 +119,7 @@ CREATE TABLE `USERS` (
      insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('jim', 'jimerson', 'student', '2eb4ed42db03e48321ae25bab6b68370051921a0','Medical Student');
 	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('frank', 'frankfurter', 'pharm', '6ccab84e7539afccc64d90e19d9d4abd72968c13','Pharmacist');
 	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('sample', 'mcTest', 'research', '43532e0c9726857cc44f5852c1f561335db3dd69','Researcher');
-
-     
+     insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('bob', 'bobson', 'admin', 'cef5729281f29438d09d2aedcacfd607d1cddcc9','System Administrator');
+     insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('jim', 'jimerson', 'student', '2eb4ed42db03e48321ae25bab6b68370051921a0','Medical Student');
+	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('frank', 'frankfurter', 'pharm', '6ccab84e7539afccc64d90e19d9d4abd72968c13','Pharmacist');
+	 insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('sample', 'mcTest', 'research', '43532e0c9726857cc44f5852c1f561335db3dd69','Researcher');
