@@ -93,12 +93,9 @@
 					</h:form>
 				</fieldset>
 			</div>
-			<h:form>
-			<div id="footer">
-				<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
-				<p><a href="HelpInformation.pdf">Need Help?</a></p>
-			</div>
-			</h:form>
+
+			<p><a href="HelpInformation.pdf">Need Help?</a></p>
+
 
 		</div>
 

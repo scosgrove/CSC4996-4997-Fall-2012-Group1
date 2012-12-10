@@ -85,14 +85,7 @@
 		<td><h3>Weight</h3></td>
 		<td><h:inputText id="wlbs" value="#{encounterService.vitals.weight }"></h:inputText> lbs</td>
 		</tr>
-		
-		<br>
-		
-		<tr>
-		<td><h3>BMI</h3></td>
-		<td><h:outputLabel value = "#{encounterService.vitals.calculatedBMI }"></h:outputLabel></td>
-		</tr>
-		
+			
 		</table>
 	</div>
 			
@@ -111,7 +104,7 @@
 		</tr>
 		
 		<tr>
-		<td><h3>Temperature (C)</h3></td>
+		<td><h3>Temperature (F)</h3></td>
 		<td><h:inputText id="temperature"  value="#{encounterService.vitals.temperatureC }" /><br></td>
 		</tr>
 		
@@ -126,7 +119,7 @@
 		</tr>
 		
 		<tr>
-		<td><h3>Sample</h3></td>
+		<td><h3>Blood Sample #</h3></td>
 		<td><h:inputText style="width:100px" value = "#{encounterService.vitals.bloodSampleID }"></h:inputText></td>
 		</tr>
 		
@@ -205,7 +198,7 @@
 		<td><h:inputText value="#{encounterService.encounter.other }"/></td>
 		</tr>
 		</table>
-		
+		<BR>
 		<center>
 		<h3>Physical Examination</h3>
 		<h:inputTextarea style="width:100%" id="impression" value="#{encounterService.encounter.overallImpression }" />

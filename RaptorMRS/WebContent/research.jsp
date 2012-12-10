@@ -116,17 +116,7 @@
 			</div>
 
 			<center>
-				<h:form>
-					<p>
-						<h:commandLink action="#{loginBean.logout}">Log out</h:commandLink>
-					</p>
-					<p>
-					<h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink>
-					</p>
-					<p>
-						<a href="HelpInformation.pdf">Need Help?</a>
-					</p>
-				</h:form>
+				<a href="HelpInformation.pdf">Need Help?</a>
 			</center>
 
 		</div>
