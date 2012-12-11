@@ -55,7 +55,7 @@
 						<td><f:selectItem itemValue="heartRate" itemLabel="Heart Rate" /></td>
 					</tr>
 					<tr>
-						<td><f:selectItem itemValue="temperatureC" itemLabel="Temperature" /></td>
+						<td><f:selectItem itemValue="temperatureF" itemLabel="Temperature" /></td>
 						<td><f:selectItem itemValue="respRate" itemLabel="Respirations" /></td>
 					</tr>
 					<tr>
@@ -75,13 +75,13 @@
 						<td><f:selectItem itemValue="medicationPrescribed5" itemLabel="Prescribed 5" /></td>
 					</tr>
 					<tr>
-					<td><f:selectItem itemValue="medicationDispensed1" itemLabel="Dispensed 1" /></td>
-						<td><f:selectItem itemValue="medicationDispensed2" itemLabel="Dispensed 2" /></td>
+					<td><f:selectItem itemValue="medDispensed1" itemLabel="Dispensed 1" /></td>
+						<td><f:selectItem itemValue="medDispensed2" itemLabel="Dispensed 2" /></td>
 					</tr>
 					<tr>
-					<td><f:selectItem itemValue="medicationDispensed3" itemLabel="Dispensed 3" /></td>
-						<td><f:selectItem itemValue="medicationDispensed4" itemLabel="Dispensed 4" /></td>
-						<td><f:selectItem itemValue="medicationDispensed5" itemLabel="Dispensed 5" /></td>
+					<td><f:selectItem itemValue="medDispensed3" itemLabel="Dispensed 3" /></td>
+						<td><f:selectItem itemValue="medDispensed4" itemLabel="Dispensed 4" /></td>
+						<td><f:selectItem itemValue="medDispensed5" itemLabel="Dispensed 5" /></td>
 					</tr>
 					<tr>
 						<td><f:selectItem itemValue="fingerPoke" itemLabel="BloodDrawn" /></td>
@@ -109,7 +109,7 @@
 					
 
 					<h:commandButton action="#{researchReportsBean.submit}"
-						value="Generate Report" style="width:300px;height:60px"></h:commandButton>​​​​​​​​​​​​
+						value="Generate Report" style="width:300px;height:60px;margin-top:20px"></h:commandButton>​​​​​​​​​​​​
 			<br />
 					<h:outputText value="#{researchReportsBean.result}"></h:outputText>
 				</h:form>
