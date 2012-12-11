@@ -34,8 +34,8 @@
 	<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="#{encounterService.searchPatientFirstName }" />&nbsp;&nbsp;<h:commandButton id="searchFirst" value="Search" action="#{encounterService.searchPatientsF }"></h:commandButton>&nbsp;&nbsp;Last Name<h:inputText id="lastname" value="#{encounterService.searchPatientLastName }" />&nbsp;&nbsp;<h:commandButton id="searchLast" value="Search" action="#{encounterService.searchPatients }"></h:commandButton>&nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="#{encounterService.searchPatientId }" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="#{encounterService.searchPatient }"></h:commandButton></p>
 	</div>
 	<BR>
-	<h:commandButton id="submit" style="width:100px;height:50px" value="Submit" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton>
-	<h:commandButton id="startNew" style="width:100px;height:50px" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton>
+	<h:commandButton id="submit" style="width:150px;height:50px" value="Submit" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton>
+	<h:commandButton id="startNew" style="width:150px;height:50px" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton>
 	</center>
 		
 	<div id = "module" style="float:left">
@@ -205,7 +205,7 @@
 		<BR>
 		<center>
 		<h3>Physical Examination</h3>
-		<h:inputTextarea style="width:100%" id="impression" value="#{encounterService.encounter.overallImpression }" />
+		<h:inputTextarea style="width:100%" id="physicalExamination" value="#{encounterService.encounter.overallImpression }" />
 		</center>
 		
 	</div>
@@ -215,7 +215,7 @@
 		<center>	
 	
 		<h3>Assessment</h3>
-		<h:inputTextarea style="width:100%" id="assessment" value="#{encounterService.encounter.chiefComplaint }" />
+		<h:inputTextarea style="width:100%" id="assessment" value="#{encounterService.encounter.assessment }" />
 		
 		<table>
 		<tr>

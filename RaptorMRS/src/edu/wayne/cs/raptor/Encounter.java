@@ -56,7 +56,7 @@ public class Encounter {
 	private String condition4;
 	private String condition5;
 	
-	/** Overall Impression of the encounter & additional comments */
+	/** Results of physical examination */
 	private String overallImpression;
 	
 	/** Keywords for this encounter */
@@ -64,6 +64,8 @@ public class Encounter {
 	
 	/** Any medical procedures the Patient has undergone in the past or the current encounter */
 	private String medicalProcedures;
+	
+	private String assessment;
 
 	/** 
 	 * metadata
@@ -171,15 +173,6 @@ public class Encounter {
 		this.condition5 = condition5;
 	}
 	
-	/** Returns the overall impression of the encounter */
-	public String getOverallImpression() {
-		return overallImpression;
-	}
-
-	/** Sets the overall impression of the encounter */
-	public void setOverallImpression(String impression) {
-		this.overallImpression = impression;
-	}
 
 	/** Returns the keywords of the encounter */
 	public String getKeywords() {
@@ -319,5 +312,21 @@ public class Encounter {
 
 	public void setMedicationPrescribed5(String medicationPrescribed5) {
 		this.medicationPrescribed5 = medicationPrescribed5;
+	}
+
+	public String getOverallImpression() {
+		return overallImpression;
+	}
+
+	public void setOverallImpression(String overallImpression) {
+		this.overallImpression = overallImpression;
+	}
+
+	public String getAssessment() {
+		return assessment;
+	}
+
+	public void setAssessment(String assessment) {
+		this.assessment = assessment;
 	}
 }
