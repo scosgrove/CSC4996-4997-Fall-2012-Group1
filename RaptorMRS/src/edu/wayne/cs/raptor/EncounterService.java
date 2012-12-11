@@ -26,7 +26,6 @@ public class EncounterService implements IEncounterService {
 	private Patient patient;
 	private int patientID;
 	private Encounter encounter;
-	private int encounterID;
 	private Vitals vitals;
 	//nobody cares about VitalsID but vitals.  *tiny violin*
 	
@@ -77,8 +76,9 @@ public class EncounterService implements IEncounterService {
 		
 		userSession.update(patient);
 		encounter.setPatientID(this.patient.getPatientID());
-		encounterID = (Integer) userSession.save(encounter);
-		vitals.setEncounterID(encounterID);
+	
+		userSession.save(encounter);
+		vitals.setEncounterID(this.encounter.getEncounterID());
 		userSession.save(vitals);
 		
 		userSession.getTransaction().commit();
@@ -130,9 +130,8 @@ public class EncounterService implements IEncounterService {
 			
 
 			//get the encounterID once it is saved and use it in vitals
-			encounterID = (Integer) userSession.save(encounter);
-			vitals.setEncounterID(encounterID);
-			
+			userSession.save(encounter);
+			vitals.setEncounterID(this.encounter.getEncounterID());
 			userSession.save(vitals);
 		}
 		
