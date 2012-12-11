@@ -2,7 +2,7 @@ package edu.wayne.cs.raptor;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
+//import java.util.Collections;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -10,6 +10,11 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 
 public class PharmacyEncounterService {
+	
+	private int userID;
+	//private int computerID = 0;
+	//private int computerIDInitialValue;
+	//private int computerIDMaxValue;
 
 	protected int encounterID;
 	private String firstName;
@@ -38,6 +43,11 @@ public class PharmacyEncounterService {
 	public PharmacyEncounterService() {
 		pharmEncounter = new PharmacyEncounter();
 		
+		//Aaargh
+		/*
+		int computerIDInitialValue = 0;
+		int computerIDMaxValue = 1;
+		
 		pharmSession = HibernateUtil.getSessionFactory().openSession();
 		pharmSession.beginTransaction();
 		@SuppressWarnings("unchecked")
@@ -45,16 +55,44 @@ public class PharmacyEncounterService {
 		pharmSession.getTransaction().commit();
 		pharmSession.close();
 		
+		setUserID(this.login.getSystemUser().getUserID());
+		
+		if(userID < 10){
+			computerIDInitialValue = userID * 100000000;
+			computerIDMaxValue = (userID + 1) * 100000000;
+		}
+		else if(userID < 100){
+			computerIDInitialValue = userID * 10000000;
+			computerIDMaxValue = (userID + 1) * 10000000;
+		}
+		else if(userID < 1000){
+			computerIDInitialValue = userID * 1000000;
+			computerIDMaxValue = (userID + 1) * 1000000;
+		}
+		else{
+			computerIDInitialValue = userID * 100000;
+			computerIDMaxValue = (userID + 1) * 100000;
+		}
+		
 		ArrayList<Integer> encounterIDList = new ArrayList<Integer>();
-		if(pharmacyEncounterList.size() != 0){
+		if(pharmacyEncounterList.size() > 0){
 			for(int i = 0; i < pharmacyEncounterList.size(); i++) {
 				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
 			}
+			
+			setEncounterID(beginningEncounterID(encounterIDList, computerIDInitialValue, computerIDMaxValue));
+			
+			//This code starts from highest encounterID in the DB table
+			//Replacing this with code to choose next encounterID based on what's in DB and computerID
+			/*for(int i = 0; i < pharmacyEncounterList.size(); i++) {
+				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
+			}
 		
-			encounterID = Collections.max(encounterIDList) + 1;
+			encounterID = Collections.max(encounterIDList) + 1;*//*
 		}
 		else
-			encounterID = 1;
+			encounterID = computerIDInitialValue;
+		*/
 	}
 
 	public String getFirstName() {
@@ -209,7 +247,10 @@ public class PharmacyEncounterService {
 		this.recordIDInstruction = recordIDInstruction;
 	}
 
+	//TODO: pad encounterID to always be 9 digits
 	public String dataToDatabase() {	
+		determineEncounterID();
+		
 		passToPharmEncounter();
 
 		pharmSession = HibernateUtil.getSessionFactory().openSession();
@@ -252,6 +293,82 @@ public class PharmacyEncounterService {
 		setEqualPrescribed3(true);
 		setEqualPrescribed4(true);
 		setEqualPrescribed5(true);
+	}
+	
+	public int beginningEncounterID(ArrayList<Integer> encounterIDList, int computerIDInitialValue,
+			int computerIDMaxValue){
+		
+		boolean changedTempEncounterID = false;
+		int tempEncounterID = computerIDInitialValue;
+		
+		// TODO: stop for loop if values go beyond computerIDMaxValue
+		for(int i = 0; i < encounterIDList.size(); i++){
+			if((encounterIDList.get(i) >= tempEncounterID) && (encounterIDList.get(i) < computerIDMaxValue)){
+				tempEncounterID = encounterIDList.get(i);
+				if(changedTempEncounterID == false){
+					changedTempEncounterID = true;
+				}
+			}
+		}
+		
+		if(changedTempEncounterID == true){
+			tempEncounterID = tempEncounterID + 1;
+		}
+		
+		return tempEncounterID;
+	}
+	
+	public void determineEncounterID(){
+		int computerIDInitialValue = 0;
+		int computerIDMaxValue = 1;
+		
+		pharmSession = HibernateUtil.getSessionFactory().openSession();
+		pharmSession.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<PharmacyEncounter> pharmacyEncounterList = pharmSession.createQuery("from PharmacyEncounter ").list();
+		pharmSession.getTransaction().commit();
+		pharmSession.close();
+		
+		setUserID(this.login.getSystemUser().getUserID());
+		
+		computerIDInitialValue = userID * 1000000;
+		computerIDMaxValue = (userID + 1) * 1000000;
+		
+		
+		ArrayList<Integer> encounterIDList = new ArrayList<Integer>();
+		if(pharmacyEncounterList.size() > 0){
+			for(int i = 0; i < pharmacyEncounterList.size(); i++) {
+				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
+			}
+			
+			setEncounterID(beginningEncounterID(encounterIDList, computerIDInitialValue, computerIDMaxValue));
+			
+			//This code starts from highest encounterID in the DB table
+			//Replacing this with code to choose next encounterID based on what's in DB and computerID
+			/*for(int i = 0; i < pharmacyEncounterList.size(); i++) {
+				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
+			}
+		
+			encounterID = Collections.max(encounterIDList) + 1;*/
+		}
+		else
+			encounterID = computerIDInitialValue;
+	}
+/*
+	public int getComputerID() {
+		return computerID;
+	}
+
+	public void setComputerID(int computerID) {
+		this.computerID = computerID;
+	}
+*/
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
 }
