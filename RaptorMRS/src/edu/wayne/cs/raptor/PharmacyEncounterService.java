@@ -259,9 +259,9 @@ public class PharmacyEncounterService {
 		pharmSession.getTransaction().commit();
 		pharmSession.close();
 
-		creationResult = "Visit ID "+Integer.toString(encounterID)+" created.";
+		//creationResult = "Visit ID "+Integer.toString(encounterID)+" created.";
 		
-		JOptionPane.showMessageDialog(null, Integer.toString(encounterID)+" created.");
+		JOptionPane.showMessageDialog(null, String.format("%09d", encounterID)+" created.");
 
 		resetFields();
 
