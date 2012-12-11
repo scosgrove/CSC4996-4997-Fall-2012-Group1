@@ -95,7 +95,7 @@
 					<tr>
 						<td><f:selectItem itemValue="condition3" itemLabel="Condition 3" /></td>
 						<td><f:selectItem itemValue="condition4" itemLabel="Condition 4" /></td>
-					</tr>
+					</tr> 
 					<tr>
 						<td><f:selectItem itemValue="condition5" itemLabel="Condition 5" /></td>
 						<td><f:selectItem itemValue="radiation" itemLabel="Radiation" /></td>

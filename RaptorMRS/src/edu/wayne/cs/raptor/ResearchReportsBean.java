@@ -381,7 +381,7 @@ public class ResearchReportsBean {
 				}
 				if (selectedColumns.get(k).equals("provokes")) {
 					for (int j = 0; j < dbencounter.size(); j++) {
-
+ 
 						csvData.get(k).add(dbencounter.get(j).getProvokes());	
 					}
 				}
