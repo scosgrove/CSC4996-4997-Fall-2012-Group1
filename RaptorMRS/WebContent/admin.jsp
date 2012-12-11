@@ -33,6 +33,7 @@
 				<fieldset class="admin">
 					<h2>Find User</h2>
 					<h:form>
+						<h:commandButton value="Display All Users" action="#{userService.displayAllUsers }" />
 						<center>
 							<table>
 							<tr>

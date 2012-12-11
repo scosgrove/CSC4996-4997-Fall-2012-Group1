@@ -38,7 +38,7 @@ public class UserService implements IUserService {
 	private String encryptedPassword;
 	
 	private String myPassword;
-	
+	private List<User> usersList;
 	
 	
 	public UserService(){
@@ -90,6 +90,14 @@ public class UserService implements IUserService {
 
 	public void setCreating(boolean isCreating) {
 		this.isCreating = isCreating;
+	}
+	
+	public List<User> getUsersList() {
+		return usersList;
+	}
+
+	public void setUsersList(List<User> usersList) {
+		this.usersList = usersList;
 	}
 	
 	public String userChangeOwnPassword(){
@@ -228,6 +236,19 @@ public class UserService implements IUserService {
 				setNewUser(getUserByFirstName(this.searchFirst));	
 		return "admin";
 	}
+	
+	/** Function to display all users in the system*/
+	public String displayAllUsers(){
+		setUsersList(getAllUsers());
+		return "usersDisplay";
+	
+	}
+	/** Navigate back to admin page and populate user parameters with selected user */
+	public String selectUser(){
+		setCreating(false);
+		return "admin";
+	}
+	
 	
 	public String resetFields(){
 		setSearchUsername("");
