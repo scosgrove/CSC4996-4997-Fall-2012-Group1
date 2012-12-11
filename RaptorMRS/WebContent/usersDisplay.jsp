@@ -18,7 +18,7 @@
 		</div>
 		
 		<div id="container" >
-			<BR>
+			<BR><BR>
 			<h:form>
 			<h:dataTable value="#{userService.usersList}" var="user">
 				<h:column>

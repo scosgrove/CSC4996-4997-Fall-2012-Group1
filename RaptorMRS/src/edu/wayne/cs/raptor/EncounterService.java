@@ -381,6 +381,14 @@ public class EncounterService implements IEncounterService {
 		
 	}
 	
+	public String resetRecord(){
+		setNewEncounter(false);
+		patient = new Patient();
+		encounter = new Encounter();
+		vitals = new Vitals();
+		return "create";
+	}
+	
 	/***********************************/
 	/****** Patient Operations ********/
     /*********************************/

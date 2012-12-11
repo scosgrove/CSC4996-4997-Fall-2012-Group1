@@ -19,6 +19,7 @@
 	<div style="float:right">
 		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
 		<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+		
 	</div>
 	
 	<div style="float:left">
@@ -34,6 +35,7 @@
 	<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="#{encounterService.searchPatientFirstName }" />&nbsp;&nbsp;<h:commandButton id="searchFirst" value="Search" action="#{encounterService.searchPatientsF }"></h:commandButton>&nbsp;&nbsp;Last Name<h:inputText id="lastname" value="#{encounterService.searchPatientLastName }" />&nbsp;&nbsp;<h:commandButton id="searchLast" value="Search" action="#{encounterService.searchPatients }"></h:commandButton>&nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="#{encounterService.searchPatientId }" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="#{encounterService.searchPatient }"></h:commandButton></p>
 	</div>
 	<BR>
+	<h:commandButton action="#{encounterService.resetRecord }" style="width:150px;height:50px" value="Create New Patient"/>
 	<h:commandButton id="submit" style="width:150px;height:50px" value="Submit" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton>
 	<h:commandButton id="startNew" style="width:150px;height:50px" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton>
 	</center>
@@ -70,7 +72,7 @@
 		<tr>
 		<td><h3>Gender</h3></td>
 		<td><h:selectOneMenu id ="gender" value="#{encounterService.patient.gender }">
-		   	<f:selectItem itemValue="NULL" itemLabel="- Select -" />
+		   	<f:selectItem itemValue="Select" itemLabel="- Select -" />
 		   	<f:selectItem itemValue="Male" itemLabel="Male" />
 		   	<f:selectItem itemValue="Female" itemLabel="Female" />
 		</h:selectOneMenu></td>

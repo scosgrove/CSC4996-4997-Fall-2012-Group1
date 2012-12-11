@@ -28,6 +28,7 @@
 	</div>
 	</center>
 	<h:form>
+		<h:commandButton action="#{encounterService.resetRecord }" style="width:150px;height:50px" value="Create New Patient"/>
 	<h:dataTable value="#{encounterService.searchList}" var="encounter" >
       <h:column>
         <%-- Via this facet we define the table header (column 1) --%>
@@ -77,8 +78,6 @@
 	
 			<div id = "module" style="float:left">
 				<h1>General Information</h1>
-				
-				<a href=""><img src="img/nopic.png"></a>
 				
 				<h3>Patient ID</h3>
 				<h:outputLabel value = "#{encounterService.patient.patientID }"></h:outputLabel>
