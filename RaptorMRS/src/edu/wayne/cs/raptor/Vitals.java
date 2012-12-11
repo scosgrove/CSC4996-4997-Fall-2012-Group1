@@ -38,8 +38,8 @@ public class Vitals {
 	/** Patient's respiratory rate */
 	private int respRate;
 	
-	/** Patient's temperature in celsius */
-	private int temperatureC;
+	/** Patient's temperature in fahrenheit */
+	private double temperatureF;
 	
 	/** Patient's pulse oximetry in percentage */
 	private int oximetry;
@@ -137,13 +137,13 @@ public class Vitals {
 	}
 	
 	/** Returns the patient's temperature */
-	public int getTemperatureC() {
-		return temperatureC;
+	public double getTemperatureF() {
+		return temperatureF;
 	}
 	
 	/** Sets the patient's temperature */
-	public void setTemperatureC(int temperatureC) {
-		this.temperatureC = temperatureC;
+	public void setTemperatureF(double temperatureF) {
+		this.temperatureF = temperatureF;
 	}
 	
 	/** Returns the patient's pulse oximetry */

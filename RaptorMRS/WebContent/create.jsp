@@ -103,9 +103,9 @@
 		<td><h:inputText id="heartrate"  value="#{encounterService.vitals.heartRate }" /><br></td>
 		</tr>
 		
-		<tr>
+		<tr> 
 		<td><h3>Temperature (F)</h3></td>
-		<td><h:inputText id="temperature"  value="#{encounterService.vitals.temperatureC }" /><br></td>
+		<td><h:inputText id="temperature"  value="#{encounterService.vitals.temperatureF }" /><br></td>
 		</tr>
 		
 		<tr>
@@ -145,6 +145,10 @@
 	<div id = "module" style = "float:left">
 		<h1>HPI</h1>
 		
+		<center>
+		<h3>Chief Complaint</h3>
+		<h:inputTextarea style="width:100%" id="primaryComplaint" value="#{encounterService.encounter.chiefComplaint }" />
+		</center><BR>
 		<table>
 		<tr>
 		<td><h3>Onset</h3></td>
@@ -184,7 +188,7 @@
 		</tr>
 		
 		<tr>
-		<td><h3>Provokes/Palliates</h3></td>
+		<td><h3>Provokes / Palliates</h3></td>
 		<td><h:inputText value="#{encounterService.encounter.provokes }"/></td>
 		</tr>
 		
@@ -208,11 +212,8 @@
 	
 	<div id = "module" style = "float: left">
 		<h1>Complaints / Treatment</h1>
-		<center>
-		
-		<h3>Chief Complaint</h3>
-		<h:inputTextarea style="width:100%" id="primaryComplaint" value="#{encounterService.encounter.chiefComplaint }" />
-		
+		<center>	
+	
 		<h3>Assessment</h3>
 		<h:inputTextarea style="width:100%" id="assessment" value="#{encounterService.encounter.chiefComplaint }" />
 		
@@ -252,6 +253,8 @@
 		<h3>Treatment Given</h3>
 		<h:inputTextarea style="width:100%" id="treatmentGiven" value="#{encounterService.encounter.medicalProcedures }" />
 		
+		<h3>Family/Social History</h3>
+		<h:inputTextarea style="width:100%" id="socialHistory" value="#{encounterService.patient.socialHistory }" />
 		
 		</center>
 	
