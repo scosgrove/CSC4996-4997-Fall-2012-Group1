@@ -51,7 +51,8 @@
 						<td><f:selectItem itemValue="calculatedBMI" itemLabel="BMI" /></td>
 					</tr>
 					<tr>
-						<td><f:selectItem itemValue="systolicBP" itemLabel="Blood Pressure" /></td>
+						<td><f:selectItem itemValue="systolicBP" itemLabel="Systolic Blood Pressure" /></td>
+						<td><f:selectItem itemValue="diastolicBP" itemLabel="Diastolic Blood Pressure" /></td>
 						<td><f:selectItem itemValue="heartRate" itemLabel="Heart Rate" /></td>
 					</tr>
 					<tr>
@@ -103,6 +104,10 @@
 					<tr>
 					<td><f:selectItem itemValue="quality" itemLabel="Quality" /></td>
 					<td><f:selectItem itemValue="provokes" itemLabel="Provokes/Palliates" /></td>
+					</tr>
+					<tr>
+					<td><f:selectItem itemValue="malaria" itemLabel="Malaria" /></td>
+					<td><f:selectItem itemValue="dengue" itemLabel="Dengue" /></td>
 					</tr>
 					<tr>
 					</t:selectManyCheckbox>
