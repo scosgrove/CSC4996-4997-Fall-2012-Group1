@@ -238,7 +238,7 @@ public class ResearchReportsBean {
 				writer.append(selectedColumns.get(i));
 				writer.append(',');
 				csvData.add(new ArrayList<String>());
-			}
+			} 
 			writer.append('\n');
 
 			for (int k = 0; k < selectedColumns.size(); k++) {
