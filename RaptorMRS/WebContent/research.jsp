@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,7 +37,7 @@
 					<h:outputText value="Select Report Columns: " />
 
 
-					<h:selectManyCheckbox id="selectedColumns" value="#{researchReportsBean.selectedColumns}" layout="pageDirection">
+					<t:selectManyCheckbox layoutWidth="3" id="selectedColumns" value="#{researchReportsBean.selectedColumns}" layout="pageDirection">
 					<tr>
 						<td><f:selectItem itemValue="residence" itemLabel="Village/Town/City" /></td>
 						<td><f:selectItem itemValue="birthDate" itemLabel="Birthdate" /></td>
@@ -83,28 +84,28 @@
 						<td><f:selectItem itemValue="medicationDispensed5" itemLabel="Dispensed 5" /></td>
 					</tr>
 					<tr>
-						<td><f:selectItem itemValue="FingerPoke" itemLabel="BloodDrawn" /></td>
-						<td><f:selectItem itemValue="sampleID" itemLabel="Sample Number" /></td>
+						<td><f:selectItem itemValue="fingerPoke" itemLabel="BloodDrawn" /></td>
+						<td><f:selectItem itemValue="bloodSampleID" itemLabel="Sample Number" /></td>
 					</tr>
 					<tr>
 					
-						<td><f:selectItem itemValue="otherConditions 1" itemLabel="Condition 1 " /></td>
-						<td><f:selectItem itemValue="otherConditions 2" itemLabel="Condition 2 " /></td>
+						<td><f:selectItem itemValue="condition1" itemLabel="Condition 1 " /></td>
+						<td><f:selectItem itemValue="condition2" itemLabel="Condition 2 " /></td>
 					</tr>
 					<tr>
-						<td><f:selectItem itemValue="otherConditions 3" itemLabel="Condition 3" /></td>
-						<td><f:selectItem itemValue="otherConditions 4" itemLabel="Condition 4" /></td>
+						<td><f:selectItem itemValue="condition3" itemLabel="Condition 3" /></td>
+						<td><f:selectItem itemValue="condition4" itemLabel="Condition 4" /></td>
 					</tr>
 					<tr>
-						<td><f:selectItem itemValue="otherConditions 5" itemLabel="Condition 5" /></td>
-						<td><f:selectItem itemValue="Radiation" itemLabel="Radiation" /></td>
+						<td><f:selectItem itemValue="condition5" itemLabel="Condition 5" /></td>
+						<td><f:selectItem itemValue="radiation" itemLabel="Radiation" /></td>
 					</tr>
 					<tr>
-					<td><f:selectItem itemValue="Quality" itemLabel="Quality" /></td>
-					<td><f:selectItem itemValue="ProvokesandPalliates" itemLabel="Provokes/Palliates" /></td>
+					<td><f:selectItem itemValue="quality" itemLabel="Quality" /></td>
+					<td><f:selectItem itemValue="provokes" itemLabel="Provokes/Palliates" /></td>
 					</tr>
 					<tr>
-					</h:selectManyCheckbox>
+					</t:selectManyCheckbox>
 					
 
 					<h:commandButton action="#{researchReportsBean.submit}"
