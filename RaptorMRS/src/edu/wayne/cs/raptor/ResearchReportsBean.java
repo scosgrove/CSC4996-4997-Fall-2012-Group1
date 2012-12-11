@@ -245,7 +245,102 @@ public class ResearchReportsBean {
 				
 				 if (selectedColumns.get(k).equals("residence")){ 
 					  for(int j = 0; j < dbPatient.size(); j++) {
-				 csvData.get(k).add(dbPatient.get(j).getResidence()); } }
+				 csvData.get(k).add(dbPatient.get(j).getResidence()); 
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("birthDate")){ 
+					  for(int j = 0; j < dbPatient.size(); j++) {
+				 csvData.get(k).add(dbPatient.get(j).getBirthDate()); 
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("gender")){ 
+					  for(int j = 0; j < dbPatient.size(); j++) {
+				 csvData.get(k).add(dbPatient.get(j).getGender());
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("height")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getHeight()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("weight")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getWeight()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("calculatedBMI")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getCalculatedBMI()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("systolicBP")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getSystolicBP()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("dystolicBP")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getDiastolicBP()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("heartRate")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getHeartRate()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("temperatureF")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getTemperatureF()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("respRate")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getRespRate()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("oximetry")){ 
+					  for(int j = 0; j < dbVitals.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getOximetry()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("chiefComplaint")){ 
+					  for(int j = 0; j < dbencounter.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbencounter.get(j).getChiefComplaint()));
+					  
+					  } 
+				 }
+				 
+				 if (selectedColumns.get(k).equals("medicalProcedures")){ 
+					  for(int j = 0; j < dbencounter.size(); j++) {
+				 csvData.get(k).add(String.valueOf(dbencounter.get(j).getMedicalProcedures()));
+					  
+					  } 
+				 }
+				 
 				 
 				if (selectedColumns.get(k).equals("medicationPrescribed1")) {
 					for (int j = 0; j < dbencounter.size(); j++) {
