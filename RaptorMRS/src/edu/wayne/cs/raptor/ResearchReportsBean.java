@@ -56,7 +56,7 @@ public class ResearchReportsBean {
 
 			
 
-			writer.append("Patient ID");
+			writer.append("Encounter ID");
 			writer.append(',');
 			writer.append("Location");
 			writer.append(',');
@@ -135,7 +135,7 @@ public class ResearchReportsBean {
 
 			for (int i = 0; i < dbencounter.size(); i++) {
 				
-				writer.append(String.valueOf(dbencounter.get(i).getPatientID()));
+				writer.append(String.valueOf(dbencounter.get(i).getEncounterID()));
 				writer.append(',');
 				writer.append(dbPatient.get(i).getResidence());
 				writer.append(',');
@@ -209,8 +209,6 @@ public class ResearchReportsBean {
 				writer.append(',');
 				writer.append(dbPatient.get(i).getSocialHistory());
 				writer.append(',');
-			
-			
 
 				writer.append('\n');
 			}
