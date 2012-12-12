@@ -67,35 +67,40 @@
 					<h2>Add / Update User</h2>
 					<h:form>
 						<center>
+								<h:message style="color:red" for="firstName"> </h:message>								
+								<h:message style="color:red" for="lastName"> </h:message>
+								<h:message style="color:red" for="username"> </h:message>
+								<h:message style="color:red" for="password"> </h:message>								
+								<h:message style="color:red" for="addrole"> </h:message>
+								
 							<h:panelGrid columns="3">
 
-								<h:outputLabel value="First Name: "></h:outputLabel>
-								<h:inputText id="firstName"
-									value="#{userService.newUser.firstName}"></h:inputText>
+								<h:outputLabel value="* First Name: "></h:outputLabel>
+								<h:inputText id="firstName" value="#{userService.newUser.firstName}" required="true"></h:inputText>
+								
+								<br>							
+								
+								<h:outputLabel value="* Last Name: "></h:outputLabel>
+								<h:inputText id="lastName" value="#{userService.newUser.lastName}" required="true"></h:inputText>
 								<br>
-								<h:outputLabel value="Last Name: "></h:outputLabel>
-								<h:inputText id="lastName"
-									value="#{userService.newUser.lastName}"></h:inputText>
+								
+								<h:outputLabel value="* Username: "></h:outputLabel>
+								<h:inputText id="username" value="#{userService.newUser.username}" required="true"></h:inputText>
 								<br>
-								<h:outputLabel value="Username: "></h:outputLabel>
-								<h:inputText id="username"
-									value="#{userService.newUser.username}"></h:inputText>
+								
+								<h:outputLabel value="* Password: "></h:outputLabel>
+								<h:inputSecret id="password" value="#{userService.newUser.password}" required="true"></h:inputSecret>
 								<br>
-								<h:outputLabel value="Password: "></h:outputLabel>
-								<h:inputSecret id="password"
-									value="#{userService.newUser.password}"></h:inputSecret>
-								<br>
-								<h:outputLabel value="Role: "></h:outputLabel>
-								<h:selectOneMenu id="addrole"
-									value="#{userService.newUser.roles}">
-									<f:selectItem itemValue="Medical Student"
-										itemLabel="Medical Student" />
+								
+								<h:outputLabel value="* Role: "></h:outputLabel>
+								<h:selectOneMenu id="addrole" value="#{userService.newUser.roles}" required="true">
+									<f:selectItem itemValue="Medical Student" itemLabel="Medical Student" />
 									<f:selectItem itemValue="Pharmacist" itemLabel="Pharmacist" />
 									<f:selectItem itemValue="Researcher" itemLabel="Researcher" />
-									<f:selectItem itemValue="System Administrator"
-										itemLabel="Admin" />
-								</h:selectOneMenu>
+									<f:selectItem itemValue="System Administrator" itemLabel="Admin" />
+								</h:selectOneMenu>						
 								<br>
+								
 								<h:commandButton value="Add a new user"
 									action="#{userService.createUser}"
 									rendered="#{userService.creating}"></h:commandButton>
