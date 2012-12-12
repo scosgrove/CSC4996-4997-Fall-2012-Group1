@@ -106,31 +106,21 @@ public class ResearchReportsBean {
 			writer.append(',');
 			writer.append("Rx Prescribed 1");
 			writer.append(',');
-			writer.append("RX Dispensed 1");
-			writer.append(',');
 			writer.append("RX Equal to Prescribed 1");
 			writer.append(',');
 			writer.append("Rx Prescribed 2");
-			writer.append(',');
-			writer.append("RX Dispensed 2");
 			writer.append(',');
 			writer.append("RX Equal to Prescribed 2");
 			writer.append(',');
 			writer.append("Rx Prescribed 3");
 			writer.append(',');
-			writer.append("RX Dispensed 3");
-			writer.append(',');
 			writer.append("RX Equal to Prescribed 3");
 			writer.append(',');
 			writer.append("Rx Prescribed 4");
 			writer.append(',');
-			writer.append("RX Dispensed 4");
-			writer.append(',');
 			writer.append("RX Equal to Prescribed 4");
 			writer.append(',');
 			writer.append("Rx Prescribed 5");
-			writer.append(',');
-			writer.append("RX Dispensed 5");
 			writer.append(',');
 			writer.append("RX Equal to Prescribed 5");
 			writer.append(',');
@@ -206,31 +196,22 @@ public class ResearchReportsBean {
 				
 				writer.append(dbencounter.get(i).getMedicationPrescribed1());
 				writer.append(',');
-				writer.append(dbpharm.get(i).getMedDispensed1());
-				writer.append(',');
 				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed1()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed2());
-				writer.append(',');
-				writer.append(dbpharm.get(i).getMedDispensed2());
 				writer.append(',');
 				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed2()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed3());
 				writer.append(',');
-				writer.append(dbpharm.get(i).getMedDispensed3());
-				writer.append(',');
-				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed3()));
+				writer.append(String
+						.valueOf(dbpharm.get(i).getEqualPrescribed3()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed4());
-				writer.append(',');
-				writer.append(dbpharm.get(i).getMedDispensed4());
 				writer.append(',');
 				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed4()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed5());
-				writer.append(',');
-				writer.append(dbpharm.get(i).getMedDispensed5());
 				writer.append(',');
 				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed5()));
 			
@@ -264,8 +245,122 @@ public class ResearchReportsBean {
 		}
 	}
 
-	
+	public static void generateRxReport() {
+		String filename = null;
+		JFileChooser jFileChooser = new JFileChooser();
+		jFileChooser.setSelectedFile(new File(suggestFileName()
+				+ "-RxExport.csv"));
+		int returnValue = jFileChooser.showSaveDialog(null);
+		if (returnValue == jFileChooser.APPROVE_OPTION) {
+			File selectedFile = jFileChooser.getSelectedFile();
+			generateRxFile(selectedFile); 
+		}
+	}
 
+	
+	private static void generateRxFile(File filehandle) {
+		try {
+			FileWriter writer = new FileWriter(filehandle);
+
+			// Get Data from raptor
+
+			Session userSession = HibernateUtil.getSessionFactory()
+					.openSession();
+			userSession.beginTransaction();
+
+			List<Encounter> dbencounter = userSession.createQuery("from Encounter").list();
+			List<PharmacyEncounter> dbpharm = userSession.createQuery("from PharmacyEncounter").list();
+			List<Patient>dbPatient = userSession.createQuery("from Patient").list();
+			List<Vitals>dbVitals = userSession.createQuery("from Vitals").list();
+			userSession.getTransaction().commit();
+			userSession.close();
+
+			
+
+			
+			writer.append("Encounter ID");
+			writer.append(',');
+			writer.append("Rx Prescribed 1");
+			writer.append(',');
+			writer.append("RX Dispensed 1");
+			writer.append(',');
+			writer.append("RX Equal to Prescribed 1");
+			writer.append(',');
+			writer.append("Rx Prescribed 2");
+			writer.append(',');
+			writer.append("RX Dispensed 2");
+			writer.append(',');
+			writer.append("RX Equal to Prescribed 2");
+			writer.append(',');
+			writer.append("Rx Prescribed 3");
+			writer.append(',');
+			writer.append("RX Dispensed 3");
+			writer.append(',');
+			writer.append("RX Equal to Prescribed 3");
+			writer.append(',');
+			writer.append("Rx Prescribed 4");
+			writer.append(',');
+			writer.append("RX Dispensed 4");
+			writer.append(',');
+			writer.append("RX Equal to Prescribed 4");
+			writer.append(',');
+			writer.append("Rx Prescribed 5");
+			writer.append(',');
+			writer.append("RX Dispensed 5");
+			writer.append(',');
+			writer.append("RX Equal to Prescribed 5");
+			writer.append(',');
+			
+		
+
+			writer.append('\n');
+
+			for (int i = 0; i < dbpharm.size(); i++) {
+					
+				writer.append(String.valueOf(dbpharm.get(i).getEncounterID()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed1());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed1());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed1()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed2());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed2());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed2()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed3());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed3());
+				writer.append(',');
+				writer.append(String
+						.valueOf(dbpharm.get(i).getEqualPrescribed3()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed4());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed4());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed4()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed5());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed5());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed5()));
+			
+						
+
+				writer.append('\n');
+			}
+
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	private static String suggestFileName() {
 
 		String sfilename = "";

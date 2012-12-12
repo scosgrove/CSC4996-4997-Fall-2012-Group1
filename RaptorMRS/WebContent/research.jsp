@@ -45,6 +45,7 @@
 					<h2>Data Export</h2>
 					<p>Export non-identifying information to CSV file</p>
 					<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Export to CSV" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
+					<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Rx Report" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
 				</h:form>
 			</div>
 			<center>
