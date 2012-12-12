@@ -26,7 +26,6 @@ public class UserService implements IUserService {
 
 	
 	private User newUser;
-	private Computer thisComputer;
 	private LoginBean login;
 	private Session userSession;
 	private Calendar calendar = Calendar.getInstance();
@@ -37,15 +36,15 @@ public class UserService implements IUserService {
 	private boolean isCreating;
 	private String encryptedPassword;
 	
+	private boolean errorPreventedInsert = false;
+	
 	private String myPassword;
 	private List<User> usersList;
 	
 	
 	public UserService(){
 		newUser = new User();
-		thisComputer = new Computer();
 		setCreating(true);
-		thisComputer.setComputerID(1000);
 	}
 	
 	public void setLogin(LoginBean login){
@@ -105,7 +104,6 @@ public class UserService implements IUserService {
 		this.login.getSystemUser().setModifyingUser(this.login.getSystemUser().getUsername());
 		this.login.getSystemUser().setLastModifiedDate(calendar.getTime());
 		
-
 		this.login.getSystemUser().setPassword(myPassword);
 		//get the password right before the save...
 		encryptedPassword = this.login.getSystemUser().getPassword();
@@ -184,7 +182,6 @@ public class UserService implements IUserService {
 		saveUser(newUser);
 		newUser = new User();
 		
-		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		return "admin";
 		
 	}
@@ -217,7 +214,6 @@ public class UserService implements IUserService {
 		saveUser(newUser);
 		newUser = new User();
 		
-		JOptionPane.showMessageDialog(null, "Record saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		return "admin";
 	}
 	
@@ -261,24 +257,54 @@ public class UserService implements IUserService {
 	
 	@Override
 	public void saveUser(User newUser) {
-	    userSession = HibernateUtil.getSessionFactory().openSession();
-		userSession.beginTransaction();
-		userSession.saveOrUpdate(newUser);
-		userSession.getTransaction().commit();
-		userSession.close();
+	
+		try
+		{
+			userSession = HibernateUtil.getSessionFactory().openSession();
+			userSession.beginTransaction();
+			userSession.saveOrUpdate(newUser);
+			userSession.getTransaction().commit();
+			userSession.close();
+		}
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "Error in saving user. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			errorPreventedInsert = true;
+		}
+		
+		if(errorPreventedInsert == false)
+		{
+			JOptionPane.showMessageDialog(null, "User saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+		}
+		errorPreventedInsert = false;
 	}
 
 	/** This method will return the user with the specified userID. 
 	 *   This might not be needed from the point of view of a client but could be useful for us */
 	@Override
 	public User getUser(int _userID) {
-		userSession = HibernateUtil.getSessionFactory().openSession();
-		userSession.beginTransaction();
-		@SuppressWarnings("unchecked")
+		try
+		{
+			userSession = HibernateUtil.getSessionFactory().openSession();
+			userSession.beginTransaction();
+		}
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "Database error in opening session or transaction. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
 		List<User> result = userSession.createQuery("from User where user.userID='" + _userID + "'").list();
+		
 		//is this commit really necessary since we are not inserting records?
-		userSession.getTransaction().commit();
-		userSession.close();
+		try
+		{
+			userSession.getTransaction().commit();
+			userSession.close();
+		}
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null, "Database error in committing transaction or closing session. " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
 		
 		//should be only one result here since userID is a unique PK in the DB
 		if(!result.isEmpty())

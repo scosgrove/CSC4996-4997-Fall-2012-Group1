@@ -126,6 +126,7 @@ public class EncounterService implements IEncounterService {
 			//return "create" to go back to create.jsp after the create patient form is submitted
 			return "create";
 		}
+		errorPreventedInsert = false;
 		return null;
 	}
 	
@@ -207,6 +208,7 @@ public class EncounterService implements IEncounterService {
 			//return "create" to go back to create.jsp after the create patient form is submitted
 			return "create";
 		}
+		errorPreventedInsert = false;
 		return null;
 		
 	}
