@@ -12,61 +12,66 @@
 </head>
 
 <body>
-<f:view>
-		<div id= "navigation">
-		<img src="img\logo_xl.png" height="60" width="180">
-		</div>
-		
-		<div id="container" >
-			<BR><BR>
-			<h:form>
-			<h:dataTable value="#{userService.usersList}" var="user">
-				<h:column>
-					<f:facet name="header">
-						<h:column>
-							<h:outputText value="Username" />
-						</h:column>
-					</f:facet>
-					<h:outputText value="#{user.username }" />
-				</h:column>
+	<f:view>
+		<h:form>
+			<div id="navigation">
+				<div style="float: left">
+					<img src="img\logo_xl.png" height="60" width="180">
+				</div>
 
-				<h:column>
-					<f:facet name="header">
-						<h:column>
-							<h:outputText value="First Name" />
-						</h:column>
-					</f:facet>
-					<h:outputText value="#{user.firstName}" />
-				</h:column>
+				<div style="float: right">
+					<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+					<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+				</div>
+			</div>
 
-				<h:column>
-					<f:facet name="header">
-						<h:column>
-							<h:outputText value="Last Name" />
-						</h:column>
-					</f:facet>
-					<h:outputText value="#{user.lastName}" />
-				</h:column>
+			<div id="container">
+				<BR> <BR>
+				<h:dataTable value="#{userService.usersList}" var="user">
+					<h:column>
+						<f:facet name="header">
+							<h:column>
+								<h:outputText value="Username" />
+							</h:column>
+						</f:facet>
+						<h:outputText value="#{user.username }" />
+					</h:column>
 
-				<h:column>
-					<f:facet name="header">
-						<h:column>
-							<h:outputText value="Actions" />
-						</h:column>
-					</f:facet>
-					<h:panelGrid columns="2">
-						<h:commandLink value="Select" action="#{userService.selectUser}">
-							<f:setPropertyActionListener target="#{userService.newUser}"
-								value="#{user}" />
-						</h:commandLink>
-					</h:panelGrid>
-				</h:column>
-			
-			</h:dataTable>
-			<a href="admin.jsp"> Back</a>
+					<h:column>
+						<f:facet name="header">
+							<h:column>
+								<h:outputText value="First Name" />
+							</h:column>
+						</f:facet>
+						<h:outputText value="#{user.firstName}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:column>
+								<h:outputText value="Last Name" />
+							</h:column>
+						</f:facet>
+						<h:outputText value="#{user.lastName}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:column>
+								<h:outputText value="Actions" />
+							</h:column>
+						</f:facet>
+						<h:panelGrid columns="2">
+							<h:commandLink value="Select" action="#{userService.selectUser}">
+								<f:setPropertyActionListener target="#{userService.newUser}"
+									value="#{user}" />
+							</h:commandLink>
+						</h:panelGrid>
+					</h:column>
+				</h:dataTable>
+				<a href="admin.jsp"> Back</a>
+			</div>
 		</h:form>
-	</div>
-
 	</f:view>
 </body>
 </html>
