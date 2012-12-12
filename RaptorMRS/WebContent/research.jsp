@@ -12,24 +12,30 @@
 <!-- Created by Lev, uploaded by Marek -->
 	<f:view>
 		<div id="navigation">
-			<div style="float: right">
+			<div style="float: left">
+			&nbsp;<img src="img\logo_xl.png" height="60" width="180">&nbsp;&nbsp;
+			</div>
+			<div style="float: left">
 				<table>
 				<tbody>
 					<tr>
-						<td><h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3></td>
-					<td>
-						<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
-						<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
-					</td>
+						
+						<td><td><h3 style="color:red" align="left" >Hello, <i><h:outputLabel value="#{loginBean.systemUser.firstName }"/></i></h3></td>
 					</tr>
 				</tbody>
 				</table>
+				
+				
 			</div>
 
-			<div style="float: left">
-				<img src="img\logo_xl.png" height="60" width="180">
-			</div>
+			<div style="float: right">
+			<h:form>
+						<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
+						<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
 
+				</h:form>
+			</div>
+			
 		</div>
 
 		<div id="content">
