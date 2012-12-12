@@ -36,6 +36,7 @@
 				</div>
 			</div>
 			<br>
+			<h:form>
 			<div id="container">
 				
 				
