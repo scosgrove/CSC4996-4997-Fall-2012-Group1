@@ -10,6 +10,19 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Easy EMR - Create Reports</title>
+<script language="javascript">
+function checkAll(checktoggle)
+{
+  var checkboxes = new Array(); 
+  checkboxes = document.getElementsByTagName('input');
+ 
+  for (var i=0; i<checkboxes.length; i++)  {
+    if (checkboxes[i].type == 'checkbox')   {
+      checkboxes[i].checked = checktoggle;
+    }
+  }
+}
+</script>
 </head>
 <body>
 
@@ -31,11 +44,12 @@
 
 			<div id="form">
 				<h1>Create Reports</h1>
-				<h:form >
+				<h:form>
 
 
-					<h:outputText value="Select Report Columns: " />
-
+					<h:outputText value="Select Report Columns: " /> <br/>
+					<a href="javascript:void();" onclick="javascript:checkAll( true);">check all</a> &nbsp &nbsp
+					<a href="javascript:void();" onclick="javascript:checkAll( false);">uncheck all</a>
 
 					<t:selectManyCheckbox layoutWidth="3" id="selectedColumns" value="#{researchReportsBean.selectedColumns}" layout="pageDirection">
 					<tr>
