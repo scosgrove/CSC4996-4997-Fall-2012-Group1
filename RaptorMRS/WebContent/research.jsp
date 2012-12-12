@@ -12,8 +12,17 @@
 <!-- Created by Lev, uploaded by Marek -->
 <f:view>
 	<div id= "navigation">
-			<img src="img\logo_xl.png" height="60" width="180">
-		</div>
+	<div style="float:right">
+	<h:form>
+		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>		
+		<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+	</h:form>
+	</div>
+	
+	<div style="float:left">
+		<img src="img\logo_xl.png" height="60" width="180">
+	</div>
+	</div>
 
 		<div id= "content">
 
