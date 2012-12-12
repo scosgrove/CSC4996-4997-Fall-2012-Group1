@@ -31,8 +31,6 @@
 
 				<h:form>
 
-
-
 				<center>
 				<table>
 				<tr>

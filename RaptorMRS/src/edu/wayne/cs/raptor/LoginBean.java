@@ -1,11 +1,18 @@
 package edu.wayne.cs.raptor;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
-
+import java.io.File;
 import javax.swing.JOptionPane;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
+
 
 /**  This bean handles the User login and authentication against the database
  * 
@@ -21,8 +28,11 @@ public class LoginBean {
 	private boolean authenticated;
 	private String encryptedPassword;
 	
-	public LoginBean(){
+	private int computerID;
+	
+	public LoginBean() throws IOException{
 		systemUser = new User();
+		generateComputerID();
 	}
 
 	public User getSystemUser() {
@@ -152,6 +162,47 @@ public String authenticate() {
 	public String clear(){
 		return "clearedLoginFields";
 	}
+
+	public int getComputerID() {
+		return computerID;
+	}
+
+	public void setComputerID(int computerID) {
+		this.computerID = computerID;
+	}
+	
+	
+	/** This method assumes there is a folder in your user directory under /.config/EasyEMR and a file in that
+	 *  directory called config.ini will contain the THREE DIGIT COMPUTER IDENTIFIER. Please make sure that folder/file exists
+	 *  or it will set default value 100 as a prefix for all of your encounter and patient IDs. ;)
+	 * @throws IOException
+	 */
+	public void generateComputerID() throws IOException {
+		try {
+			String usr = System.getProperty("user.home");
+			usr = usr + "/.config/EasyEMR/config.ini";
+			String sCurrentLine = null;
+			int testID;
+			
+			FileReader fr = new FileReader(usr);
+			
+	
+			BufferedReader br = new BufferedReader(fr);
+				
+			sCurrentLine = br.readLine();
+			testID = Integer.parseInt(sCurrentLine);
+	
+			this.setComputerID(testID);
+		}
+	
+		catch(FileNotFoundException fr) {
+			this.setComputerID(100);
+			JOptionPane.showMessageDialog(null, "Error in opening configuration file. Default value of 1000 set. " + fr.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+			
+		
+
 	
 	/* Run an insert of admin user into the DB or use a method to create admin beforehand
 	 * 
