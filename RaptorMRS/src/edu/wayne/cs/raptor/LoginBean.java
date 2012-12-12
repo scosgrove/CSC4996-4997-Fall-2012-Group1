@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.io.File;
+
+import javax.faces.context.FacesContext;
 import javax.swing.JOptionPane;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -147,8 +149,7 @@ public String authenticate() {
 		return "research";
 	}
 	
-	/** Sign out the current user
-	 *  TODO: Not tested yet with JSP pages  */
+	/** Sign out the current user */
 	
 	public String logout(){
 		setSystemUser(new User());
@@ -156,6 +157,7 @@ public String authenticate() {
 		setAuthenticated(false);
 		setTempUserName("");
 		setTempPassword("");
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "index";
 	}
 	
