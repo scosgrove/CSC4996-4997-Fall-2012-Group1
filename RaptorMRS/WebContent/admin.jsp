@@ -54,8 +54,7 @@
 								</tr>
 								<tr>
 									<td></td>
-									<td><h:commandButton value="Search"
-											action="#{userService.searchUser}"></h:commandButton></td>
+									<td><h:commandButton value="Search" action="#{userService.searchUser}"></h:commandButton></td>
 								</tr>
 							</table>
 
