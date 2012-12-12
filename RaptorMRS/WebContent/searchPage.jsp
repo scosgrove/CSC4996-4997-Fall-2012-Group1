@@ -15,18 +15,25 @@
 		<h:form>
 			<div id= "navigation">
 				<div style="float:left">
-					<img src="img\logo_xl.png" height="60" width="180">
+					&nbsp;<img src="img\logo_xl.png" height="60" width="180">
 				</div>
 	
 				<div style="float:right">
-					<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>		
-					<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+					<table>
+				<tbody>
+					<tr>
+						<td><h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3></td>
+					<td>
+						<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
+						<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+					</td>
+					</tr>
+				</tbody>
+				</table>
 				</div>
 			</div>
 			<BR>
 			<div id="container">
-			
-			<h3 style="color:red">Hello!, <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3>
 	
 				<div  style="border:2px groove; text-align:center; width:400; height:60">
 					<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="#{encounterService.searchPatientFirstName }" />&nbsp;&nbsp;<h:commandButton id="searchFirst" value="Search" action="#{encounterService.searchPatientsF }"></h:commandButton>
