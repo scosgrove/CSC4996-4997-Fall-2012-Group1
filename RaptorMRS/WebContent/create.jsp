@@ -36,18 +36,19 @@
 				</div>
 			</div>
 			<br>
-			<h:form>
+			
 			<div id="container">
 				
 				
-				
+				<h:form>
 				<div style="border:2px groove; text-align:center; height:60; width:400">
 					<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="#{encounterService.searchPatientFirstName }" />&nbsp;&nbsp;<h:commandButton id="searchFirst" value="Search" action="#{encounterService.searchPatientsF }"></h:commandButton>
 									 &nbsp;&nbsp;Last Name <h:inputText id="lastname" value="#{encounterService.searchPatientLastName }" />&nbsp;&nbsp;<h:commandButton id="searchLast" value="Search" action="#{encounterService.searchPatients }"></h:commandButton>
 									&nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="#{encounterService.searchPatientId }" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="#{encounterService.searchPatient }"></h:commandButton></p>
 				</div>
+				</h:form>
 				<BR>
-				
+				<h:form>
 				<div style="text-align:center" >
 					<h:commandButton id="newPatient" style="width:150px;height:50px" value="RESET" action="#{encounterService.resetRecord }" immediate="true"/>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -266,10 +267,11 @@
 						<h:inputTextarea style="width:100%" id="socialHistory" value="#{encounterService.patient.socialHistory }" />
 					</div>
 				</div>
+				</h:form>
 			</div>
 			<center>
 				<p><a href="HelpInformation.pdf">Need Help?</a></p>
 			</center>
-		</h:form>
+		
 	</f:view>
 </body>
