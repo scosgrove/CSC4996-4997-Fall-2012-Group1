@@ -101,15 +101,11 @@
 								</h:selectOneMenu>						
 								<br>
 								
-								<h:commandButton value="Add a new user"
-									action="#{userService.createUser}"
-									rendered="#{userService.creating}"></h:commandButton>
-								<h:commandButton value="Update User"
-									action="#{userService.updateUser }"></h:commandButton>
-								<h:commandButton value="Cancel"
-									action="#{userService.resetFields }"></h:commandButton>
+								<h:commandButton value="Add a new user" action="#{userService.createUser}" rendered="#{userService.creating}"></h:commandButton>
+								<h:commandButton value="Update User" action="#{userService.updateUser }"></h:commandButton>
+								<h:commandButton value="Cancel" action="#{userService.resetFields }" immediate="true"></h:commandButton>
 							</h:panelGrid>
-						</center>
+						</center> 
 					</h:form>
 				</fieldset>
 			</div>
