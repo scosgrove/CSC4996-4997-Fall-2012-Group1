@@ -15,7 +15,7 @@
 	<f:view>
 		<div id="navigation">
 			<div style="float: left">
-				<img src="img\logo_xl.png" height="60" width="180">
+				&nbsp;<img src="img\logo_xl.png" height="60" width="180">
 			</div>
 
 			<div style="float: right">
