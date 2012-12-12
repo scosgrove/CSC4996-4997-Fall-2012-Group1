@@ -56,7 +56,8 @@ public class ResearchReportsBean {
 
 			
 
-			
+			writer.append("Patient ID");
+			writer.append(',');
 			writer.append("Location");
 			writer.append(',');
 			writer.append("Birth Date");
@@ -104,27 +105,16 @@ public class ResearchReportsBean {
 			writer.append(',');
 			writer.append("Assessment");
 			writer.append(',');
-			writer.append("Rx Prescribed 1");
+			writer.append("Medication Prescribed 1");
 			writer.append(',');
-			writer.append("RX Equal to Prescribed 1");
+			writer.append("Medication Prescribed 2");
 			writer.append(',');
-			writer.append("Rx Prescribed 2");
+			writer.append("Medication Prescribed 3");
 			writer.append(',');
-			writer.append("RX Equal to Prescribed 2");
+			writer.append("Medication Prescribed 4");
 			writer.append(',');
-			writer.append("Rx Prescribed 3");
+			writer.append("Medication Prescribed 5");
 			writer.append(',');
-			writer.append("RX Equal to Prescribed 3");
-			writer.append(',');
-			writer.append("Rx Prescribed 4");
-			writer.append(',');
-			writer.append("RX Equal to Prescribed 4");
-			writer.append(',');
-			writer.append("Rx Prescribed 5");
-			writer.append(',');
-			writer.append("RX Equal to Prescribed 5");
-			writer.append(',');
-			
 			writer.append("Other Condition1");
 			writer.append(',');
 			writer.append("Other Condition2");
@@ -145,6 +135,8 @@ public class ResearchReportsBean {
 
 			for (int i = 0; i < dbencounter.size(); i++) {
 				
+				writer.append(String.valueOf(dbencounter.get(i).getPatientID()));
+				writer.append(',');
 				writer.append(dbPatient.get(i).getResidence());
 				writer.append(',');
 				writer.append(dbPatient.get(i).getBirthDate());
@@ -193,30 +185,15 @@ public class ResearchReportsBean {
 				writer.append(',');
 				writer.append(dbencounter.get(i).getAssessment());
 				writer.append(',');
-				
 				writer.append(dbencounter.get(i).getMedicationPrescribed1());
-				writer.append(',');
-				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed1()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed2());
 				writer.append(',');
-				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed2()));
-				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed3());
-				writer.append(',');
-				writer.append(String
-						.valueOf(dbpharm.get(i).getEqualPrescribed3()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed4());
 				writer.append(',');
-				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed4()));
-				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicationPrescribed5());
-				writer.append(',');
-				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed5()));
-			
-				
-				
 				writer.append(',');
 				writer.append(dbencounter.get(i).getCondition1());
 				writer.append(',');
