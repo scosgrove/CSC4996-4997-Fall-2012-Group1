@@ -16,8 +16,8 @@
 		<div id="navigation">
 			<div style="float: right">
 				<h:form>
-					<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
-					<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+					<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
+					<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
 				</h:form>
 			</div>
 
