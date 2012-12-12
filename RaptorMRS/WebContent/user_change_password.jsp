@@ -19,9 +19,18 @@
 			</div>
 
 			<div style="float: right">
-				<h:form>
-					<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
-					<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+			<h:form>
+				<table>
+				<tbody>
+					<tr>
+						<td><h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3></td>
+					<td>
+						<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
+						<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+					</td>
+					</tr>
+				</tbody>
+				</table>
 				</h:form>
 			</div>
 		</div>
