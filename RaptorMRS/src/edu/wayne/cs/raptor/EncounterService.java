@@ -23,6 +23,8 @@ public class EncounterService implements IEncounterService {
 	private LoginBean login;
 	private Calendar calendar;
 	
+	private int computerID;
+	
 	private Patient patient;
 	private int patientID;
 	private Encounter encounter;
@@ -145,6 +147,8 @@ public class EncounterService implements IEncounterService {
 		encounter.setLastModifiedDate(calendar.getTime());
 		//end housekeeping
 		
+		determinePatientID();
+		
 		try
 		{
 			userSession = HibernateUtil.getSessionFactory().openSession();
@@ -158,8 +162,9 @@ public class EncounterService implements IEncounterService {
 		
 		try
 		{
+			
 			//get the patientID once its saved and use it for encounter
-			patientID = (Integer) userSession.save(patient);
+			patientID = (Integer)userSession.save(patient);
 			encounter.setPatientID(patientID);
 			
 
@@ -571,6 +576,75 @@ public class EncounterService implements IEncounterService {
 		if (!result.isEmpty() )
 			return result;
 		return null;
+	}
+	
+	//PatientID stuff
+	public void determinePatientID(){
+		int computerIDInitialValue = 0;
+		int computerIDMaxValue = 1;
+		
+		userSession = HibernateUtil.getSessionFactory().openSession();
+		userSession.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<Patient> patientList = userSession.createQuery("from Patient ").list();
+		userSession.getTransaction().commit();
+		userSession.close();
+		
+		setComputerID(this.login.getComputerID());
+		
+		computerIDInitialValue = computerID * 1000000;
+		computerIDMaxValue = (computerID + 1) * 1000000;
+		
+		
+		ArrayList<Integer> patientIDList = new ArrayList<Integer>();
+		if(patientList.size() > 0){
+			for(int i = 0; i < patientList.size(); i++) {
+				patientIDList.add(patientList.get(i).getPatientID());
+			}
+			
+			patient.setPatientID(beginningPatientID(patientIDList, computerIDInitialValue, computerIDMaxValue));
+			
+			//This code starts from highest encounterID in the DB table
+			//Replacing this with code to choose next encounterID based on what's in DB and computerID
+			/*for(int i = 0; i < pharmacyEncounterList.size(); i++) {
+				encounterIDList.add(pharmacyEncounterList.get(i).getEncounterID());
+			}
+		
+			encounterID = Collections.max(encounterIDList) + 1;*/
+		}
+		else
+			patient.setPatientID(computerIDInitialValue);
+	}
+	
+	public int beginningPatientID(ArrayList<Integer> patientIDList, int computerIDInitialValue,
+			int computerIDMaxValue){
+		
+		boolean changedTempPatientID = false;
+		int tempPatientID = computerIDInitialValue;
+		
+		// TODO: stop for loop if values go beyond computerIDMaxValue
+		for(int i = 0; i < patientIDList.size(); i++){
+			if((patientIDList.get(i) >= tempPatientID) && (patientIDList.get(i) < computerIDMaxValue)){
+				tempPatientID = patientIDList.get(i);
+				if(changedTempPatientID == false){
+					changedTempPatientID = true;
+				}
+			}
+		}
+		
+		if(changedTempPatientID == true){
+			tempPatientID = tempPatientID + 1;
+		}
+		
+		return tempPatientID;
+	}
+
+	public int getComputerID() {
+		return computerID;
+	}
+
+	public void setComputerID(int computerID) {
+		this.computerID = computerID;
 	}
 
 

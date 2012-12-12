@@ -72,8 +72,6 @@ public class Patient {
 		
 		/** Returns the Patient's ID */
 		@Id
-		@GeneratedValue(generator="increment")
-		@GenericGenerator(name="increment", strategy = "increment")
 		public int getPatientID() {
 			return patientID;
 		}
