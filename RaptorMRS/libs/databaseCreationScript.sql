@@ -5,7 +5,7 @@ create database raptor;
 use raptor;
 
  CREATE TABLE `PHARMACY`(
-       `encounterID` int(10) unsigned zerofill NOT NULL,
+       `encounterID` int(9) unsigned zerofill NOT NULL,
        `firstName` varchar(55),
        `lastName` varchar(55),
        `medDispensed1` varchar(55),
@@ -25,8 +25,8 @@ use raptor;
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
  CREATE TABLE `ENCOUNTERS` (
-       `encounterID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-       `patientID` int(10) unsigned zerofill NOT NULL,
+       `encounterID` int(9) unsigned zerofill NOT NULL AUTO_INCREMENT,
+       `patientID` int(9) unsigned zerofill NOT NULL,
        `chiefComplaint` varchar(255),
        `onsetNumber` int(10),
        `onsetUnit` varchar(55),
@@ -59,7 +59,7 @@ use raptor;
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
  CREATE TABLE `PATIENTS` (
-       `patientID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+       `patientID` int(9) unsigned zerofill NOT NULL AUTO_INCREMENT,
        `firstName` varchar(55) NOT NULL,
        `lastName` varchar(55),  
        `birthDate` varchar(55),
@@ -94,8 +94,8 @@ CREATE TABLE `USERS` (
 
  
  CREATE TABLE `VITALS` (
-       `vitalsID` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-       `encounterID` int(10) unsigned zerofill NOT NULL,
+       `vitalsID` int(9) unsigned zerofill NOT NULL AUTO_INCREMENT,
+       `encounterID` int(9) unsigned zerofill NOT NULL,
        `systolicBP` int(10) unsigned DEFAULT NULL,
        `diastolicBP` int(10) unsigned DEFAULT NULL,
        `heartRate` int(10) unsigned DEFAULT NULL,
@@ -115,8 +115,7 @@ CREATE TABLE `USERS` (
        `lastModifiedDate` datetime,
        PRIMARY KEY (`vitalsID`),
        UNIQUE KEY `encounterID_UNIQUE` (`encounterID`),
-       UNIQUE KEY `vitalsID_UNIQUE` (`vitalsID`),
-       UNIQUE KEY `bloodSampleID_UNIQUE` (`bloodSampleID`)
+       UNIQUE KEY `vitalsID_UNIQUE` (`vitalsID`)
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
      
      insert into raptor.USERS (firstName, lastName, userName, password, roles) values ('bob', 'bobson', 'admin', 'cef5729281f29438d09d2aedcacfd607d1cddcc9','System Administrator');
