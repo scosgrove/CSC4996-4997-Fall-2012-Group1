@@ -12,20 +12,33 @@
 
 <body>
 	<f:view>
-		<h:form>
 			<div id= "navigation">
-				<div style="float:right">
-					<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
-					<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
-				</div>
+				<div style="float: right">
+				
+			<h:form>
+				<table>
+				<tbody>
+					<tr>
+						<td><h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3></td>
+					<td>
+						<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
+						<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+					</td>
+					</tr>
+				</tbody>
+				</table>
+				</h:form>
+				
+			</div>
+			
 				<div style="float:left">
-					<img src="img\logo_xl.png" height="60" width="180">
+					&nbsp;<img src="img\logo_xl.png" height="60" width="180">
 				</div>
 			</div>
 			<br>
 			<div id="container">
 				
-				<h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3>
+				
 				
 				<div style="border:2px groove; text-align:center; height:60; width:400">
 					<p><b>Search:</b>&nbsp;&nbsp;First Name <h:inputText id="firstname" value="#{encounterService.searchPatientFirstName }" />&nbsp;&nbsp;<h:commandButton id="searchFirst" value="Search" action="#{encounterService.searchPatientsF }"></h:commandButton>
@@ -36,7 +49,7 @@
 				
 				<div style="text-align:center" >
 					<h:commandButton id="newPatient" style="width:150px;height:50px" value="RESET" action="#{encounterService.resetRecord }" immediate="true"/>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<h:commandButton id="submit" style="width:150px;height:50px" value="Submit" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton>
 					<h:commandButton id="startNew" style="width:150px;height:50px" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton>
 				</div>
