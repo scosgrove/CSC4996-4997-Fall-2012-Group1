@@ -89,7 +89,7 @@
 								<br>
 								
 								<h:outputLabel value="* Password: "></h:outputLabel>
-								<h:inputSecret id="password" value="#{userService.newUser.password}" required="true"></h:inputSecret>
+								<h:inputSecret id="password" value="#{userService.newUser.password}"></h:inputSecret>
 								<br>
 								
 								<h:outputLabel value="* Role: "></h:outputLabel>
