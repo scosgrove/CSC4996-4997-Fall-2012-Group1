@@ -6,45 +6,51 @@
 <head>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Research Reports</title>
+<title>Data Export</title>
 </head>
 <body>
 <!-- Created by Lev, uploaded by Marek -->
 <f:view>
-	<div id= "navigation">
-	<div style="float:right">
-	<h:form>
-		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>		
-		<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
-	</h:form>
-	</div>
-	
-	<div style="float:left">
-		<img src="img\logo_xl.png" height="60" width="180">
-	</div>
-	</div>
+    <div id= "navigation">
+    <div style="float:right">
+    <h:form>
+        <p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>       
+        <p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+    </h:form>
+    </div>
+   
+    <div style="float:left">
+        <img src="img\logo_xl.png" height="60" width="180">
+    </div>
+    </div>
 
-		<div id= "content">
+        <div id= "content">
 
-			<div id = "form">
-				<h1> Select a report to run. </h1>
-				<p> You will be asked to save the file locally on your computer! </p>
+            <div id = "form"> 
+           
 
-			<h:form>
+            <h:form>
 
-				<h:commandButton action="#{researchReportsBean.generateBloodSampleReport}" value="Generate Blood Sample Report" style="width:300px;height:70px"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Generate Condition/Procedure Report" style="width:300px;height:70px"></h:commandButton>
-				<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Generate Rx Report" style="width:300px;height:70px"></h:commandButton>
-				
-			</h:form>
+                <h2>Data Export</h2>
+                <p>Export non-identifying information to CSV file</p>
+                <h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Export to CSV" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
+           
+           
 
-			</div>
 
-			<div id = "footer">
-				<p><a href="index.jsp">Log out</p>
-			</div>
 
-		</div>
+       
+
+            </h:form>
+
+            </div>
+
+            <center>
+
+    <a href="HelpInformation.pdf">Need Help?</a>
+    </center>
+
+        </div>
 </f:view>
 </body>
 </html>
