@@ -275,8 +275,8 @@ public class ResearchReportsBean {
 			//writer.append(',');
 			writer.append("RX Dispensed 4");
 			writer.append(',');
-			//writer.append("RX Equal to Prescribed 4");
-			//writer.append(',');
+			writer.append("RX Equal to Prescribed 4");
+			writer.append(',');
 			//writer.append("Rx Prescribed 5");
 			//writer.append(',');
 			writer.append("RX Dispensed 5");
