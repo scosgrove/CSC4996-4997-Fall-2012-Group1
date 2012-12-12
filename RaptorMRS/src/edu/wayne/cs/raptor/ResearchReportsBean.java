@@ -4,12 +4,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
 
@@ -23,65 +21,9 @@ import java.sql.SQLException;
 
 public class ResearchReportsBean {
 
-	/*
-	 * private Integer reportNumber = 0;
-	 * 
-	 * public Integer getReportNumber() { return reportNumber; }
-	 * 
-	 * public void setReportNumber(Integer reportNumber) { this.reportNumber =
-	 * reportNumber; }
-	 * 
-	 * public String submit() { if (reportNumber == 2) { return null; } else if(
-	 * reportNumber == 1) { generateConditionReport(); } return null;
-	 * 
-	 * }
-	 */
+	PharmacyEncounter ec = new PharmacyEncounter();
 
-	private List<String> selectedColumns;
-	private String result;
-	private String sortByColumn;
-
-	public List<String> getSelectedColumns() {
-		return selectedColumns;
-	}
-
-	public void setSelectedColumns(List<String> selectedColumns) {
-		this.selectedColumns = selectedColumns;
-	}
-
-	public String getResult() {
-		return result;
-	}
-
-	public void setResult(String result) {
-		this.result = result;
-	}
-	
-	
-
-	public String getSortByColumn() {
-		return sortByColumn;
-	}
-
-	public void setSortByColumn(String sortByColumn) {
-		this.sortByColumn = sortByColumn;
-	}
-
-	public String submit() {
-		if (this.selectedColumns.isEmpty()) {
-			//setResult("Please select at least one column!");
-			JOptionPane.showMessageDialog(null, "Please select at least one column!");
-			return result;
-		} else {
-			// result=selectedColumns.get(0);
-			generateConditionReport();
-			return result;
-
-		}
-	}
-
-	// original report
-	public void generateBloodSampleReport() {
+	public static void generateBloodSampleReport() {
 
 		String filename = null;
 		JFileChooser jFileChooser = new JFileChooser();
@@ -93,9 +35,8 @@ public class ResearchReportsBean {
 			generateBloodSampleCsvFile(selectedFile);
 		}
 	}
-	
-	// original report
-	private void generateBloodSampleCsvFile(File filehandle) {
+
+	private static void generateBloodSampleCsvFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);
 
@@ -104,12 +45,9 @@ public class ResearchReportsBean {
 			Session userSession = HibernateUtil.getSessionFactory()
 					.openSession();
 			userSession.beginTransaction();
-			List<Encounter> dbencounter = userSession.createQuery(
-					"from Encounter").list();
-			// List<Vitals> dbvitals =
-			// userSession.createQuery("from Vitals").list();
-			List<PharmacyEncounter> dbpharm = userSession.createQuery(
-					"from PharmacyEncounter").list();
+			List<Encounter> dbencounter = userSession.createQuery("from Encounter").list();
+			//List<Vitals> dbvitals = userSession.createQuery("from Vitals").list();
+			List<PharmacyEncounter> dbpharm = userSession.createQuery("from PharmacyEncounter").list();
 			userSession.getTransaction().commit();
 			userSession.close();
 
@@ -127,7 +65,7 @@ public class ResearchReportsBean {
 			writer.append(',');
 			writer.append("Condition 5");
 			writer.append(',');
-			writer.append("Medical Procedure(s)");
+			writer.append("Medical Procedure(s)"); 
 			writer.append(',');
 			writer.append("Rx Prescribed1");
 			writer.append(',');
@@ -152,7 +90,7 @@ public class ResearchReportsBean {
 			writer.append('\n');
 
 			for (int i = 0; i < dbencounter.size(); i++) {
-				// writer.append(String.valueOf(dbvitals.get(i).getBloodSampleID()));
+				//writer.append(String.valueOf(dbvitals.get(i).getBloodSampleID()));
 				writer.append(',');
 				writer.append(dbencounter.get(i).getCondition1());
 				writer.append(',');
@@ -166,15 +104,15 @@ public class ResearchReportsBean {
 				writer.append(',');
 				writer.append(dbencounter.get(i).getMedicalProcedures());
 				writer.append(',');
-				// writer.append(dbencounter.get(i).getMedicationPrescribed1());
+				//writer.append(dbencounter.get(i).getMedicationPrescribed1());
 				writer.append(',');
-				// writer.append(dbencounter.get(i).getMedicationPrescribed2());
+				//writer.append(dbencounter.get(i).getMedicationPrescribed2());
 				writer.append(',');
-				// writer.append(dbencounter.get(i).getMedicationPrescribed3());
+				//writer.append(dbencounter.get(i).getMedicationPrescribed3());
 				writer.append(',');
-				// writer.append(dbencounter.get(i).getMedicationPrescribed4());
+				//writer.append(dbencounter.get(i).getMedicationPrescribed4());
 				writer.append(',');
-				// writer.append(dbencounter.get(i).getMedicationPrescribed5());
+				//writer.append(dbencounter.get(i).getMedicationPrescribed5());
 				writer.append(',');
 				writer.append(dbpharm.get(i).getMedDispensed1());
 				writer.append(',');
@@ -197,7 +135,7 @@ public class ResearchReportsBean {
 		}
 	}
 
-	public void generateConditionReport() {
+	public static void generateConditionReport() {
 		String filename = null;
 		JFileChooser jFileChooser = new JFileChooser();
 		jFileChooser.setSelectedFile(new File(suggestFileName()
@@ -209,9 +147,7 @@ public class ResearchReportsBean {
 		}
 	}
 
-	
-	
-	private void generateConditionFile(File filehandle) {
+	private static void generateConditionFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);
 
@@ -220,366 +156,196 @@ public class ResearchReportsBean {
 			Session userSession = HibernateUtil.getSessionFactory()
 					.openSession();
 			userSession.beginTransaction();
-		
-			List<Encounter> dbencounter = userSession.createQuery(
-					"from Encounter order by '"+sortByColumn+"'").list();
-			List<PharmacyEncounter> dbpharm = userSession.createQuery(
-					"from PharmacyEncounter").list();
-			List<Patient> dbPatient = userSession.createQuery("from Patient")
-					.list();
-			List<Vitals> dbVitals = userSession.createQuery("from Vitals")
-					.list();
+
+			List<Encounter> dbencounter = userSession.createQuery("from Encounter").list();
+			List<PharmacyEncounter> dbpharm = userSession.createQuery("from PharmacyEncounter").list();
+			List<Patient>dbPatient = userSession.createQuery("from Patient").list();
+			List<Vitals>dbVitals = userSession.createQuery("from Vitals").list();
 			userSession.getTransaction().commit();
 			userSession.close();
 
-			List<List<String>> csvData = new ArrayList<List<String>>();
-
-			for (int i = 0; i < selectedColumns.size(); i++) {
-				writer.append(selectedColumns.get(i));
-				writer.append(',');
-				csvData.add(new ArrayList<String>());
-			} 
+			writer.append("Conditon Report");
 			writer.append('\n');
 
-			for (int k = 0; k < selectedColumns.size(); k++) {
-				
-				 if (selectedColumns.get(k).equals("residence")){ 
-					  for(int j = 0; j < dbPatient.size(); j++) {
-				 csvData.get(k).add(dbPatient.get(j).getResidence()); 
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("birthDate")){ 
-					  for(int j = 0; j < dbPatient.size(); j++) {
-				 csvData.get(k).add(dbPatient.get(j).getBirthDate()); 
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("gender")){ 
-					  for(int j = 0; j < dbPatient.size(); j++) {
-				 csvData.get(k).add(dbPatient.get(j).getGender());
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("height")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getHeight()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("weight")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getWeight()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("calculatedBMI")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getCalculatedBMI()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("systolicBP")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getSystolicBP()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("dystolicBP")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getDiastolicBP()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("heartRate")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getHeartRate()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("temperatureF")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getTemperatureF()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("respRate")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getRespRate()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("oximetry")){ 
-					  for(int j = 0; j < dbVitals.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbVitals.get(j).getOximetry()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("chiefComplaint")){ 
-					  for(int j = 0; j < dbencounter.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbencounter.get(j).getChiefComplaint()));
-					  
-					  } 
-				 }
-				 
-				 if (selectedColumns.get(k).equals("medicalProcedures")){ 
-					  for(int j = 0; j < dbencounter.size(); j++) {
-				 csvData.get(k).add(String.valueOf(dbencounter.get(j).getMedicalProcedures()));
-					  
-					  } 
-				 }
-				 
-				 
-				if (selectedColumns.get(k).equals("medicationPrescribed1")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-						csvData.get(k).add(
-								dbencounter.get(j).getMedicationPrescribed1());
-						
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationPrescribed2")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
+			writer.append("PatientID");
+			writer.append(',');
+			writer.append("Village of Residence");
+			writer.append(',');
+			writer.append("Birth Date");
+			writer.append(',');
+			writer.append("Gender");
+			writer.append(',');
+			writer.append("Height");
+			writer.append(',');
+			writer.append("Weight");
+			writer.append(',');
+			writer.append("BMI");
+			writer.append(',');
+			writer.append("Blood Pressure (mmHg)");
+			writer.append(',');
+			writer.append("Heart Rate (bpm)");
+			writer.append(',');
+			writer.append("Temperature (C)");
+			writer.append(',');
+			writer.append("Respirations (Breaths per Minute)");
+			writer.append(',');
+			writer.append("Oxygen (%)");
+			writer.append(',');
+			writer.append("Chief Complaint");
+			writer.append(',');
+			writer.append("Treatment Given");
+			writer.append(',');
+			writer.append("Rx Prescribed 1");
+			writer.append(',');
+			writer.append("RX Dispensed 1");
+			writer.append(',');
+			writer.append("RX EqualPrescribed 1");
+			writer.append(',');
+			writer.append("Rx Prescribed 2");
+			writer.append(',');
+			writer.append("RX Dispensed 2");
+			writer.append(',');
+			writer.append("RX EqualPrescribed 2");
+			writer.append(',');
+			writer.append("Rx Prescribed 3");
+			writer.append(',');
+			writer.append("RX Dispensed 3");
+			writer.append(',');
+			writer.append("RX EqualPrescribed 3");
+			writer.append(',');
+			writer.append("Rx Prescribed 4");
+			writer.append(',');
+			writer.append("RX Dispensed 4");
+			writer.append(',');
+			writer.append("RX EqualPrescribed 4");
+			writer.append(',');
+			writer.append("Rx Prescribed 5");
+			writer.append(',');
+			writer.append("RX Dispensed 5");
+			writer.append(',');
+			writer.append("RX EqualPrescribed 5");
+			writer.append(',');
+			writer.append("Blood Drawn");
+			writer.append(',');
+			writer.append("Sample #");
+			writer.append(',');
+			writer.append("Other Condition1");
+			writer.append(',');
+			writer.append("Other Condition2");
+			writer.append(',');
+			writer.append("Other Condition3");
+			writer.append(',');
+			writer.append("Other Condition4");
+			writer.append(',');
+			writer.append("Other Condition5");
+			writer.append(',');
+			// add HPI
+			writer.append("Radiation");
+			writer.append(',');
+			writer.append("Quality");
+			writer.append(',');
+			writer.append("Provokes/Palliates");
+			writer.append(',');
+			writer.append("Time of Day");
+			writer.append(',');
+			writer.append("Other");
+			writer.append(',');
+			writer.append("Overall Impression");
+			writer.append(',');
+			writer.append("Keywords from Previous Encounter");
 
-						csvData.get(k).add(
-								dbencounter.get(j).getMedicationPrescribed2());
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationPrescribed3")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
+			writer.append('\n');
 
-						csvData.get(k).add(
-								dbencounter.get(j).getMedicationPrescribed3());
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationPrescribed4")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
+			for (int i = 0; i < dbencounter.size(); i++) {
+				writer.append(String.valueOf(dbencounter.get(i).getPatientID()));
+				writer.append(',');
+				writer.append(dbPatient.get(i).getResidence());
+				writer.append(',');
+				writer.append(dbPatient.get(i).getBirthDate());
+				writer.append(',');
+				writer.append(dbPatient.get(i).getGender());
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getHeight()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getWeight()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getCalculatedBMI()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getSystolicBP()+"/"+String.valueOf(dbVitals.get(i).getDiastolicBP())));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getHeartRate()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getTemperatureC()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getRespRate()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getOximetry()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getChiefComplaint());
+				writer.append(',');
+				writer.append("not there");
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed1());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed1());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed1()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed2());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed2());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed2()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed3());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed3());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed3()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed4());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed4());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed4()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getMedicationPrescribed5());
+				writer.append(',');
+				writer.append(dbpharm.get(i).getMedDispensed5());
+				writer.append(',');
+				writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed5()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getFingerPoke()));
+				writer.append(',');
+				writer.append(String.valueOf(dbVitals.get(i).getBloodSampleID()));
+				writer.append(',');
+				writer.append(dbencounter.get(i).getCondition1());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getCondition2());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getCondition3());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getCondition4());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getCondition5());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getRadiation());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getQuality());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getProvokes());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getTimeOfDay());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getOther());
+				writer.append(',');
+				writer.append(dbencounter.get(i).getOverallImpression());
+				writer.append(',');
+				writer.append("not there");
 
-						csvData.get(k).add(
-								dbencounter.get(j).getMedicationPrescribed4());
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationPrescribed5")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(
-								dbencounter.get(j).getMedicationPrescribed5());
-					}
-				}
-				
-				if (selectedColumns.get(k).equals("medicationDispensed1")) {
-					for (int j = 0; j < dbpharm.size(); j++) {
-						csvData.get(k).add(
-								String.valueOf(dbpharm.get(j).getMedDispensed1()));
-						
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationDispensed2")) {
-					for (int j = 0; j < dbpharm.size(); j++) {
-
-						csvData.get(k).add(
-								String.valueOf(dbpharm.get(j).getMedDispensed2()));
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationDispensed3")) {
-					for (int j = 0; j < dbpharm.size(); j++) {
-
-						csvData.get(k).add(
-								String.valueOf(dbpharm.get(j).getMedDispensed3()));
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationDispensed4")) {
-					for (int j = 0; j < dbpharm.size(); j++) {
-
-						csvData.get(k).add(
-								String.valueOf(dbpharm.get(j).getMedDispensed4()));
-					}
-				}
-				if (selectedColumns.get(k).equals("medicationDispensed5")) {
-					for (int j = 0; j < dbpharm.size(); j++) {
-
-						csvData.get(k).add(
-								String.valueOf(dbpharm.get(j).getMedDispensed5()));
-					}
-				}
-				if (selectedColumns.get(k).equals("malaria")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(String.valueOf(dbVitals.get(j).getMalaria()));		
-					}
-				}
-				if (selectedColumns.get(k).equals("dengue")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(String.valueOf(dbVitals.get(j).getDengue()));		
-					}
-				}
-				if (selectedColumns.get(k).equals("bloodSamepleID")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(String.valueOf(dbVitals.get(j).getBloodSampleID()));		
-					}
-				}
-				
-				if (selectedColumns.get(k).equals("otherConditions1")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(dbencounter.get(j).getCondition1());		
-					}
-				}
-				if (selectedColumns.get(k).equals("otherConditions2")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(dbencounter.get(j).getCondition2());		
-					}
-				}
-				if (selectedColumns.get(k).equals("otherConditions3")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(dbencounter.get(j).getCondition3());		
-					}
-				}
-				if (selectedColumns.get(k).equals("otherConditions4")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(dbencounter.get(j).getCondition4());		
-					}
-				}
-				if (selectedColumns.get(k).equals("otherConditions5")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(dbencounter.get(j).getCondition5());		
-					}
-				}
-				if (selectedColumns.get(k).equals("radiation")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(dbencounter.get(j).getRadiation());		
-					}
-				}
-				if (selectedColumns.get(k).equals("quality")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
-
-						csvData.get(k).add(dbencounter.get(j).getQuality());	
-					}
-				}
-				if (selectedColumns.get(k).equals("provokes")) {
-					for (int j = 0; j < dbencounter.size(); j++) {
- 
-						csvData.get(k).add(dbencounter.get(j).getProvokes());	
-					} 
-				}
-				
-			}
-			
-			int rows = csvData.isEmpty() ? 0 : csvData.get(0).size();
-			for (int j = 0; j < rows; j++) {
-				for (int b = 0; b < csvData.size(); b++) {
-					writer.append(csvData.get(b).get(j));
-					writer.append(',');
-				}
 				writer.append('\n');
 			}
 
-			/* // original report
-			 * 
-			 * for (int i = 0; i < dbencounter.size(); i++) {
-			 * writer.append(String.valueOf(dbencounter.get(i).getPatientID()));
-			 * writer.append(',');
-			 * writer.append(dbPatient.get(i).getResidence());
-			 * writer.append(',');
-			 * writer.append(dbPatient.get(i).getBirthDate());
-			 * writer.append(','); writer.append(dbPatient.get(i).getGender());
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getHeight()));
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getWeight()));
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getCalculatedBMI
-			 * ())); writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get
-			 * (i).getSystolicBP()+"/"+String
-			 * .valueOf(dbVitals.get(i).getDiastolicBP()))); writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getHeartRate()));
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getTemperatureC()));
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getRespRate()));
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getOximetry()));
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getChiefComplaint());
-			 * writer.append(','); writer.append("not there");
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getMedicationPrescribed1());
-			 * writer.append(',');
-			 * writer.append(dbpharm.get(i).getMedDispensed1());
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed1
-			 * ())); writer.append(',');
-			 * writer.append(dbencounter.get(i).getMedicationPrescribed2());
-			 * writer.append(',');
-			 * writer.append(dbpharm.get(i).getMedDispensed2());
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed2
-			 * ())); writer.append(',');
-			 * writer.append(dbencounter.get(i).getMedicationPrescribed3());
-			 * writer.append(',');
-			 * writer.append(dbpharm.get(i).getMedDispensed3());
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed3
-			 * ())); writer.append(',');
-			 * writer.append(dbencounter.get(i).getMedicationPrescribed4());
-			 * writer.append(',');
-			 * writer.append(dbpharm.get(i).getMedDispensed4());
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed4
-			 * ())); writer.append(',');
-			 * writer.append(dbencounter.get(i).getMedicationPrescribed5());
-			 * writer.append(',');
-			 * writer.append(dbpharm.get(i).getMedDispensed5());
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbpharm.get(i).getEqualPrescribed5
-			 * ())); writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getFingerPoke()));
-			 * writer.append(',');
-			 * writer.append(String.valueOf(dbVitals.get(i).getBloodSampleID
-			 * ())); writer.append(',');
-			 * writer.append(dbencounter.get(i).getCondition1());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getCondition2());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getCondition3());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getCondition4());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getCondition5());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getRadiation());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getQuality());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getProvokes());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getTimeOfDay());
-			 * writer.append(','); writer.append(dbencounter.get(i).getOther());
-			 * writer.append(',');
-			 * writer.append(dbencounter.get(i).getOverallImpression());
-			 * writer.append(','); writer.append("not there");
-			 * 
-			 * writer.append('\n'); }
-			 */
 			writer.flush();
 			writer.close();
 		} catch (IOException e) {
@@ -598,8 +364,7 @@ public class ResearchReportsBean {
 			generateRxFile(selectedFile);
 		}
 	}
-	
-	// original report
+
 	private static void generateRxFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);
