@@ -78,8 +78,6 @@ public class Vitals {
 	}
 	
 	@Id
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
 	public int getVitalsID() {
 		return vitalsID;
 	}
