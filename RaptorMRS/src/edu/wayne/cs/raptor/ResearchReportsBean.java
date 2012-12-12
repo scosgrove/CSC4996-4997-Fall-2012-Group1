@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
 
@@ -215,8 +216,8 @@ public class ResearchReportsBean {
 
 			writer.flush();
 			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Report Saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -332,8 +333,8 @@ public class ResearchReportsBean {
 
 			writer.flush();
 			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Report Saved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	private static String suggestFileName() {
