@@ -15,8 +15,8 @@
 		<h:form>
 			<div id= "navigation">
 				<div style="float:right">
-					<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
-					<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+					<p><h:commandLink tabindex="-1" action="#{loginBean.logout}">Log out</h:commandLink></p>
+					<p><h:commandLink tabindex="-2" action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
 				</div>
 				<div style="float:left">
 					<img src="img\logo_xl.png" height="60" width="180">
