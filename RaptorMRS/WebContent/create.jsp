@@ -46,15 +46,17 @@
 						<tr>
 							<td><h1 style="color:red">Visit ID </h1></td>
 							<td><h:inputText id="visitID" value="#{encounterService.encounter.encounterID }" required="true"></h:inputText></td>
-							<h:message for="visitID"> </h:message>
+							<h:message for="visitID" style="color:red"> </h:message>
 						</tr>
 						<tr>
 							<td><h3>First Name</h3></td>
-							<td><h:inputText value="#{encounterService.patient.firstName }"></h:inputText></td>
+							<td><h:inputText id="patientFirstName" value="#{encounterService.patient.firstName }" required="true"></h:inputText></td>
+							<h:message for="patientFirstName" style="color:red"> </h:message>
 						</tr>
 						<tr>
 							<td><h3>Last Name</h3></td>
-							<td><h:inputText value="#{encounterService.patient.lastName }"></h:inputText></td>
+							<td><h:inputText id="patientLastName" value="#{encounterService.patient.lastName }" required="true"></h:inputText></td>
+							<h:message for="patientLastName" style="color:red"> </h:message>
 						</tr>
 						<tr>
 							<td><h3>Location</h3></td>
