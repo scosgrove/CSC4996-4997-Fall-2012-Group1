@@ -34,7 +34,7 @@
 									 &nbsp;&nbsp;Patient ID<h:inputText id="patientID" value="#{encounterService.searchPatientId }" />&nbsp;&nbsp;<h:commandButton id="search" value="Search" action="#{encounterService.searchPatient }"></h:commandButton></p>
 				</div>
 				
-				<h:commandButton action="#{encounterService.resetRecord }" style="width:150px;height:50px" value="Create New Patient"/>
+				<h:commandButton action="#{encounterService.resetRecord }" style="width:150px;height:50px" value="RESET"/>
 				<h:dataTable value="#{encounterService.searchList}" var="encounter">
 					<h:column>
 						<f:facet name="header">

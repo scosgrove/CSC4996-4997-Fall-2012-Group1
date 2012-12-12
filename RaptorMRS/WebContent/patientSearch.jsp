@@ -26,7 +26,7 @@
 				</div>
 
 			<h:form>
-				<h:commandButton action="#{encounterService.resetRecord}" style="width:150px;height:50px" value="Create New Patient" />
+				<h:commandButton action="#{encounterService.resetRecord}" style="width:150px;height:50px" value="RESET" />
 				<h:dataTable value="#{encounterService.patientList}" var="patient">
 					<h:column>
 						<f:facet name="header">

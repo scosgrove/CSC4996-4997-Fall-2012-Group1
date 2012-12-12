@@ -35,7 +35,7 @@
 				<BR>
 				
 				<div style="text-align:center" >
-					<h:commandButton id="newPatient" style="width:150px;height:50px" value="Create New Patient" action="#{encounterService.resetRecord }"/>
+					<h:commandButton id="newPatient" style="width:150px;height:50px" value="RESET" action="#{encounterService.resetRecord }"/>
 					<h:commandButton id="submit" style="width:150px;height:50px" value="Submit" action="#{encounterService.saveOrUpdateEncounter }" rendered="#{ not encounterService.newEncounter }"></h:commandButton>
 					<h:commandButton id="startNew" style="width:150px;height:50px" value="Start New Encounter" action="#{encounterService.startEncounter}" rendered="#{encounterService.newEncounter }"></h:commandButton>
 				</div>
