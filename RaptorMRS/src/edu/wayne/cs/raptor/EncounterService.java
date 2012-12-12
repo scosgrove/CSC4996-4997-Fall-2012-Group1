@@ -167,8 +167,8 @@ public class EncounterService implements IEncounterService {
 			patientID = (Integer)userSession.save(patient);
 			encounter.setPatientID(patientID);
 			//Really? there's a vitalsID too? Really?
-			vitals.setVitalsID(patientID);
-			//Yeah really, and now it's set to be the same as patientID
+			vitals.setVitalsID(encounter.getEncounterID());
+			//Yeah really, and now it's set to be the same as encounterID
 			
 
 			//get the encounterID once it is saved and use it in vitals
