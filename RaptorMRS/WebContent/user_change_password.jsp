@@ -13,49 +13,57 @@
 
 <body>
 	<f:view>
-	<div id= "navigation">
-	<div style="float:left">
-		<img src="img\logo_xl.png" height="60" width="180">
-	</div>
-	
-	<div style="float:right">
-	<h:form>
-		<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>		
-		<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
-	</h:form>
-	</div>
-	</div>
+		<div id="navigation">
+			<div style="float: left">
+				<img src="img\logo_xl.png" height="60" width="180">
+			</div>
+
+			<div style="float: right">
+				<h:form>
+					<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+					<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+				</h:form>
+			</div>
+		</div>
 
 		<div id="content">
+		<h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3>
 
 			<div class="adminPanel">
 
 				<fieldset class="admin">
-					<center>
-					<h2>Update My Password</h2>
-					<h:form>
-					<table>
-					<tr>
-					<td><h3>New Password:</h3></td>
-					<td><h:inputSecret id = "password" value="#{userService.myPassword}"></h:inputSecret></td>
-					</tr>
-					<tr>
-					<td> </td>
-					<td><h:commandButton value="Update" action="#{userService.userChangeOwnPassword }"></h:commandButton>&nbsp;<h:commandButton value="Cancel" action="#{userService.cancel }"></h:commandButton></td>
-					</tr>
-					</table>
+					
+						<h2>Update My Password</h2>
+						<h:form>
+						<center>
+							<table>
+								<tr>
+									<td><h3>New Password:</h3></td>
+									<td><h:inputSecret id="password"
+											value="#{userService.myPassword}"></h:inputSecret></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><h:commandButton value="Update"
+											action="#{userService.userChangeOwnPassword }"></h:commandButton>&nbsp;<h:commandButton
+											value="Cancel" action="#{userService.cancel }"></h:commandButton></td>
+								</tr>
+							</table>
 
-					<BR><BR>
-					<h:commandButton value="Back" action="#{userService.cancel }"></h:commandButton>
+							<BR>
+							<BR>
+							<h:commandButton value="Back" action="#{userService.cancel }"></h:commandButton>
 					</center>
 					</h:form>
 				</fieldset>
 			</div>
-				<center>
-				<p><a href="HelpInformation.pdf">Need Help?</a></p>
-				</center>
-			</div>
+			<center>
+				<p>
+					<a href="HelpInformation.pdf">Need Help?</a>
+				</p>
+			</center>
 		</div>
+	
 
 	</f:view>
 </body>

@@ -10,47 +10,36 @@
 </head>
 <body>
 <!-- Created by Lev, uploaded by Marek -->
-<f:view>
-    <div id= "navigation">
-    <div style="float:right">
-    <h:form>
-        <p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>       
-        <p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
-    </h:form>
-    </div>
-   
-    <div style="float:left">
-        <img src="img\logo_xl.png" height="60" width="180">
-    </div>
-    </div>
+	<f:view>
+		<div id="navigation">
+			<div style="float: right">
+				<h:form>
+					<p><h:commandLink action="#{loginBean.logout}">Log out</h:commandLink></p>
+					<p><h:commandLink action="#{userService.switchToUpdateInfo}">Change My Password</h:commandLink></p>
+				</h:form>
+			</div>
 
-        <div id= "content">
+			<div style="float: left">
+				<img src="img\logo_xl.png" height="60" width="180">
+			</div>
 
-            <div id = "form"> 
-           
+		</div>
 
-            <h:form>
+		<div id="content">
+			<h3 style="color: red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }" /></i></h3>
 
-                <h2>Data Export</h2>
-                <p>Export non-identifying information to CSV file</p>
-                <h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Export to CSV" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
-           
-           
+			<div id="form">
+				<h:form>
+					<h2>Data Export</h2>
+					<p>Export non-identifying information to CSV file</p>
+					<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Export to CSV" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
+				</h:form>
+			</div>
+			<center>
+				<a href="HelpInformation.pdf">Need Help?</a>
+			</center>
 
-
-
-       
-
-            </h:form>
-
-            </div>
-
-            <center>
-
-    <a href="HelpInformation.pdf">Need Help?</a>
-    </center>
-
-        </div>
-</f:view>
+		</div>
+	</f:view>
 </body>
 </html>

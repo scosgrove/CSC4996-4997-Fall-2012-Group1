@@ -27,6 +27,7 @@
 
 			<div id="container">
 				<BR> <BR>
+				<h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3>
 				<h:dataTable value="#{userService.usersList}" var="user">
 					<h:column>
 						<f:facet name="header">
