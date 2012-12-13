@@ -230,7 +230,7 @@ public class PharmacyEncounterService {
 	public void resetFields(){
 		setEncounterID(encounterID + 1);
 		
-		setEncounterIDText("Visit ID: "+Integer.toString(encounterID));
+		setEncounterIDText("Visit ID: "+String.format("%09d", encounterID));
 		setRecordIDInstruction("Write visit ID on patient sheet.");
 		
 		setFirstName(null);
