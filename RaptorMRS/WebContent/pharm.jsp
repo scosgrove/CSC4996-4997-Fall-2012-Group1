@@ -31,10 +31,10 @@
 	
 		<div id = "form">
 		<h:form>
-			<!-- <h1><font color="red">Visit ID: 
-			<h:outputText value="#{pharmacyEncounterService.encounterID }"></h:outputText></font></h1>
+			<h1><font color="red">
+			<h:outputText value="#{pharmacyEncounterService.encounterIDText }"></h:outputText></font></h1>
 			<h3><font color="red"><h:outputText value="#{pharmacyEncounterService.recordIDInstruction }"></h:outputText>
-			</font></h3> -->
+			</font></h3>
 			<h1>Create RX Record</h1><br>
 			<center>
 			<table>

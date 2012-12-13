@@ -38,7 +38,8 @@ public class PharmacyEncounterService {
 	private PharmacyEncounter pharmEncounter;
 	
 	private String creationResult;
-	private String recordIDInstruction = "Write visit ID on patient sheet.";
+	private String recordIDInstruction;
+	private String encounterIDText;
 
 	public PharmacyEncounterService() {
 		pharmEncounter = new PharmacyEncounter();
@@ -229,6 +230,9 @@ public class PharmacyEncounterService {
 	public void resetFields(){
 		setEncounterID(encounterID + 1);
 		
+		setEncounterIDText("Visit ID: "+Integer.toString(encounterID));
+		setRecordIDInstruction("Write visit ID on patient sheet.");
+		
 		setFirstName(null);
 		setLastName(null);
 		
@@ -310,6 +314,14 @@ public class PharmacyEncounterService {
 
 	public void setComputerID(int computerID) {
 		this.computerID = computerID;
+	}
+
+	public String getEncounterIDText() {
+		return encounterIDText;
+	}
+
+	public void setEncounterIDText(String encounterIDText) {
+		this.encounterIDText = encounterIDText;
 	}
 
 	/*public int getUserID() {
