@@ -28,7 +28,7 @@
 				</tbody>
 				</table>
 				
-				
+			</div>	
 			</div>
 			</h:form>
 			<div style="float: right">
@@ -38,8 +38,7 @@
 
 				</h:form>
 			</div>
-			
-		</div>
+		
 			<h:form>
 			<div id="container">
 				<BR> <BR>
