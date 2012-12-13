@@ -47,6 +47,9 @@
 			<h:outputText value="#{pharmacyEncounterService.encounterIDText }"></h:outputText></font></h1>
 			<h3><font color="red"><h:outputText value="#{pharmacyEncounterService.recordIDInstruction }"></h:outputText>
 			</font></h3>
+			<h:message for="firstName" style="color:red"> </h:message>
+			<h:message for="lastName" style="color:red"> </h:message>
+			
 			<h1>Create RX Record</h1><br>
 			<center>
 			<table>
@@ -57,8 +60,8 @@
 			</tr>
 			
 			<tr>
-				<td><h:inputText style="width:160px" id="firstName" value="#{pharmacyEncounterService.firstName }" /></td>
-				<td><h:inputText style="width:160px" id="lastName" value="#{pharmacyEncounterService.lastName }" /></td>
+				<td><h:inputText style="width:160px" id="firstName" value="#{pharmacyEncounterService.firstName }" required="true" /></td>
+				<td><h:inputText style="width:160px" id="lastName" value="#{pharmacyEncounterService.lastName }" required="true"/></td>
 			</tr>
 	
 			<tr>
