@@ -93,6 +93,7 @@ public class EncounterService implements IEncounterService {
 			//TODO:there is a bug after a failed insert (dupe blood sample) where the user id remains and leads to an attempted update of the patient which does not yet exist in db --> leads to timeout.  
 			userSession.update(patient);
 			encounter.setPatientID(this.patient.getPatientID());
+			vitals.setVitalsID(encounter.getEncounterID());
 			userSession.save(encounter);
 			vitals.setEncounterID(this.encounter.getEncounterID());
 			userSession.save(vitals);
