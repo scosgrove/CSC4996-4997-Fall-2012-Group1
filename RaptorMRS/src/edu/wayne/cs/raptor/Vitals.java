@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
 
 
 /** The vitals of a patient during a specific encounter.

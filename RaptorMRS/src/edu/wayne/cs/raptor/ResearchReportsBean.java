@@ -2,8 +2,6 @@ package edu.wayne.cs.raptor;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.List;
 
@@ -12,13 +10,6 @@ import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
 
-import com.mysql.jdbc.DatabaseMetaData;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.ResultSetMetaData;
-import com.mysql.jdbc.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class ResearchReportsBean {
 
@@ -27,17 +18,17 @@ public class ResearchReportsBean {
 	
 
 	public static void generateConditionReport() {
-		String filename = null;
 		JFileChooser jFileChooser = new JFileChooser();
 		jFileChooser.setSelectedFile(new File(suggestFileName()
 				+ "-EncounterExport.csv"));
 		int returnValue = jFileChooser.showSaveDialog(null);
-		if (returnValue == jFileChooser.APPROVE_OPTION) {
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			File selectedFile = jFileChooser.getSelectedFile();
 			generateConditionFile(selectedFile); 
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private static void generateConditionFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);
@@ -49,7 +40,7 @@ public class ResearchReportsBean {
 			userSession.beginTransaction();
 
 			List<Encounter> dbencounter = userSession.createQuery("from Encounter").list();
-			List<PharmacyEncounter> dbpharm = userSession.createQuery("from PharmacyEncounter").list();
+			//List<PharmacyEncounter> dbpharm = userSession.createQuery("from PharmacyEncounter").list();
 			List<Patient>dbPatient = userSession.createQuery("from Patient").list();
 			List<Vitals>dbVitals = userSession.createQuery("from Vitals").list();
 			userSession.getTransaction().commit();
@@ -222,18 +213,18 @@ public class ResearchReportsBean {
 	}
 
 	public static void generateRxReport() {
-		String filename = null;
 		JFileChooser jFileChooser = new JFileChooser();
 		jFileChooser.setSelectedFile(new File(suggestFileName()
 				+ "-RxExport.csv"));
 		int returnValue = jFileChooser.showSaveDialog(null);
-		if (returnValue == jFileChooser.APPROVE_OPTION) {
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			File selectedFile = jFileChooser.getSelectedFile();
 			generateRxFile(selectedFile); 
 		}
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	private static void generateRxFile(File filehandle) {
 		try {
 			FileWriter writer = new FileWriter(filehandle);

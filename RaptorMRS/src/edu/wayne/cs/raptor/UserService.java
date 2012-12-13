@@ -281,6 +281,7 @@ public class UserService implements IUserService {
 
 	/** This method will return the user with the specified userID. 
 	 *   This might not be needed from the point of view of a client but could be useful for us */
+	@SuppressWarnings("unchecked")
 	@Override
 	public User getUser(int _userID) {
 		try

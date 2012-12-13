@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
 
 /** Defines a Patient entity in the system.  
  * 
