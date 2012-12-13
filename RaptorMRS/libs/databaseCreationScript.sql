@@ -102,7 +102,6 @@ CREATE TABLE `USERS` (
        `respRate` int(10) unsigned DEFAULT NULL,
        `temperatureF` float(6,3) unsigned DEFAULT NULL,
        `oximetry` int(10) unsigned DEFAULT NULL,
-	   `fingerPoke` bit(1) DEFAULT NULL,
        `malaria` bit(1) DEFAULT NULL,
        `dengue` bit(1) DEFAULT NULL,
        `bloodSampleID` int(10) unsigned zerofill DEFAULT NULL,
