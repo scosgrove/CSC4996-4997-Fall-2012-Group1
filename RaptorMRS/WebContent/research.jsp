@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Data Export</title>
+<title>Export Data</title>
 </head>
 <body>
 <!-- Created by Lev, uploaded by Marek -->
@@ -42,9 +42,9 @@
 
 			<div id="form">
 				<h:form>
-					<h2>Data Export</h2>
-					<p>Export non-identifying information to CSV file</p>
-					<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Export to CSV" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
+					<h2>Reports</h2>
+					<p>Export non-identifying information to CSV files</p>
+					<h:commandButton action="#{researchReportsBean.generateConditionReport}" value="Encounter Report" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
 					<h:commandButton action="#{researchReportsBean.generateRxReport}" value="Rx Report" style="width:200px;height:70px;margin-top:30px"></h:commandButton>
 				</h:form>
 			</div>
