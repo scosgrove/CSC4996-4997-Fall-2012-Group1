@@ -41,7 +41,6 @@
 		</div>
 
 		<div id="content">
-		<h3 style="color:red">Hello: <i><h:outputLabel value="#{loginBean.systemUser.username }"/></i></h3>
 
 			<div class="adminPanel">
 
